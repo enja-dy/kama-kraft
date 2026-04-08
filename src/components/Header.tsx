@@ -2,10 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { User, HelpCircle, Menu, X } from "lucide-react";
+import { ShoppingCart, User, HelpCircle, Menu, X } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 import Link from "next/link";
 
 export const Header = () => {
+  const { totalItems } = useCart();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -37,6 +39,22 @@ export const Header = () => {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-10">
+            <Link
+              href="/cart"
+              className="relative group flex items-center gap-2 text-sm tracking-widest text-white/70 hover:text-white transition-colors"
+            >
+              <ShoppingCart size={18} className="opacity-50 group-hover:opacity-100 transition-opacity" />
+              CART
+              {totalItems > 0 && (
+                <motion.span
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  className="absolute -top-1 -left-2 bg-white text-black text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center translate-x-[-50%]"
+                >
+                  {totalItems}
+                </motion.span>
+              )}
+            </Link>
             <Link
               href="/help"
               className="group flex items-center gap-2 text-sm tracking-widest text-white/70 hover:text-white transition-colors"
@@ -82,6 +100,18 @@ export const Header = () => {
               </button>
             </div>
             <div className="flex flex-col gap-8">
+              <Link
+                href="/cart"
+                className="text-3xl font-bold text-white tracking-widest flex items-center gap-4"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                CART
+                {totalItems > 0 && (
+                  <span className="bg-white text-black text-sm px-3 py-1 rounded-full">
+                    {totalItems}
+                  </span>
+                )}
+              </Link>
               <Link
                 href="/help"
                 className="text-3xl font-bold text-white tracking-widest"
