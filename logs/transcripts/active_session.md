@@ -46,3 +46,10 @@ ANTIGRAVITY: カートシステム基盤の実装を完了しました。
 3. FeaturedProduct.tsx の「ADD TO CART」ボタン動作化。
 4. Header.tsx へのカート個数（バッジ）表示を実装。
 全ての変更を Git にコミットし、GitHubへプッシュしました。
+
+--- Update: 2026-04-09 08:37 ---
+
+USER: カート詳細ページ作成に向けた CartContext の機能強化（削除・数量変更）を承認
+ANTIGRAVITY: 作業を開始します。
+1. 修正前バックアップ (pre) を実行。
+2. CartContext.tsx のインターフェース拡張（removeFromCart, updateQuantity）から着手。
