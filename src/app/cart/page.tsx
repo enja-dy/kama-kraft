@@ -21,9 +21,9 @@ export default function CartPage() {
           className="mb-16"
         >
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-foreground mb-4">
-            Your Collection
+            カートの中身
           </h1>
-          <p className="text-foreground/40 tracking-[0.2em] text-sm uppercase">Items selected for your heritage home</p>
+          <p className="text-foreground/40 tracking-[0.2em] text-sm uppercase">鎌倉の職人が真心込めて仕上げた、あなただけの逸品</p>
         </motion.div>
 
         {cart.length === 0 ? (
@@ -38,7 +38,7 @@ export default function CartPage() {
               href="/"
               className="bg-foreground text-background px-8 py-4 tracking-widest text-sm font-bold hover:scale-105 transition-transform"
             >
-              BROWSE MASTERPIECES
+              名作を閲覧する
             </Link>
           </motion.div>
         ) : (
@@ -60,7 +60,7 @@ export default function CartPage() {
                       </div>
                       <div className="space-y-1">
                         <h3 className="text-xl font-bold tracking-tight">{item.name}</h3>
-                        <p className="text-foreground/40 text-[10px] tracking-[0.2em] uppercase font-bold">Premium Ironwood</p>
+                        <p className="text-foreground/40 text-[10px] tracking-[0.2em] uppercase font-bold">最高級ウリン材</p>
                         <p className="text-lg font-medium pt-2">{formattedPrice(item.price)}</p>
                       </div>
                     </div>
@@ -101,29 +101,29 @@ export default function CartPage() {
                 transition={{ delay: 0.4 }}
                 className="bg-white dark:bg-white/5 p-8 rounded-2xl border border-foreground/5 sticky top-32 backdrop-blur-sm"
               >
-                <h2 className="text-2xl font-bold tracking-tight mb-8">Summary</h2>
+                <h2 className="text-2xl font-bold tracking-tight mb-8">ご注文内容</h2>
                 <div className="space-y-4 mb-8">
                   <div className="flex justify-between text-foreground/60 text-sm tracking-widest uppercase">
-                    <span>Subtotal</span>
+                    <span>商品合計</span>
                     <span>{formattedPrice(totalPrice)}</span>
                   </div>
                   <div className="flex justify-between text-foreground/60 text-sm tracking-widest uppercase">
-                    <span>Shipping</span>
-                    <span className="italic normal-case text-xs opacity-50">Free of Charge</span>
+                    <span>送料</span>
+                    <span className="italic normal-case text-xs opacity-50 text-green-600">無料</span>
                   </div>
                   <div className="pt-6 mt-6 border-t border-foreground/10 flex justify-between text-2xl font-bold tracking-tighter">
-                    <span>Total</span>
+                    <span>合計</span>
                     <span>{formattedPrice(totalPrice)}</span>
                   </div>
                 </div>
                 
                 <button className="w-full bg-foreground text-background py-5 px-8 flex items-center justify-center gap-3 hover:scale-[1.02] transition-all group active:scale-[0.98] font-bold tracking-[0.2em] text-xs">
-                  PROCEED TO CHECKOUT
+                  購入手続きへ進む
                   <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </button>
                 
                 <p className="mt-6 text-[8px] text-foreground/30 text-center tracking-[0.3em] uppercase">
-                  Protected by Heritage Security Protocol
+                  職人の誇りに基づく安全な決済
                 </p>
               </motion.div>
             </div>

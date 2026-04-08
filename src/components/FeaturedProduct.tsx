@@ -47,7 +47,7 @@ export const FeaturedProduct = () => {
                 viewport={{ once: true }}
                 className="text-xs font-bold tracking-[0.4em] text-[#3d2b1f] dark:text-white/40 uppercase"
               >
-                Flagship Masterpiece
+                鎌倉の職人が贈る、一生ものの家具
               </motion.span>
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
@@ -57,7 +57,7 @@ export const FeaturedProduct = () => {
                 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground leading-[1.1]"
               >
                 Heritage Coffee Table<br />
-                <span className="text-2xl md:text-3xl font-light italic text-[#3d2b1f]/60 dark:text-white/40">Ulin Edition</span>
+                <span className="text-2xl md:text-3xl font-light italic text-[#3d2b1f]/60 dark:text-white/40">ウリン・エディション</span>
               </motion.h2>
             </div>
 
@@ -83,17 +83,17 @@ export const FeaturedProduct = () => {
             >
               <div className="flex items-baseline gap-4">
                 <span className="text-3xl font-bold">¥450,000</span>
-                <span className="text-sm text-foreground/40 italic">Tax Included</span>
+                <span className="text-sm text-foreground/40 italic">税込</span>
               </div>
 
               <div className="grid grid-cols-2 gap-4 text-sm text-foreground/60">
                 <div className="flex flex-col gap-1">
-                  <span className="uppercase tracking-widest text-[10px] font-bold opacity-50">Dimensions</span>
-                  <span>180cm × 90cm × T6cm</span>
+                  <span className="uppercase tracking-widest text-[10px] font-bold opacity-50">サイズ</span>
+                  <span>180cm × 90cm × 厚さ6cm</span>
                 </div>
                 <div className="flex flex-col gap-1">
-                  <span className="uppercase tracking-widest text-[10px] font-bold opacity-50">Weight</span>
-                  <span>Approx. 120kg</span>
+                  <span className="uppercase tracking-widest text-[10px] font-bold opacity-50">重量</span>
+                  <span>約 120kg</span>
                 </div>
               </div>
 
@@ -103,10 +103,10 @@ export const FeaturedProduct = () => {
                   className="flex-1 bg-[#3d2b1f] text-white py-5 px-8 flex items-center justify-center gap-3 hover:bg-black transition-all group active:scale-[0.98]"
                 >
                   <ShoppingCart size={20} className="group-hover:rotate-12 transition-transform" />
-                  <span className="text-sm tracking-widest font-bold">ADD TO CART</span>
+                  <span className="text-sm tracking-widest font-bold">カートに入れる</span>
                 </button>
                 <button className="flex-1 border border-foreground/20 text-foreground py-5 px-8 flex items-center justify-center gap-3 hover:bg-foreground/5 transition-all group active:scale-[0.98]">
-                  <span className="text-sm tracking-widest font-bold">DETAILS</span>
+                  <span className="text-sm tracking-widest font-bold">詳細を見る</span>
                   <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>

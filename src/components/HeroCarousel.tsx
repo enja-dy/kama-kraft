@@ -56,9 +56,9 @@ export const HeroCarousel = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 1.5 }}
-          className="text-lg md:text-2xl font-light tracking-widest uppercase opacity-80"
+          className="text-lg md:text-2xl font-light tracking-[0.3em] uppercase opacity-80"
         >
-          Handcrafted Ironwood Heritage
+          鎌倉の職人が磨き上げた、唯一無二の工芸家具
         </motion.p>
       </div>
 

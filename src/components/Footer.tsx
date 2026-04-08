@@ -20,7 +20,7 @@ export const Footer = () => {
 
           {/* Shop Column */}
           <div className="space-y-6">
-            <h3 className="text-xs font-bold tracking-[0.2em] text-white/40 uppercase">Shop</h3>
+            <h3 className="text-xs font-bold tracking-[0.2em] text-white/40 uppercase">製品一覧</h3>
             <ul className="space-y-4">
               <li>
                 <Link href="/products" className="text-sm text-white/60 hover:text-white transition-colors">すべての商品</Link>
@@ -36,7 +36,7 @@ export const Footer = () => {
 
           {/* Contact Column */}
           <div className="space-y-6">
-            <h3 className="text-xs font-bold tracking-[0.2em] text-white/40 uppercase">Support</h3>
+            <h3 className="text-xs font-bold tracking-[0.2em] text-white/40 uppercase">サポート</h3>
             <ul className="space-y-4">
               <li>
                 <Link href="/help" className="text-sm text-white/60 hover:text-white transition-colors">ヘルプ・お問い合わせ</Link>
@@ -49,7 +49,7 @@ export const Footer = () => {
 
           {/* Legal Column */}
           <div className="space-y-6">
-            <h3 className="text-xs font-bold tracking-[0.2em] text-white/40 uppercase">Legal</h3>
+            <h3 className="text-xs font-bold tracking-[0.2em] text-white/40 uppercase">規約・法定表記</h3>
             <ul className="space-y-4">
               <li>
                 <Link href="/privacy" className="text-sm text-white/60 hover:text-white transition-colors">プライバシーポリシー</Link>

@@ -60,7 +60,7 @@ export const Header = () => {
               className="group flex items-center gap-2 text-sm tracking-widest text-white/70 hover:text-white transition-colors"
             >
               <HelpCircle size={18} className="opacity-50 group-hover:opacity-100 transition-opacity" />
-              HELP / CONTACT
+              お問い合わせ
             </Link>
             <Link
               href="/auth"
@@ -117,7 +117,7 @@ export const Header = () => {
                 className="text-3xl font-bold text-white tracking-widest"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                HELP / CONTACT
+                お問い合わせ
               </Link>
               <Link
                 href="/auth"
