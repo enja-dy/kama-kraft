@@ -21,3 +21,19 @@
 To https://github.com/enja-dy/kama-kraft.git
  * [new branch]      main -> main
 branch 'main' set up to track 'origin/main'.
+
+--- Update: 2026-04-08 16:47 ---
+
+USER: 作業を再開します。オフライン・オンライン環境共に起動して。直近確認して。明文化確認！
+ANTIGRAVITY: 承知いたしました。プロジェクト「kamakraft」の作業を再開します。
+- オフライン：npm run dev (Port 3001) を起動しました。
+- オンライン：zrokの予約名が不明なため、確認次第起動いたします。
+- 明文化：PROJECT_CONTEXT.md のルール（極小ステップ、チャットログ物理保存、Gitバックアップ等）を確認・継承しています。
+- 直近：Git statusはクリーン、前回の作業では旗艦商品セクションまでの実装を完了しています。
+
+--- Update: 2026-04-08 16:48 ---
+
+USER: カートシステム基盤の実装（CartContext、追加ボタン、ヘッダー表示）の開始承認を依頼
+ANTIGRAVITY: 承認いたしました。ショッピング機能の基盤構築を開始します。
+1. 修正前バックアップ (pre: start cart system foundation) を実行。
+2. CartContext.tsx の作成（localStorage永続化含む）から着手します。
