@@ -44,7 +44,7 @@ export const Header = () => {
               className="relative group flex items-center gap-2 text-sm tracking-widest text-white/70 hover:text-white transition-colors"
             >
               <ShoppingCart size={18} className="opacity-50 group-hover:opacity-100 transition-opacity" />
-              CART
+              買い物籠
               {totalItems > 0 && (
                 <motion.span
                   initial={{ scale: 0 }}
@@ -67,7 +67,7 @@ export const Header = () => {
               className="group flex items-center gap-2 text-sm tracking-widest bg-white/5 hover:bg-white/10 px-5 py-2.5 rounded-full border border-white/20 text-white transition-all"
             >
               <User size={18} className="opacity-50 group-hover:opacity-100 transition-opacity" />
-              SIGN UP / LOGIN
+              新規登録 / ログイン
             </Link>
           </nav>
 
@@ -105,7 +105,7 @@ export const Header = () => {
                 className="text-3xl font-bold text-white tracking-widest flex items-center gap-4"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                CART
+                買い物籠
                 {totalItems > 0 && (
                   <span className="bg-white text-black text-sm px-3 py-1 rounded-full">
                     {totalItems}
@@ -124,7 +124,7 @@ export const Header = () => {
                 className="text-3xl font-bold text-white tracking-widest"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                SIGN UP / LOGIN
+                新規登録 / ログイン
               </Link>
             </div>
             <div className="mt-auto border-t border-white/10 pt-8 text-white/40 text-sm tracking-widest">
