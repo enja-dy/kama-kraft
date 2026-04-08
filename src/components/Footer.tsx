@@ -1,0 +1,80 @@
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
+
+export const Footer = () => {
+  return (
+    <footer className="bg-[#050505] text-white border-t border-white/5 pt-20 pb-10">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+          {/* Brand Column */}
+          <div className="space-y-6">
+            <h2 className="text-2xl font-bold tracking-tighter">KamaKraft</h2>
+            <p className="text-white/50 text-sm leading-relaxed tracking-wide">
+              ボルネオの深林で育まれた「鉄の木」ウリン。<br />
+              世代を超えて受け継がれる極上の工芸美と、<br />
+              時と共に深まる風格。
+            </p>
+          </div>
+
+          {/* Shop Column */}
+          <div className="space-y-6">
+            <h3 className="text-xs font-bold tracking-[0.2em] text-white/40 uppercase">Shop</h3>
+            <ul className="space-y-4">
+              <li>
+                <Link href="/products" className="text-sm text-white/60 hover:text-white transition-colors">すべての商品</Link>
+              </li>
+              <li>
+                <Link href="/about-ulin" className="text-sm text-white/60 hover:text-white transition-colors">ウリンについて</Link>
+              </li>
+              <li>
+                <Link href="/craftsmanship" className="text-sm text-white/60 hover:text-white transition-colors">職人のこだわり</Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Column */}
+          <div className="space-y-6">
+            <h3 className="text-xs font-bold tracking-[0.2em] text-white/40 uppercase">Support</h3>
+            <ul className="space-y-4">
+              <li>
+                <Link href="/help" className="text-sm text-white/60 hover:text-white transition-colors">ヘルプ・お問い合わせ</Link>
+              </li>
+              <li>
+                <Link href="/maintenance" className="text-sm text-white/60 hover:text-white transition-colors">お手入れ・メンテナンス</Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Legal Column */}
+          <div className="space-y-6">
+            <h3 className="text-xs font-bold tracking-[0.2em] text-white/40 uppercase">Legal</h3>
+            <ul className="space-y-4">
+              <li>
+                <Link href="/privacy" className="text-sm text-white/60 hover:text-white transition-colors">プライバシーポリシー</Link>
+              </li>
+              <li>
+                <Link href="/terms" className="text-sm text-white/60 hover:text-white transition-colors">利用規約</Link>
+              </li>
+              <li>
+                <Link href="/legal" className="text-sm text-white/60 hover:text-white transition-colors">特定商取引法に基づく表記</Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-white/5 pt-10 flex flex-col md:row items-center justify-between gap-6 overflow-hidden">
+          <p className="text-white/30 text-[10px] tracking-[0.3em] uppercase">
+            © 2026 KamaKraft Heritage. All Rights Reserved.
+          </p>
+          <div className="flex gap-8">
+            <a href="#" className="text-white/30 hover:text-white transition-colors">Instagram</a>
+            <a href="#" className="text-white/30 hover:text-white transition-colors">X</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
