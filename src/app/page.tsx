@@ -1,1 +1,9 @@
-import { HeroCarousel } from "@/components/HeroCarousel";\n\nexport default function Home() {\n  return (\n    <main className="relative min-h-screen bg-black overflow-hidden">\n      <HeroCarousel />\n    </main>\n  );\n}
+import { HeroCarousel } from "@/components/HeroCarousel";
+
+export default function Home() {
+  return (
+    <main className="relative min-h-screen bg-black overflow-hidden">
+      <HeroCarousel />
+    </main>
+  );
+}
