@@ -3,8 +3,21 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ShoppingCart, ArrowRight } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 
 export const FeaturedProduct = () => {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    addToCart({
+      id: "heritage-coffee-table-1",
+      name: "Heritage Coffee Table",
+      price: 450000,
+      image: "/product-1.png",
+      quantity: 1,
+    });
+  };
+
   return (
     <section className="py-24 bg-white dark:bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto px-6">
@@ -85,7 +98,10 @@ export const FeaturedProduct = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <button className="flex-1 bg-[#3d2b1f] text-white py-5 px-8 flex items-center justify-center gap-3 hover:bg-black transition-all group active:scale-[0.98]">
+                <button
+                  onClick={handleAddToCart}
+                  className="flex-1 bg-[#3d2b1f] text-white py-5 px-8 flex items-center justify-center gap-3 hover:bg-black transition-all group active:scale-[0.98]"
+                >
                   <ShoppingCart size={20} className="group-hover:rotate-12 transition-transform" />
                   <span className="text-sm tracking-widest font-bold">ADD TO CART</span>
                 </button>
