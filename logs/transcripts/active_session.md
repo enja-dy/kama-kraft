@@ -12,3 +12,4 @@
  create mode 100644 public/charms-2.png
  create mode 100644 public/charms-3.png
 \n--- Update: 2026-04-08 11:58 ---\n\nANTIGRAVITY: (3つの魅力セクションの画像生成・保存完了。400文字の格調高い解説文を作成。)\nANTIGRAVITY: (UlinCharms.tsx コンポーネントの実装と page.tsx への統合を完了。)\nANTIGRAVITY: (現在：Gitおよび物理ログへの保存を完了。)
+\n--- Update: 2026-04-08 12:09 ---\n\nANTIGRAVITY: (Header.tsx の作成。スクロールで質感変化、モバイル対応。)\nANTIGRAVITY: (layout.tsx への統合。サイトタイトルを KamaKraft に変更。)\nANTIGRAVITY: (現在：Gitコミットおよび物理ログへの保存を完了。)
