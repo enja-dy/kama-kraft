@@ -13,6 +13,9 @@ const ISLAND_PREFIXES = ["90", "89", "100"];
 export default function ShippingPage() {
   const { cart, totalPrice } = useCart();
   
+  // Hydrationエラー防止用のマウント状態
+  const [mounted, setMounted] = useState(false);
+  
   // フォーム状態
   const [zip, setZip] = useState("");
   const [isIsland, setIsIsland] = useState(false);
@@ -24,20 +27,21 @@ export default function ShippingPage() {
   const [prefecture, setPrefecture] = useState("神奈川県");
   const [address, setAddress] = useState("");
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   // 郵便番号入力時の離島判定・住所自動入力ロジック
   const handleZipChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.replace(/[^\d]/g, "");
     if (value.length <= 7) {
       setZip(value);
       
-      // 3桁または7桁入力された時点で判定・補完開始
       if (value.length >= 3) {
-        // 離島判定
         const islandFound = ISLAND_PREFIXES.some(p => value.startsWith(p));
         setIsIsland(islandFound);
         setIslandFee(islandFound ? 5500 : 0);
 
-        // 住所デモ補完
         if (value.startsWith("900")) {
           setPrefecture("沖縄県");
           if (value.length === 7) setAddress("那覇市泉崎");
@@ -60,15 +64,21 @@ export default function ShippingPage() {
 
   // 最短お届け日の計算
   const minDeliveryDate = useMemo(() => {
+    if (!mounted) return "";
     const date = new Date();
-    // 通常5営業日 + 週末を考慮して安全に7日後
     let leadTime = isIsland ? 12 : 7; 
     date.setDate(date.getDate() + leadTime);
     return date.toISOString().split("T")[0];
-  }, [isIsland]);
+  }, [isIsland, mounted]);
 
-  const formattedPrice = (price: number) => 
-    new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(price);
+  // 通過表示の安定化（Hydrationエラー対策）
+  const formattedPrice = (price: number) => {
+    if (!mounted) return `¥${price.toLocaleString()}`;
+    return new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(price);
+  };
+
+  // マウント前は何も表示しないかスケルトンを出すことで不一致を防ぐ
+  if (!mounted) return <div className="min-h-screen bg-[#fbfbfb] dark:bg-[#050505]" />;
 
   return (
     <div className="min-h-screen pt-32 pb-24 px-6 bg-[#fbfbfb] dark:bg-[#050505]">
