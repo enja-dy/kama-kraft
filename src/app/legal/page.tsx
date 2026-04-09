@@ -16,9 +16,9 @@ export default function LegalNoticePage() {
 
   const items = [
     { label: "販売業者", value: "KamaKraft Artisan Collective (運営事務局)" },
-    { label: "運営責任者", value: "山田 太郎 (担当者名をご入力ください)" },
-    { label: "所在地", value: "〒000-0000 東京都〇〇区〇〇 0-0-0 (正確な住所をご入力ください)" },
-    { label: "電話番号", value: "03-0000-0000 (代表番号をご入力ください)" },
+    { label: "運営責任者", value: "横山 大地" },
+    { label: "所在地", value: "〒248-0025 神奈川県鎌倉市七里ヶ浜東2-13-2" },
+    { label: "電話番号", value: "0467-66-1455" },
     { label: "メールアドレス", value: "support@kamakraft.com" },
     { label: "販売価格", value: "各商品ページに記載（消費税込み）" },
     { label: "商品代金以外の必要料金", value: "・消費税\n・配送料（全国一律 800円、離島等は別途中継料）\n・銀行振込手数料（銀行振込をご利用の場合）" },
@@ -38,7 +38,7 @@ export default function LegalNoticePage() {
 
       <div className="max-w-6xl mx-auto relative">
         {/* Header Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -58,18 +58,18 @@ export default function LegalNoticePage() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-20">
-          
+
           {/* Left: Table of Contents (Sticky) */}
-          <motion.div 
-             initial={{ opacity: 0, x: -20 }}
-             animate={{ opacity: 1, x: 0 }}
-             transition={{ delay: 0.3 }}
-             className="lg:col-span-4"
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3 }}
+            className="lg:col-span-4"
           >
             <div className="sticky top-40 space-y-1 text-left">
               <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/20 mb-6 pl-4">Index</p>
               {sections.map((section) => (
-                <a 
+                <a
                   key={section.id}
                   href={`#${section.id}`}
                   className="group flex items-center justify-between p-4 rounded-xl hover:bg-foreground/[0.03] transition-all text-sm font-bold tracking-tight text-foreground/40 hover:text-foreground"
@@ -82,7 +82,7 @@ export default function LegalNoticePage() {
           </motion.div>
 
           {/* Right: Main Content */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 1 }}
@@ -91,9 +91,9 @@ export default function LegalNoticePage() {
             {/* Table Section */}
             <div className="space-y-1">
               {items.map((item, index) => (
-                <section 
+                <section
                   key={index}
-                  id={sections.find(s => item.label.includes(s.title.slice(0, 2)))?.id} 
+                  id={sections.find(s => item.label.includes(s.title.slice(0, 2)))?.id}
                   className={`grid grid-cols-1 md:grid-cols-12 gap-6 p-8 rounded-2xl border-b border-foreground/[0.03] hover:bg-foreground/[0.01] transition-colors scroll-mt-40`}
                 >
                   <div className="md:col-span-4">
@@ -112,24 +112,24 @@ export default function LegalNoticePage() {
 
             {/* Additional Features / Icons */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-12">
-               <div className="p-8 rounded-[2rem] bg-foreground/5 border border-foreground/5 text-center space-y-4">
-                  <CreditCard className="mx-auto text-foreground/30" size={24} />
-                  <p className="text-[10px] font-bold tracking-widest uppercase opacity-40">Secure Payment</p>
-               </div>
-               <div className="p-8 rounded-[2rem] bg-foreground/5 border border-foreground/5 text-center space-y-4">
-                  <Package className="mx-auto text-foreground/30" size={24} />
-                  <p className="text-[10px] font-bold tracking-widest uppercase opacity-40">Insured Delivery</p>
-               </div>
-               <div className="p-8 rounded-[2rem] bg-foreground/5 border border-foreground/5 text-center space-y-4">
-                  <RotateCcw className="mx-auto text-foreground/30" size={24} />
-                  <p className="text-[10px] font-bold tracking-widest uppercase opacity-40">Quality Guarantee</p>
-               </div>
+              <div className="p-8 rounded-[2rem] bg-foreground/5 border border-foreground/5 text-center space-y-4">
+                <CreditCard className="mx-auto text-foreground/30" size={24} />
+                <p className="text-[10px] font-bold tracking-widest uppercase opacity-40">Secure Payment</p>
+              </div>
+              <div className="p-8 rounded-[2rem] bg-foreground/5 border border-foreground/5 text-center space-y-4">
+                <Package className="mx-auto text-foreground/30" size={24} />
+                <p className="text-[10px] font-bold tracking-widest uppercase opacity-40">Insured Delivery</p>
+              </div>
+              <div className="p-8 rounded-[2rem] bg-foreground/5 border border-foreground/5 text-center space-y-4">
+                <RotateCcw className="mx-auto text-foreground/30" size={24} />
+                <p className="text-[10px] font-bold tracking-widest uppercase opacity-40">Quality Guarantee</p>
+              </div>
             </div>
 
             <div className="pt-24 flex flex-col items-center gap-4">
-               <div className="w-12 h-0.5 bg-foreground/10" />
-               <p className="text-[10px] text-foreground/20 font-bold uppercase tracking-[0.5em]">KamaKraft Artisan Collective</p>
-               <p className="text-[9px] text-foreground/20 font-bold uppercase tracking-[0.2em]">Specified Commercial Transactions Act Compliance</p>
+              <div className="w-12 h-0.5 bg-foreground/10" />
+              <p className="text-[10px] text-foreground/20 font-bold uppercase tracking-[0.5em]">KamaKraft Artisan Collective</p>
+              <p className="text-[9px] text-foreground/20 font-bold uppercase tracking-[0.2em]">Specified Commercial Transactions Act Compliance</p>
             </div>
 
           </motion.div>
