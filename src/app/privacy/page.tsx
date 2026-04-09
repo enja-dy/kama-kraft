@@ -244,8 +244,8 @@ export default function PrivacyPolicyPage() {
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-xl">
                   <div className="space-y-1">
-                     <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/30">担当部署</p>
-                     <p className="text-lg font-bold text-foreground">KamaKraft 顧客情報保護担当</p>
+                     <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/30">担当窓口</p>
+                     <p className="text-lg font-bold text-foreground">KamaKraft 事務局</p>
                   </div>
                   <div className="space-y-1">
                      <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/30">Email Address</p>
