@@ -66,15 +66,11 @@ export default function PaymentPage() {
                     <Apple size={20} /> Pay
                   </button>
                   <button className="flex items-center justify-center gap-3 bg-white border border-foreground/10 p-5 rounded-2xl hover:bg-foreground/[0.02] transition-all font-bold text-black group">
-                    <svg width="60" height="24" viewBox="0 0 160 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-6">
-                      {/* Google "G" Logo */}
-                      <path d="M31.2 32.1c0-2.3-.2-4.5-.6-6.7H16v12.6h8.5c-.4 2-1.5 3.7-3.2 4.8l5.2 4c3-2.8 4.7-6.9 4.7-11.7z" fill="#4285F4"/>
-                      <path d="M16 47.5c4.3 0 7.9-1.4 10.6-3.8l-5.2-4c-1.5 1-3.4 1.6-5.4 1.6-4.1 0-7.6-2.8-8.9-6.6l-5.4 4.2c2.7 5.3 8.1 8.6 14.3 8.6z" fill="#34A853"/>
-                      <path d="M7.1 34.7c-.3-1-.5-2-.5-3.2s.2-2.2.5-3.2L1.7 24c-1.1 2.2-1.7 4.7-1.7 7.5s.6 5.3 1.7 7.5l5.4-4.3z" fill="#FBBC05"/>
-                      <path d="M16 16.5c2.3 0 4.4.8 6.1 2.4l4.5-4.5C23.9 11.9 20.3 10.5 16 10.5c-6.2 0-11.6 3.4-14.3 8.7L7.1 23.4c1.3-3.8 4.8-6.9 8.9-6.9z" fill="#EA4335"/>
-                      {/* "Pay" Text */}
-                      <path d="M60.8 17.1h12.7c3.1 0 5.7.8 7.8 2.3 2.1 1.5 3.2 3.8 3.2 6.8s-1.1 5.3-3.2 6.8c-2.1 1.5-4.7 2.3-7.8 2.3H65.7v12.1h-4.9V17.1zm12.7 15.4c1.6 0 2.9-.4 3.9-1.2 1-.8 1.5-2 1.5-3.6 0-1.6-.5-2.8-1.5-3.6-1-.8-2.3-1.2-3.9-1.2h-7.8v9.6h7.8zM92.3 35.1c0-2.6.8-4.6 2.4-6.1s3.7-2.3 6.3-2.3c2.6 0 4.7.8 6.3 2.3 1.6 1.5 2.4 3.6 2.4 6.1v12.3h-4.9V45c-1.2 1.9-3.1 2.9-5.6 2.9-2.3 0-4.2-.7-5.5-2.1-1.3-1.4-2-3.2-2-5.4s.7-4 2.1-5.3c1.4-1.3 3.4-2 6-2h5v-1c0-1.3-.4-2.3-1.2-3-.8-.7-1.9-1.1-3.3-1.1-1.1 0-2.1.3-2.8.8s-1.3 1.3-1.6 2.4l-4.2-.9zM107.4 40.5c0-.9-.3-1.6-1-2-.7-.4-1.6-.7-2.8-.7-1.1 0-2 .2-2.7.7-.7.5-1 1.1-1 2 0 .9.3 1.6 1 2 .7.4 1.7.7 2.8.7 1.2 0 2.1-.2 2.8-.7s1-1.1 1-2.1zM118.8 63l4.9-13.8-11.8-32.1H117l8.8 24.3 8.7-24.3h5l-15.8 41.5-4.9.4z" fill="#5F6368"/>
-                    </svg>
+                    <img 
+                      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNTkgNjQiPjxwYXRoIGZpbGw9IiM1ZjYzNjgiIGQ9Ik03NC41IDQ0LjhWMjMuMmg2LjlsOC40IDE2LjkgOC40LTE2LjloNi45djIxLjZoLTUuN1YyOS4xbC03LjIgMTQuNGgtNC44bC03LjMtMTQuNHYxNS43aC01LjZ6bTM1LjUgMGMtMi43IDAtNC45LS45LTYuNy0yLjctMS44LTEuOC0yLjctNC0yLjctNi43cy45LTQuOSA0LjktNi43YzEuOC0xLjggNC0yLjcgNi43LTIuN3MyLjUuNCAzLjYuN2MxLjEuNCAyLjEgMSAyLjggMS43bC0zLjkgNC4yYy0uOS0uOS0xLjctMS4zLTIuNC0xLjMtLjggMC0xLjUuMy0xLjkuOWMtLjUuNi0uOCAxLjQtLjggMi40czMuMyAxLjkgMy4zIDIuOWMuNS40IDEuMS45IDIuMiAxLjEgMS4xLjMgMi4zLjYgMi4zLjYgMS4zLjQgMi43LjkgMy43IDIuNS45IDEuNiAxLjQgMy42IDEuNCA2LjIgMC40IDMuMS0uOCAyLjctNCAyLjctLjIgMGwtMi4yLS4xeiIvPjxwYXRoIGZpbGw9IiM0Mjg1ZjQiIGQ9Ik00Ny41IDMyLjFjMC0yLjMtLjItNC41LS42LTYuN0gyNC4zdiAxMi42aDEyLjhjLS42IDMtMi4zIDUuNi00LjggNy4ybDcuOCA2Yy0uMi4xIDguOS01LjEgOC45LTExLjV6Ii8+PHBhdGggZmlsbD0iIzM0YTg1MyIgZD0iTTI0LjMgNzIuM2MxMi41IDAgMTguOC04LjMgMTguOC04LjNsLTcuOC02Yy0zIDIuMS02LjggMy4zLTEwLjkgMy4zLTYuOSAwLTEyLjgtNC43LTE0LjktMTFsLTguMiA2LjNjNC40IDguNSA5LjUgMTUuNyAxNC45IDE1Ljd6Ii8+PHBhdGggZmlsbD0iI2ZiYmMwNSIgZD0iTTkuNCA0NC43Yy0uNS0xLjUtLjgtMy4xLS44LTQuN3MuMy0zLjIuOC00LjdsLTguMi02LjNjLS44IDEuNC0xLjIgMi45LTEuMiA0LjRzLjQgMyAxLjIgNC40bDguMiA2NHoiLz48cGF0aCBmaWxsPSIjZWE0MzM1IiBkPSJNMjQuMyAxMi4zYzUuOCAwIDEwLjcgMi4xIDE0LjkgNmw3LjQtNy40QzQxIDQuMyAzMy4zIDAgMjQuMyAwIDExLjggMCA1IDguMi42IDE0LjdMNi4zIDE4Yy00LjItNS44IDkuNS01LjcgMTQuOS01Ljd6Ii8+PC9zdmc+" 
+                      alt="Google Pay" 
+                      className="h-6"
+                    />
                   </button>
                 </div>
               </section>
