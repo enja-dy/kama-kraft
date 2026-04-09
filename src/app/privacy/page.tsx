@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Shield, Lock, Eye, ArrowRight, FileText, ChevronRight } from "lucide-react";
+import { Shield, Lock, Eye, ArrowRight, FileText, ChevronRight, Share2, MousePointer2, RefreshCw } from "lucide-react";
 
 export default function PrivacyPolicyPage() {
   const sections = [
@@ -9,8 +9,11 @@ export default function PrivacyPolicyPage() {
     { title: "個人情報の取得について", id: "collection" },
     { title: "情報の利用目的", id: "purpose" },
     { title: "第三者への提供について", id: "third-party" },
+    { title: "業務委託について", id: "outsourcing" },
     { title: "安全管理措置", id: "security" },
     { title: "Cookieの使用について", id: "cookies" },
+    { title: "権利の尊重", id: "rights" },
+    { title: "ポリシーの変更", id: "changes" },
     { title: "お問い合わせ窓口", id: "contact" },
   ];
 
@@ -37,8 +40,9 @@ export default function PrivacyPolicyPage() {
           <h1 className="text-5xl md:text-8xl font-bold tracking-tighter mb-8 text-foreground">
             Privacy Policy
           </h1>
-          <p className="text-xl md:text-2xl text-foreground/60 max-w-2xl mx-auto leading-relaxed italic">
+          <p className="text-xl md:text-2xl text-foreground/60 max-w-3xl mx-auto leading-relaxed italic">
             お客様からお預かりする情報は、私たちが扱う「素材」と同じくらい尊いものです。
+            誠実な管理を通じて、心地よい体験を支えます。
           </p>
         </motion.div>
 
@@ -67,7 +71,7 @@ export default function PrivacyPolicyPage() {
               <div className="mt-12 p-8 rounded-3xl bg-foreground/5 border border-foreground/5 space-y-4">
                 <Lock size={20} className="text-foreground/40" />
                 <p className="text-[11px] leading-relaxed text-foreground/60 font-medium">
-                  KamaKraftは、お客様のプライバシーを最優先に考え、最新の暗号化技術と厳格な管理体制で情報を保護しています。
+                  KamaKraftは、最新のSSL暗号化技術を採用し、お客様が入力される個人情報を安全に保護します。自社サーバー内にカード情報を蓄積することはありません。
                 </p>
               </div>
             </div>
@@ -97,26 +101,26 @@ export default function PrivacyPolicyPage() {
             <section id="collection" className="space-y-8 scroll-mt-40">
               <h2 className="text-3xl font-bold tracking-tight text-foreground">個人情報の取得について</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 font-medium">
-                <div className="p-8 rounded-[2rem] bg-white dark:bg-white/5 border border-foreground/5 hover:border-foreground/20 transition-colors">
-                  <div className="w-10 h-10 rounded-2xl bg-foreground/5 flex items-center justify-center mb-6">
-                    <FileText size={18} className="text-foreground" />
+                <div className="p-8 rounded-[2rem] bg-white dark:bg-white/5 border border-foreground/5 transition-colors group hover:border-foreground/20">
+                  <div className="w-10 h-10 rounded-2xl bg-foreground/5 flex items-center justify-center mb-6 overflow-hidden">
+                    <FileText size={18} className="text-foreground group-hover:scale-110 transition-transform" />
                   </div>
-                  <h3 className="text-lg font-bold mb-4">ユーザーから直接取得</h3>
+                  <h3 className="text-base font-bold mb-4">ユーザーから直接取得</h3>
                   <ul className="text-sm text-foreground/60 space-y-3">
                     <li className="flex gap-2">・ 氏名、メールアドレス</li>
                     <li className="flex gap-2">・ 配送先住所、電話番号</li>
-                    <li className="flex gap-2">・ 注文履歴、決済情報</li>
+                    <li className="flex gap-2">・ 注文履歴、決済に必要な情報</li>
                   </ul>
                 </div>
-                <div className="p-8 rounded-[2rem] bg-white dark:bg-white/5 border border-foreground/5 hover:border-foreground/20 transition-colors">
-                  <div className="w-10 h-10 rounded-2xl bg-foreground/5 flex items-center justify-center mb-6">
-                    <ArrowRight size={18} className="text-foreground" />
+                <div className="p-8 rounded-[2rem] bg-white dark:bg-white/5 border border-foreground/5 transition-colors group hover:border-foreground/20">
+                  <div className="w-10 h-10 rounded-2xl bg-foreground/5 flex items-center justify-center mb-6 overflow-hidden">
+                    <ArrowRight size={18} className="text-foreground group-hover:scale-110 transition-transform" />
                   </div>
-                  <h3 className="text-lg font-bold mb-4">自動的に取得</h3>
+                  <h3 className="text-base font-bold mb-4">自動的に取得</h3>
                   <ul className="text-sm text-foreground/60 space-y-3">
                     <li className="flex gap-2">・ IPアドレス、クッキー情報</li>
                     <li className="flex gap-2">・ ブラウザの種類、アクセス履歴</li>
-                    <li className="flex gap-2">・ デバイスの識別情報</li>
+                    <li className="flex gap-2">・ 端末の識別情報</li>
                   </ul>
                 </div>
               </div>
@@ -127,61 +131,151 @@ export default function PrivacyPolicyPage() {
               <h2 className="text-3xl font-bold tracking-tight text-foreground">情報の利用目的</h2>
               <ul className="space-y-4 text-foreground/80 font-medium">
                 {[
-                  "商品の配送、代金決済のため",
-                  "お客様からの注文状況の確認や、メンテナンスのご案内のため",
-                  "新商品情報や展示会のご案内のため（希望者のみ）",
-                  "当ブランドのサービスの改善、マーケティング分析のため",
-                  "利用規約に違反する様態でのご利用を防止するため"
+                  "商品の配送、およびアフターサービスのご提供のため",
+                  "お客様からの注文履歴管理、お問い合わせ対応のため",
+                  "新商品情報、展示会、キャンペーン等のご案内のため",
+                  "利用規約に違反する様態でのご利用を防止するため",
+                  "統計データの作成、およびサービスの改善・向上に役立てるため"
                 ].map((text, i) => (
                   <li key={i} className="flex gap-4 p-5 rounded-2xl bg-foreground/[0.02] border border-foreground/[0.03]">
-                    <span className="text-foreground/20 font-mono">0{i+1}</span>
+                    <span className="text-foreground/20 font-mono italic">0{i+1}</span>
                     <span>{text}</span>
                   </li>
                 ))}
               </ul>
             </section>
 
+            {/* Third Party Disclosure */}
+            <section id="third-party" className="space-y-6 scroll-mt-40">
+              <div className="flex items-center gap-4 mb-8">
+                 <div className="w-12 h-12 rounded-full border border-foreground/10 flex items-center justify-center">
+                   <Share2 size={20} className="text-foreground" />
+                 </div>
+                 <h2 className="text-3xl font-bold tracking-tight text-foreground">第三者への提供について</h2>
+              </div>
+              <div className="prose dark:prose-invert prose-lg max-w-none text-foreground/80 leading-relaxed font-medium">
+                <p>
+                  当ブランドは、次に掲げる場合を除いて、あらかじめユーザーの同意を得ることなく第三者に個人情報を提供することはありません。
+                </p>
+                <div className="grid grid-cols-1 gap-4 mt-8">
+                  {[
+                    "法令に基づく場合",
+                    "人の生命、身体または財産の保護のために必要がある場合",
+                    "公衆衛生の向上または児童の健全な育成の推進のために特に必要がある場合",
+                    "国の機関もしくは地方公共団体等の事務に協力する必要がある場合",
+                    "合併その他の事由による事業の承継に伴って個人情報が提供される場合"
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-4 p-4 border-l-[3px] border-foreground/10 bg-foreground/[0.01]">
+                      <CheckCircle i={i} />
+                      <span className="text-sm">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* Outsourcing */}
+            <section id="outsourcing" className="space-y-6 scroll-mt-40">
+              <h2 className="text-3xl font-bold tracking-tight text-foreground">業務委託について</h2>
+              <div className="p-10 rounded-[2.5rem] bg-[#3d2b1f]/[0.02] border border-[#3d2b1f]/10">
+                <p className="text-foreground/80 font-medium leading-relaxed">
+                  当ブランドは、サービスの提供に必要な範囲において、個人情報の取り扱いを外部に委託することがあります（配送委託業者、決済サービス提供会社、システム管理会社等）。
+                  この場合、個人情報の安全管理が図られるよう、委託先に対して必要かつ適切な監督を行い、情報の保護を徹底いたします。
+                </p>
+              </div>
+            </section>
+
             {/* Security */}
-            <section id="security" className="p-12 rounded-[3.5rem] bg-foreground text-background relative overflow-hidden scroll-mt-40">
+            <section id="security" className="p-12 rounded-[3.5rem] bg-foreground text-background relative overflow-hidden scroll-mt-40 shadow-2xl">
                <div className="absolute top-0 right-0 p-12 opacity-10">
                  <Shield size={200} />
                </div>
                <div className="relative z-10 space-y-8">
                  <h2 className="text-3xl font-bold tracking-tight">安全管理措置</h2>
                  <p className="text-lg opacity-80 leading-relaxed font-medium">
-                   当ブランドは、個人情報の漏洩、滅失または毀損の防止その他の個人情報の安全管理のために、必要かつ適切な措置を講じます。これには、最新のSSL暗号化通信の採用、アクセス権限の厳格な管理、および継続的な従業員教育が含まれます。
+                   当ブランドは、預かりした情報を職人が精魂込めて仕上げる作品と同じように大切にします。最新のセキュリティ技術（SSL暗号化通信等）の導入、アクセス制限の徹底、定期的なシステム監査を行い、不正アクセスや紛失、漏洩の防止に努めています。
                  </p>
-                 <div className="flex items-center gap-4 py-4 px-6 rounded-2xl bg-background/10 border border-background/20 inline-flex">
-                   <Lock size={16} />
-                   <span className="text-xs font-bold uppercase tracking-[0.2em]">High Security Environment</span>
-                 </div>
                </div>
+            </section>
+
+            {/* Cookie */}
+            <section id="cookies" className="space-y-6 scroll-mt-40">
+              <div className="flex items-center gap-4 mb-4">
+                 <MousePointer2 size={24} className="text-foreground/40" />
+                 <h2 className="text-3xl font-bold tracking-tight text-foreground">Cookieの使用について</h2>
+              </div>
+              <div className="prose dark:prose-invert prose-lg max-w-none text-foreground/80 leading-relaxed font-medium">
+                <p>
+                  本サービスでは、カート機能の保持やセッション管理、より利便性の高いショッピング体験の提供のためにCookie（クッキー）を使用しています。Cookieはブラウザの設定によって無効にすることも可能ですが、その際、ショッピングカートが正常に動作しなくなる等、本サービスの一部機能がご利用いただけなくなる場合があります。
+                </p>
+              </div>
+            </section>
+
+            {/* Rights */}
+            <section id="rights" className="space-y-6 scroll-mt-40">
+              <h2 className="text-3xl font-bold tracking-tight text-foreground">権利の尊重</h2>
+              <div className="prose dark:prose-invert prose-lg max-w-none text-foreground/80 leading-relaxed font-medium">
+                <p>
+                  お客様ご本人から個人情報の開示、訂正、利用停止等の請求を受けた場合には、ご本人であることを確認の上、遅滞なく対応いたします。
+                  これらの権利の行使を希望される場合は、下記のお問い合わせ窓口までご連絡ください。
+                </p>
+              </div>
+            </section>
+
+            {/* Changes */}
+            <section id="changes" className="space-y-6 scroll-mt-40">
+              <div className="flex items-center gap-4 mb-4">
+                 <RefreshCw size={24} className="text-foreground/40 animate-spin-slow" />
+                 <h2 className="text-3xl font-bold tracking-tight text-foreground">ポリシーの変更</h2>
+              </div>
+              <div className="prose dark:prose-invert prose-lg max-w-none text-foreground/80 leading-relaxed font-medium">
+                <p>
+                  当ブランドは、法令の変更やサービス内容の変更に伴い、本ポリシーを随時改善・更新します。改定後の本ポリシーは、本ウェブサイトに掲載した時点から効力を生じるものとします。重大な変更がある場合には、本ウェブサイト上にてわかりやすく告知いたします。
+                </p>
+              </div>
             </section>
 
             {/* Contact */}
             <section id="contact" className="space-y-6 scroll-mt-40">
               <h2 className="text-3xl font-bold tracking-tight text-foreground">お問い合わせ窓口</h2>
-              <div className="p-10 rounded-[2.5rem] border border-foreground/10 flex flex-col items-center text-center gap-6">
-                <p className="text-foreground/60 font-medium">
-                  本ポリシーに関するご質問や、個人情報の開示・訂正・削除のご要望は、下記までご連絡ください。
+              <div className="p-10 rounded-[2.5rem] border border-foreground/10 flex flex-col items-center text-center gap-8 bg-white dark:bg-white/5">
+                <p className="text-foreground/60 font-medium max-w-lg">
+                  本ポリシーに関するご質問やご相談、その他個人情報の取り扱いに関するお問い合わせは、下記までお願いいたします。
                 </p>
-                <div className="space-y-1">
-                   <p className="text-sm font-bold uppercase tracking-widest text-foreground/40">Email</p>
-                   <p className="text-2xl font-bold text-foreground">privacy@kamakraft.com</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-xl">
+                  <div className="space-y-1">
+                     <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/30">担当部署</p>
+                     <p className="text-lg font-bold text-foreground">KamaKraft 顧客情報保護担当</p>
+                  </div>
+                  <div className="space-y-1">
+                     <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/30">Email Address</p>
+                     <p className="text-lg font-bold text-foreground underline decoration-foreground/20 underline-offset-8">privacy@kamakraft.com</p>
+                  </div>
                 </div>
-                <button className="bg-foreground text-background py-4 px-10 rounded-full font-bold tracking-widest text-xs uppercase hover:scale-[1.05] transition-transform">
-                  お問い合わせフォームへ
+                <button className="bg-foreground text-background py-5 px-12 rounded-full font-bold tracking-[0.2em] text-[11px] uppercase hover:scale-[1.05] transition-transform shadow-xl shadow-foreground/20">
+                  お問い合わせフォームを開く
                 </button>
               </div>
             </section>
 
-            <div className="pt-12 border-t border-foreground/5 text-[10px] text-foreground/20 font-bold uppercase tracking-[0.4em] text-center">
-              Last Updated: April 9, 2026
+            <div className="pt-24 flex flex-col items-center gap-4">
+               <div className="w-12 h-0.5 bg-foreground/10" />
+               <p className="text-[10px] text-foreground/20 font-bold uppercase tracking-[0.5em]">KamaKraft Artisan Collective</p>
+               <p className="text-[9px] text-foreground/20 font-bold uppercase tracking-[0.2em]">Last Updated: April 9, 2026</p>
             </div>
 
           </motion.div>
         </div>
       </div>
     </div>
+  );
+}
+
+function CheckCircle({ i }: { i: number }) {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0 mt-0.5">
+      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" className="opacity-10" />
+      <path d="M8 12L11 15L16 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   );
 }
