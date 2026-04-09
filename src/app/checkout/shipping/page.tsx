@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Truck, MapPin, User, Phone, Calendar, Info, CheckCircle2 } from "lucide-react";
 
-// 離島シミュレーション用の郵便番号プレフィックス（沖縄、石垣、奄美、小笠原など）
+// 離島シミュレーション用の郵便番号プレフィックス
 const ISLAND_PREFIXES = ["90", "89", "100"];
 
 export default function ShippingPage() {
@@ -19,19 +19,38 @@ export default function ShippingPage() {
   const [islandFee, setIslandFee] = useState(0);
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("指定なし");
+  
+  // 住所・都道府県の状態
+  const [prefecture, setPrefecture] = useState("神奈川県");
+  const [address, setAddress] = useState("");
 
-  // 郵便番号入力時の離島判定ロジック
+  // 郵便番号入力時の離島判定・住所自動入力ロジック
   const handleZipChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.replace(/[^\d]/g, "");
     if (value.length <= 7) {
       setZip(value);
       
-      // 3桁以上入力された時点で判定開始
-      if (value.length >= 2) {
-        const prefix = value.substring(0, 2);
-        const islandFound = ISLAND_PREFIXES.includes(prefix);
+      // 3桁または7桁入力された時点で判定・補完開始
+      if (value.length >= 3) {
+        // 離島判定
+        const islandFound = ISLAND_PREFIXES.some(p => value.startsWith(p));
         setIsIsland(islandFound);
-        setIslandFee(islandFound ? 5500 : 0); // 離島手数料一律5500円（デモ用）
+        setIslandFee(islandFound ? 5500 : 0);
+
+        // 住所デモ補完
+        if (value.startsWith("900")) {
+          setPrefecture("沖縄県");
+          if (value.length === 7) setAddress("那覇市泉崎");
+        } else if (value.startsWith("248")) {
+          setPrefecture("神奈川県");
+          if (value.length === 7) setAddress("鎌倉市雪ノ下");
+        } else if (value.startsWith("100")) {
+          setPrefecture("東京都");
+          if (value.length === 7) setAddress("千代田区千代田");
+        } else if (value.startsWith("060")) {
+          setPrefecture("北海道");
+          if (value.length === 7) setAddress("札幌市中央区北一条西");
+        }
       } else {
         setIsIsland(false);
         setIslandFee(0);
@@ -62,7 +81,7 @@ export default function ShippingPage() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
             >
-              <Link href="/checkout/auth" className="text-xs tracking-widest text-foreground/40 hover:text-foreground transition-colors flex items-center gap-2 mb-8 uppercase font-bold">
+              <Link href="/checkout/auth" className="text-xs tracking-widest text-[#3d2b1f] dark:text-white/40 hover:text-foreground transition-colors flex items-center gap-2 mb-8 uppercase font-bold">
                 <ArrowLeft size={14} /> 戻る
               </Link>
               <h1 className="text-3xl md:text-5xl font-bold tracking-tighter mb-4 text-foreground">お届け先・日時の入力</h1>
@@ -115,37 +134,50 @@ export default function ShippingPage() {
                         className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all placeholder:text-foreground/20 font-mono tracking-wider" 
                       />
                       {zip.length === 7 && (
-                        <div className="absolute right-4 top-1/2 -translate-y-1/2 text-green-500">
+                        <motion.div 
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          className="absolute right-4 top-1/2 -translate-y-1/2 text-green-500"
+                        >
                           <CheckCircle2 size={20} />
-                        </div>
+                        </motion.div>
                       )}
                     </div>
                   </div>
                   <div className="md:col-span-2 space-y-3">
                     <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40">都道府県</label>
-                    <select className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all appearance-none cursor-pointer">
-                      <option>神奈川県</option>
-                      <option>東京都</option>
-                      <option>沖縄県</option>
-                      <option>北海道</option>
-                      {/* 他の都道府県は適宜 */}
-                    </select>
+                    <div className="relative">
+                      <select 
+                        value={prefecture}
+                        onChange={(e) => setPrefecture(e.target.value)}
+                        className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all appearance-none cursor-pointer"
+                      >
+                        <option value="神奈川県">神奈川県</option>
+                        <option value="東京都">東京都</option>
+                        <option value="沖縄県">沖縄県</option>
+                        <option value="北海道">北海道</option>
+                      </select>
+                      <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none opacity-30">
+                        <ArrowRight size={16} className="rotate-90" />
+                      </div>
+                    </div>
                   </div>
                 </div>
 
                 <AnimatePresence>
                   {isIsland && (
                     <motion.div 
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="bg-[#3d2b1f]/5 border border-[#3d2b1f]/20 p-6 rounded-2xl flex gap-4 items-start mb-4"
+                      key="island-alert"
+                      initial={{ opacity: 0, height: 0, y: -10 }}
+                      animate={{ opacity: 1, height: "auto", y: 0 }}
+                      exit={{ opacity: 0, height: 0, y: -10 }}
+                      className="bg-[#3d2b1f]/5 border border-[#3d2b1f]/20 p-6 rounded-2xl flex gap-4 items-start mb-4 overflow-hidden"
                     >
-                      <Info className="text-[#3d2b1f] shrink-0 mt-0.5" size={20} />
+                      <Info className="text-[#3d2b1f] dark:text-white/60 shrink-0 mt-0.5" size={20} />
                       <div className="space-y-1">
-                        <p className="text-sm font-bold text-[#3d2b1f]">離島・遠隔地エリア判定</p>
-                        <p className="text-xs text-[#3d2b1f]/70 leading-relaxed">
-                          ご入力いただいた地域は離島・遠隔地エリアに該当するため、別途「離島中継料」が加算され、お届けまで通常よりお時間をいただきます。職人が最も安全なルートを手配いたします。
+                        <p className="text-sm font-bold text-[#3d2b1f] dark:text-white">離島・遠隔地エリア判定</p>
+                        <p className="text-xs text-[#3d2b1f]/70 dark:text-white/60 leading-relaxed">
+                          ご入力いただいた地域（{prefecture}）は離島・遠隔地エリアに該当するため、別途「離島中継料」が加算され、お届けまで通常よりお時間をいただきます。職人が最も安全なルートを手配いたします。
                         </p>
                       </div>
                     </motion.div>
@@ -154,7 +186,13 @@ export default function ShippingPage() {
 
                 <div className="space-y-3">
                   <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40">市区町村・番地</label>
-                  <input type="text" placeholder="鎌倉市雪ノ下 1-2-3" className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all placeholder:text-foreground/20" />
+                  <input 
+                    type="text" 
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                    placeholder="鎌倉市雪ノ下 1-2-3" 
+                    className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all placeholder:text-foreground/20" 
+                  />
                 </div>
                 <div className="space-y-3">
                   <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40">建物名・部屋番号（任意）</label>
@@ -256,7 +294,7 @@ export default function ShippingPage() {
                 <AnimatePresence>
                   {isIsland && (
                     <motion.div 
-                      key="island-fee"
+                      key="island-fee-total"
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
@@ -274,7 +312,7 @@ export default function ShippingPage() {
                     <span>Total</span>
                   </div>
                   <motion.span 
-                    key={isIsland ? 'island' : 'normal'}
+                    key={isIsland ? 'island-total' : 'normal-total'}
                     initial={{ scale: 1.1, color: "#3d2b1f" }}
                     animate={{ scale: 1, color: "var(--foreground)" }}
                     className="text-3xl"
