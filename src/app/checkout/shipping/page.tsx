@@ -112,10 +112,13 @@ export default function ShippingPage() {
             </motion.div>
 
             {/* Stepper */}
-            <div className="flex items-center gap-8 text-[10px] tracking-[0.3em] font-bold uppercase border-b border-foreground/5 pb-4">
-              <span className="text-foreground border-b-2 border-foreground pb-4 -mb-[18px]">01. お届け先指定</span>
-              <span className="text-foreground/20 pb-4">02. お支払い方法</span>
-              <span className="text-foreground/20 pb-4">03. 注文内容の最終確認</span>
+            <div className="flex items-center gap-8 text-[10px] tracking-[0.3em] font-bold uppercase border-b border-foreground/5 h-14 overflow-x-auto no-scrollbar">
+              <span className="relative h-full flex items-center text-foreground whitespace-nowrap">
+                01. お届け先指定
+                <motion.span layoutId="activeStep" className="absolute bottom-[-1px] left-0 w-full h-[2px] bg-foreground" />
+              </span>
+              <span className="h-full flex items-center text-foreground/20 whitespace-nowrap">02. お支払い方法</span>
+              <span className="h-full flex items-center text-foreground/20 whitespace-nowrap">03. 注文内容の最終確認</span>
             </div>
 
             <form className="space-y-16 pt-8">
