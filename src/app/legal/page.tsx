@@ -51,8 +51,9 @@ export default function LegalNoticePage() {
           <h1 className="text-3xl md:text-5xl font-bold tracking-tighter mb-8 text-foreground">
             特定商取引法に基づく表記
           </h1>
-          <p className="text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto leading-relaxed italic">
-            誠実な手仕事を通じて、心地よく安心できるお買い物体験をお約束します。
+          <p className="text-lg md:text-xl text-foreground/60 max-w-3xl mx-auto leading-relaxed italic">
+            <span className="inline-block">誠実な手仕事を通じて、</span>
+            <span className="inline-block">心地よく安心できるお買い物体験をお約束します。</span>
           </p>
         </motion.div>
 

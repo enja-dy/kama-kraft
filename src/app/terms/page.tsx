@@ -40,9 +40,9 @@ export default function TermsOfServicePage() {
           <h1 className="text-4xl md:text-5xl font-bold tracking-tighter mb-8 text-foreground uppercase">
             利用規約
           </h1>
-          <p className="text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto leading-relaxed italic">
-            KamaKraftとお客様をつなぐ、大切な約束。
-            安心してお買い物をお楽しみいただくためのガイドラインです。
+          <p className="text-lg md:text-xl text-foreground/60 max-w-3xl mx-auto leading-relaxed italic">
+            <span className="inline-block">KamaKraftとお客様をつなぐ、大切な約束。</span>
+            <span className="inline-block">安心してお買い物をお楽しみいただくためのガイドラインです。</span>
           </p>
         </motion.div>
 
