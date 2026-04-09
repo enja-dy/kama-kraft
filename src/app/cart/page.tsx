@@ -117,10 +117,13 @@ export default function CartPage() {
                   </div>
                 </div>
                 
-                <button className="w-full bg-foreground text-background py-5 px-8 flex items-center justify-center gap-3 hover:scale-[1.02] transition-all group active:scale-[0.98] font-bold tracking-[0.2em] text-xs">
+                <Link 
+                  href="/checkout/auth"
+                  className="w-full bg-foreground text-background py-5 px-8 flex items-center justify-center gap-3 hover:scale-[1.02] transition-all group active:scale-[0.98] font-bold tracking-[0.2em] text-xs"
+                >
                   購入手続きへ進む
                   <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                </button>
+                </Link>
                 
                 <p className="mt-6 text-[8px] text-foreground/30 text-center tracking-[0.3em] uppercase">
                   職人の誇りに基づく安全な決済
