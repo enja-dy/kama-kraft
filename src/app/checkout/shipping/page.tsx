@@ -52,7 +52,7 @@ export default function ShippingPage() {
       if (value.length === 7) {
         setIsLoadingAddress(true);
         try {
-          const res = await fetch(`https://search.zipcloud.ibsnet.co.jp/api/search?zipcode=${value}`);
+          const res = await fetch(`/api/zipcode?zipcode=${value}`);
           const data = await res.json();
           if (data.results && data.results[0]) {
             const result = data.results[0];
