@@ -286,9 +286,9 @@ export default function ShippingPage() {
                   <h2>お届け希望日時の指定</h2>
                 </div>
                 
-                <div className="text-xs text-foreground/40 leading-relaxed bg-foreground/5 p-4 rounded-xl border-l-4 border-[#3d2b1f] text-left">
+                <div className="text-[11px] text-foreground/80 leading-relaxed bg-foreground/[0.07] p-5 rounded-2xl border-l-4 border-[#3d2b1f] dark:border-white/40 text-left shadow-sm">
                   職人が一点一点、最終調整を施してから発送するため、ご注文日から最短5営業日の準備期間をいただいております。
-                  {isIsland && <span className="block mt-1 font-bold text-[#3d2b1f]">※離島エリアのため、さらに数日の配送期間を要します。</span>}
+                  {isIsland && <span className="block mt-2 font-bold text-[#3d2b1f] dark:text-white/90">※離島エリアのため、さらに数日の配送期間を要します。</span>}
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
