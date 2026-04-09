@@ -24,7 +24,7 @@ export default function ShippingPage() {
   const [selectedTime, setSelectedTime] = useState("指定なし");
   
   // 住所・都道府県の状態
-  const [prefecture, setPrefecture] = useState("神奈川県");
+  const [prefecture, setPrefecture] = useState("");
   const [address, setAddress] = useState("");
   const [isLoadingAddress, setIsLoadingAddress] = useState(false);
 
@@ -38,7 +38,7 @@ export default function ShippingPage() {
     if (value.length <= 7) {
       setZip(value);
       
-      // 3桁時点で離島判定を先行（体験の速さのため）
+      // 3桁時点で離島判定を先行
       if (value.length >= 3) {
         const islandFound = ISLAND_PREFIXES.some(p => value.startsWith(p));
         setIsIsland(islandFound);
@@ -60,7 +60,7 @@ export default function ShippingPage() {
             setPrefecture(result.pref);
             setAddress(result.address);
             
-            // 実際の住所データから再判定（沖縄県などの場合）
+            // 実際の住所データから再判定
             if (result.pref === "沖縄県") {
               setIsIsland(true);
               setIslandFee(5500);
@@ -127,11 +127,11 @@ export default function ShippingPage() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-3">
-                    <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40">お名前</label>
+                    <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40 text-left block">お名前</label>
                     <input type="text" placeholder="鎌倉 太郎" className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all placeholder:text-foreground/20" />
                   </div>
                   <div className="space-y-3">
-                    <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40">メールアドレス</label>
+                    <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40 text-left block">メールアドレス</label>
                     <input type="email" placeholder="kamakura@example.com" className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all placeholder:text-foreground/20" />
                   </div>
                 </div>
@@ -145,14 +145,14 @@ export default function ShippingPage() {
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  <div className="md:col-span-1 space-y-3">
-                    <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40">郵便番号</label>
+                  <div className="md:col-span-1 space-y-3 text-left">
+                    <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40 block">郵便番号</label>
                     <div className="relative">
                       <input 
                         type="text" 
                         value={zip}
                         onChange={handleZipChange}
-                        placeholder="2480000" 
+                        placeholder="例：2480000" 
                         maxLength={7}
                         className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all placeholder:text-foreground/20 font-mono tracking-wider" 
                       />
@@ -176,14 +176,15 @@ export default function ShippingPage() {
                       )}
                     </div>
                   </div>
-                  <div className="md:col-span-2 space-y-3">
-                    <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40">都道府県</label>
+                  <div className="md:col-span-2 space-y-3 text-left">
+                    <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40 block">都道府県</label>
                     <div className="relative">
                       <select 
                         value={prefecture}
                         onChange={(e) => setPrefecture(e.target.value)}
-                        className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all appearance-none cursor-pointer"
+                        className={`w-full bg-white dark:bg-white/5 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all appearance-none cursor-pointer ${!prefecture ? 'text-foreground/20' : 'text-foreground'}`}
                       >
+                        <option value="" disabled>選択してください</option>
                         <option value="北海道">北海道</option>
                         <option value="青森県">青森県</option>
                         <option value="岩手県">岩手県</option>
@@ -249,7 +250,7 @@ export default function ShippingPage() {
                       className="bg-[#3d2b1f]/5 border border-[#3d2b1f]/20 p-6 rounded-2xl flex gap-4 items-start mb-4 overflow-hidden"
                     >
                       <Info className="text-[#3d2b1f] dark:text-white/60 shrink-0 mt-0.5" size={20} />
-                      <div className="space-y-1">
+                      <div className="space-y-1 text-left">
                         <p className="text-sm font-bold text-[#3d2b1f] dark:text-white">離島・遠隔地エリア判定</p>
                         <p className="text-xs text-[#3d2b1f]/70 dark:text-white/60 leading-relaxed">
                           ご入力いただいた地域（{prefecture}）は離島・遠隔地エリアに該当するため、別途「離島中継料」が加算され、お届けまで通常よりお時間をいただきます。職人が最も安全なルートを手配いたします。
@@ -259,18 +260,18 @@ export default function ShippingPage() {
                   )}
                 </AnimatePresence>
 
-                <div className="space-y-3">
-                  <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40">市区町村・番地</label>
+                <div className="space-y-3 text-left">
+                  <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40 block">市区町村・番地</label>
                   <input 
                     type="text" 
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
-                    placeholder="鎌倉市雪ノ下 1-2-3" 
+                    placeholder={zip.length < 7 ? "郵便番号を入力すると反映されます" : "鎌倉市雪ノ下 1-2-3"}
                     className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all placeholder:text-foreground/20" 
                   />
                 </div>
-                <div className="space-y-3">
-                  <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40">建物名・部屋番号（任意）</label>
+                <div className="space-y-3 text-left">
+                  <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40 block">建物名・部屋番号（任意）</label>
                   <input type="text" placeholder="鎌倉ヒルズ 101" className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all placeholder:text-foreground/20" />
                 </div>
               </section>
@@ -288,8 +289,8 @@ export default function ShippingPage() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="space-y-3">
-                    <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40 text-left block">お届け希望日</label>
+                  <div className="space-y-3 text-left">
+                    <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40 block">お届け希望日</label>
                     <input 
                       type="date" 
                       min={minDeliveryDate}
@@ -298,8 +299,8 @@ export default function ShippingPage() {
                       className="w-full bg-[#fbfbfb] dark:bg-black/20 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all cursor-pointer" 
                     />
                   </div>
-                  <div className="space-y-3">
-                    <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40 text-left block">お届け時間帯</label>
+                  <div className="space-y-3 text-left">
+                    <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40 block">お届け時間帯</label>
                     <select 
                       value={selectedTime}
                       onChange={(e) => setSelectedTime(e.target.value)}
@@ -318,7 +319,7 @@ export default function ShippingPage() {
               </section>
 
               <div className="pt-10 flex flex-col md:flex-row items-center justify-between gap-8 border-t border-foreground/5">
-                <p className="text-xs text-foreground/40 max-w-md text-left">
+                <p className="text-xs text-foreground/40 max-w-md text-left leading-relaxed">
                   次へ進むことで、KamaKraftの利用規約およびプライバシーポリシーに同意したものとみなされます。
                 </p>
                 <button type="button" className="w-full md:w-auto min-w-[300px] bg-foreground text-background py-6 px-12 flex items-center justify-center gap-3 hover:scale-[1.02] transition-all font-bold tracking-[0.3em] text-xs uppercase shadow-2xl shadow-foreground/20 group active:scale-[0.98]">
@@ -363,7 +364,7 @@ export default function ShippingPage() {
                 </div>
                 <div className="flex justify-between text-foreground/60 text-xs tracking-[0.2em] uppercase font-bold">
                   <span>配送料</span>
-                  <span className="text-green-600 font-bold tracking-normal italic">Free</span>
+                  <span className="text-green-600 font-bold italic tracking-normal">Free</span>
                 </div>
                 
                 <AnimatePresence>
