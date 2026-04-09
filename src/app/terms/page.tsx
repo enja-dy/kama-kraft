@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Gavel, CheckCircle2, AlertCircle, HelpCircle, ChevronRight, Package, CreditCard, RotateCcw, Copyright } from "lucide-react";
+import { Gavel, CheckCircle2, AlertCircle, HelpCircle, ChevronRight, Package, CreditCard, RotateCcw, Copyright, ZapOff, ShieldAlert } from "lucide-react";
 
 export default function TermsOfServicePage() {
   const sections = [
@@ -184,8 +184,46 @@ export default function TermsOfServicePage() {
               </div>
             </section>
 
+            {/* Article 7 */}
+            <section id="article-7" className="space-y-6 scroll-mt-40">
+              <div className="flex items-center gap-4 mb-4">
+                 <ZapOff size={24} className="text-foreground/40" />
+                 <h2 className="text-3xl font-bold tracking-tight text-foreground">本サービスの停止・中断</h2>
+              </div>
+              <div className="prose dark:prose-invert prose-lg max-w-none text-foreground/80 leading-relaxed font-medium">
+                <p>
+                  当ブランドは、以下のいずれかの事由があると判断した場合、ユーザーに事前に通知することなく本サービスの全部または一部の提供を停止または中断することができるものとします。
+                </p>
+                <ul className="text-sm space-y-2 opacity-80 mt-4">
+                  <li>・ 本サービスにかかるコンピュータシステムの保守点検または更新を行う場合</li>
+                  <li>・ 地震、落雷、火災、停電または天災などの不可抗力により、本サービスの提供が困難となった場合</li>
+                  <li>・ コンピュータまたは通信回線等が事故により停止した場合</li>
+                  <li>・ その他、当ブランドが本サービスの提供が困難と判断した場合</li>
+                </ul>
+                <p className="mt-4 text-xs italic opacity-60">
+                  ※ 当ブランドは、本サービスの停止または中断により、ユーザーまたは第三者が被ったいかなる不利益または損害についても、一切の責任を負わないものとします。
+                </p>
+              </div>
+            </section>
+
+            {/* Article 8 */}
+            <section id="article-8" className="space-y-6 scroll-mt-40">
+              <div className="flex items-center gap-4 mb-4">
+                 <ShieldAlert size={24} className="text-foreground/40" />
+                 <h2 className="text-3xl font-bold tracking-tight text-foreground">免責事項</h2>
+              </div>
+              <div className="p-10 rounded-[2.5rem] border border-foreground/10 bg-white dark:bg-white/5 space-y-6">
+                 <p className="text-sm leading-relaxed text-foreground/80">
+                   当ブランドは、本サービスに事実上または法律上の瑕疵（安全性、信頼性、正確性、完全性、有効性、特定の目的への適合性、セキュリティなどに関する欠陥、エラーやバグ、権利侵害などを含みます）がないことを明示的にも黙示的にも保証しておりません。
+                 </p>
+                 <p className="text-sm leading-relaxed text-foreground/80">
+                   当ブランドは、本サービスに起因してユーザーに生じたあらゆる損害について一切の責任を負いません。ただし、本サービスに関する当ブランドとユーザーとの間の契約（本規約を含みます）が消費者契約法に定める消費者契約となる場合、この免責規定は適用されませんが、その際にも、当ブランドは、当ブランドの過失（重過失を除きます）による債務不履行または不法行為によりユーザーに生じた損害のうち特別な事情から生じた損害（当ブランドまたはユーザーが損害発生につき予見し、または予見し得た場合を含みます）について一切の責任を負いません。
+                 </p>
+              </div>
+            </section>
+
             {/* Article 10 */}
-            <section id="article-10" className="p-12 rounded-[3.5rem] bg-foreground text-background relative overflow-hidden scroll-mt-40">
+            <section id="article-10" className="p-12 rounded-[3.5rem] bg-foreground text-background relative overflow-hidden scroll-mt-40 shadow-2xl">
                <Copyright className="absolute -right-4 -bottom-4 opacity-5 w-64 h-64" />
                <div className="relative z-10 space-y-8">
                  <h2 className="text-3xl font-bold tracking-tight">著作権・知的財産権</h2>
