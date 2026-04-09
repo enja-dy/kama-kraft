@@ -26,38 +26,50 @@ export default function ShippingPage() {
   // 住所・都道府県の状態
   const [prefecture, setPrefecture] = useState("神奈川県");
   const [address, setAddress] = useState("");
+  const [isLoadingAddress, setIsLoadingAddress] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // 郵便番号入力時の離島判定・住所自動入力ロジック
-  const handleZipChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  // 郵便番号入力時の離島判定・住所自動入力ロジック (API連携)
+  const handleZipChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.replace(/[^\d]/g, "");
     if (value.length <= 7) {
       setZip(value);
       
+      // 3桁時点で離島判定を先行（体験の速さのため）
       if (value.length >= 3) {
         const islandFound = ISLAND_PREFIXES.some(p => value.startsWith(p));
         setIsIsland(islandFound);
         setIslandFee(islandFound ? 5500 : 0);
-
-        if (value.startsWith("900")) {
-          setPrefecture("沖縄県");
-          if (value.length === 7) setAddress("那覇市泉崎");
-        } else if (value.startsWith("248")) {
-          setPrefecture("神奈川県");
-          if (value.length === 7) setAddress("鎌倉市雪ノ下");
-        } else if (value.startsWith("100")) {
-          setPrefecture("東京都");
-          if (value.length === 7) setAddress("千代田区千代田");
-        } else if (value.startsWith("060")) {
-          setPrefecture("北海道");
-          if (value.length === 7) setAddress("札幌市中央区北一条西");
-        }
       } else {
         setIsIsland(false);
         setIslandFee(0);
+      }
+
+      // 7桁入力された時点でAPIを叩く
+      if (value.length === 7) {
+        setIsLoadingAddress(true);
+        try {
+          const res = await fetch(`https://search.zipcloud.ibsnet.co.jp/api/search?zipcode=${value}`);
+          const data = await res.json();
+          if (data.results && data.results[0]) {
+            const result = data.results[0];
+            setPrefecture(result.address1);
+            setAddress(`${result.address2}${result.address3}`);
+            
+            // 実際の住所データから再判定（沖縄県などの場合）
+            if (result.address1 === "沖縄県") {
+              setIsIsland(true);
+              setIslandFee(5500);
+            }
+          }
+        } catch (error) {
+          console.error("Address fetch failed:", error);
+        } finally {
+          setIsLoadingAddress(false);
+        }
       }
     }
   };
@@ -66,18 +78,18 @@ export default function ShippingPage() {
   const minDeliveryDate = useMemo(() => {
     if (!mounted) return "";
     const date = new Date();
+    // 通常5営業日 + 週末を考慮して安全に7日後
     let leadTime = isIsland ? 12 : 7; 
     date.setDate(date.getDate() + leadTime);
     return date.toISOString().split("T")[0];
   }, [isIsland, mounted]);
 
-  // 通過表示の安定化（Hydrationエラー対策）
+  // 通過表示の安定化
   const formattedPrice = (price: number) => {
     if (!mounted) return `¥${price.toLocaleString()}`;
     return new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(price);
   };
 
-  // マウント前は何も表示しないかスケルトンを出すことで不一致を防ぐ
   if (!mounted) return <div className="min-h-screen bg-[#fbfbfb] dark:bg-[#050505]" />;
 
   return (
@@ -94,7 +106,7 @@ export default function ShippingPage() {
               <Link href="/checkout/auth" className="text-xs tracking-widest text-[#3d2b1f] dark:text-white/40 hover:text-foreground transition-colors flex items-center gap-2 mb-8 uppercase font-bold">
                 <ArrowLeft size={14} /> 戻る
               </Link>
-              <h1 className="text-3xl md:text-5xl font-bold tracking-tighter mb-4 text-foreground">お届け先・日時の入力</h1>
+              <h1 className="text-3xl md:text-5xl font-bold tracking-tighter mb-4 text-foreground text-left">お届け先・日時の入力</h1>
               <p className="text-foreground/60 text-sm italic">職人の手仕事を丁寧にお届けするため、お届け先とご希望の日時をお知らせください。</p>
             </motion.div>
 
@@ -143,7 +155,16 @@ export default function ShippingPage() {
                         maxLength={7}
                         className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all placeholder:text-foreground/20 font-mono tracking-wider" 
                       />
-                      {zip.length === 7 && (
+                      {isLoadingAddress && (
+                        <div className="absolute right-4 top-1/2 -translate-y-1/2">
+                          <motion.div 
+                            animate={{ rotate: 360 }}
+                            transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+                            className="w-5 h-5 border-2 border-[#3d2b1f] border-t-transparent rounded-full"
+                          />
+                        </div>
+                      )}
+                      {!isLoadingAddress && zip.length === 7 && (
                         <motion.div 
                           initial={{ scale: 0 }}
                           animate={{ scale: 1 }}
@@ -162,10 +183,53 @@ export default function ShippingPage() {
                         onChange={(e) => setPrefecture(e.target.value)}
                         className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all appearance-none cursor-pointer"
                       >
-                        <option value="神奈川県">神奈川県</option>
-                        <option value="東京都">東京都</option>
-                        <option value="沖縄県">沖縄県</option>
                         <option value="北海道">北海道</option>
+                        <option value="青森県">青森県</option>
+                        <option value="岩手県">岩手県</option>
+                        <option value="宮城県">宮城県</option>
+                        <option value="秋田県">秋田県</option>
+                        <option value="山形県">山形県</option>
+                        <option value="福島県">福島県</option>
+                        <option value="茨城県">茨城県</option>
+                        <option value="栃木県">栃木県</option>
+                        <option value="群馬県">群馬県</option>
+                        <option value="埼玉県">埼玉県</option>
+                        <option value="千葉県">千葉県</option>
+                        <option value="東京都">東京都</option>
+                        <option value="神奈川県">神奈川県</option>
+                        <option value="新潟県">新潟県</option>
+                        <option value="富山県">富山県</option>
+                        <option value="石川県">石川県</option>
+                        <option value="福井県">福井県</option>
+                        <option value="山梨県">山梨県</option>
+                        <option value="長野県">長野県</option>
+                        <option value="岐阜県">岐阜県</option>
+                        <option value="静岡県">静岡県</option>
+                        <option value="愛知県">愛知県</option>
+                        <option value="三重県">三重県</option>
+                        <option value="滋賀県">滋賀県</option>
+                        <option value="京都府">京都府</option>
+                        <option value="大阪府">大阪府</option>
+                        <option value="兵庫県">兵庫県</option>
+                        <option value="奈良県">奈良県</option>
+                        <option value="和歌山県">和歌山県</option>
+                        <option value="鳥取県">鳥取県</option>
+                        <option value="島根県">島根県</option>
+                        <option value="岡山県">岡山県</option>
+                        <option value="広島県">広島県</option>
+                        <option value="山口県">山口県</option>
+                        <option value="徳島県">徳島県</option>
+                        <option value="香川県">香川県</option>
+                        <option value="愛媛県">愛媛県</option>
+                        <option value="高知県">高知県</option>
+                        <option value="福岡県">福岡県</option>
+                        <option value="佐賀県">佐賀県</option>
+                        <option value="長崎県">長崎県</option>
+                        <option value="熊本県">熊本県</option>
+                        <option value="大分県">大分県</option>
+                        <option value="宮崎県">宮崎県</option>
+                        <option value="鹿児島県">鹿児島県</option>
+                        <option value="沖縄県">沖縄県</option>
                       </select>
                       <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none opacity-30">
                         <ArrowRight size={16} className="rotate-90" />
@@ -212,19 +276,19 @@ export default function ShippingPage() {
 
               {/* Delivery Schedule Section */}
               <section className="space-y-8 p-10 bg-white dark:bg-white/5 rounded-3xl border border-foreground/5">
-                <div className="flex items-center gap-3 text-xl font-bold tracking-tight text-foreground">
+                <div className="flex items-center gap-3 text-xl font-bold tracking-tight text-foreground text-left">
                   <Calendar size={22} className="text-[#3d2b1f] dark:text-white/40" />
                   <h2>お届け希望日時の指定</h2>
                 </div>
                 
-                <p className="text-xs text-foreground/40 leading-relaxed bg-foreground/5 p-4 rounded-xl border-l-4 border-[#3d2b1f]">
+                <div className="text-xs text-foreground/40 leading-relaxed bg-foreground/5 p-4 rounded-xl border-l-4 border-[#3d2b1f] text-left">
                   職人が一点一点、最終調整を施してから発送するため、ご注文日から最短5営業日の準備期間をいただいております。
                   {isIsland && <span className="block mt-1 font-bold text-[#3d2b1f]">※離島エリアのため、さらに数日の配送期間を要します。</span>}
-                </p>
+                </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-3">
-                    <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40">お届け希望日</label>
+                    <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40 text-left block">お届け希望日</label>
                     <input 
                       type="date" 
                       min={minDeliveryDate}
@@ -234,7 +298,7 @@ export default function ShippingPage() {
                     />
                   </div>
                   <div className="space-y-3">
-                    <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40">お届け時間帯</label>
+                    <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40 text-left block">お届け時間帯</label>
                     <select 
                       value={selectedTime}
                       onChange={(e) => setSelectedTime(e.target.value)}
@@ -253,7 +317,7 @@ export default function ShippingPage() {
               </section>
 
               <div className="pt-10 flex flex-col md:flex-row items-center justify-between gap-8 border-t border-foreground/5">
-                <p className="text-xs text-foreground/40 max-w-md">
+                <p className="text-xs text-foreground/40 max-w-md text-left">
                   次へ進むことで、KamaKraftの利用規約およびプライバシーポリシーに同意したものとみなされます。
                 </p>
                 <button type="button" className="w-full md:w-auto min-w-[300px] bg-foreground text-background py-6 px-12 flex items-center justify-center gap-3 hover:scale-[1.02] transition-all font-bold tracking-[0.3em] text-xs uppercase shadow-2xl shadow-foreground/20 group active:scale-[0.98]">
@@ -269,7 +333,7 @@ export default function ShippingPage() {
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-white dark:bg-white/5 p-10 rounded-[2.5rem] border border-foreground/5 sticky top-32 shadow-sm"
+              className="bg-white dark:bg-white/5 p-10 rounded-[2.5rem] border border-foreground/5 sticky top-32 shadow-sm text-left"
             >
               <div className="flex items-center gap-3 mb-10 pb-6 border-b border-foreground/5">
                 <Truck size={20} className="text-[#3d2b1f]  dark:text-white/40" />
@@ -298,7 +362,7 @@ export default function ShippingPage() {
                 </div>
                 <div className="flex justify-between text-foreground/60 text-xs tracking-[0.2em] uppercase font-bold">
                   <span>配送料</span>
-                  <span className="text-green-600">無料</span>
+                  <span className="text-green-600 font-bold tracking-normal italic">Free</span>
                 </div>
                 
                 <AnimatePresence>
@@ -316,16 +380,16 @@ export default function ShippingPage() {
                   )}
                 </AnimatePresence>
 
-                <div className="pt-8 mt-4 border-t-2 border-foreground flex justify-between text-2xl font-bold tracking-tighter">
+                <div className="pt-8 mt-4 border-t-2 border-foreground flex justify-between text-2xl font-bold tracking-tighter items-end">
                   <div className="flex flex-col">
                     <span className="text-[10px] uppercase tracking-[0.4em] font-bold opacity-30 mb-2">総計</span>
-                    <span>Total</span>
+                    <span className="text-lg leading-none opacity-50">Total</span>
                   </div>
                   <motion.span 
                     key={isIsland ? 'island-total' : 'normal-total'}
                     initial={{ scale: 1.1, color: "#3d2b1f" }}
                     animate={{ scale: 1, color: "var(--foreground)" }}
-                    className="text-3xl"
+                    className="text-3xl leading-none"
                   >
                     {formattedPrice(totalPrice + islandFee)}
                   </motion.span>
