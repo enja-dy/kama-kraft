@@ -37,10 +37,10 @@ export default function TermsOfServicePage() {
             <Gavel size={14} className="text-foreground/40" />
             <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-foreground/40">Terms of Service</span>
           </div>
-          <h1 className="text-5xl md:text-8xl font-bold tracking-tighter mb-8 text-foreground uppercase">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter mb-8 text-foreground uppercase">
             利用規約
           </h1>
-          <p className="text-xl md:text-2xl text-foreground/60 max-w-3xl mx-auto leading-relaxed italic">
+          <p className="text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto leading-relaxed italic">
             KamaKraftとお客様をつなぐ、大切な約束。
             安心してお買い物をお楽しみいただくためのガイドラインです。
           </p>
@@ -86,11 +86,11 @@ export default function TermsOfServicePage() {
           >
             {/* Article 1 */}
             <section id="article-1" className="space-y-6 scroll-mt-40">
-              <h2 className="text-3xl font-bold tracking-tight text-foreground leading-none flex items-baseline gap-4">
+              <h2 className="text-2xl font-bold tracking-tight text-foreground leading-none flex items-baseline gap-4">
                 <span className="text-sm font-mono opacity-20">Art. 01</span>
                 <span>適用</span>
               </h2>
-              <div className="prose dark:prose-invert prose-lg max-w-none text-foreground/80 leading-relaxed font-medium">
+              <div className="prose dark:prose-invert prose-base max-w-none text-foreground/80 leading-relaxed font-medium">
                 <p>
                   本規約は、KamaKraft（以下「当ブランド」といいます）がウェブサイト上で提供するサービス（以下「本サービス」といいます）の利用条件を定めるものです。登録ユーザーの皆さまには、本規約に従って本サービスをご利用いただきます。
                 </p>
@@ -99,14 +99,14 @@ export default function TermsOfServicePage() {
 
             {/* Article 2 */}
             <section id="article-2" className="space-y-8 scroll-mt-40">
-              <h2 className="text-3xl font-bold tracking-tight text-foreground leading-none flex items-baseline gap-4">
+              <h2 className="text-2xl font-bold tracking-tight text-foreground leading-none flex items-baseline gap-4">
                 <span className="text-sm font-mono opacity-20">Art. 02</span>
                 <span>売買契約の成立</span>
               </h2>
-              <div className="prose dark:prose-invert prose-lg max-w-none text-foreground/80 leading-relaxed font-medium space-y-6">
+              <div className="prose dark:prose-invert prose-base max-w-none text-foreground/80 leading-relaxed font-medium space-y-6">
                 <div className="p-8 rounded-[2.5rem] bg-foreground/5 border border-foreground/5 relative overflow-hidden group">
-                   <Package className="absolute -right-4 -bottom-4 text-foreground/5 w-32 h-32 group-hover:scale-110 transition-transform" />
-                   <p className="relative z-10">
+                   <Package className="absolute -right-4 -bottom-4 text-foreground/5 w-24 h-24 group-hover:scale-110 transition-transform" />
+                   <p className="relative z-10 text-sm md:text-base">
                      本サービスにおいては、ユーザーが当ブランドに対して購入の申し込みをし、これに対して当ブランドが当該申し込みを受諾した旨のメール（注文確定メール）を送信した時点で、売買契約が成立するものとします。
                    </p>
                 </div>
@@ -136,11 +136,11 @@ export default function TermsOfServicePage() {
 
             {/* Article 5 */}
             <section id="article-5" className="space-y-8 scroll-mt-40">
-              <h2 className="text-3xl font-bold tracking-tight text-foreground leading-none flex items-baseline gap-4">
+              <h2 className="text-2xl font-bold tracking-tight text-foreground leading-none flex items-baseline gap-4">
                 <span className="text-sm font-mono opacity-20">Art. 03</span>
                 <span>返品・交換・キャンセル</span>
               </h2>
-              <div className="bg-[#3d2b1f]/[0.02] border border-[#3d2b1f]/10 rounded-[3rem] p-10 space-y-8">
+              <div className="bg-[#3d2b1f]/[0.02] border border-[#3d2b1f]/10 rounded-[3rem] p-10 space-y-8 text-sm md:text-[15px]">
                 <div className="flex gap-6 items-start">
                    <RotateCcw className="shrink-0 text-[#3d2b1f]" />
                    <div className="space-y-4">
@@ -164,7 +164,7 @@ export default function TermsOfServicePage() {
 
             {/* Article 6 */}
             <section id="article-6" className="space-y-6 scroll-mt-40">
-              <h2 className="text-3xl font-bold tracking-tight text-foreground leading-none flex items-baseline gap-4">
+              <h2 className="text-2xl font-bold tracking-tight text-foreground leading-none flex items-baseline gap-4">
                 <span className="text-sm font-mono opacity-20">Art. 04</span>
                 <span>禁止事項</span>
               </h2>
@@ -187,10 +187,10 @@ export default function TermsOfServicePage() {
             {/* Article 7 */}
             <section id="article-7" className="space-y-6 scroll-mt-40">
               <div className="flex items-center gap-4 mb-4">
-                 <ZapOff size={24} className="text-foreground/40" />
-                 <h2 className="text-3xl font-bold tracking-tight text-foreground">本サービスの停止・中断</h2>
+                 <ZapOff size={20} className="text-foreground/40" />
+                 <h2 className="text-2xl font-bold tracking-tight text-foreground">本サービスの停止・中断</h2>
               </div>
-              <div className="prose dark:prose-invert prose-lg max-w-none text-foreground/80 leading-relaxed font-medium">
+              <div className="prose dark:prose-invert prose-base max-w-none text-foreground/80 leading-relaxed font-medium">
                 <p>
                   当ブランドは、以下のいずれかの事由があると判断した場合、ユーザーに事前に通知することなく本サービスの全部または一部の提供を停止または中断することができるものとします。
                 </p>
@@ -209,10 +209,10 @@ export default function TermsOfServicePage() {
             {/* Article 8 */}
             <section id="article-8" className="space-y-6 scroll-mt-40">
               <div className="flex items-center gap-4 mb-4">
-                 <ShieldAlert size={24} className="text-foreground/40" />
-                 <h2 className="text-3xl font-bold tracking-tight text-foreground">免責事項</h2>
+                 <ShieldAlert size={20} className="text-foreground/40" />
+                 <h2 className="text-2xl font-bold tracking-tight text-foreground">免責事項</h2>
               </div>
-              <div className="p-10 rounded-[2.5rem] border border-foreground/10 bg-white dark:bg-white/5 space-y-6">
+              <div className="p-10 rounded-[2.5rem] border border-foreground/10 bg-white dark:bg-white/5 space-y-6 text-sm md:text-[15px]">
                  <p className="text-sm leading-relaxed text-foreground/80">
                    当ブランドは、本サービスに事実上または法律上の瑕疵（安全性、信頼性、正確性、完全性、有効性、特定の目的への適合性、セキュリティなどに関する欠陥、エラーやバグ、権利侵害などを含みます）がないことを明示的にも黙示的にも保証しておりません。
                  </p>
