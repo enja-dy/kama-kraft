@@ -54,13 +54,14 @@ export default function ShippingPage() {
         try {
           const res = await fetch(`/api/zipcode?zipcode=${value}`);
           const data = await res.json();
-          if (data.results && data.results[0]) {
-            const result = data.results[0];
-            setPrefecture(result.address1);
-            setAddress(`${result.address2}${result.address3}`);
+          // zipaddress.net のデータ形式に対応
+          if (data.code === 200 && data.data) {
+            const result = data.data;
+            setPrefecture(result.pref);
+            setAddress(result.address);
             
             // 実際の住所データから再判定（沖縄県などの場合）
-            if (result.address1 === "沖縄県") {
+            if (result.pref === "沖縄県") {
               setIsIsland(true);
               setIslandFee(5500);
             }
