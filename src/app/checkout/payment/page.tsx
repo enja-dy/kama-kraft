@@ -57,16 +57,16 @@ export default function PaymentPage() {
               {/* Express Checkout */}
               <section className="space-y-6">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40 text-left">エクスプレスチェックアウト</h2>
+                  <h2 className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/70 text-left">エクスプレスチェックアウト</h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {/* Apple Pay */}
-                  <button className="flex items-center justify-center gap-3 bg-black text-white p-5 rounded-2xl hover:bg-black/90 transition-all font-bold">
+                  <button className="flex items-center justify-center gap-3 bg-black text-white p-5 rounded-2xl hover:bg-black/90 transition-all font-bold border border-white/10 shadow-lg shadow-black/50">
                     <Apple size={20} /> Pay
                   </button>
                   
                   {/* Google Pay - Stable Text + SVG G Approach */}
-                  <button className="flex items-center justify-center gap-2 bg-white border border-foreground/10 p-5 rounded-2xl hover:bg-foreground/[0.02] transition-all font-bold text-black group overflow-hidden">
+                  <button className="flex items-center justify-center gap-2 bg-white border border-black/10 p-5 rounded-2xl hover:bg-black/[0.02] transition-all font-bold text-black group overflow-hidden shadow-lg shadow-black/5">
                     <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
                       <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
