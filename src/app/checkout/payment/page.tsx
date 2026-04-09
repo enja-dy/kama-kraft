@@ -121,7 +121,7 @@ export default function PaymentPage() {
                         >
                           <div className="pt-8 space-y-6">
                             <div className="space-y-3 text-left">
-                              <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40 block">カード番号</label>
+                              <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/80 block">カード番号</label>
                               <div className="relative">
                                 <input type="text" placeholder="0000 0000 0000 0000" className="w-full bg-[#fbfbfb] dark:bg-black/20 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all placeholder:text-foreground/20 font-mono tracking-[0.2em]" />
                                 <div className="absolute right-5 top-1/2 -translate-y-1/2 flex gap-2 grayscale brightness-125 opacity-30">
@@ -133,11 +133,11 @@ export default function PaymentPage() {
                             </div>
                             <div className="grid grid-cols-2 gap-6">
                               <div className="space-y-3 text-left">
-                                <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40 block">有効期限 (月/年)</label>
+                                <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/80 block">有効期限 (月/年)</label>
                                 <input type="text" placeholder="MM / YY" className="w-full bg-[#fbfbfb] dark:bg-black/20 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all placeholder:text-foreground/20 font-mono" />
                               </div>
                               <div className="space-y-3 text-left">
-                                <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40 block">セキュリティコード</label>
+                                <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/80 block">セキュリティコード</label>
                                 <input type="text" placeholder="CVC" className="w-full bg-[#fbfbfb] dark:bg-black/20 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all placeholder:text-foreground/20 font-mono" />
                               </div>
                             </div>
@@ -154,12 +154,12 @@ export default function PaymentPage() {
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
-                        <div className={`p-3 rounded-xl ${paymentMethod === "bank" ? "bg-foreground text-background" : "bg-foreground/5 text-foreground"}`}>
+                        <div className={`p-3 rounded-xl ${paymentMethod === "bank" ? "bg-foreground text-background" : "bg-foreground/10 text-foreground"}`}>
                           <Building2 size={20} />
                         </div>
                         <div className="text-left">
-                          <p className="text-sm font-bold tracking-tight">銀行振込</p>
-                          <p className="text-[10px] opacity-40 font-bold uppercase tracking-widest mt-0.5">入金確認後の発送となります</p>
+                          <p className={`text-sm font-bold tracking-tight ${paymentMethod === "bank" ? "text-foreground" : "text-foreground/90"}`}>銀行振込</p>
+                          <p className={`text-[10px] font-bold uppercase tracking-widest mt-0.5 ${paymentMethod === "bank" ? "text-foreground/60" : "text-foreground/70"}`}>入金確認後の発送となります</p>
                         </div>
                       </div>
                       <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${paymentMethod === "bank" ? "border-foreground bg-foreground" : "border-foreground/10"}`}>
