@@ -41,9 +41,9 @@ export const Header = () => {
           <nav className="hidden md:flex items-center gap-10">
             <Link
               href="/cart"
-              className="relative group flex items-center gap-2 text-sm tracking-widest text-white/70 hover:text-white transition-colors"
+              className="relative group flex items-center gap-2 text-sm tracking-widest text-white/90 hover:text-white transition-colors"
             >
-              <ShoppingCart size={18} className="opacity-50 group-hover:opacity-100 transition-opacity" />
+              <ShoppingCart size={18} className="opacity-80 group-hover:opacity-100 transition-opacity" />
               買い物籠
               {totalItems > 0 && (
                 <motion.span
@@ -57,16 +57,16 @@ export const Header = () => {
             </Link>
             <Link
               href="/help"
-              className="group flex items-center gap-2 text-sm tracking-widest text-white/70 hover:text-white transition-colors"
+              className="group flex items-center gap-2 text-sm tracking-widest text-white/90 hover:text-white transition-colors"
             >
-              <HelpCircle size={18} className="opacity-50 group-hover:opacity-100 transition-opacity" />
+              <HelpCircle size={18} className="opacity-80 group-hover:opacity-100 transition-opacity" />
               お問い合わせ
             </Link>
             <Link
               href="/auth"
-              className="group flex items-center gap-2 text-sm tracking-widest bg-white/5 hover:bg-white/10 px-5 py-2.5 rounded-full border border-white/20 text-white transition-all"
+              className="group flex items-center gap-2 text-sm tracking-widest bg-white/[0.07] hover:bg-white/10 px-5 py-2.5 rounded-full border border-white/20 text-white transition-all font-bold"
             >
-              <User size={18} className="opacity-50 group-hover:opacity-100 transition-opacity" />
+              <User size={18} className="opacity-80 group-hover:opacity-100 transition-opacity" />
               新規登録 / ログイン
             </Link>
           </nav>
