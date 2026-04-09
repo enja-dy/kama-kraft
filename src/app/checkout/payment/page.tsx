@@ -12,8 +12,6 @@ export default function PaymentPage() {
   const [mounted, setMounted] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("card");
   
-  // 離島シミュレーション（配送ページから引き継ぎを想定。本来はContextやURL paramsで管理）
-  // 今回はUIデザインの継続性のために固定値（必要に応じて調整）
   const islandFee = 0; 
 
   useEffect(() => {
@@ -62,15 +60,20 @@ export default function PaymentPage() {
                   <h2 className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40 text-left">エクスプレスチェックアウト</h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Apple Pay */}
                   <button className="flex items-center justify-center gap-3 bg-black text-white p-5 rounded-2xl hover:bg-black/90 transition-all font-bold">
                     <Apple size={20} /> Pay
                   </button>
-                  <button className="flex items-center justify-center gap-3 bg-white border border-foreground/10 p-5 rounded-2xl hover:bg-foreground/[0.02] transition-all font-bold text-black group">
-                    <img 
-                      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNTkgNjQiPjxwYXRoIGZpbGw9IiM1ZjYzNjgiIGQ9Ik03NC41IDQ0LjhWMjMuMmg2LjlsOC40IDE2LjkgOC40LTE2LjloNi45djIxLjZoLTUuN1YyOS4xbC03LjIgMTQuNGgtNC44bC03LjMtMTQuNHYxNS43aC01LjZ6bTM1LjUgMGMtMi43IDAtNC45LS45LTYuNy0yLjctMS44LTEuOC0yLjctNC0yLjctNi43cy45LTQuOSA0LjktNi43YzEuOC0xLjggNC0yLjcgNi43LTIuN3MyLjUuNCAzLjYuN2MxLjEuNCAyLjEgMSAyLjggMS43bC0zLjkgNC4yYy0uOS0uOS0xLjctMS4zLTIuNC0xLjMtLjggMC0xLjUuMy0xLjkuOWMtLjUuNi0uOCAxLjQtLjggMi40czMuMyAxLjkgMy4zIDIuOWMuNS40IDEuMS45IDIuMiAxLjEgMS4xLjMgMi4zLjYgMi4zLjYgMS4zLjQgMi43LjkgMy43IDIuNS45IDEuNiAxLjQgMy42IDEuNCA2LjIgMC40IDMuMS0uOCAyLjctNCAyLjctLjIgMGwtMi4yLS4xeiIvPjxwYXRoIGZpbGw9IiM0Mjg1ZjQiIGQ9Ik00Ny41IDMyLjFjMC0yLjMtLjItNC41LS42LTYuN0gyNC4zdiAxMi42aDEyLjhjLS42IDMtMi4zIDUuNi00LjggNy4ybDcuOCA2Yy0uMi4xIDguOS01LjEgOC45LTExLjV6Ii8+PHBhdGggZmlsbD0iIzM0YTg1MyIgZD0iTTI0LjMgNzIuM2MxMi41IDAgMTguOC04LjMgMTguOC04LjNsLTcuOC02Yy0zIDIuMS02LjggMy4zLTEwLjkgMy4zLTYuOSAwLTEyLjgtNC43LTE0LjktMTFsLTguMiA2LjNjNC40IDguNSA5LjUgMTUuNyAxNC45IDE1Ljd6Ii8+PHBhdGggZmlsbD0iI2ZiYmMwNSIgZD0iTTkuNCA0NC43Yy0uNS0xLjUtLjgtMy4xLS44LTQuN3MuMy0zLjIuOC00LjdsLTguMi02LjNjLS44IDEuNC0xLjIgMi45LTEuMiA0LjRzLjQgMyAxLjIgNC40bDguMiA2NHoiLz48cGF0aCBmaWxsPSIjZWE0MzM1IiBkPSJNMjQuMyAxMi4zYzUuOCAwIDEwLjcgMi4xIDE0LjkgNmw3LjQtNy40QzQxIDQuMyAzMy4zIDAgMjQuMyAwIDExLjggMCA1IDguMi42IDE0LjdMNi4zIDE4Yy00LjItNS44IDkuNS01LjcgMTQuOS01Ljd6Ii8+PC9zdmc+" 
-                      alt="Google Pay" 
-                      className="h-6"
-                    />
+                  
+                  {/* Google Pay - Stable Text + SVG G Approach */}
+                  <button className="flex items-center justify-center gap-2 bg-white border border-foreground/10 p-5 rounded-2xl hover:bg-foreground/[0.02] transition-all font-bold text-black group overflow-hidden">
+                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+                      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                    </svg>
+                    <span className="text-xl font-bold tracking-tight">Pay</span>
                   </button>
                 </div>
               </section>
@@ -94,7 +97,7 @@ export default function PaymentPage() {
                     className={`p-6 rounded-3xl border transition-all cursor-pointer group ${paymentMethod === "card" ? "border-foreground bg-white dark:bg-white/5 shadow-xl" : "border-foreground/5 bg-transparent opacity-60 hover:opacity-100"}`}
                   >
                     <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center gap-4">
+                       <div className="flex items-center gap-4">
                         <div className={`p-3 rounded-xl ${paymentMethod === "card" ? "bg-foreground text-background" : "bg-foreground/5 text-foreground"}`}>
                           <CreditCard size={20} />
                         </div>
