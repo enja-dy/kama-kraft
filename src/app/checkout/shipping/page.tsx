@@ -325,10 +325,13 @@ export default function ShippingPage() {
                 <p className="text-xs text-foreground/40 max-w-md text-left leading-relaxed">
                   次へ進むことで、KamaKraftの利用規約およびプライバシーポリシーに同意したものとみなされます。
                 </p>
-                <button type="button" className="w-full md:w-auto min-w-[300px] bg-foreground text-background py-6 px-12 flex items-center justify-center gap-3 hover:scale-[1.02] transition-all font-bold tracking-[0.3em] text-xs uppercase shadow-2xl shadow-foreground/20 group active:scale-[0.98]">
+                <Link 
+                  href="/checkout/payment"
+                  className="w-full md:w-auto min-w-[300px] bg-foreground text-background py-6 px-12 flex items-center justify-center gap-3 hover:scale-[1.02] transition-all font-bold tracking-[0.3em] text-xs uppercase shadow-2xl shadow-foreground/20 group active:scale-[0.98]"
+                >
                   お支払い方法の選択
                   <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                </button>
+                </Link>
               </div>
             </form>
           </div>
