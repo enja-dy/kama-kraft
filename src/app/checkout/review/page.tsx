@@ -43,10 +43,9 @@ export default function ReviewPage() {
         }),
       });
 
-      const { sessionId } = await response.json();
-      const stripe = await (await import('@/lib/stripe')).default();
-      if (stripe) {
-        await stripe.redirectToCheckout({ sessionId });
+      const { url } = await response.json();
+      if (url) {
+        window.location.assign(url);
       }
     } catch (error) {
       console.error('Payment Error:', error);
