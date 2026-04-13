@@ -7,35 +7,25 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
 
 export async function POST(req: Request) {
   try {
-    const { items, success_url, cancel_url } = await req.json();
-    console.log('API Request - Items:', items?.length);
+    const body = await req.json();
+    console.log('API Request - Full Body:', JSON.stringify(body, null, 2));
+    const { items, success_url, cancel_url } = body;
 
     if (!items || items.length === 0) {
       return NextResponse.json({ error: 'カートが空です。' }, { status: 400 });
     }
 
-    const line_items = items.map((item: any) => {
-      const images = [];
-      if (item.image) {
-        if (item.image.startsWith('http')) {
-          images.push(item.image);
-        } else if (process.env.NEXT_PUBLIC_BASE_URL) {
-          images.push(`${process.env.NEXT_PUBLIC_BASE_URL}${item.image}`);
-        }
-      }
-
-      return {
-        price_data: {
-          currency: 'jpy',
-          product_data: {
-            name: item.name,
-            ...(images.length > 0 ? { images } : {}),
-          },
-          unit_amount: item.price,
+    const line_items = items.map((item: any) => ({
+      price_data: {
+        currency: 'jpy',
+        product_data: {
+          name: item.name,
+          images: [item.image.startsWith('http') ? item.image : `${process.env.NEXT_PUBLIC_BASE_URL || ''}${item.image}`],
         },
-        quantity: item.quantity,
-      };
-    });
+        unit_amount: item.price,
+      },
+      quantity: item.quantity,
+    }));
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
@@ -48,6 +38,11 @@ export async function POST(req: Request) {
     return NextResponse.json({ url: session.url });
   } catch (err: any) {
     console.error('Stripe Error:', err);
-    return NextResponse.json({ error: err.message }, { status: 500 });
+    // Stripeからの詳細なエラーメッセージを返す
+    return NextResponse.json({ 
+      error: err.message || '予期せぬエラーが発生しました。',
+      code: err.code,
+      param: err.param
+    }, { status: 500 });
   }
 }
