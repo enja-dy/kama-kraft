@@ -41,26 +41,31 @@ export default function ReviewPage() {
     // Stripe Checkout
     setLoading(true);
     try {
-      console.log('Fetching /api/checkout...');
+      const success_url = `${window.location.origin}/checkout/review?success=true`;
+      const cancel_url = `${window.location.origin}/checkout/review?canceled=true`;
+      
+      console.log('Fetching /api/checkout with:', { success_url, cancel_url });
+      
       const response = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           items: cart,
-          success_url: `${window.location.origin}/checkout/review?success=true`,
-          cancel_url: `${window.location.origin}/checkout/review?canceled=true`,
+          success_url,
+          cancel_url,
         }),
       });
 
+      const data = await response.json();
+      console.log('API Response Data:', data);
+
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || '不明なエラーが発生しました。');
+        throw new Error(data.error || '不明なエラーが発生しました。');
       }
 
-      const { url } = await response.json();
-      console.log('Redirecting to Stripe:', url);
-      if (url) {
-        window.location.assign(url);
+      console.log('Redirecting to Stripe:', data.url);
+      if (data.url) {
+        window.location.assign(data.url);
       }
     } catch (error: any) {
       console.error('Payment Error:', error);
