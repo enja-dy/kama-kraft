@@ -8,6 +8,11 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
 export async function POST(req: Request) {
   try {
     const { items, success_url, cancel_url } = await req.json();
+    console.log('API Request - Items:', items?.length);
+
+    if (!items || items.length === 0) {
+      return NextResponse.json({ error: 'カートが空です。' }, { status: 400 });
+    }
 
     const line_items = items.map((item: any) => ({
       price_data: {

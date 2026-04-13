@@ -24,6 +24,14 @@ export default function ReviewPage() {
   }, [clearCart]);
 
   const handleOrder = async () => {
+    console.log('Handle Order Clicked - PaymentMethod:', paymentMethod);
+    console.log('Cart Items:', cart.length);
+    
+    if (cart.length === 0) {
+      alert('カートに商品が入っていません。');
+      return;
+    }
+
     if (paymentMethod === "bank") {
       setIsOrdered(true);
       clearCart();
@@ -33,6 +41,7 @@ export default function ReviewPage() {
     // Stripe Checkout
     setLoading(true);
     try {
+      console.log('Fetching /api/checkout...');
       const response = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -43,13 +52,19 @@ export default function ReviewPage() {
         }),
       });
 
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || '不明なエラーが発生しました。');
+      }
+
       const { url } = await response.json();
+      console.log('Redirecting to Stripe:', url);
       if (url) {
         window.location.assign(url);
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Payment Error:', error);
-      alert('決済処理中にエラーが発生しました。');
+      alert(`エラーが発生しました: ${error.message}`);
     } finally {
       setLoading(false);
     }
