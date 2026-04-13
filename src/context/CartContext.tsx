@@ -17,12 +17,38 @@ interface CartContextType {
   totalItems: number;
   totalPrice: number;
   clearCart: () => void;
+  shippingInfo: {
+    name: string;
+    email: string;
+    zip: string;
+    prefecture: string;
+    address: string;
+    building: string;
+    date: string;
+    time: string;
+    islandFee: number;
+  };
+  setShippingInfo: (info: any) => void;
+  paymentMethod: string;
+  setPaymentMethod: (method: string) => void;
 }
 
 export const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
+  const [paymentMethod, setPaymentMethod] = useState("card");
+  const [shippingInfo, setShippingInfo] = useState({
+    name: "",
+    email: "",
+    zip: "",
+    prefecture: "",
+    address: "",
+    building: "",
+    date: "",
+    time: "指定なし",
+    islandFee: 0,
+  });
 
   useEffect(() => {
     const savedCart = localStorage.getItem("kama-cart");
@@ -76,6 +102,10 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         totalItems,
         totalPrice,
         clearCart,
+        shippingInfo,
+        setShippingInfo,
+        paymentMethod,
+        setPaymentMethod,
       }}
     >
       {children}
