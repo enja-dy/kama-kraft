@@ -56,6 +56,11 @@ export default function ReviewPage() {
     }
   };
 
+  const formattedPrice = (price: number) => {
+    if (!mounted) return `¥${price.toLocaleString()}`;
+    return new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(price);
+  };
+
   if (!mounted) return <div className="min-h-screen bg-[#fbfbfb] dark:bg-[#050505]" />;
 
   if (isOrdered) {
