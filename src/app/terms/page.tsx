@@ -13,8 +13,8 @@ export default function TermsOfServicePage() {
     { title: "第6条 禁止事項", id: "article-6" },
     { title: "第7条 本サービスの停止・中断", id: "article-7" },
     { title: "第8条 免責事項", id: "article-8" },
-    { title: "第10条 著作権・知的財産権", id: "article-10" },
-    { title: "第11条 準拠法・裁判管轄", id: "article-11" },
+    { title: "第9条 著作権・知的財産権", id: "article-9" },
+    { title: "第10条 準拠法・裁判管轄", id: "article-10" },
   ];
 
   return (
@@ -120,14 +120,20 @@ export default function TermsOfServicePage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                <section id="article-3" className="p-8 rounded-[2rem] bg-white dark:bg-white/5 border border-foreground/5 scroll-mt-40">
                  <CreditCard className="text-foreground/20 mb-6" />
-                 <h3 className="text-xl font-bold mb-4">お支払い方法</h3>
+                 <h3 className="text-xl font-bold mb-4 flex items-baseline gap-3">
+                   <span className="text-[10px] font-mono opacity-20">Art. 03</span>
+                   <span>お支払い方法</span>
+                 </h3>
                  <p className="text-sm text-foreground/60 leading-relaxed">
                    商品の代金の支払方法は、クレジットカード決済、銀行振込、その他当ブランドが別途認める方法から選択いただけます。銀行振込の場合、振込手数料はお客様負担となります。
                  </p>
                </section>
                <section id="article-4" className="p-8 rounded-[2rem] bg-white dark:bg-white/5 border border-foreground/5 scroll-mt-40">
                  <Package className="text-foreground/20 mb-6" />
-                 <h3 className="text-xl font-bold mb-4">配送・配送料</h3>
+                 <h3 className="text-xl font-bold mb-4 flex items-baseline gap-3">
+                   <span className="text-[10px] font-mono opacity-20">Art. 04</span>
+                   <span>配送・配送料</span>
+                 </h3>
                  <p className="text-sm text-foreground/60 leading-relaxed">
                    商品は通常、注文確定後3〜5営業日以内に発送いたします。一部の離島等の地域については、別途配送料（中継料）が発生する場合がございます。
                  </p>
@@ -137,7 +143,7 @@ export default function TermsOfServicePage() {
             {/* Article 5 */}
             <section id="article-5" className="space-y-8 scroll-mt-40">
               <h2 className="text-2xl font-bold tracking-tight text-foreground leading-none flex items-baseline gap-4">
-                <span className="text-sm font-mono opacity-20">Art. 03</span>
+                <span className="text-sm font-mono opacity-20">Art. 05</span>
                 <span>返品・交換・キャンセル</span>
               </h2>
               <div className="bg-[#3d2b1f]/[0.02] border border-[#3d2b1f]/10 rounded-[3rem] p-10 space-y-8 text-sm md:text-[15px]">
@@ -165,7 +171,7 @@ export default function TermsOfServicePage() {
             {/* Article 6 */}
             <section id="article-6" className="space-y-6 scroll-mt-40">
               <h2 className="text-2xl font-bold tracking-tight text-foreground leading-none flex items-baseline gap-4">
-                <span className="text-sm font-mono opacity-20">Art. 04</span>
+                <span className="text-sm font-mono opacity-20">Art. 06</span>
                 <span>禁止事項</span>
               </h2>
               <div className="grid grid-cols-1 gap-3">
@@ -186,10 +192,10 @@ export default function TermsOfServicePage() {
 
             {/* Article 7 */}
             <section id="article-7" className="space-y-6 scroll-mt-40">
-              <div className="flex items-center gap-4 mb-4">
-                 <ZapOff size={20} className="text-foreground/40" />
-                 <h2 className="text-2xl font-bold tracking-tight text-foreground">本サービスの停止・中断</h2>
-              </div>
+              <h2 className="text-2xl font-bold tracking-tight text-foreground leading-none flex items-baseline gap-4">
+                <span className="text-sm font-mono opacity-20">Art. 07</span>
+                <span>本サービスの停止・中断</span>
+              </h2>
               <div className="prose dark:prose-invert prose-base max-w-none text-foreground/80 leading-relaxed font-medium">
                 <p>
                   当ブランドは、以下のいずれかの事由があると判断した場合、ユーザーに事前に通知することなく本サービスの全部または一部の提供を停止または中断することができるものとします。
@@ -208,10 +214,10 @@ export default function TermsOfServicePage() {
 
             {/* Article 8 */}
             <section id="article-8" className="space-y-6 scroll-mt-40">
-              <div className="flex items-center gap-4 mb-4">
-                 <ShieldAlert size={20} className="text-foreground/40" />
-                 <h2 className="text-2xl font-bold tracking-tight text-foreground">免責事項</h2>
-              </div>
+              <h2 className="text-2xl font-bold tracking-tight text-foreground leading-none flex items-baseline gap-4">
+                <span className="text-sm font-mono opacity-20">Art. 08</span>
+                <span>免責事項</span>
+              </h2>
               <div className="p-10 rounded-[2.5rem] border border-foreground/10 bg-white dark:bg-white/5 space-y-6 text-sm md:text-[15px]">
                  <p className="text-sm leading-relaxed text-foreground/80">
                    当ブランドは、本サービスに事実上または法律上の瑕疵（安全性、信頼性、正確性、完全性、有効性、特定の目的への適合性、セキュリティなどに関する欠陥、エラーやバグ、権利侵害などを含みます）がないことを明示的にも黙示的にも保証しておりません。
@@ -222,21 +228,24 @@ export default function TermsOfServicePage() {
               </div>
             </section>
 
-            {/* Article 10 */}
-            <section id="article-10" className="p-12 rounded-[3.5rem] bg-foreground text-background relative overflow-hidden scroll-mt-40 shadow-2xl">
+            {/* Article 9 */}
+            <section id="article-9" className="p-12 rounded-[3.5rem] bg-foreground text-background relative overflow-hidden scroll-mt-40 shadow-2xl">
                <Copyright className="absolute -right-4 -bottom-4 opacity-5 w-64 h-64" />
                <div className="relative z-10 space-y-8">
-                 <h2 className="text-3xl font-bold tracking-tight">著作権・知的財産権</h2>
+                 <h2 className="text-3xl font-bold tracking-tight leading-none flex items-baseline gap-4">
+                   <span className="text-sm font-mono opacity-20">Art. 09</span>
+                   <span>著作権・知的財産権</span>
+                 </h2>
                  <p className="text-lg opacity-80 leading-relaxed">
                    本ウェブサイト上のすべてのコンテンツ（画像、文章、デザイン、ロゴ等）は、当ブランドまたは正当な権利者に帰属します。当ブランドの許可なくこれらを無断で使用、複製、転載することは固く禁じられています。
                  </p>
                </div>
             </section>
 
-            {/* Article 11 */}
-            <section id="article-11" className="space-y-6 scroll-mt-40">
+            {/* Article 10 */}
+            <section id="article-10" className="space-y-6 scroll-mt-40">
               <h2 className="text-3xl font-bold tracking-tight text-foreground leading-none flex items-baseline gap-4">
-                <span className="text-sm font-mono opacity-20">Art. 05</span>
+                <span className="text-sm font-mono opacity-20">Art. 10</span>
                 <span>準拠法・裁判管轄</span>
               </h2>
               <div className="p-10 rounded-[2.5rem] border border-foreground/10 text-center space-y-4">
