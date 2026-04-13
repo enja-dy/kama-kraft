@@ -8,9 +8,8 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight, Truck, CreditCard, Building2, Apple, Wallet, CheckCircle2, ShieldCheck } from "lucide-react";
 
 export default function PaymentPage() {
-  const { cart, totalPrice } = useCart();
+  const { cart, totalPrice, paymentMethod, setPaymentMethod } = useCart();
   const [mounted, setMounted] = useState(false);
-  const [paymentMethod, setPaymentMethod] = useState("card");
   
   const islandFee = 0; 
 

@@ -17,15 +17,23 @@ export default function ShippingPage() {
   const [mounted, setMounted] = useState(false);
   
   // フォーム状態
-  const [zip, setZip] = useState("");
-  const [isIsland, setIsIsland] = useState(false);
-  const [islandFee, setIslandFee] = useState(0);
-  const [selectedDate, setSelectedDate] = useState("");
-  const [selectedTime, setSelectedTime] = useState("指定なし");
+  const { 
+    shippingInfo, 
+    setShippingInfo 
+  } = useCart();
+  
+  const [zip, setZip] = useState(shippingInfo.zip || "");
+  const [isIsland, setIsIsland] = useState(shippingInfo.islandFee > 0);
+  const [islandFee, setIslandFee] = useState(shippingInfo.islandFee || 0);
+  const [selectedDate, setSelectedDate] = useState(shippingInfo.date || "");
+  const [selectedTime, setSelectedTime] = useState(shippingInfo.time || "指定なし");
   
   // 住所・都道府県の状態
-  const [prefecture, setPrefecture] = useState("");
-  const [address, setAddress] = useState("");
+  const [name, setName] = useState(shippingInfo.name || "");
+  const [email, setEmail] = useState(shippingInfo.email || "");
+  const [prefecture, setPrefecture] = useState(shippingInfo.prefecture || "");
+  const [address, setAddress] = useState(shippingInfo.address || "");
+  const [building, setBuilding] = useState(shippingInfo.building || "");
   const [isLoadingAddress, setIsLoadingAddress] = useState(false);
 
   useEffect(() => {
@@ -131,11 +139,23 @@ export default function ShippingPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-3">
                     <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40 text-left block">お名前</label>
-                    <input type="text" placeholder="鎌倉 太郎" className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all placeholder:text-foreground/20" />
+                    <input 
+                      type="text" 
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      placeholder="鎌倉 太郎" 
+                      className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all placeholder:text-foreground/20" 
+                    />
                   </div>
                   <div className="space-y-3">
                     <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40 text-left block">メールアドレス</label>
-                    <input type="email" placeholder="kamakura@example.com" className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all placeholder:text-foreground/20" />
+                    <input 
+                      type="email" 
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="kamakura@example.com" 
+                      className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all placeholder:text-foreground/20" 
+                    />
                   </div>
                 </div>
               </section>
@@ -275,7 +295,13 @@ export default function ShippingPage() {
                 </div>
                 <div className="space-y-3 text-left">
                   <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/40 block">建物名・部屋番号（任意）</label>
-                  <input type="text" placeholder="鎌倉ヒルズ 101" className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all placeholder:text-foreground/20" />
+                  <input 
+                    type="text" 
+                    value={building}
+                    onChange={(e) => setBuilding(e.target.value)}
+                    placeholder="鎌倉ヒルズ 101" 
+                    className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all placeholder:text-foreground/20" 
+                  />
                 </div>
               </section>
 
@@ -327,6 +353,19 @@ export default function ShippingPage() {
                 </p>
                 <Link 
                   href="/checkout/payment"
+                  onClick={() => {
+                    setShippingInfo({
+                      name,
+                      email,
+                      zip,
+                      prefecture,
+                      address,
+                      building,
+                      date: selectedDate,
+                      time: selectedTime,
+                      islandFee
+                    });
+                  }}
                   className="w-full md:w-auto min-w-[300px] bg-foreground text-background py-6 px-12 flex items-center justify-center gap-3 hover:scale-[1.02] transition-all font-bold tracking-[0.3em] text-xs uppercase shadow-2xl shadow-foreground/20 group active:scale-[0.98]"
                 >
                   お支払い方法の選択

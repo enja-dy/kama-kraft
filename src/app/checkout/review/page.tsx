@@ -8,43 +8,52 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight, Truck, MapPin, Calendar, CreditCard, CheckCircle2, PackageCheck } from "lucide-react";
 
 export default function ReviewPage() {
-  const { cart, totalPrice, clearCart } = useCart();
+  const { cart, totalPrice, clearCart, shippingInfo, paymentMethod } = useCart();
   const [mounted, setMounted] = useState(false);
   const [isOrdered, setIsOrdered] = useState(false);
-  
-  // モックデータ（本来は前のページから取得）
-  const shippingInfo = {
-    name: "鎌倉 太郎",
-    email: "kamakura@example.com",
-    address: "〒248-0000 神奈川県鎌倉市雪ノ下 1-2-3 鎌倉ヒルズ 101",
-  };
-
-  const deliverySchedule = {
-    date: "2024年4月25日",
-    time: "午前中",
-  };
-
-  const paymentInfo = {
-    type: "クレジットカード",
-    detail: "Visa **** 4242",
-  };
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-  }, []);
+    // Stripeから戻ってきた時のURLパラメータチェック
+    const query = new URLSearchParams(window.location.search);
+    if (query.get("success")) {
+      setIsOrdered(true);
+      clearCart();
+    }
+  }, [clearCart]);
 
-  const formattedPrice = (price: number) => {
-    if (!mounted) return `¥${price.toLocaleString()}`;
-    return new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(price);
-  };
+  const handleOrder = async () => {
+    if (paymentMethod === "bank") {
+      setIsOrdered(true);
+      clearCart();
+      return;
+    }
 
-  const handleOrder = () => {
-    setIsOrdered(true);
-    // 3秒後にカートをクリアして完了ページへ（プロトタイプ演出）
-    setTimeout(() => {
-      // 本来はここでAPI呼び出し
-      // clearCart();
-    }, 3000);
+    // Stripe Checkout
+    setLoading(true);
+    try {
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          items: cart,
+          success_url: `${window.location.origin}/checkout/review?success=true`,
+          cancel_url: `${window.location.origin}/checkout/review?canceled=true`,
+        }),
+      });
+
+      const { sessionId } = await response.json();
+      const stripe = await (await import('@/lib/stripe')).default();
+      if (stripe) {
+        await stripe.redirectToCheckout({ sessionId });
+      }
+    } catch (error) {
+      console.error('Payment Error:', error);
+      alert('決済処理中にエラーが発生しました。');
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (!mounted) return <div className="min-h-screen bg-[#fbfbfb] dark:bg-[#050505]" />;
@@ -131,15 +140,18 @@ export default function ReviewPage() {
                 <div className="space-y-4">
                   <div className="flex gap-8">
                     <span className="text-[10px] uppercase tracking-widest font-bold text-foreground/30 min-w-[80px]">お名前</span>
-                    <span className="text-sm font-bold">{shippingInfo.name} 様</span>
+                    <span className="text-sm font-bold">{shippingInfo.name || "未指定"} 様</span>
                   </div>
                   <div className="flex gap-8">
                     <span className="text-[10px] uppercase tracking-widest font-bold text-foreground/30 min-w-[80px]">メール</span>
-                    <span className="text-sm">{shippingInfo.email}</span>
+                    <span className="text-sm">{shippingInfo.email || "未指定"}</span>
                   </div>
                   <div className="flex gap-8">
                     <span className="text-[10px] uppercase tracking-widest font-bold text-foreground/30 min-w-[80px]">住所</span>
-                    <span className="text-sm leading-relaxed">{shippingInfo.address}</span>
+                    <span className="text-sm leading-relaxed">
+                      〒{shippingInfo.zip} {shippingInfo.prefecture} {shippingInfo.address}<br />
+                      {shippingInfo.building}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -156,11 +168,11 @@ export default function ReviewPage() {
                 <div className="space-y-4">
                   <div className="flex gap-8">
                     <span className="text-[10px] uppercase tracking-widest font-bold text-foreground/30 min-w-[80px]">希望日</span>
-                    <span className="text-sm font-bold">{deliverySchedule.date}</span>
+                    <span className="text-sm font-bold">{shippingInfo.date || "最短"}</span>
                   </div>
                   <div className="flex gap-8">
                     <span className="text-[10px] uppercase tracking-widest font-bold text-foreground/30 min-w-[80px]">時間帯</span>
-                    <span className="text-sm font-bold">{deliverySchedule.time}</span>
+                    <span className="text-sm font-bold">{shippingInfo.time}</span>
                   </div>
                 </div>
               </div>
@@ -177,11 +189,15 @@ export default function ReviewPage() {
                 <div className="space-y-4">
                   <div className="flex gap-8">
                     <span className="text-[10px] uppercase tracking-widest font-bold text-foreground/30 min-w-[80px]">決済種別</span>
-                    <span className="text-sm font-bold">{paymentInfo.type}</span>
+                    <span className="text-sm font-bold">
+                      {paymentMethod === "card" ? "クレジットカード" : "銀行振込"}
+                    </span>
                   </div>
                   <div className="flex gap-8">
                     <span className="text-[10px] uppercase tracking-widest font-bold text-foreground/30 min-w-[80px]">詳細</span>
-                    <span className="text-sm font-mono tracking-wider">{paymentInfo.detail}</span>
+                    <span className="text-sm font-mono tracking-wider">
+                      {paymentMethod === "card" ? "Stripeによる安全な決済" : "別途メールでお知らせ"}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -196,10 +212,11 @@ export default function ReviewPage() {
               </div>
               <button 
                 onClick={handleOrder}
-                className="w-full md:w-auto min-w-[300px] bg-foreground text-background py-6 px-12 flex items-center justify-center gap-3 hover:scale-[1.02] transition-all font-bold tracking-[0.3em] text-xs uppercase shadow-2xl shadow-foreground/40 group active:scale-[0.98] animate-pulse-slow"
+                disabled={loading}
+                className={`w-full md:w-auto min-w-[300px] bg-foreground text-background py-6 px-12 flex items-center justify-center gap-3 hover:scale-[1.02] transition-all font-bold tracking-[0.3em] text-xs uppercase shadow-2xl shadow-foreground/40 group active:scale-[0.98] ${loading ? 'opacity-50 cursor-not-allowed' : 'animate-pulse-slow'}`}
               >
-                注文を確定する
-                <CheckCircle2 size={20} className="group-hover:scale-110 transition-transform" />
+                {loading ? '決済処理中...' : '注文を確定する'}
+                {!loading && <CheckCircle2 size={20} className="group-hover:scale-110 transition-transform" />}
               </button>
             </div>
           </div>
@@ -249,7 +266,7 @@ export default function ReviewPage() {
                   <motion.span 
                     className="text-3xl leading-none"
                   >
-                    {formattedPrice(totalPrice)}
+                    {formattedPrice(totalPrice + shippingInfo.islandFee)}
                   </motion.span>
                 </div>
               </div>
