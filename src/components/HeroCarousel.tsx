@@ -37,7 +37,8 @@ export const HeroCarousel = () => {
             alt="Premium Ulin Furniture"
             fill
             priority
-            className="object-cover brightness-75"
+            className="object-cover brightness-75 transition-all duration-1000"
+            style={{ objectPosition: "left 30%" }}
           />
         </motion.div>
       </AnimatePresence>
