@@ -109,14 +109,10 @@ export const FeaturedProduct = () => {
                 <span className="text-sm text-foreground/40 italic">税込</span>
               </div>
 
-              <div className="grid grid-cols-2 gap-4 text-sm text-foreground/60">
+              <div className="space-y-4 text-sm text-foreground/60">
                 <div className="flex flex-col gap-1">
                   <span className="uppercase tracking-widest text-[10px] font-bold opacity-50">サイズ</span>
-                  <span>180cm × 90cm × 厚さ6cm</span>
-                </div>
-                <div className="flex flex-col gap-1">
-                  <span className="uppercase tracking-widest text-[10px] font-bold opacity-50">重量</span>
-                  <span>約 120kg</span>
+                  <span>180cm × 90cm × 高さ35cm</span>
                 </div>
               </div>
 
