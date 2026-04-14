@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useCart } from "@/context/CartContext";
 import Image from "next/image";
@@ -12,12 +12,17 @@ export default function ReviewPage() {
   const [mounted, setMounted] = useState(false);
   const [isOrdered, setIsOrdered] = useState(false);
   const [loading, setLoading] = useState(false);
+  const clearDone = useRef(false);
 
   useEffect(() => {
     setMounted(true);
+    
+    if (clearDone.current) return;
+
     // Stripeから戻ってきた時のURLパラメータチェック
     const query = new URLSearchParams(window.location.search);
     if (query.get("success")) {
+      clearDone.current = true;
       setIsOrdered(true);
       clearCart();
     }
