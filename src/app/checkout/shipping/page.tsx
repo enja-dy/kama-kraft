@@ -36,6 +36,27 @@ export default function ShippingPage() {
   const [building, setBuilding] = useState(shippingInfo.building || "");
   const [isLoadingAddress, setIsLoadingAddress] = useState(false);
 
+  // 通過表示の安定化
+  const formattedPrice = (price: number) => {
+    if (!mounted) return `¥${price.toLocaleString()}`;
+    return new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(price);
+  };
+
+  // 最短お届け日の計算
+  const minDeliveryDate = useMemo(() => {
+    if (!mounted) return "";
+    const date = new Date();
+    // 通常5営業日 + 週末を考慮して安全に7日後
+    let leadTime = isIsland ? 12 : 7; 
+    date.setDate(date.getDate() + leadTime);
+    
+    // YYYY-MM-DD形式に変換（ローカルタイムベース）
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }, [isIsland, mounted]);
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -88,27 +109,6 @@ export default function ShippingPage() {
         }
       }
     }
-  };
-
-  // 最短お届け日の計算
-  const minDeliveryDate = useMemo(() => {
-    if (!mounted) return "";
-    const date = new Date();
-    // 通常5営業日 + 週末を考慮して安全に7日後
-    let leadTime = isIsland ? 12 : 7; 
-    date.setDate(date.getDate() + leadTime);
-    
-    // YYYY-MM-DD形式に変換（ローカルタイムベース）
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    return `${year}-${month}-${day}`;
-  }, [isIsland, mounted]);
-
-  // 通過表示の安定化
-  const formattedPrice = (price: number) => {
-    if (!mounted) return `¥${price.toLocaleString()}`;
-    return new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(price);
   };
 
   if (!mounted) return <div className="min-h-screen bg-[#fbfbfb] dark:bg-[#050505]" />;
