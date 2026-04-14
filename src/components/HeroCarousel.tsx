@@ -4,11 +4,11 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
-const images = [
-  "/urin02.jpeg",
-  "/hero-2.png",
-  "/hero-3.png",
-  "/hero-4.png",
+const slides = [
+  { url: "/urin02.jpeg", position: "left 30%" },
+  { url: "/urin06.jpeg", position: "right 40%" }, // 窓を隠すため右寄り
+  { url: "/hero-3.png", position: "center" },
+  { url: "/urin07.jpeg", position: "left bottom" }, // 室外機を隠すため左下寄り
 ];
 
 export const HeroCarousel = () => {
@@ -16,7 +16,7 @@ export const HeroCarousel = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % images.length);
+      setCurrentIndex((prev) => (prev + 1) % slides.length);
     }, 5000);
     return () => clearInterval(timer);
   }, []);
@@ -33,12 +33,12 @@ export const HeroCarousel = () => {
           className="absolute inset-0"
         >
           <Image
-            src={images[currentIndex]}
+            src={slides[currentIndex].url}
             alt="Premium Ulin Furniture"
             fill
             priority
             className="object-cover brightness-75 transition-all duration-1000"
-            style={{ objectPosition: "left 30%" }}
+            style={{ objectPosition: slides[currentIndex].position }}
           />
         </motion.div>
       </AnimatePresence>
@@ -65,7 +65,7 @@ export const HeroCarousel = () => {
 
       {/* Progress Indicators */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-20">
-        {images.map((_, i) => (
+        {slides.map((_, i) => (
           <div
             key={i}
             className={`h-[2px] w-8 transition-all duration-700 ${i === currentIndex ? "bg-white" : "bg-white/20"}`}
