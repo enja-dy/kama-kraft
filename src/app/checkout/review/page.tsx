@@ -233,13 +233,7 @@ export default function ReviewPage() {
               </div>
             </div>
 
-            <div className="pt-10 flex flex-col md:flex-row items-center justify-between gap-8 border-t border-foreground/5">
-              <div className="flex items-center gap-4 text-left">
-                <PackageCheck className="text-[#3d2b1f] dark:text-white/40" size={24} />
-                <p className="text-xs text-foreground/40 max-w-md leading-relaxed">
-                  注文を確定すると、契約が成立いたします。職人による最終調整後の発送となるため、キャンセル等については規約をご確認ください。
-                </p>
-              </div>
+            <div className="pt-10 flex flex-col md:flex-row items-center justify-end gap-8 border-t border-foreground/5">
               <button 
                 onClick={handleOrder}
                 disabled={loading}
