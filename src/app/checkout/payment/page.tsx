@@ -53,56 +53,32 @@ export default function PaymentPage() {
             </div>
 
             <div className="space-y-10">
-              {/* Express Checkout */}
-              <section className="space-y-6">
-                <div className="flex items-center justify-between">
-                  <h2 className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground text-left">エクスプレスチェックアウト</h2>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {/* Apple Pay */}
-                  <button className="flex items-center justify-center gap-3 bg-black text-white p-5 rounded-2xl hover:bg-black/90 transition-all font-bold border border-white/30 shadow-lg shadow-black/50">
-                    <Apple size={20} /> Pay
-                  </button>
-                  
-                  {/* Google Pay - Stable Text + SVG G Approach */}
-                  <button className="flex items-center justify-center gap-2 bg-white border border-black/30 p-5 rounded-2xl hover:bg-black/[0.02] transition-all font-bold text-black group overflow-hidden shadow-lg shadow-black/5">
-                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
-                      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-                    </svg>
-                    <span className="text-xl font-bold tracking-tight">Pay</span>
-                  </button>
-                </div>
-              </section>
-
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <span className="w-full border-t border-foreground/5"></span>
-                </div>
-                <div className="relative flex justify-center text-[10px] tracking-[0.4em] uppercase font-bold">
-                  <span className="bg-[#fbfbfb] dark:bg-[#050505] px-6 text-foreground/20">または</span>
-                </div>
-              </div>
-
               {/* Payment Methods */}
               <section className="space-y-6">
                 <div className="grid grid-cols-1 gap-4">
                   
-                  {/* Credit Card Option */}
+                  {/* Credit Card & Digital Wallet Option */}
                   <div 
                     onClick={() => setPaymentMethod("card")}
-                    className={`p-6 rounded-3xl border transition-all cursor-pointer group ${paymentMethod === "card" ? "border-foreground bg-white dark:bg-white/5 shadow-xl" : "border-foreground/5 bg-transparent opacity-60 hover:opacity-100"}`}
+                    className={`p-8 rounded-[2.5rem] border transition-all cursor-pointer group ${paymentMethod === "card" ? "border-foreground bg-white dark:bg-white/5 shadow-2xl" : "border-foreground/5 bg-transparent opacity-60 hover:opacity-100"}`}
                   >
-                    <div className="flex items-center justify-between mb-2">
-                       <div className="flex items-center gap-4">
-                        <div className={`p-3 rounded-xl ${paymentMethod === "card" ? "bg-foreground text-background" : "bg-foreground/5 text-foreground"}`}>
-                          <CreditCard size={20} />
+                    <div className="flex items-center justify-between">
+                       <div className="flex items-center gap-6">
+                        <div className={`p-4 rounded-2xl ${paymentMethod === "card" ? "bg-foreground text-background" : "bg-foreground/5 text-foreground"}`}>
+                          <CreditCard size={24} />
                         </div>
                         <div className="text-left">
-                          <p className="text-sm font-bold tracking-tight">クレジットカード</p>
-                          <p className="text-[10px] opacity-40 font-bold uppercase tracking-widest mt-0.5 whitespace-nowrap">Visa, Mastercard, JCB, AMEX</p>
+                          <p className="text-lg font-bold tracking-tight mb-1">クレジットカード / デジタル決済</p>
+                          <div className="flex items-center gap-4 flex-wrap">
+                            <p className="text-[10px] opacity-40 font-bold uppercase tracking-widest whitespace-nowrap">Visa, Mastercard, JCB, AMEX</p>
+                            <span className="w-1 h-1 bg-foreground/10 rounded-full" />
+                            <div className="flex items-center gap-2">
+                              <Apple size={14} className="opacity-60" />
+                              <svg width="32" height="13" viewBox="0 0 32 13" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-60">
+                                <path d="M4.532 1.096c-.952 0-1.896.38-2.584.996C1.26 2.708.912 3.652.912 4.604c0 .952.348 1.896.936 2.612.688.616 1.632.996 2.684.996 1.052 0 1.996-.38 2.684-.996l-1.008-.948c-.46.36-1.032.612-1.676.612-.644 0-1.216-.252-1.676-.612-.46-.36-.72-.888-.72-1.664s.26-1.304.72-1.664c.46-.36 1.032-.612 1.676-.612.644 0 1.152.252 1.612.612l1.008-.948c-.688-.616-1.632-.912-2.572-.912zm6.204.144c-1.308 0-2.364 1.056-2.364 2.364s1.056 2.364 2.364 2.364 2.364-1.056 2.364-2.364-1.056-2.364-2.364-2.364zm0 3.756c-.756 0-1.392-.636-1.392-1.392s.636-1.392 1.392-1.392 1.392.636 1.392 1.392-.636 1.392-1.392 1.392zm4.392-3.612h-1c-.132 0-.24.108-.24.24v4.248c0 .132.108.24.24.24h1c.132 0 .24-.108.24-.24V1.628c0-.132-.108-.24-.24-.24zm4.248.144c-1.308 0-2.364 1.056-2.364 2.364s1.056 2.364 2.364 2.364c.54 0 1.032-.18 1.428-.48v.24c0 .756-.636 1.392-1.392 1.392h-.036c-.516 0-.96-.288-1.2-.72l-.84.444c.42.756 1.176 1.248 2.076 1.248.132 0 .192.012.216.012 1.308 0 2.364-1.056 2.364-2.364V1.628c0-.132-.108-.24-.24-.24h-1c-.132 0-.24.108-.24.24v.24c-.396-.3-.888-.48-1.428-.48zm0 3.756c-.756 0-1.392-.636-1.392-1.392s.636-1.392 1.392-1.392 1.392.636 1.392 1.392-.636 1.392-1.392 1.392zm4.656-3.756c-.132 0-.24.108-.24.24v4.248c0 .132.108.24.24.24h1c.132 0 .24-.108.24-.24V1.628c0-.132-.108-.24-.24-.24h-1zm4.62.144c-1.308 0-2.364 1.056-2.364 2.364s1.056 2.364 2.364 2.364c.912 0 1.668-.516 2.076-1.272l-.84-.444c-.24.432-.684.72-1.2.72-.756 0-1.392-.636-1.392-1.392 0-.756.636-1.392 1.392-1.392.516 0 .96.288 1.2.72l.84-.444c-.42-.756-1.164-1.272-2.076-1.272z" fill="currentColor"/>
+                              </svg>
+                            </div>
+                          </div>
                         </div>
                       </div>
                       <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${paymentMethod === "card" ? "border-foreground bg-foreground" : "border-foreground/10"}`}>
@@ -118,27 +94,10 @@ export default function PaymentPage() {
                           exit={{ height: 0, opacity: 0 }}
                           className="overflow-hidden"
                         >
-                          <div className="pt-8 space-y-6">
-                            <div className="space-y-3 text-left">
-                              <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/80 block">カード番号</label>
-                              <div className="relative">
-                                <input type="text" placeholder="0000 0000 0000 0000" className="w-full bg-[#fbfbfb] dark:bg-black/20 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all placeholder:text-foreground/20 font-mono tracking-[0.2em]" />
-                                <div className="absolute right-5 top-1/2 -translate-y-1/2 flex gap-2 grayscale brightness-125 opacity-30">
-                                  <div className="w-8 h-5 bg-foreground/10 rounded" />
-                                  <div className="w-8 h-5 bg-foreground/10 rounded" />
-                                  <div className="w-8 h-5 bg-foreground/10 rounded" />
-                                </div>
-                              </div>
-                            </div>
-                            <div className="grid grid-cols-2 gap-6">
-                              <div className="space-y-3 text-left">
-                                <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/80 block">有効期限 (月/年)</label>
-                                <input type="text" placeholder="MM / YY" className="w-full bg-[#fbfbfb] dark:bg-black/20 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all placeholder:text-foreground/20 font-mono" />
-                              </div>
-                              <div className="space-y-3 text-left">
-                                <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/80 block">セキュリティコード</label>
-                                <input type="text" placeholder="CVC" className="w-full bg-[#fbfbfb] dark:bg-black/20 border border-foreground/10 p-5 rounded-2xl focus:border-[#3d2b1f] outline-none transition-all placeholder:text-foreground/20 font-mono" />
-                              </div>
+                          <div className="pt-8 space-y-4">
+                            <div className="p-5 bg-foreground/5 rounded-2xl text-[11px] leading-relaxed text-foreground/70 text-left flex items-center gap-4">
+                              <span className="shrink-0 w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                              Apple Pay, Google Pay もご利用いただけます。次の画面でお支払いいただけます。
                             </div>
                           </div>
                         </motion.div>
