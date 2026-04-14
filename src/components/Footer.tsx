@@ -12,9 +12,7 @@ export const Footer = () => {
           <div className="space-y-6">
             <h2 className="text-2xl font-bold tracking-tighter">KamaKraft</h2>
             <p className="text-white text-sm leading-relaxed tracking-wide font-medium">
-              ボルネオの深林で育まれた「鉄の木」ウリン。<br />
-              世代を超えて受け継がれる極上の工芸美と、<br />
-              時と共に深まる風格。
+              100年レベルの耐久性・耐水性・耐虫性に優れ、シロアリや塩害にも負けない最高品質の「鉄の木」ウリン。世代を超えて受け継がれる極上の工芸美と、時と共に深まる風格。
             </p>
           </div>
 
