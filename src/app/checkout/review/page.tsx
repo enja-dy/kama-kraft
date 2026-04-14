@@ -58,6 +58,7 @@ export default function ReviewPage() {
           items: cart,
           success_url,
           cancel_url,
+          email: shippingInfo.email,
         }),
       });
 
@@ -244,8 +245,8 @@ export default function ReviewPage() {
                 disabled={loading}
                 className={`w-full md:w-auto min-w-[300px] bg-foreground text-background py-6 px-12 flex items-center justify-center gap-3 hover:scale-[1.02] transition-all font-bold tracking-[0.3em] text-xs uppercase shadow-2xl shadow-foreground/40 group active:scale-[0.98] ${loading ? 'opacity-50 cursor-not-allowed' : 'animate-pulse-slow'}`}
               >
-                {loading ? '決済処理中...' : '注文を確定する'}
-                {!loading && <CheckCircle2 size={20} className="group-hover:scale-110 transition-transform" />}
+                {loading ? '決済処理中...' : 'お支払い手続きへ進む'}
+                {!loading && <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />}
               </button>
             </div>
           </div>
