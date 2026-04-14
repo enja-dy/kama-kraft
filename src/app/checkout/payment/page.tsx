@@ -72,12 +72,10 @@ export default function PaymentPage() {
                           <div className="flex items-center gap-4 flex-wrap">
                             {/* Card Brand Logos */}
                             <div className="flex items-center gap-3 opacity-50 grayscale brightness-150">
-                              {/* VISA - High Precision SVG */}
-                              <svg width="34" height="15" viewBox="0 0 100 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-[11px] w-auto">
-                                <path d="M37.9 0.3H31.7L25.3 22H31.6L37.9 0.3Z" fill="currentColor"/>
-                                <path d="M15.4 0.3H1.2V3.7L7.9 22H14.1L20.8 3.7C20.8 3.7 15.4 0.3 15.4 0.3Z" fill="currentColor"/>
-                                <path d="M60.2 0.3H50.8L44.4 22H50.7L52.1 17.5H62.5L63.9 22H70.3L63.9 0.3H60.2ZM53.6 12.8L57.3 3.7L60.9 12.8H53.6Z" fill="currentColor"/>
-                                <path d="M96.7 0.3C91.9 0.3 88.7 2.4 88.7 6.4C88.7 11.2 95.3 11.4 95.3 14.1C95.3 15 94.4 15.6 92.6 15.6C90.5 15.6 88.8 15 87.3 14.3L86.4 19.8C88.1 20.6 90.3 21 92.5 21C97.8 21 101.4 18.2 101.4 13.9C101.4 8.7 94.8 8.4 94.8 5.7C94.8 4.9 95.7 4.3 97.2 4.3C99 4.3 100.5 4.8 101.9 5.4L102.8 0C101 0.3 98.9 0.3 96.7 0.3Z" fill="currentColor"/>
+                              {/* VISA - Pro SVG */}
+                              <svg width="34" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-[12px] w-auto">
+                                <path d="M13.9 4.54l-1.32 8.44h1.9l1.32-8.44H13.9zM20.67 4.54c-.32-.13-.7-.21-1.11-.21-1.2 0-2.05.83-2.05 1.59 0 .69.61 1.1 1.14 1.39.57.29.76.76.76 1.1 0 .53-.65.77-1.11.77-.46 0-.87-.09-1.29-.27l-.19-.1-.2.85c.34.15 1 .21 1.48.21 1.55 0 2.54-.76 2.54-1.7 0-1.1-2.35-1.14-2.35-1.63s.5-.76 1.05-.76c.46 0 .8.09 1.14.25l.19.1.19-.85zM8.18 4.54H5.06l-.34 1.42c.76.15 1.58.53 2.11.83l-1.63 8.23h1.9l3.41-10.48H8.18zM24.77 4.54h-1.03c-.31 0-.55.17-.68.48L19.98 12.98h1.9l.41-1.12h1.71l.16 1.12h1.66l-1.05-8.44zM22.84 10.32l.57-4L23.75 10.32h-.91z" fill="currentColor"/>
+                                <path d="M1.2 4.54L0 5.46 3.65 14.54 5.55 4.54z" fill="currentColor"/>
                               </svg>
                               {/* Mastercard */}
                               <svg width="24" height="15" viewBox="0 0 24 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-4 w-auto">
