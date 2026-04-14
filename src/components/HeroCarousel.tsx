@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 const images = [
-  "/hero-1.png",
+  "/urin02.jpeg",
   "/hero-2.png",
   "/hero-3.png",
   "/hero-4.png",
