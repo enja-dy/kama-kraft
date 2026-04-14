@@ -71,26 +71,48 @@ export default function PaymentPage() {
                           <p className="text-lg font-bold tracking-tight mb-2">クレジットカード / デジタル決済</p>
                           <div className="flex items-center gap-4 flex-wrap">
                             {/* Card Brand Logos */}
-                            <div className="flex items-center gap-3 opacity-50 grayscale brightness-150">
-                              {/* VISA - Pro SVG */}
-                              <svg width="34" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-[12px] w-auto">
-                                <path d="M13.9 4.54l-1.32 8.44h1.9l1.32-8.44H13.9zM20.67 4.54c-.32-.13-.7-.21-1.11-.21-1.2 0-2.05.83-2.05 1.59 0 .69.61 1.1 1.14 1.39.57.29.76.76.76 1.1 0 .53-.65.77-1.11.77-.46 0-.87-.09-1.29-.27l-.19-.1-.2.85c.34.15 1 .21 1.48.21 1.55 0 2.54-.76 2.54-1.7 0-1.1-2.35-1.14-2.35-1.63s.5-.76 1.05-.76c.46 0 .8.09 1.14.25l.19.1.19-.85zM8.18 4.54H5.06l-.34 1.42c.76.15 1.58.53 2.11.83l-1.63 8.23h1.9l3.41-10.48H8.18zM24.77 4.54h-1.03c-.31 0-.55.17-.68.48L19.98 12.98h1.9l.41-1.12h1.71l.16 1.12h1.66l-1.05-8.44zM22.84 10.32l.57-4L23.75 10.32h-.91z" fill="currentColor"/>
-                                <path d="M1.2 4.54L0 5.46 3.65 14.54 5.55 4.54z" fill="currentColor"/>
-                              </svg>
-                              {/* Mastercard */}
-                              <svg width="24" height="15" viewBox="0 0 24 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-4 w-auto">
-                                <circle cx="7.5" cy="7.5" r="7.5" fill="currentColor" fillOpacity="0.5" />
-                                <circle cx="16.5" cy="7.5" r="7.5" fill="currentColor" fillOpacity="0.5" />
-                              </svg>
+                            <div className="flex items-center gap-4 flex-wrap select-none">
+                              {/* VISA - Pro Simulation */}
+                              <div className="flex items-baseline opacity-80 group-hover:opacity-100 transition-opacity">
+                                <span className="text-[13px] font-[1000] italic tracking-[-0.05em] leading-none" style={{ fontFamily: 'var(--font-geist-sans), system-ui, sans-serif' }}>V</span>
+                                <span className="text-[11px] font-[1000] italic tracking-[-0.05em] leading-none" style={{ fontFamily: 'var(--font-geist-sans), system-ui, sans-serif' }}>I</span>
+                                <span className="text-[12px] font-[1000] italic tracking-[-0.05em] leading-none" style={{ fontFamily: 'var(--font-geist-sans), system-ui, sans-serif' }}>S</span>
+                                <span className="text-[12px] font-[1000] italic tracking-[-0.05em] leading-none" style={{ fontFamily: 'var(--font-geist-sans), system-ui, sans-serif' }}>A</span>
+                              </div>
+                              {/* Mastercard - CSS Circles */}
+                              <div className="flex items-center opacity-70 group-hover:opacity-100 transition-opacity scale-90">
+                                <div className="w-5 h-5 rounded-full bg-foreground/50" />
+                                <div className="w-5 h-5 rounded-full bg-foreground/50 -ml-2.5" />
+                              </div>
                               {/* AMEX */}
-                              <div className="border border-foreground/50 rounded-sm px-1 py-0.5 flex items-center justify-center bg-foreground/5">
-                                <span className="text-[7px] font-black tracking-tighter leading-none">AMEX</span>
+                              <div className="border-[1.5px] border-foreground/30 rounded-[3px] px-1.5 py-0.5 flex items-center justify-center opacity-60 group-hover:opacity-100 transition-opacity">
+                                <span className="text-[8px] font-black tracking-tighter leading-none">AMEX</span>
                               </div>
                               {/* JCB */}
-                              <div className="border border-foreground/50 rounded-sm px-1 py-0.5 flex items-center justify-center bg-foreground/5">
-                                <span className="text-[7px] font-black tracking-tighter italic leading-none">JCB</span>
+                              <div className="border-[1.5px] border-foreground/30 rounded-[3px] px-1.5 py-0.5 flex items-center justify-center opacity-60 group-hover:opacity-100 transition-opacity">
+                                <span className="text-[8px] font-black tracking-tighter italic leading-none">JCB</span>
                               </div>
                             </div>
+
+                            <span className="w-1 h-1 bg-foreground/10 rounded-full" />
+
+                            {/* Digital Wallet Logos */}
+                            <div className="flex items-center gap-3 opacity-60 group-hover:opacity-100 transition-opacity">
+                              <div className="flex items-center gap-1">
+                                <Apple size={14} />
+                                <span className="text-[10px] font-[1000] tracking-tight">Pay</span>
+                              </div>
+                              <div className="flex items-center gap-1.5">
+                                <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="currentColor"/>
+                                  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="currentColor"/>
+                                  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="currentColor"/>
+                                  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="currentColor"/>
+                                </svg>
+                                <span className="text-[10px] font-[1000] tracking-tight">Pay</span>
+                              </div>
+                            </div>
+                          </div>
 
                             <span className="w-1 h-1 bg-foreground/10 rounded-full" />
 
