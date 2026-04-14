@@ -188,10 +188,7 @@ export default function PaymentPage() {
                 </div>
               </div>
 
-              <div className="pt-10 flex flex-col md:flex-row items-center justify-between gap-8 border-t border-foreground/5">
-                <p className="text-xs text-foreground/40 max-w-md text-left leading-relaxed">
-                  [注文内容を確定する] ボタンを押すと、最終確認画面へ進みます。
-                </p>
+              <div className="pt-10 flex flex-col md:flex-row items-center justify-end gap-8 border-t border-foreground/5">
                 <Link 
                   href="/checkout/review"
                   className="w-full md:w-auto min-w-[300px] bg-foreground text-background py-6 px-12 flex items-center justify-center gap-3 hover:scale-[1.02] transition-all font-bold tracking-[0.3em] text-xs uppercase shadow-2xl shadow-foreground/20 group active:scale-[0.98]"
