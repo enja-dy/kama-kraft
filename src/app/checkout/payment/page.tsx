@@ -72,9 +72,12 @@ export default function PaymentPage() {
                           <div className="flex items-center gap-4 flex-wrap">
                             {/* Card Brand Logos */}
                             <div className="flex items-center gap-3 opacity-50 grayscale brightness-150">
-                              {/* VISA */}
-                              <svg width="34" height="20" viewBox="0 0 45 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-2.5 w-auto">
-                                <path d="M17.43 0.3H14.8L13.15 11h2.63l1.65-10.7ZM25.03 0.3c-2.3 0-3.9 1-3.9 2.9 0 2.2 3.1 2.3 3.1 3.5 0 0.4-0.4 0.7-1.3 0.7-1 0-1.8-0.3-2.5-0.7l-0.4 2.5c0.7 0.3 2 0.5 3.1 0.5 2.5 0 4.2-1.2 4.2-3 0-2.3-3.1-2.4-3.1-3.4 0-0.3 0.3-0.6 1.1-0.6 0.9 0 1.5 0.2 2.1 0.5l0.4-2.4c-0.6-0.3-1.6-0.5-2.8-0.5ZM10.53 0.3H6.4L5.95 2.2c1 0.2 2.1 0.7 2.8 1.1L6.95 11H9.9L14.43 0.3H10.53ZM38.43 0.3h-2.1c-0.6 0-1.1 0.4-1.3 1L31.63 11h3.1l0.6-1.7h3.8l0.4 1.7h2.7L38.43 0.3Zm-2.6 6.8 1.4-3.9 0.8 3.9h-2.2Z" fill="currentColor"/>
+                              {/* VISA - High Precision SVG */}
+                              <svg width="34" height="15" viewBox="0 0 100 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-[11px] w-auto">
+                                <path d="M37.9 0.3H31.7L25.3 22H31.6L37.9 0.3Z" fill="currentColor"/>
+                                <path d="M15.4 0.3H1.2V3.7L7.9 22H14.1L20.8 3.7C20.8 3.7 15.4 0.3 15.4 0.3Z" fill="currentColor"/>
+                                <path d="M60.2 0.3H50.8L44.4 22H50.7L52.1 17.5H62.5L63.9 22H70.3L63.9 0.3H60.2ZM53.6 12.8L57.3 3.7L60.9 12.8H53.6Z" fill="currentColor"/>
+                                <path d="M96.7 0.3C91.9 0.3 88.7 2.4 88.7 6.4C88.7 11.2 95.3 11.4 95.3 14.1C95.3 15 94.4 15.6 92.6 15.6C90.5 15.6 88.8 15 87.3 14.3L86.4 19.8C88.1 20.6 90.3 21 92.5 21C97.8 21 101.4 18.2 101.4 13.9C101.4 8.7 94.8 8.4 94.8 5.7C94.8 4.9 95.7 4.3 97.2 4.3C99 4.3 100.5 4.8 101.9 5.4L102.8 0C101 0.3 98.9 0.3 96.7 0.3Z" fill="currentColor"/>
                               </svg>
                               {/* Mastercard */}
                               <svg width="24" height="15" viewBox="0 0 24 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-4 w-auto">
