@@ -71,23 +71,23 @@ export default function PaymentPage() {
                           <p className="text-lg font-bold tracking-tight mb-2">クレジットカード / デジタル決済</p>
                           <div className="flex items-center gap-4 flex-wrap">
                             {/* Card Brand Logos */}
-                            <div className="flex items-center gap-2.5 opacity-40grayscale brightness-125">
-                              {/* Visa */}
-                              <svg width="28" height="9" viewBox="0 0 28 9" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-foreground h-2.5 w-auto">
-                                <path d="M11.66 8.78h1.76l1.1-6.85h-1.75l-1.11 6.85zm6.82-6.66c-.4-.16-.92-.23-1.44-.23-1.58 0-2.7 1.1-2.7 2.1 0 .9.8 1.45 1.5 1.83.75.38 1 1 1 1.45 0 .7-.85 1-1.45 1-.6 0-1.15-.12-1.7-.35l-.25-.13-.25 1.63c.45.2.1.28 1.95.28 2.05 0 3.35-1 3.35-2.25 0-.75-.45-1.3-.1.45-1.7-.75-.38-1-1.45-.1.-45-.1.-2.1-.6-.23-1.15-.23-.65 0-1.15.18-1.55.33l.25.13.25-1.53zm-10.27-.19-1.63 4.54-.18-.87-.64-3.12c-.1-.5-.22-.55-.63-.55H2.52l.04.18c.55.13 1.18.3 1.55.51.22.12.28.23.35.53l1.18 4.45L7.4 1.93h1.81zm18.33 0h-1.35c-.41 0-.73.23-.9.64L24 8.78h1.85l.37-1.02h2.26l.21 1.02H30.5l-1.63-6.85zm-2.18 4.43.76-2.12.44 2.12h-1.2z" fill="currentColor"/>
+                            <div className="flex items-center gap-3 opacity-50 grayscale brightness-150">
+                              {/* VISA */}
+                              <svg width="34" height="20" viewBox="0 0 45 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-2.5 w-auto">
+                                <path d="M17.43 0.3H14.8L13.15 11h2.63l1.65-10.7ZM25.03 0.3c-2.3 0-3.9 1-3.9 2.9 0 2.2 3.1 2.3 3.1 3.5 0 0.4-0.4 0.7-1.3 0.7-1 0-1.8-0.3-2.5-0.7l-0.4 2.5c0.7 0.3 2 0.5 3.1 0.5 2.5 0 4.2-1.2 4.2-3 0-2.3-3.1-2.4-3.1-3.4 0-0.3 0.3-0.6 1.1-0.6 0.9 0 1.5 0.2 2.1 0.5l0.4-2.4c-0.6-0.3-1.6-0.5-2.8-0.5ZM10.53 0.3H6.4L5.95 2.2c1 0.2 2.1 0.7 2.8 1.1L6.95 11H9.9L14.43 0.3H10.53ZM38.43 0.3h-2.1c-0.6 0-1.1 0.4-1.3 1L31.63 11h3.1l0.6-1.7h3.8l0.4 1.7h2.7L38.43 0.3Zm-2.6 6.8 1.4-3.9 0.8 3.9h-2.2Z" fill="currentColor"/>
                               </svg>
                               {/* Mastercard */}
-                              <svg width="20" height="13" viewBox="0 0 20 13" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-foreground h-3.5 w-auto">
-                                <circle cx="6.5" cy="6.5" r="6.5" fill="currentColor" fillOpacity="0.4" />
-                                <circle cx="13.5" cy="6.5" r="6.5" fill="currentColor" fillOpacity="0.4" />
+                              <svg width="24" height="15" viewBox="0 0 24 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-4 w-auto">
+                                <circle cx="7.5" cy="7.5" r="7.5" fill="currentColor" fillOpacity="0.5" />
+                                <circle cx="16.5" cy="7.5" r="7.5" fill="currentColor" fillOpacity="0.5" />
                               </svg>
                               {/* AMEX */}
-                              <div className="border-[1.5px] border-foreground/40 rounded-[2px] px-1 py-0.5 leading-none">
-                                <span className="text-[7px] font-black tracking-tighter">AMEX</span>
+                              <div className="border border-foreground/50 rounded-sm px-1 py-0.5 flex items-center justify-center bg-foreground/5">
+                                <span className="text-[7px] font-black tracking-tighter leading-none">AMEX</span>
                               </div>
                               {/* JCB */}
-                              <div className="border-[1.5px] border-foreground/40 rounded-[2px] px-1 py-0.5 leading-none bg-foreground/5">
-                                <span className="text-[7px] font-black tracking-tighter italic">JCB</span>
+                              <div className="border border-foreground/50 rounded-sm px-1 py-0.5 flex items-center justify-center bg-foreground/5">
+                                <span className="text-[7px] font-black tracking-tighter italic leading-none">JCB</span>
                               </div>
                             </div>
 
