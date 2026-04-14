@@ -14,8 +14,8 @@ export const FeaturedProduct = () => {
     addToCart({
       id: "heritage-coffee-table-1",
       name: "Heritage Coffee Table",
-      price: 450000,
-      image: "/product-1.png",
+      price: 70000,
+      image: "/urin02.jpeg",
       quantity: 1,
     });
     
@@ -42,7 +42,7 @@ export const FeaturedProduct = () => {
         )}
       </AnimatePresence>
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-width-7xl mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           {/* Product Image */}
           <motion.div
@@ -50,13 +50,14 @@ export const FeaturedProduct = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2 }}
-            className="w-full lg:w-3/5 aspect-square relative rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-900"
+            className="w-full lg:w-3/5 aspect-square relative rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-900 shadow-xl"
           >
             <Image
-              src="/product-1.png"
+              src="/urin02.jpeg"
               alt="Heritage Coffee Table - Ulin Edition"
               fill
-              className="object-contain p-8 transform hover:scale-105 transition-transform duration-1000"
+              className="object-cover transform hover:scale-105 transition-transform duration-1000"
+              style={{ objectPosition: "center" }}
             />
           </motion.div>
 
@@ -104,7 +105,7 @@ export const FeaturedProduct = () => {
               className="space-y-6 pt-4 border-t border-gray-100 dark:border-white/5"
             >
               <div className="flex items-baseline gap-4">
-                <span className="text-3xl font-bold">¥450,000</span>
+                <span className="text-3xl font-bold">¥70,000</span>
                 <span className="text-sm text-foreground/40 italic">税込</span>
               </div>
 
