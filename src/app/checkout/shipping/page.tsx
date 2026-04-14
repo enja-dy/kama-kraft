@@ -40,6 +40,13 @@ export default function ShippingPage() {
     setMounted(true);
   }, []);
 
+  // 初期値として最短お届け日を設定
+  useEffect(() => {
+    if (mounted && !selectedDate && minDeliveryDate) {
+      setSelectedDate(minDeliveryDate);
+    }
+  }, [mounted, minDeliveryDate, selectedDate]);
+
   // 郵便番号入力時の離島判定・住所自動入力ロジック (API連携)
   const handleZipChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.replace(/[^\d]/g, "");
@@ -90,7 +97,12 @@ export default function ShippingPage() {
     // 通常5営業日 + 週末を考慮して安全に7日後
     let leadTime = isIsland ? 12 : 7; 
     date.setDate(date.getDate() + leadTime);
-    return date.toISOString().split("T")[0];
+    
+    // YYYY-MM-DD形式に変換（ローカルタイムベース）
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
   }, [isIsland, mounted]);
 
   // 通過表示の安定化
