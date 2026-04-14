@@ -6,9 +6,9 @@ import Image from "next/image";
 
 const slides = [
   { url: "/urin02.jpeg", position: "left 30%" },
-  { url: "/urin06.jpeg", position: "right 40%" }, // 窓を隠すため右寄り
+  { url: "/urin06.jpeg", position: "right 35%" }, // 窓を隠しつつテーブルを中央に
   { url: "/hero-3.png", position: "center" },
-  { url: "/urin07.jpeg", position: "left bottom" }, // 室外機を隠すため左下寄り
+  { url: "/urin07.jpeg", position: "left 45%" }, // テーブルが見える高さまで引き上げ
 ];
 
 export const HeroCarousel = () => {
