@@ -7,6 +7,7 @@ import { ArrowLeft, Key, Wand2 } from "lucide-react";
 
 export default function AuthPage() {
   const [activeTab, setActiveTab] = useState<"password" | "magic">("magic");
+  const [isSignUp, setIsSignUp] = useState(false);
 
   return (
     <div className="min-h-screen pt-32 pb-24 px-6 bg-[#fbfbfb] dark:bg-[#050505] flex items-center justify-center">
@@ -17,10 +18,10 @@ export default function AuthPage() {
           className="text-center mb-10"
         >
           <h1 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground mb-4">
-            認証
+            ログイン / 新規登録
           </h1>
-          <p className="text-foreground/40 tracking-[0.2em] text-xs uppercase">
-            お客様にあったログイン方法をお選びください
+          <p className="text-foreground/40 tracking-[0.2em] text-[10px] sm:text-xs uppercase leading-relaxed">
+            お客様に合った認証方法をお選びください
           </p>
         </motion.div>
 
@@ -68,9 +69,11 @@ export default function AuthPage() {
                 transition={{ duration: 0.2 }}
               >
                 <div className="mb-6 text-center">
-                  <h2 className="text-lg font-bold mb-2">パスワードなしでログイン</h2>
+                  <h2 className="text-lg font-bold mb-2">パスワード不要（推奨）</h2>
                   <p className="text-xs text-foreground/60 leading-relaxed text-left mt-4 mb-6">
-                    ご登録のメールアドレス宛に、一度だけ使える専用のログイン用リンクをお送りします。パスワードを覚える必要はありません。
+                    ご入力いただいたメールアドレス宛に、一度だけ使える専用の認証リンクをお送りします。<br/><br/>
+                    <strong className="text-foreground">初めての方も、リンクをクリックするだけで自動的に会員登録が完了します。</strong>
+                    パスワードを管理したり、覚える必要はありません。
                   </p>
                 </div>
                 <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
@@ -102,9 +105,11 @@ export default function AuthPage() {
                 transition={{ duration: 0.2 }}
               >
                 <div className="mb-6 text-center">
-                  <h2 className="text-lg font-bold mb-2">パスワードでログイン</h2>
+                  <h2 className="text-lg font-bold mb-2">{isSignUp ? "パスワードで新規登録" : "パスワードでログイン"}</h2>
                   <p className="text-xs text-foreground/60 leading-relaxed text-left mt-4 mb-6">
-                    ご登録済みのメールアドレスとパスワードを使用して、普段通りにログインします。
+                    {isSignUp 
+                      ? "ご希望のメールアドレスとパスワードを入力して、新しくアカウントを作成します。"
+                      : "ご登録済みのメールアドレスとパスワードを使用して、ログインします。"}
                   </p>
                 </div>
                 <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
@@ -124,9 +129,11 @@ export default function AuthPage() {
                       <label className="block text-[10px] font-bold tracking-[0.2em] text-foreground/60 uppercase">
                         Password
                       </label>
-                      <button type="button" className="text-[10px] text-foreground/40 hover:text-foreground transition-colors underline-offset-4 hover:underline">
-                        お忘れですか？
-                      </button>
+                      {!isSignUp && (
+                        <button type="button" className="text-[10px] text-foreground/40 hover:text-foreground transition-colors underline-offset-4 hover:underline">
+                          お忘れですか？
+                        </button>
+                      )}
                     </div>
                     <input 
                       type="password" 
@@ -135,13 +142,43 @@ export default function AuthPage() {
                       className="w-full bg-transparent border-b border-foreground/20 py-3 text-foreground focus:border-foreground outline-none transition-colors text-sm"
                     />
                   </div>
+                  
+                  {/* Sign Up Confirmation Password */}
+                  {isSignUp && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      className="pt-2"
+                    >
+                      <label className="block text-[10px] font-bold tracking-[0.2em] text-foreground/60 uppercase mb-2">
+                        Confirm Password
+                      </label>
+                      <input 
+                        type="password" 
+                        placeholder="パスワード（確認用）" 
+                        required
+                        className="w-full bg-transparent border-b border-foreground/20 py-3 text-foreground focus:border-foreground outline-none transition-colors text-sm"
+                      />
+                    </motion.div>
+                  )}
+
                   <button 
                     type="submit"
                     className="w-full bg-foreground text-background py-4 flex items-center justify-center gap-2 hover:scale-[1.02] transition-all font-bold tracking-[0.2em] text-xs uppercase shadow-xl shadow-foreground/10 mt-8"
                   >
-                    ログイン
+                    {isSignUp ? "会員登録する" : "ログイン"}
                   </button>
                 </form>
+
+                <div className="mt-8 text-center border-t border-foreground/10 pt-6">
+                  <button 
+                    type="button"
+                    onClick={() => setIsSignUp(!isSignUp)}
+                    className="text-xs text-foreground/60 hover:text-foreground transition-colors underline underline-offset-4"
+                  >
+                    {isSignUp ? "すでにアカウントをお持ちの方はこちら（ログイン）" : "初めての方はこちら（メールアドレスで新規登録）"}
+                  </button>
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
