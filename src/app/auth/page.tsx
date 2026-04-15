@@ -3,11 +3,82 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, Key, Wand2 } from "lucide-react";
+import { ArrowLeft, Key, Wand2, AlertCircle, CheckCircle2 } from "lucide-react";
+import { createClient } from "@/lib/supabase";
 
 export default function AuthPage() {
   const [activeTab, setActiveTab] = useState<"password" | "magic">("magic");
   const [isSignUp, setIsSignUp] = useState(false);
+
+  // Auth States
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
+
+  const supabase = createClient();
+
+  const handleMagicLink = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setMessage(null);
+
+    const { error } = await supabase.auth.signInWithOtp({
+      email,
+      options: {
+        emailRedirectTo: `${window.location.origin}/auth/callback`,
+      },
+    });
+
+    if (error) {
+      setMessage({ type: 'error', text: 'メールの送信に失敗しました。入力内容をお確かめください。' });
+    } else {
+      setMessage({ type: 'success', text: '認証リンクを記載したメールを送信しました。メールボックスをご確認ください。' });
+    }
+    setLoading(false);
+  };
+
+  const handlePasswordAuth = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setMessage(null);
+
+    if (isSignUp) {
+      if (password !== confirmPassword) {
+        setMessage({ type: 'error', text: 'パスワードが一致しません。' });
+        setLoading(false);
+        return;
+      }
+      
+      const { error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          emailRedirectTo: `${window.location.origin}/auth/callback`,
+        },
+      });
+
+      if (error) {
+        setMessage({ type: 'error', text: '登録エラー: ' + error.message });
+      } else {
+        setMessage({ type: 'success', text: '確認メールを送信しました。メール記載のリンクを開いて本登録を完了してください。' });
+      }
+    } else {
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) {
+        setMessage({ type: 'error', text: 'メールアドレスまたはパスワードが正しくありません。' });
+      } else {
+        // Success
+        window.location.href = '/'; 
+      }
+    }
+    setLoading(false);
+  };
 
   return (
     <div className="min-h-screen pt-32 pb-24 px-6 bg-[#fbfbfb] dark:bg-[#050505] flex items-center justify-center">
@@ -57,6 +128,25 @@ export default function AuthPage() {
           />
         </div>
 
+        {/* Alerts */}
+        <AnimatePresence>
+          {message && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, height: 0, marginBottom: 0 }}
+              className={`mb-6 p-4 rounded-xl flex items-start gap-3 border text-xs leading-relaxed ${
+                message.type === 'success' 
+                  ? 'bg-green-500/10 border-green-500/20 text-green-700 dark:text-green-500' 
+                  : 'bg-red-500/10 border-red-500/20 text-red-700 dark:text-red-400'
+              }`}
+            >
+              {message.type === 'success' ? <CheckCircle2 size={16} className="shrink-0 mt-0.5" /> : <AlertCircle size={16} className="shrink-0 mt-0.5" />}
+              <p>{message.text}</p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         {/* Form Container */}
         <div className="bg-[#fbfbfb] dark:bg-[#050505] p-8 md:p-10 rounded-3xl border border-foreground/10 shadow-2xl shadow-black/5 relative overflow-hidden">
           <AnimatePresence mode="wait">
@@ -76,23 +166,26 @@ export default function AuthPage() {
                     パスワードを管理したり、覚える必要はありません。
                   </p>
                 </div>
-                <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+                <form className="space-y-5" onSubmit={handleMagicLink}>
                   <div>
                     <label className="block text-[10px] font-bold tracking-[0.2em] text-foreground/60 uppercase mb-2">
-                      Email Address
+                       Email Address
                     </label>
                     <input 
                       type="email" 
                       placeholder="メールアドレス" 
                       required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       className="w-full bg-transparent border-b border-foreground/20 py-3 text-foreground focus:border-foreground outline-none transition-colors text-sm"
                     />
                   </div>
                   <button 
                     type="submit"
-                    className="w-full bg-foreground text-background py-4 flex items-center justify-center gap-2 hover:scale-[1.02] transition-all font-bold tracking-[0.2em] text-xs uppercase shadow-xl shadow-foreground/10 mt-8"
+                    disabled={loading}
+                    className="w-full bg-foreground text-background py-4 flex items-center justify-center gap-2 hover:scale-[1.02] transition-all font-bold tracking-[0.2em] text-xs uppercase shadow-xl shadow-foreground/10 mt-8 disabled:opacity-50 disabled:hover:scale-100"
                   >
-                    ログインリンクを送信
+                    {loading ? "送信中..." : "ログインリンクを送信"}
                   </button>
                 </form>
               </motion.div>
@@ -112,7 +205,7 @@ export default function AuthPage() {
                       : "ご登録済みのメールアドレスとパスワードを使用して、ログインします。"}
                   </p>
                 </div>
-                <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+                <form className="space-y-5" onSubmit={handlePasswordAuth}>
                   <div>
                     <label className="block text-[10px] font-bold tracking-[0.2em] text-foreground/60 uppercase mb-2">
                       Email Address
@@ -121,6 +214,8 @@ export default function AuthPage() {
                       type="email" 
                       placeholder="メールアドレス" 
                       required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       className="w-full bg-transparent border-b border-foreground/20 py-3 text-foreground focus:border-foreground outline-none transition-colors text-sm"
                     />
                   </div>
@@ -139,6 +234,8 @@ export default function AuthPage() {
                       type="password" 
                       placeholder="パスワード" 
                       required
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                       className="w-full bg-transparent border-b border-foreground/20 py-3 text-foreground focus:border-foreground outline-none transition-colors text-sm"
                     />
                   </div>
@@ -157,6 +254,8 @@ export default function AuthPage() {
                         type="password" 
                         placeholder="パスワード（確認用）" 
                         required
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
                         className="w-full bg-transparent border-b border-foreground/20 py-3 text-foreground focus:border-foreground outline-none transition-colors text-sm"
                       />
                     </motion.div>
@@ -164,9 +263,10 @@ export default function AuthPage() {
 
                   <button 
                     type="submit"
-                    className="w-full bg-foreground text-background py-4 flex items-center justify-center gap-2 hover:scale-[1.02] transition-all font-bold tracking-[0.2em] text-xs uppercase shadow-xl shadow-foreground/10 mt-8"
+                    disabled={loading}
+                    className="w-full bg-foreground text-background py-4 flex items-center justify-center gap-2 hover:scale-[1.02] transition-all font-bold tracking-[0.2em] text-xs uppercase shadow-xl shadow-foreground/10 mt-8 disabled:opacity-50 disabled:hover:scale-100"
                   >
-                    {isSignUp ? "会員登録する" : "ログイン"}
+                    {loading ? "処理中..." : (isSignUp ? "会員登録する" : "ログイン")}
                   </button>
                 </form>
 
