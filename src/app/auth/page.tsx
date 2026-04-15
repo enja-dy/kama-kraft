@@ -32,7 +32,7 @@ export default function AuthPage() {
     });
 
     if (error) {
-      setMessage({ type: 'error', text: 'メールの送信に失敗しました。入力内容をお確かめください。' });
+      setMessage({ type: 'error', text: `メールの送信に失敗しました（詳細: ${error.message}）` });
     } else {
       setMessage({ type: 'success', text: '認証リンクを記載したメールを送信しました。メールボックスをご確認ください。' });
     }
