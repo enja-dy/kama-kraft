@@ -18,7 +18,7 @@ export default function AuthPage() {
           className="text-center mb-10"
         >
           <h1 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground mb-4">
-            ログイン / 新規登録
+            新規登録 / ログイン
           </h1>
           <p className="text-foreground/40 tracking-[0.2em] text-[10px] sm:text-xs uppercase leading-relaxed">
             お客様に合った認証方法をお選びください
