@@ -1,19 +1,13 @@
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
-import { createClient } from '@supabase/supabase-js';
+import { createAdminClient } from '@/lib/supabase';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
   apiVersion: '2025-02-24.acacia' as any,
 });
 
-// Admin権限でDBに書き込むため、SERVICE_ROLE_KEYが理想ですが、
-// 無い場合はひとまず決済成功のログと簡易な反映に留めるか、
-// またはフロントエンドへのリダイレクト時に処理する手法も取れます。
-// ここでは、Webhookによるサーバーサイドの確実な保存を実装します。
-const supabaseAdmin = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL as string,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string // 将来的には SERVICE_ROLE_KEY に変更推奨
-);
+// 管理者権限（Service Role）を使ってRLSをバイパスして書き込む
+const supabaseAdmin = createAdminClient();
 
 export async function POST(req: Request) {
   const payload = await req.text();
