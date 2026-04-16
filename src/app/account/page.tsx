@@ -308,7 +308,7 @@ export default function AccountPage() {
                           </div>
                           {addr.isDefault && (
                             <span className="inline-block px-3 py-1 bg-foreground text-background text-[10px] font-bold tracking-widest mb-4 rounded-full">
-                              既定の住所
+                              基本のお届け先
                             </span>
                           )}
                           <p className="text-sm font-bold mb-2">{addr.name}</p>
