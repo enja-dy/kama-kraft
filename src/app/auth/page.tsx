@@ -80,6 +80,27 @@ export default function AuthPage() {
     setLoading(false);
   };
 
+  const handleResetPassword = async () => {
+    if (!email) {
+      setMessage({ type: 'error', text: 'パスワードを再設定するには、まずメールアドレスを入力してください。' });
+      return;
+    }
+    setLoading(true);
+    setMessage(null);
+    
+    // パスワード再設定メールを送信し、設定用画面（/auth/update-password）へリダイレクト
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}/auth/update-password`,
+    });
+    
+    if (error) {
+       setMessage({ type: 'error', text: `再設定メールの送信に失敗しました（詳細: ${error.message}）` });
+    } else {
+       setMessage({ type: 'success', text: 'パスワード再設定用のメールを送信しました。リンクを開いて新しいパスワードを設定してください。' });
+    }
+    setLoading(false);
+  };
+
   return (
     <div className="min-h-screen pt-32 pb-24 px-6 bg-[#fbfbfb] dark:bg-[#050505] flex items-center justify-center">
       <div className="max-w-md w-full">
@@ -225,7 +246,12 @@ export default function AuthPage() {
                         Password
                       </label>
                       {!isSignUp && (
-                        <button type="button" className="text-[10px] text-foreground/40 hover:text-foreground transition-colors underline-offset-4 hover:underline">
+                        <button 
+                          type="button" 
+                          onClick={handleResetPassword}
+                          disabled={loading}
+                          className="text-[10px] text-foreground/40 hover:text-foreground transition-colors underline-offset-4 hover:underline disabled:opacity-50"
+                        >
                           お忘れですか？
                         </button>
                       )}
