@@ -9,6 +9,9 @@ import { ArrowLeft, ArrowRight, Truck, MapPin, Calendar, CreditCard, CheckCircle
 
 export default function ReviewPage() {
   const { cart, totalPrice, clearCart, shippingInfo, paymentMethod } = useCart();
+  // ★ AuthContextを利用して連携用ユーザーIDを取得（ゲスト購入にも対応）
+  const { user } = useAuth();
+  
   const [mounted, setMounted] = useState(false);
   const [isOrdered, setIsOrdered] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -59,6 +62,8 @@ export default function ReviewPage() {
           success_url,
           cancel_url,
           email: shippingInfo.email,
+          user_id: user?.id || null,  // SupabaseDB連携用
+          shippingInfo: shippingInfo, // メタデータ保存用
         }),
       });
 

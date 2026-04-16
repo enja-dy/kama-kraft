@@ -9,7 +9,7 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
     console.log('API Request - Full Body:', JSON.stringify(body, null, 2));
-    const { items, success_url, cancel_url, email } = body;
+    const { items, success_url, cancel_url, email, user_id, shippingInfo } = body;
 
     if (!items || items.length === 0) {
       return NextResponse.json({ error: 'カートが空です。' }, { status: 400 });
@@ -21,7 +21,6 @@ export async function POST(req: Request) {
           currency: 'jpy',
           product_data: {
             name: item.name,
-            // 診断のため、画像を一旦完全に除外
           },
           unit_amount: Math.round(Number(item.price)),
         },
@@ -30,7 +29,6 @@ export async function POST(req: Request) {
     });
 
     console.log('Stripe Line Items:', JSON.stringify(line_items, null, 2));
-    console.log('URLs:', { success_url, cancel_url, email });
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
@@ -39,6 +37,14 @@ export async function POST(req: Request) {
       success_url,
       cancel_url,
       customer_email: email || undefined,
+      metadata: {
+        user_id: user_id || 'guest',
+        customer_email: email || '',
+        shipping_name: shippingInfo?.name || '',
+        shipping_zip: shippingInfo?.zip || '',
+        shipping_pref: shippingInfo?.prefecture || '',
+        shipping_address: `${shippingInfo?.address || ''} ${shippingInfo?.building || ''}`.trim(),
+      }
     });
 
     return NextResponse.json({ url: session.url });
