@@ -6,6 +6,7 @@ import { useCart } from "@/context/CartContext";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Truck, MapPin, Calendar, CreditCard, CheckCircle2, PackageCheck } from "lucide-react";
+import { useAuth } from "@/context/AuthContext";
 
 export default function ReviewPage() {
   const { cart, totalPrice, clearCart, shippingInfo, paymentMethod } = useCart();
