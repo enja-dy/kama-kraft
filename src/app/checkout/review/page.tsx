@@ -28,6 +28,8 @@ export default function ReviewPage() {
     if (query.get("success")) {
       clearDone.current = true;
       setIsOrdered(true);
+      // カートを確実に空にする
+      localStorage.removeItem("kama-cart");
       clearCart();
     }
   }, [clearCart]);
