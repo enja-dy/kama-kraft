@@ -19,6 +19,7 @@ export default function AccountPage() {
 
   // Address Modal State
   const [showAddressModal, setShowAddressModal] = useState(false);
+  const [editingAddressId, setEditingAddressId] = useState<number | null>(null);
   const [addresses, setAddresses] = useState([
     { id: 1, name: "鎌倉 太郎 様", zip: "248-0006", zipRaw: "2480006", pref: "神奈川県", addr: "鎌倉市小町1-2-3", build: "KamaKraft レジデンス 101号室", isDefault: true }
   ]);
@@ -54,27 +55,60 @@ export default function AccountPage() {
     }
   };
 
-  const handleSaveAddress = () => {
-    if (!newName || !newZip || !newPrefecture || !newAddress) return;
-    
-    setAddresses([...addresses, {
-      id: Date.now(),
-      name: `${newName} 様`,
-      zip: `${newZip.slice(0, 3)}-${newZip.slice(3)}`,
-      zipRaw: newZip,
-      pref: newPrefecture,
-      addr: newAddress,
-      build: newBuilding,
-      isDefault: addresses.length === 0
-    }]);
-    
-    // Reset and close
+  const handleEditAddress = (addr: any) => {
+    setEditingAddressId(addr.id);
+    // 「様」を省いてフォームにいれる
+    setNewName(addr.name.replace(" 様", ""));
+    setNewZip(addr.zipRaw || addr.zip.replace("-", ""));
+    setNewPrefecture(addr.pref);
+    setNewAddress(addr.addr);
+    setNewBuilding(addr.build || "");
+    setShowAddressModal(true);
+  };
+
+  const closeModal = () => {
     setNewName("");
     setNewZip("");
     setNewPrefecture("");
     setNewAddress("");
     setNewBuilding("");
+    setEditingAddressId(null);
     setShowAddressModal(false);
+  };
+
+  const handleSaveAddress = () => {
+    if (!newName || !newZip || !newPrefecture || !newAddress) return;
+    
+    if (editingAddressId) {
+      // 既存の住所を上書き
+      setAddresses(addresses.map(a => 
+        a.id === editingAddressId 
+        ? {
+            ...a,
+            name: `${newName} 様`,
+            zip: `${newZip.slice(0, 3)}-${newZip.slice(3)}`,
+            zipRaw: newZip,
+            pref: newPrefecture,
+            addr: newAddress,
+            build: newBuilding,
+          }
+        : a
+      ));
+    } else {
+      // 新しい住所を追加
+      setAddresses([...addresses, {
+        id: Date.now(),
+        name: `${newName} 様`,
+        zip: `${newZip.slice(0, 3)}-${newZip.slice(3)}`,
+        zipRaw: newZip,
+        pref: newPrefecture,
+        addr: newAddress,
+        build: newBuilding,
+        isDefault: addresses.length === 0
+      }]);
+    }
+    
+    closeModal();
   };
 
   // 未ログイン時はログイン画面へリダイレクト
@@ -252,7 +286,10 @@ export default function AccountPage() {
                         配送先住所の管理
                       </h2>
                       <button 
-                        onClick={() => setShowAddressModal(true)}
+                        onClick={() => {
+                          setEditingAddressId(null);
+                          setShowAddressModal(true);
+                        }}
                         className="text-[10px] tracking-widest uppercase font-bold text-foreground/60 hover:text-foreground transition-colors flex items-center gap-1 bg-foreground/5 px-3 py-2 rounded-full border border-foreground/10 hover:border-foreground/30"
                       >
                         <Plus size={14} /> 新規追加
@@ -261,7 +298,11 @@ export default function AccountPage() {
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {addresses.map((addr) => (
-                        <div key={addr.id} className="border border-foreground/20 hover:border-foreground/50 transition-colors p-6 rounded-2xl relative group cursor-pointer bg-background dark:bg-black/20">
+                        <div 
+                          key={addr.id} 
+                          onClick={() => handleEditAddress(addr)}
+                          className="border border-foreground/20 hover:border-foreground/50 transition-colors p-6 rounded-2xl relative group cursor-pointer bg-background dark:bg-black/20"
+                        >
                           <div className="absolute top-6 right-6 text-foreground/20 group-hover:text-foreground/60 transition-colors">
                             <ChevronRight size={20} />
                           </div>
@@ -277,7 +318,10 @@ export default function AccountPage() {
                       ))}
 
                       <div 
-                        onClick={() => setShowAddressModal(true)}
+                        onClick={() => {
+                          setEditingAddressId(null);
+                          setShowAddressModal(true);
+                        }}
                         className="border border-dashed border-foreground/20 hover:border-foreground/50 transition-colors p-6 rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer min-h-[200px] group bg-foreground/[0.02]"
                       >
                         <div className="w-12 h-12 rounded-full bg-foreground/5 flex items-center justify-center mb-3 group-hover:bg-foreground/10 transition-colors">
@@ -312,14 +356,16 @@ export default function AccountPage() {
               className="bg-[#fbfbfb] dark:bg-[#050505] w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-[2rem] border border-foreground/10 shadow-2xl relative p-8 sm:p-12 text-foreground"
             >
               <button 
-                onClick={() => setShowAddressModal(false)}
+                onClick={closeModal}
                 className="absolute top-8 right-8 text-foreground/40 hover:text-foreground transition-colors"
               >
                 <X size={24} />
               </button>
 
               <div className="mb-10 text-left">
-                <h2 className="text-2xl font-bold tracking-tighter mb-2">新しい住所を登録</h2>
+                <h2 className="text-2xl font-bold tracking-tighter mb-2">
+                  {editingAddressId ? "登録住所の編集" : "新しい住所を登録"}
+                </h2>
                 <p className="text-xs text-foreground/40">配送先の詳細情報をご入力ください。</p>
               </div>
 
@@ -395,7 +441,7 @@ export default function AccountPage() {
 
               <div className="mt-10 flex gap-4">
                 <button 
-                  onClick={() => setShowAddressModal(false)}
+                  onClick={closeModal}
                   className="flex-1 px-6 py-4 rounded-xl border border-foreground/10 text-foreground/60 hover:bg-foreground/5 hover:text-foreground transition-all font-bold text-xs tracking-widest uppercase"
                 >
                   キャンセル
