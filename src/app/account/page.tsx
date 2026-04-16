@@ -11,18 +11,17 @@ import Link from "next/link";
 type Tab = "history" | "profile";
 
 export default function AccountPage() {
-  const { user, loading } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const router = useRouter();
   const [activeTab, setActiveTab] = useState<Tab>("history");
   const [isSigningOut, setIsSigningOut] = useState(false);
   const supabase = createClient();
 
-  // Address Modal State
+  // Address State
   const [showAddressModal, setShowAddressModal] = useState(false);
-  const [editingAddressId, setEditingAddressId] = useState<number | null>(null);
-  const [addresses, setAddresses] = useState([
-    { id: 1, name: "鎌倉 太郎 様", zip: "248-0006", zipRaw: "2480006", pref: "神奈川県", addr: "鎌倉市小町1-2-3", build: "KamaKraft レジデンス 101号室", isDefault: true }
-  ]);
+  const [editingAddressId, setEditingAddressId] = useState<string | null>(null);
+  const [addresses, setAddresses] = useState<any[]>([]);
+  const [loadingAddresses, setLoadingAddresses] = useState(true);
 
   // Modal Form State
   const [newName, setNewName] = useState("");
@@ -30,7 +29,40 @@ export default function AccountPage() {
   const [newPrefecture, setNewPrefecture] = useState("");
   const [newAddress, setNewAddress] = useState("");
   const [newBuilding, setNewBuilding] = useState("");
-  const [isLoadingAddress, setIsLoadingAddress] = useState(false);
+  const [isLoadingAddress, setIsLoadingAddress] = useState(false); // API探索用
+  const [isSaving, setIsSaving] = useState(false); // 保存中のローディング
+
+  // DBから住所一覧を取得
+  const fetchAddresses = async () => {
+    if (!user) return;
+    setLoadingAddresses(true);
+    const { data, error } = await supabase
+      .from('user_addresses')
+      .select('*')
+      .order('is_default', { ascending: false }) // 基本の住所を一番上に
+      .order('created_at', { ascending: false }); // 新しいもの順
+      
+    if (error) {
+      console.error("Error fetching addresses:", error);
+    } else {
+      setAddresses(data || []);
+    }
+    setLoadingAddresses(false);
+  };
+
+  // ログイン状態が確認できたら住所取得
+  useEffect(() => {
+    if (!authLoading && user) {
+      fetchAddresses();
+    }
+  }, [user, authLoading]);
+
+  // 未ログイン時はログイン画面へリダイレクト
+  useEffect(() => {
+    if (!authLoading && !user) {
+      router.push("/auth");
+    }
+  }, [user, authLoading, router]);
 
   // --- 自動住所検索ロジック ---
   const handleZipChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -57,9 +89,8 @@ export default function AccountPage() {
 
   const handleEditAddress = (addr: any) => {
     setEditingAddressId(addr.id);
-    // 「様」を省いてフォームにいれる
     setNewName(addr.name.replace(" 様", ""));
-    setNewZip(addr.zipRaw || addr.zip.replace("-", ""));
+    setNewZip(addr.zip.replace("-", ""));
     setNewPrefecture(addr.pref);
     setNewAddress(addr.addr);
     setNewBuilding(addr.build || "");
@@ -76,47 +107,42 @@ export default function AccountPage() {
     setShowAddressModal(false);
   };
 
-  const handleSaveAddress = () => {
-    if (!newName || !newZip || !newPrefecture || !newAddress) return;
+  const handleSaveAddress = async () => {
+    if (!newName || !newZip || !newPrefecture || !newAddress || !user) return;
+    setIsSaving(true);
     
+    // UUID等の生成はDB側に任せる
+    const addressData = {
+      user_id: user.id,
+      name: `${newName} 様`,
+      zip: `${newZip.slice(0, 3)}-${newZip.slice(3)}`, // ハイフン整形
+      pref: newPrefecture,
+      addr: newAddress,
+      build: newBuilding,
+      is_default: addresses.length === 0 // 初めての追加なら既定にする
+    };
+
     if (editingAddressId) {
-      // 既存の住所を上書き
-      setAddresses(addresses.map(a => 
-        a.id === editingAddressId 
-        ? {
-            ...a,
-            name: `${newName} 様`,
-            zip: `${newZip.slice(0, 3)}-${newZip.slice(3)}`,
-            zipRaw: newZip,
-            pref: newPrefecture,
-            addr: newAddress,
-            build: newBuilding,
-          }
-        : a
-      ));
+      // Supabase: UPDATE
+      const { error } = await supabase
+        .from('user_addresses')
+        .update(addressData)
+        .eq('id', editingAddressId);
+      
+      if (error) console.error("Error updating address:", error);
     } else {
-      // 新しい住所を追加
-      setAddresses([...addresses, {
-        id: Date.now(),
-        name: `${newName} 様`,
-        zip: `${newZip.slice(0, 3)}-${newZip.slice(3)}`,
-        zipRaw: newZip,
-        pref: newPrefecture,
-        addr: newAddress,
-        build: newBuilding,
-        isDefault: addresses.length === 0
-      }]);
+      // Supabase: INSERT
+      const { error } = await supabase
+        .from('user_addresses')
+        .insert([addressData]);
+        
+      if (error) console.error("Error adding address:", error);
     }
     
+    await fetchAddresses();
+    setIsSaving(false);
     closeModal();
   };
-
-  // 未ログイン時はログイン画面へリダイレクト
-  useEffect(() => {
-    if (!loading && !user) {
-      router.push("/auth");
-    }
-  }, [user, loading, router]);
 
   const handleSignOut = async () => {
     setIsSigningOut(true);
@@ -125,7 +151,7 @@ export default function AccountPage() {
     router.refresh();
   };
 
-  if (loading || !user) {
+  if (authLoading || !user) {
     return (
       <div className="min-h-screen pt-32 pb-24 px-6 bg-[#fbfbfb] dark:bg-[#050505] flex items-center justify-center">
         <div className="text-foreground/40 text-xs tracking-widest uppercase animate-pulse">
@@ -297,25 +323,33 @@ export default function AccountPage() {
                     </div>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {addresses.map((addr) => (
-                        <div 
-                          key={addr.id} 
-                          onClick={() => handleEditAddress(addr)}
-                          className="border border-foreground/20 hover:border-foreground/50 transition-colors p-6 rounded-2xl relative group cursor-pointer bg-background dark:bg-black/20"
-                        >
-                          <div className="absolute top-6 right-6 text-foreground/20 group-hover:text-foreground/60 transition-colors">
-                            <ChevronRight size={20} />
-                          </div>
-                          {addr.isDefault && (
-                            <span className="inline-block px-3 py-1 bg-foreground text-background text-[10px] font-bold tracking-widest mb-4 rounded-full">
-                              基本のお届け先
-                            </span>
-                          )}
-                          <p className="text-sm font-bold mb-2">{addr.name}</p>
-                          <p className="text-xs text-foreground/60 leading-relaxed mb-1">〒{addr.zip}</p>
-                          <p className="text-xs text-foreground/60 leading-relaxed">{addr.pref}{addr.addr}<br/>{addr.build}</p>
+                      {loadingAddresses ? (
+                        <div className="col-span-1 md:col-span-2 text-center py-10 text-foreground/40 text-xs tracking-widest uppercase animate-pulse">
+                          Loading Addresses...
                         </div>
-                      ))}
+                      ) : (
+                        <>
+                          {addresses.map((addr) => (
+                            <div 
+                              key={addr.id} 
+                              onClick={() => handleEditAddress(addr)}
+                              className="border border-foreground/20 hover:border-foreground/50 transition-colors p-6 rounded-2xl relative group cursor-pointer bg-background dark:bg-black/20"
+                            >
+                              <div className="absolute top-6 right-6 text-foreground/20 group-hover:text-foreground/60 transition-colors">
+                                <ChevronRight size={20} />
+                              </div>
+                              {addr.is_default && (
+                                <span className="inline-block px-3 py-1 bg-foreground text-background text-[10px] font-bold tracking-widest mb-4 rounded-full shadow-sm">
+                                  基本のお届け先
+                                </span>
+                              )}
+                              <p className="text-sm font-bold mb-2">{addr.name}</p>
+                              <p className="text-xs text-foreground/60 leading-relaxed mb-1">〒{addr.zip}</p>
+                              <p className="text-xs text-foreground/60 leading-relaxed">{addr.pref}{addr.addr}<br/>{addr.build}</p>
+                            </div>
+                          ))}
+                        </>
+                      )}
 
                       <div 
                         onClick={() => {
@@ -340,7 +374,7 @@ export default function AccountPage() {
         </div>
       </div>
 
-      {/* Address Modal Fragment (Moved here to escape flex layout constrains of parents) */}
+      {/* Address Modal Fragment */}
       <AnimatePresence>
         {showAddressModal && (
           <motion.div
@@ -358,6 +392,7 @@ export default function AccountPage() {
               <button 
                 onClick={closeModal}
                 className="absolute top-8 right-8 text-foreground/40 hover:text-foreground transition-colors"
+                disabled={isSaving}
               >
                 <X size={24} />
               </button>
@@ -377,7 +412,8 @@ export default function AccountPage() {
                     value={newName}
                     onChange={(e) => setNewName(e.target.value)}
                     placeholder="鎌倉 太郎" 
-                    className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-4 rounded-xl focus:border-foreground outline-none transition-all placeholder:text-foreground/20 text-sm" 
+                    disabled={isSaving}
+                    className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-4 rounded-xl focus:border-foreground outline-none transition-all placeholder:text-foreground/20 text-sm disabled:opacity-50" 
                   />
                 </div>
 
@@ -391,7 +427,8 @@ export default function AccountPage() {
                         onChange={handleZipChange}
                         placeholder="2480000" 
                         maxLength={7}
-                        className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-4 rounded-xl focus:border-foreground outline-none transition-all placeholder:text-foreground/20 font-mono text-sm" 
+                        disabled={isSaving}
+                        className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-4 rounded-xl focus:border-foreground outline-none transition-all placeholder:text-foreground/20 font-mono text-sm disabled:opacity-50" 
                       />
                       {isLoadingAddress && (
                         <div className="absolute right-3 top-1/2 -translate-y-1/2">
@@ -412,7 +449,8 @@ export default function AccountPage() {
                       value={newPrefecture}
                       onChange={(e) => setNewPrefecture(e.target.value)}
                       placeholder="神奈川県" 
-                      className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-4 rounded-xl focus:border-foreground outline-none transition-all placeholder:text-foreground/20 text-sm" 
+                      disabled={isSaving}
+                      className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-4 rounded-xl focus:border-foreground outline-none transition-all placeholder:text-foreground/20 text-sm disabled:opacity-50" 
                     />
                   </div>
                 </div>
@@ -424,7 +462,8 @@ export default function AccountPage() {
                     value={newAddress}
                     onChange={(e) => setNewAddress(e.target.value)}
                     placeholder="鎌倉市雪ノ下 1-2-3"
-                    className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-4 rounded-xl focus:border-foreground outline-none transition-all placeholder:text-foreground/20 text-sm" 
+                    disabled={isSaving}
+                    className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-4 rounded-xl focus:border-foreground outline-none transition-all placeholder:text-foreground/20 text-sm disabled:opacity-50" 
                   />
                 </div>
                 <div>
@@ -434,7 +473,8 @@ export default function AccountPage() {
                     value={newBuilding}
                     onChange={(e) => setNewBuilding(e.target.value)}
                     placeholder="鎌倉ヒルズ 101" 
-                    className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-4 rounded-xl focus:border-foreground outline-none transition-all placeholder:text-foreground/20 text-sm" 
+                    disabled={isSaving}
+                    className="w-full bg-white dark:bg-white/5 border border-foreground/10 p-4 rounded-xl focus:border-foreground outline-none transition-all placeholder:text-foreground/20 text-sm disabled:opacity-50" 
                   />
                 </div>
               </div>
@@ -442,16 +482,22 @@ export default function AccountPage() {
               <div className="mt-10 flex gap-4">
                 <button 
                   onClick={closeModal}
-                  className="flex-1 px-6 py-4 rounded-xl border border-foreground/10 text-foreground/60 hover:bg-foreground/5 hover:text-foreground transition-all font-bold text-xs tracking-widest uppercase"
+                  disabled={isSaving}
+                  className="flex-1 px-6 py-4 rounded-xl border border-foreground/10 text-foreground/60 hover:bg-foreground/5 hover:text-foreground transition-all font-bold text-xs tracking-widest uppercase disabled:opacity-50"
                 >
                   キャンセル
                 </button>
                 <button 
                   onClick={handleSaveAddress}
-                  disabled={!newName || !newZip || !newPrefecture || !newAddress}
-                  className="flex-1 px-6 py-4 rounded-xl bg-foreground text-background transition-all font-bold text-xs tracking-widest uppercase hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed shadow-xl shadow-foreground/10"
+                  disabled={!newName || !newZip || !newPrefecture || !newAddress || isSaving}
+                  className="flex-1 px-6 py-4 rounded-xl bg-foreground text-background transition-all font-bold text-xs tracking-widest uppercase hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed shadow-xl shadow-foreground/10 flex items-center justify-center gap-2"
                 >
-                  保存する
+                  {isSaving ? (
+                    <>
+                      <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1, ease: "linear" }} className="w-4 h-4 border-2 border-background border-t-transparent rounded-full" />
+                      保存中...
+                    </>
+                  ) : "保存する"}
                 </button>
               </div>
             </motion.div>
