@@ -69,7 +69,7 @@ export const Header = () => {
               className="group flex items-center gap-2 text-sm tracking-widest bg-white/[0.12] hover:bg-white/20 px-5 py-2.5 rounded-full border border-white/20 text-white transition-all font-bold"
             >
               <User size={18} className="text-white group-hover:text-white transition-opacity" />
-              {user ? "マイアカウント" : "新規登録 / ログイン"}
+              {user ? "マイページ" : "新規登録 / ログイン"}
             </Link>
           </nav>
 
@@ -126,7 +126,7 @@ export const Header = () => {
                 className="text-3xl font-bold text-white tracking-widest"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                {user ? "マイアカウント" : "新規登録 / ログイン"}
+                {user ? "マイページ" : "新規登録 / ログイン"}
               </Link>
             </div>
             <div className="mt-auto border-t border-white/10 pt-8 text-white/40 text-sm tracking-widest">
