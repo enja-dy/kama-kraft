@@ -192,41 +192,60 @@ export default function AuthPage() {
             )}
 
             {activeTab === "password" && (
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                {!isForgotMode && (
+              <AnimatePresence mode="wait">
+                <motion.div 
+                  key={isForgotMode ? "forgot" : "auth"}
+                  initial={{ opacity: 0, y: 10 }} 
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                >
                   <div className="mb-6 text-center">
-                    <h2 className="text-lg font-bold mb-2">{isSignUp ? "パスワードで新規登録" : "パスワードでログイン"}</h2>
-                    <p className="text-xs text-foreground/60 leading-relaxed text-left mt-4 mb-6">
-                      {isSignUp ? "ご希望のメールアドレスとパスワードを入力して、新しくアカウントを作成します。" : "ご登録済みのメールアドレスとパスワードを使用して、ログインします。"}
-                    </p>
-                  </div>
-                )}
-                <div>
-                  <label className="block text-[10px] font-bold tracking-[0.2em] text-foreground/60 uppercase mb-2">Email Address</label>
-                  <input type="email" placeholder="メールアドレス" required value={email} onChange={(e) => setEmail(e.target.value)} className="w-full bg-transparent border-b border-foreground/20 py-3 text-foreground focus:border-foreground outline-none transition-colors text-sm" />
-                </div>
-                
-                {!isForgotMode && (
-                  <div className="mt-5 space-y-5">
-                    <div>
-                      <div className="flex justify-between items-end mb-2">
-                        <label className="block text-[10px] font-bold tracking-[0.2em] text-foreground/60 uppercase">Password</label>
-                        {!isSignUp && (
-                          <button type="button" onClick={() => { setIsForgotMode(true); setMessage(null); }} className="text-[10px] text-foreground/40 hover:text-foreground transition-colors underline-offset-4 hover:underline">お忘れですか？</button>
-                        )}
-                      </div>
-                      <input type="password" placeholder="パスワード" required value={password} onChange={(e) => setPassword(e.target.value)} className="w-full bg-transparent border-b border-foreground/20 py-3 text-foreground focus:border-foreground outline-none transition-colors text-sm" />
-                    </div>
-
-                    {isSignUp && (
-                      <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} className="pt-2">
-                        <label className="block text-[10px] font-bold tracking-[0.2em] text-foreground/60 uppercase mb-2">Confirm Password</label>
-                        <input type="password" placeholder="パスワード（確認用）" required={isSignUp} value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className="w-full bg-transparent border-b border-foreground/20 py-3 text-foreground focus:border-foreground outline-none transition-colors text-sm" />
-                      </motion.div>
+                    {isForgotMode ? (
+                      <>
+                        <h2 className="text-lg font-bold mb-2">パスワードの再設定</h2>
+                        <p className="text-xs text-foreground/60 leading-relaxed text-left mt-4 mb-6">
+                          ご登録時のメールアドレスを入力してください。<br/><br/>
+                          <strong className="text-foreground">新しいパスワードを設定するためのリンクをメールでお送りします。</strong>
+                        </p>
+                      </>
+                    ) : (
+                      <>
+                        <h2 className="text-lg font-bold mb-2">{isSignUp ? "パスワードで新規登録" : "パスワードでログイン"}</h2>
+                        <p className="text-xs text-foreground/60 leading-relaxed text-left mt-4 mb-6">
+                          {isSignUp ? "ご希望のメールアドレスとパスワードを入力して、新しくアカウントを作成します。" : "ご登録済みのメールアドレスとパスワードを使用して、ログインします。"}
+                        </p>
+                      </>
                     )}
                   </div>
-                )}
-              </motion.div>
+
+                  <div>
+                    <label className="block text-[10px] font-bold tracking-[0.2em] text-foreground/60 uppercase mb-2">Email Address</label>
+                    <input type="email" placeholder="メールアドレス" required value={email} onChange={(e) => setEmail(e.target.value)} className="w-full bg-transparent border-b border-foreground/20 py-3 text-foreground focus:border-foreground outline-none transition-colors text-sm" />
+                  </div>
+                  
+                  {!isForgotMode && (
+                    <div className="mt-5 space-y-5">
+                      <div>
+                        <div className="flex justify-between items-end mb-2">
+                          <label className="block text-[10px] font-bold tracking-[0.2em] text-foreground/60 uppercase">Password</label>
+                          {!isSignUp && (
+                            <button type="button" onClick={() => { setIsForgotMode(true); setMessage(null); }} className="text-[10px] text-foreground/40 hover:text-foreground transition-colors underline-offset-4 hover:underline">お忘れですか？</button>
+                          )}
+                        </div>
+                        <input type="password" placeholder="パスワード" required value={password} onChange={(e) => setPassword(e.target.value)} className="w-full bg-transparent border-b border-foreground/20 py-3 text-foreground focus:border-foreground outline-none transition-colors text-sm" />
+                      </div>
+
+                      {isSignUp && (
+                        <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} className="pt-2">
+                          <label className="block text-[10px] font-bold tracking-[0.2em] text-foreground/60 uppercase mb-2">Confirm Password</label>
+                          <input type="password" placeholder="パスワード（確認用）" required={isSignUp} value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className="w-full bg-transparent border-b border-foreground/20 py-3 text-foreground focus:border-foreground outline-none transition-colors text-sm" />
+                        </motion.div>
+                      )}
+                    </div>
+                  )}
+                </motion.div>
+              </AnimatePresence>
             )}
 
             <button 
