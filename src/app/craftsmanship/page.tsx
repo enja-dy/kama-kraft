@@ -22,7 +22,7 @@ export default function CraftsmanshipPage() {
       {/* Hero Section */}
       <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
         <Image
-          src="/craft-1.png?v=2"
+          src="/craft-1-v2.png"
           alt="Artisan Workshop"
           fill
           className="object-cover opacity-60 scale-105"
@@ -107,7 +107,7 @@ export default function CraftsmanshipPage() {
         </div>
         <div className="w-full md:w-1/2 relative h-[400px] md:h-[600px]">
           <Image
-            src="/craft-3.png?v=2"
+            src="/craft-3-v2.png"
             alt="Modern Tools"
             fill
             className="object-cover md:rounded-r-3xl opacity-80"
