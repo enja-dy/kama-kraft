@@ -95,20 +95,20 @@ export default function CraftsmanshipPage() {
         <div className="w-full md:w-1/2 px-6 md:pr-20 space-y-8">
           <FadeIn>
             <h2 className="text-3xl md:text-5xl font-light tracking-widest leading-tight">
-              使い込まれた道具、<br />受け継がれる技術。
+              精密な道具、<br />研ぎ澄まされた感覚。
             </h2>
             <p className="text-white/60 leading-relaxed font-light text-lg">
-              職人の手の一部となった鑿（のみ）や鉋（かんな）。
-              これらはウリンという最強の素材と戦い、形にするための唯一無二の相棒です。
-              刃を研ぎ、道具を慈しむ時間さえも、私たちが提供する「品質」の一部。
-              伝統的な道具と現代の感覚が融合し、次世代へ受け継がれる家具が生まれます。
+              職人の耳に挟まれた鉛筆、手慣れた動作で繰り出されるメジャー。
+              電ノコの鋭い回転音と、手作業による丁寧な紙やすりでの仕上げ。
+              これらはウリンという最強の素材に命を吹き込むための、欠かせない相棒です。
+              現代の精密機器と、人間の繊細な感覚が融合し、次世代へ受け継がれる家具が生まれます。
             </p>
           </FadeIn>
         </div>
         <div className="w-full md:w-1/2 relative h-[400px] md:h-[600px]">
           <Image
             src="/craft-3.png"
-            alt="Artisan Tools"
+            alt="Modern Tools"
             fill
             className="object-cover md:rounded-r-3xl opacity-80"
           />
