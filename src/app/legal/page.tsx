@@ -29,11 +29,11 @@ export default function LegalNoticePage() {
   ];
 
   return (
-    <div className="min-h-screen pt-40 pb-32 px-6 bg-[#fbfbfb] dark:bg-[#050505]">
+    <div className="min-h-screen pt-40 pb-32 px-6 bg-[#050505] text-white">
       {/* Background Subtle Gradient */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden text-left">
-        <div className="absolute top-[-10%] right-[-5%] w-[45%] h-[45%] bg-foreground/[0.01] rounded-full blur-[120px]" />
-        <div className="absolute bottom-[-5%] left-[-5%] w-[35%] h-[35%] bg-foreground/[0.01] rounded-full blur-[120px]" />
+        <div className="absolute top-[-10%] right-[-5%] w-[45%] h-[45%] bg-white/[0.01] rounded-full blur-[120px]" />
+        <div className="absolute bottom-[-5%] left-[-5%] w-[35%] h-[35%] bg-white/[0.01] rounded-full blur-[120px]" />
       </div>
 
       <div className="max-w-6xl mx-auto relative">
@@ -44,17 +44,22 @@ export default function LegalNoticePage() {
           transition={{ duration: 0.8 }}
           className="mb-24 text-center"
         >
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-foreground/5 bg-foreground/[0.02] mb-8">
-            <Scale size={14} className="text-foreground/40" />
-            <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-foreground/40">Specific Commercial Transactions Act</span>
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/5 bg-white/[0.02] mb-12">
+            <Scale size={14} className="text-white/40" />
+            <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-white/40">Specific Commercial Transactions Act</span>
           </div>
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tighter mb-8 text-foreground">
-            特定商取引法に基づく表記
+          <h1 className="text-4xl md:text-8xl font-extralight tracking-[0.4em] uppercase mb-12">
+            Legal Notice
           </h1>
-          <p className="text-lg md:text-xl text-foreground/60 max-w-3xl mx-auto leading-relaxed italic">
-            <span className="inline-block">誠実な手仕事を通じて、</span>
-            <span className="inline-block">心地よく安心できるお買い物体験をお約束します。</span>
-          </p>
+          <div className="space-y-6">
+            <h2 className="text-lg md:text-xl font-light tracking-[0.5em] text-white/80">
+              特定商取引法に基づく表記
+            </h2>
+            <div className="h-[1px] w-12 bg-white/20 mx-auto" />
+            <p className="text-sm md:text-base text-white/40 max-w-3xl mx-auto leading-relaxed italic tracking-widest">
+              誠実な手仕事を通じて、心地よく安心できるお買い物体験をお約束します。
+            </p>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-20">
@@ -67,12 +72,12 @@ export default function LegalNoticePage() {
             className="lg:col-span-4"
           >
             <div className="sticky top-40 space-y-1 text-left">
-              <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/20 mb-6 pl-4">Index</p>
+              <p className="text-[10px] uppercase tracking-[0.4em] font-bold text-white/20 mb-6 pl-4">Index</p>
               {sections.map((section) => (
                 <a
                   key={section.id}
                   href={`#${section.id}`}
-                  className="group flex items-center justify-between p-4 rounded-xl hover:bg-foreground/[0.03] transition-all text-sm font-bold tracking-tight text-foreground/40 hover:text-foreground"
+                  className="group flex items-center justify-between p-4 rounded-xl hover:bg-white/[0.03] transition-all text-sm font-bold tracking-tight text-white/40 hover:text-white"
                 >
                   {section.title}
                   <ChevronRight size={14} className="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
@@ -94,15 +99,15 @@ export default function LegalNoticePage() {
                 <section
                   key={index}
                   id={sections.find(s => item.label.includes(s.title.slice(0, 2)))?.id}
-                  className={`grid grid-cols-1 md:grid-cols-12 gap-6 p-8 rounded-2xl border-b border-foreground/[0.03] hover:bg-foreground/[0.01] transition-colors scroll-mt-40`}
+                  className={`grid grid-cols-1 md:grid-cols-12 gap-6 p-8 rounded-2xl border-b border-white/[0.03] hover:bg-white/[0.01] transition-colors scroll-mt-40`}
                 >
                   <div className="md:col-span-4">
-                    <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/30">
+                    <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-white/30">
                       {item.label}
                     </span>
                   </div>
                   <div className="md:col-span-8">
-                    <p className="text-[15px] md:text-base text-foreground/80 leading-relaxed font-medium whitespace-pre-wrap">
+                    <p className="text-[15px] md:text-base text-white/80 leading-relaxed font-medium whitespace-pre-wrap">
                       {item.value}
                     </p>
                   </div>
@@ -112,24 +117,24 @@ export default function LegalNoticePage() {
 
             {/* Additional Features / Icons */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-12">
-              <div className="p-8 rounded-[2rem] bg-foreground/5 border border-foreground/5 text-center space-y-4">
-                <CreditCard className="mx-auto text-foreground/30" size={24} />
+              <div className="p-8 rounded-[2rem] bg-white/5 border border-white/5 text-center space-y-4">
+                <CreditCard className="mx-auto text-white/30" size={24} />
                 <p className="text-[10px] font-bold tracking-widest uppercase opacity-40">Secure Payment</p>
               </div>
-              <div className="p-8 rounded-[2rem] bg-foreground/5 border border-foreground/5 text-center space-y-4">
-                <Package className="mx-auto text-foreground/30" size={24} />
+              <div className="p-8 rounded-[2rem] bg-white/5 border border-white/5 text-center space-y-4">
+                <Package className="mx-auto text-white/30" size={24} />
                 <p className="text-[10px] font-bold tracking-widest uppercase opacity-40">Insured Delivery</p>
               </div>
-              <div className="p-8 rounded-[2rem] bg-foreground/5 border border-foreground/5 text-center space-y-4">
-                <RotateCcw className="mx-auto text-foreground/30" size={24} />
+              <div className="p-8 rounded-[2rem] bg-white/5 border border-white/5 text-center space-y-4">
+                <RotateCcw className="mx-auto text-white/30" size={24} />
                 <p className="text-[10px] font-bold tracking-widest uppercase opacity-40">Quality Guarantee</p>
               </div>
             </div>
 
             <div className="pt-24 flex flex-col items-center gap-4">
-              <div className="w-12 h-0.5 bg-foreground/10" />
-              <p className="text-[10px] text-foreground/20 font-bold uppercase tracking-[0.5em]">KamaKraft Artisan Collective</p>
-              <p className="text-[9px] text-foreground/20 font-bold uppercase tracking-[0.2em]">Specified Commercial Transactions Act Compliance</p>
+              <div className="w-12 h-0.5 bg-white/10" />
+              <p className="text-[10px] text-white/20 font-bold uppercase tracking-[0.5em]">KamaKraft Artisan Collective</p>
+              <p className="text-[9px] text-white/20 font-bold uppercase tracking-[0.2em]">Specified Commercial Transactions Act Compliance</p>
             </div>
 
           </motion.div>

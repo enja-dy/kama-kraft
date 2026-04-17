@@ -79,15 +79,19 @@ export default function CustomOrderPage() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.5 }}
           >
-            <span className="text-xs font-bold tracking-[0.5em] text-white/40 uppercase block mb-4">Bespoke Excellence</span>
-            <h1 className="text-4xl md:text-7xl font-extralight tracking-[0.2em] leading-tight mb-8">
-              オーダーメイドの<br />
-              ご相談
+            <h1 className="text-4xl md:text-8xl font-extralight tracking-[0.4em] uppercase mb-12">
+              Bespoke
             </h1>
-            <p className="text-lg md:text-2xl font-light tracking-[0.4em] text-white/80 leading-relaxed uppercase">
-              「1cmのこだわり、一生の対話。」<br className="md:hidden" />
-              あなたの空間に、完璧な一点を。
-            </p>
+            <div className="space-y-6">
+              <h2 className="text-lg md:text-xl font-light tracking-[0.5em] text-white/80">
+                オーダーメイドのご相談
+              </h2>
+              <div className="h-[1px] w-12 bg-white/20 mx-auto" />
+              <p className="text-sm md:text-base font-light tracking-[0.4em] text-white/60 leading-relaxed italic">
+                1cmのこだわり、一生の対話。<br className="md:hidden" />
+                あなたの空間に、完璧な一点を。
+              </p>
+            </div>
           </motion.div>
           
           <motion.div
@@ -154,7 +158,7 @@ export default function CustomOrderPage() {
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-white/40">
                   <Settings size={18} />
-                  <span className="text-xs font-bold tracking-[0.3em] uppercase">Studio Simulation</span>
+                  <span className="text-xs font-bold tracking-[0.4em] uppercase">Studio Simulation</span>
                 </div>
                 <h2 className="text-3xl font-bold tracking-tight">概算お見積り</h2>
                 <p className="text-sm text-white/40">サイズを入力すると、職人による基本制作費を含めた概算金額が算出されます。</p>
@@ -164,7 +168,7 @@ export default function CustomOrderPage() {
                 {/* Width Input */}
                 <div className="space-y-4 text-left">
                   <div className="flex justify-between items-end">
-                    <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40">Width / 幅 (cm)</label>
+                    <label className="text-[10px] uppercase tracking-[0.4em] font-bold text-white/40">Width / 幅 (cm)</label>
                     <span className="text-xl font-mono text-white">{width}cm</span>
                   </div>
                   <input 
@@ -177,7 +181,7 @@ export default function CustomOrderPage() {
                 {/* Depth Input */}
                 <div className="space-y-4 text-left">
                   <div className="flex justify-between items-end">
-                    <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40">Depth / 奥行き (cm)</label>
+                    <label className="text-[10px] uppercase tracking-[0.4em] font-bold text-white/40">Depth / 奥行き (cm)</label>
                     <span className="text-xl font-mono text-white">{depth}cm</span>
                   </div>
                   <input 
@@ -190,7 +194,7 @@ export default function CustomOrderPage() {
                 {/* Height Input */}
                 <div className="space-y-4 text-left">
                   <div className="flex justify-between items-end">
-                    <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40">Height / 高さ (cm)</label>
+                    <label className="text-[10px] uppercase tracking-[0.4em] font-bold text-white/40">Height / 高さ (cm)</label>
                     <span className="text-xl font-mono text-white">{height}cm</span>
                   </div>
                   <input 
@@ -313,7 +317,7 @@ export default function CustomOrderPage() {
                   <div className="space-y-1">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       <div className="space-y-3">
-                        <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40 ml-4">お名前</label>
+                        <label className="text-[10px] uppercase tracking-[0.4em] font-bold text-white/40 ml-4">お名前</label>
                         <input 
                           type="text" required
                           value={name} onChange={(e) => setName(e.target.value)}
@@ -322,7 +326,7 @@ export default function CustomOrderPage() {
                         />
                       </div>
                       <div className="space-y-3">
-                        <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40 ml-4">メールアドレス</label>
+                        <label className="text-[10px] uppercase tracking-[0.4em] font-bold text-white/40 ml-4">メールアドレス</label>
                         <input 
                           type="email" required
                           value={email} onChange={(e) => setEmail(e.target.value)}
@@ -334,7 +338,7 @@ export default function CustomOrderPage() {
                   </div>
 
                   <div className="space-y-3">
-                    <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40 ml-4">現在のシミュレーション内容</label>
+                    <label className="text-[10px] uppercase tracking-[0.4em] font-bold text-white/40 ml-4">現在のシミュレーション内容</label>
                     <div className="bg-white/5 border border-white/10 p-5 rounded-2xl text-sm font-mono text-white/60">
                       幅: {width}cm / 奥行き: {depth}cm / 高さ: {height}cm <br />
                       概算金額: {formattedPrice(estimatedPrice)}
@@ -342,7 +346,7 @@ export default function CustomOrderPage() {
                   </div>
 
                   <div className="space-y-3">
-                    <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40 ml-4">具体的なご要望（任意）</label>
+                    <label className="text-[10px] uppercase tracking-[0.4em] font-bold text-white/40 ml-4">具体的なご要望（任意）</label>
                     <textarea 
                       rows={5}
                       value={message} onChange={(e) => setMessage(e.target.value)}
@@ -353,7 +357,7 @@ export default function CustomOrderPage() {
 
                   <button 
                     type="submit"
-                    className="w-full bg-white text-black py-6 rounded-2xl font-bold tracking-[0.3em] text-xs uppercase hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 group"
+                    className="w-full bg-white text-black py-6 rounded-2xl font-bold tracking-[0.4em] text-xs uppercase hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 group"
                   >
                     この内容で相談する
                     <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />

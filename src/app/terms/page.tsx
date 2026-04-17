@@ -18,11 +18,11 @@ export default function TermsOfServicePage() {
   ];
 
   return (
-    <div className="min-h-screen pt-40 pb-32 px-6 bg-[#fbfbfb] dark:bg-[#050505]">
+    <div className="min-h-screen pt-40 pb-32 px-6 bg-[#050505] text-white">
       {/* Background Subtle Gradient */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden text-left">
-        <div className="absolute top-[-5%] left-[-5%] w-[40%] h-[40%] bg-foreground/[0.01] rounded-full blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-foreground/[0.01] rounded-full blur-[120px]" />
+        <div className="absolute top-[-5%] left-[-5%] w-[40%] h-[40%] bg-white/[0.01] rounded-full blur-[120px]" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-white/[0.01] rounded-full blur-[120px]" />
       </div>
 
       <div className="max-w-6xl mx-auto relative">
@@ -33,17 +33,23 @@ export default function TermsOfServicePage() {
           transition={{ duration: 0.8 }}
           className="mb-24 text-center"
         >
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-foreground/5 bg-foreground/[0.02] mb-8">
-            <Gavel size={14} className="text-foreground/40" />
-            <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-foreground/40">Terms of Service</span>
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/5 bg-white/[0.02] mb-12">
+            <Gavel size={14} className="text-white/40" />
+            <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-white/40">Terms of Service</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter mb-8 text-foreground uppercase">
-            利用規約
+          <h1 className="text-4xl md:text-8xl font-extralight tracking-[0.4em] uppercase mb-12">
+            Terms of Service
           </h1>
-          <p className="text-lg md:text-xl text-foreground/60 max-w-3xl mx-auto leading-relaxed italic">
-            <span className="inline-block">KamaKraftとお客様をつなぐ、大切な約束。</span>
-            <span className="inline-block">安心してお買い物をお楽しみいただくためのガイドラインです。</span>
-          </p>
+          <div className="space-y-6">
+            <h2 className="text-lg md:text-xl font-light tracking-[0.5em] text-white/80">
+              利用規約
+            </h2>
+            <div className="h-[1px] w-12 bg-white/20 mx-auto" />
+            <p className="text-sm md:text-base text-white/40 max-w-3xl mx-auto leading-relaxed italic tracking-widest">
+              KamaKraftとお客様をつなぐ、大切な約束。<br />
+              安心してお買い物をお楽しみいただくためのガイドラインです。
+            </p>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-20">
@@ -56,21 +62,21 @@ export default function TermsOfServicePage() {
              className="lg:col-span-4"
           >
             <div className="sticky top-40 space-y-1 text-left">
-              <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/20 mb-6 pl-4">Articles</p>
+              <p className="text-[10px] uppercase tracking-[0.4em] font-bold text-white/20 mb-6 pl-4">Articles</p>
               {sections.map((section) => (
                 <a 
                   key={section.id}
                   href={`#${section.id}`}
-                  className="group flex items-center justify-between p-4 rounded-xl hover:bg-foreground/[0.03] transition-all text-sm font-bold tracking-tight text-foreground/40 hover:text-foreground"
+                  className="group flex items-center justify-between p-4 rounded-xl hover:bg-white/[0.03] transition-all text-sm font-bold tracking-tight text-white/40 hover:text-white"
                 >
                   {section.title}
                   <ChevronRight size={14} className="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                 </a>
               ))}
               
-              <div className="mt-12 p-8 rounded-3xl bg-foreground/5 border border-foreground/5 space-y-4">
-                <HelpCircle size={20} className="text-foreground/40" />
-                <p className="text-[11px] leading-relaxed text-foreground/60 font-medium">
+              <div className="mt-12 p-8 rounded-3xl bg-white/5 border border-white/5 space-y-4">
+                <HelpCircle size={20} className="text-white/40" />
+                <p className="text-[11px] leading-relaxed text-white/60 font-medium">
                   規約に関してご不明な点がございましたら、いつでも事務局までお問い合わせください。私たちは常に誠実な対応をお約束します。
                 </p>
               </div>
@@ -86,11 +92,11 @@ export default function TermsOfServicePage() {
           >
             {/* Article 1 */}
             <section id="article-1" className="space-y-6 scroll-mt-40">
-              <h2 className="text-2xl font-bold tracking-tight text-foreground leading-none flex items-baseline gap-4">
+              <h2 className="text-2xl font-bold tracking-tight text-white leading-none flex items-baseline gap-4">
                 <span className="text-sm font-mono opacity-20">Art. 01</span>
                 <span>適用</span>
               </h2>
-              <div className="prose dark:prose-invert prose-base max-w-none text-foreground/80 leading-relaxed font-medium">
+              <div className="prose prose-invert prose-base max-w-none text-white/80 leading-relaxed font-medium">
                 <p>
                   本規約は、KamaKraft（以下「当ブランド」といいます）がウェブサイト上で提供するサービス（以下「本サービス」といいます）の利用条件を定めるものです。登録ユーザーの皆さまには、本規約に従って本サービスをご利用いただきます。
                 </p>
@@ -99,13 +105,13 @@ export default function TermsOfServicePage() {
 
             {/* Article 2 */}
             <section id="article-2" className="space-y-8 scroll-mt-40">
-              <h2 className="text-2xl font-bold tracking-tight text-foreground leading-none flex items-baseline gap-4">
+              <h2 className="text-2xl font-bold tracking-tight text-white leading-none flex items-baseline gap-4">
                 <span className="text-sm font-mono opacity-20">Art. 02</span>
                 <span>売買契約の成立</span>
               </h2>
-              <div className="prose dark:prose-invert prose-base max-w-none text-foreground/80 leading-relaxed font-medium space-y-6">
-                <div className="p-8 rounded-[2.5rem] bg-foreground/5 border border-foreground/5 relative overflow-hidden group">
-                   <Package className="absolute -right-4 -bottom-4 text-foreground/5 w-24 h-24 group-hover:scale-110 transition-transform" />
+              <div className="prose prose-invert prose-base max-w-none text-white/80 leading-relaxed font-medium space-y-6">
+                <div className="p-8 rounded-[2.5rem] bg-white/5 border border-white/5 relative overflow-hidden group">
+                   <Package className="absolute -right-4 -bottom-4 text-white/5 w-24 h-24 group-hover:scale-110 transition-transform" />
                    <p className="relative z-10 text-sm md:text-base">
                      本サービスにおいては、ユーザーが当ブランドに対して購入の申し込みをし、これに対して当ブランドが当該申し込みを受諾した旨のメール（注文確定メール）を送信した時点で、売買契約が成立するものとします。
                    </p>
@@ -118,23 +124,23 @@ export default function TermsOfServicePage() {
 
             {/* Article 3 & 4 */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-               <section id="article-3" className="p-8 rounded-[2rem] bg-white dark:bg-white/5 border border-foreground/5 scroll-mt-40">
-                 <CreditCard className="text-foreground/20 mb-6" />
+               <section id="article-3" className="p-8 rounded-[2rem] bg-white/5 border border-white/5 scroll-mt-40">
+                 <CreditCard className="text-white/20 mb-6" />
                  <h3 className="text-xl font-bold mb-4 flex items-baseline gap-3">
                    <span className="text-[10px] font-mono opacity-20">Art. 03</span>
                    <span>お支払い方法</span>
                  </h3>
-                 <p className="text-sm text-foreground/60 leading-relaxed">
+                 <p className="text-sm text-white/60 leading-relaxed">
                    商品の代金の支払方法は、クレジットカード決済、銀行振込、その他当ブランドが別途認める方法から選択いただけます。銀行振込の場合、振込手数料はお客様負担となります。
                  </p>
                </section>
-               <section id="article-4" className="p-8 rounded-[2rem] bg-white dark:bg-white/5 border border-foreground/5 scroll-mt-40">
-                 <Package className="text-foreground/20 mb-6" />
+               <section id="article-4" className="p-8 rounded-[2rem] bg-white/5 border border-white/5 scroll-mt-40">
+                 <Package className="text-white/20 mb-6" />
                  <h3 className="text-xl font-bold mb-4 flex items-baseline gap-3">
                    <span className="text-[10px] font-mono opacity-20">Art. 04</span>
                    <span>配送・配送料</span>
                  </h3>
-                 <p className="text-sm text-foreground/60 leading-relaxed">
+                 <p className="text-sm text-white/60 leading-relaxed">
                    商品は通常、注文確定後3〜5営業日以内に発送いたします。一部の離島等の地域については、別途配送料（中継料）が発生する場合がございます。
                  </p>
                </section>
@@ -142,7 +148,7 @@ export default function TermsOfServicePage() {
 
             {/* Article 5 */}
             <section id="article-5" className="space-y-8 scroll-mt-40">
-              <h2 className="text-2xl font-bold tracking-tight text-foreground leading-none flex items-baseline gap-4">
+              <h2 className="text-2xl font-bold tracking-tight text-white leading-none flex items-baseline gap-4">
                 <span className="text-sm font-mono opacity-20">Art. 05</span>
                 <span>返品・交換・キャンセル</span>
               </h2>
@@ -170,7 +176,7 @@ export default function TermsOfServicePage() {
 
             {/* Article 6 */}
             <section id="article-6" className="space-y-6 scroll-mt-40">
-              <h2 className="text-2xl font-bold tracking-tight text-foreground leading-none flex items-baseline gap-4">
+              <h2 className="text-2xl font-bold tracking-tight text-white leading-none flex items-baseline gap-4">
                 <span className="text-sm font-mono opacity-20">Art. 06</span>
                 <span>禁止事項</span>
               </h2>
@@ -184,7 +190,7 @@ export default function TermsOfServicePage() {
                  ].map((text, i) => (
                    <div key={i} className="flex gap-4 p-5 rounded-2xl bg-red-500/[0.01] border border-red-500/5 items-center">
                      <span className="w-1.5 h-1.5 rounded-full bg-red-500/40" />
-                     <span className="text-sm text-foreground/80">{text}</span>
+                     <span className="text-sm text-white/80">{text}</span>
                    </div>
                  ))}
               </div>
@@ -192,11 +198,11 @@ export default function TermsOfServicePage() {
 
             {/* Article 7 */}
             <section id="article-7" className="space-y-6 scroll-mt-40">
-              <h2 className="text-2xl font-bold tracking-tight text-foreground leading-none flex items-baseline gap-4">
+              <h2 className="text-2xl font-bold tracking-tight text-white leading-none flex items-baseline gap-4">
                 <span className="text-sm font-mono opacity-20">Art. 07</span>
                 <span>本サービスの停止・中断</span>
               </h2>
-              <div className="prose dark:prose-invert prose-base max-w-none text-foreground/80 leading-relaxed font-medium">
+              <div className="prose prose-invert prose-base max-w-none text-white/80 leading-relaxed font-medium">
                 <p>
                   当ブランドは、以下のいずれかの事由があると判断した場合、ユーザーに事前に通知することなく本サービスの全部または一部の提供を停止または中断することができるものとします。
                 </p>
@@ -214,22 +220,22 @@ export default function TermsOfServicePage() {
 
             {/* Article 8 */}
             <section id="article-8" className="space-y-6 scroll-mt-40">
-              <h2 className="text-2xl font-bold tracking-tight text-foreground leading-none flex items-baseline gap-4">
+              <h2 className="text-2xl font-bold tracking-tight text-white leading-none flex items-baseline gap-4">
                 <span className="text-sm font-mono opacity-20">Art. 08</span>
                 <span>免責事項</span>
               </h2>
-              <div className="p-10 rounded-[2.5rem] border border-foreground/10 bg-white dark:bg-white/5 space-y-6 text-sm md:text-[15px]">
-                 <p className="text-sm leading-relaxed text-foreground/80">
+              <div className="p-10 rounded-[2.5rem] border border-white/10 bg-white/5 space-y-6 text-sm md:text-[15px]">
+                 <p className="text-sm leading-relaxed text-white/80">
                    当ブランドは、本サービスに事実上または法律上の瑕疵（安全性、信頼性、正確性、完全性、有効性、特定の目的への適合性、セキュリティなどに関する欠陥、エラーやバグ、権利侵害などを含みます）がないことを明示的にも黙示的にも保証しておりません。
                  </p>
-                 <p className="text-sm leading-relaxed text-foreground/80">
+                 <p className="text-sm leading-relaxed text-white/80">
                    当ブランドは、本サービスに起因してユーザーに生じたあらゆる損害について一切の責任を負いません。ただし、本サービスに関する当ブランドとユーザーとの間の契約（本規約を含みます）が消費者契約法に定める消費者契約となる場合、この免責規定は適用されませんが、その際にも、当ブランドは、当ブランドの過失（重過失を除きます）による債務不履行または不法行為によりユーザーに生じた損害のうち特別な事情から生じた損害（当ブランドまたはユーザーが損害発生につき予見し、または予見し得た場合を含みます）について一切の責任を負いません。
                  </p>
               </div>
             </section>
 
             {/* Article 9 */}
-            <section id="article-9" className="p-12 rounded-[3.5rem] bg-foreground text-background relative overflow-hidden scroll-mt-40 shadow-2xl">
+            <section id="article-9" className="p-12 rounded-[3.5rem] bg-white text-black relative overflow-hidden scroll-mt-40 shadow-2xl">
                <Copyright className="absolute -right-4 -bottom-4 opacity-5 w-64 h-64" />
                <div className="relative z-10 space-y-8">
                  <h2 className="text-3xl font-bold tracking-tight leading-none flex items-baseline gap-4">
@@ -244,24 +250,24 @@ export default function TermsOfServicePage() {
 
             {/* Article 10 */}
             <section id="article-10" className="space-y-6 scroll-mt-40">
-              <h2 className="text-3xl font-bold tracking-tight text-foreground leading-none flex items-baseline gap-4">
+              <h2 className="text-3xl font-bold tracking-tight text-white leading-none flex items-baseline gap-4">
                 <span className="text-sm font-mono opacity-20">Art. 10</span>
                 <span>準拠法・裁判管轄</span>
               </h2>
-              <div className="p-10 rounded-[2.5rem] border border-foreground/10 text-center space-y-4">
-                 <p className="text-foreground/80 font-medium">
+              <div className="p-10 rounded-[2.5rem] border border-white/10 text-center space-y-4">
+                 <p className="text-white/80 font-medium">
                    本規約の解釈にあたっては，日本法を準拠法とします。 本サービスに関して紛争が生じた場合には，当ブランドの本店所在地を管轄する裁判所を専属的合意管轄とします。
                  </p>
                  <div className="pt-6">
-                    <CheckCircle2 size={32} className="mx-auto text-foreground/20" />
+                    <CheckCircle2 size={32} className="mx-auto text-white/20" />
                  </div>
               </div>
             </section>
 
             <div className="pt-24 flex flex-col items-center gap-4">
-               <div className="w-12 h-0.5 bg-foreground/10" />
-               <p className="text-[10px] text-foreground/20 font-bold uppercase tracking-[0.5em]">KamaKraft Artisan Collective</p>
-               <p className="text-[9px] text-foreground/20 font-bold uppercase tracking-[0.2em]">Effective as of April 9, 2026</p>
+               <div className="w-12 h-0.5 bg-white/10" />
+               <p className="text-[10px] text-white/20 font-bold uppercase tracking-[0.5em]">KamaKraft Artisan Collective</p>
+               <p className="text-[9px] text-white/20 font-bold uppercase tracking-[0.2em]">Effective as of April 9, 2026</p>
             </div>
 
           </motion.div>
