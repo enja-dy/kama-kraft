@@ -719,4 +719,17 @@ USER: はい
 ANTIGRAVITY: 承知いたしました。Sanctuary Protocolを維持し、タイポグラフィの微調整を行います。
 1. 修正前バックアップ (pre: adjust About Ulin headline font sizes) を実行。
 2. `src/app/about-ulin/page.tsx` の見出し内で該当箇所のフォントサイズ（級数）を縮小。
-3. 修正完了後、再度バックアップと物理ログの保存を行い、最終結果を報告します。
+3. 修正完了後、再度バックアップと物理ログ의保存を行い、最終結果を報告します。
+
+--- Update: 2026-04-17 11:07 ---
+
+USER: やっぱり変なので（鉄の木 = アイアンウッド）は削除してください。
+
+ANTIGRAVITY: 承知いたしました。サブタイトルを完全に削除し、シンプルに「ウリンとは？」に統一します。
+
+USER: OK
+
+ANTIGRAVITY: 承知いたしました。Sanctuary Protocolを維持し、見出しの徹底した簡素化を行います。
+1. 修正前バックアップ (pre: remove sub-title from About Ulin headline) を実行。
+2. `src/app/about-ulin/page.tsx` の見出しテキストを「ウリンとは？」に修正。
+3. 修正完了後、再度バックアップと物理ログの保存を行い、最終報告をいたします。
