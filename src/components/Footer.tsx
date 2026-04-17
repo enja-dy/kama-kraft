@@ -37,7 +37,7 @@ export const Footer = () => {
             <h3 className="text-xs font-bold tracking-[0.2em] text-white uppercase">サポート</h3>
             <ul className="space-y-4">
               <li>
-                <Link href="/help" className="text-sm text-white hover:text-white transition-colors font-medium">ヘルプ・お問い合わせ</Link>
+                <Link href="/contact" className="text-sm text-white hover:text-white transition-colors font-medium">ヘルプ・お問い合わせ</Link>
               </li>
               <li>
                 <Link href="/maintenance" className="text-sm text-white hover:text-white transition-colors font-medium">お手入れ・メンテナンス</Link>

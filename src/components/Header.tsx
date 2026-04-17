@@ -58,7 +58,7 @@ export const Header = () => {
               )}
             </Link>
             <Link
-              href="/help"
+              href="/contact"
               className="group flex items-center gap-2 text-sm tracking-widest text-white hover:text-white transition-colors"
             >
               <HelpCircle size={18} className="text-white group-hover:text-white transition-opacity" />
@@ -115,7 +115,7 @@ export const Header = () => {
                 )}
               </Link>
               <Link
-                href="/help"
+                href="/contact"
                 className="text-3xl font-bold text-white tracking-widest"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
