@@ -66,7 +66,7 @@ export default function ContactPage() {
 
             <button
               onClick={() => setActiveTab("faq")}
-              className={`relative z-10 flex-1 py-3 text-sm tracking-widest transition-colors duration-300 flex items-center justify-center gap-2 ${
+              className={`relative z-10 flex-1 py-3 text-[13px] md:text-sm tracking-widest transition-colors duration-300 flex items-center justify-center gap-2 ${
                 activeTab === "faq" ? "text-white" : "text-white/40 hover:text-white/60"
               }`}
             >
@@ -75,12 +75,12 @@ export default function ContactPage() {
             </button>
             <button
               onClick={() => setActiveTab("email")}
-              className={`relative z-10 flex-1 py-3 text-sm tracking-widest transition-colors duration-300 flex items-center justify-center gap-2 ${
+              className={`relative z-10 flex-1 py-3 text-[13px] md:text-sm tracking-widest transition-colors duration-300 flex items-center justify-center gap-2 ${
                 activeTab === "email" ? "text-white" : "text-white/40 hover:text-white/60"
               }`}
             >
               <Mail size={16} />
-              <span>✉️ お問い合わせ</span>
+              <span>お問い合わせ</span>
             </button>
           </div>
         </div>
