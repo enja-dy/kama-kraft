@@ -54,7 +54,7 @@ export const FeaturedProduct = () => {
           >
             <Image
               src="/urin02.jpeg"
-              alt="The Standard Table \"URIN\" - Ironwood Edition"
+              alt="The Standard Table &quot;URIN&quot; - Ironwood Edition"
               fill
               className="object-cover transform hover:scale-105 transition-transform duration-1000"
               style={{ objectPosition: "center" }}
