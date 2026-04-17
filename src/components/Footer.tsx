@@ -37,7 +37,7 @@ export const Footer = () => {
                 <Link href="/products" className="text-sm text-white hover:text-white transition-colors font-medium">The Standard Table &quot;URIN&quot;</Link>
               </li>
               <li>
-                <Link href="/contact" className="text-sm text-white hover:text-white transition-colors font-medium">オーダーメイドのご相談</Link>
+                <Link href="/custom-order" className="text-sm text-white hover:text-white transition-colors font-medium">オーダーメイドのご相談</Link>
               </li>
             </ul>
           </div>

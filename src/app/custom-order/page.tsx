@@ -1,0 +1,390 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import { 
+  Ruler, 
+  Settings, 
+  MessageSquare, 
+  CheckCircle2, 
+  Info, 
+  ArrowRight,
+  Maximize,
+  PenTool,
+  Truck
+} from "lucide-react";
+
+const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8, delay }}
+  >
+    {children}
+  </motion.div>
+);
+
+export default function CustomOrderPage() {
+  // Simulator State
+  const [width, setWidth] = useState(180);
+  const [depth, setDepth] = useState(90);
+  const [height, setHeight] = useState(72);
+  const [estimatedPrice, setEstimatedPrice] = useState(0);
+
+  // Form State
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // Price Calculation Logic
+  useEffect(() => {
+    const basePrice = 80000; // 職人の工賃・基本料
+    const surfaceArea = width * depth;
+    const materialCost = surfaceArea * 12; // 1平米あたりのウリン材単価シミュレート
+    const heightAdjustment = Math.abs(height - 70) * 1000; // 標準70cmからの乖離
+    
+    setEstimatedPrice(Math.round(basePrice + materialCost + heightAdjustment));
+  }, [width, depth, height]);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Simulate submission
+    setTimeout(() => {
+      setIsSubmitted(true);
+    }, 1000);
+  };
+
+  const formattedPrice = (price: number) => 
+    new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(price);
+
+  return (
+    <div className="min-h-screen bg-black text-white">
+      {/* Hero Section */}
+      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
+        <Image
+          src="/order-hero.png"
+          alt="Custom Order Blueprint"
+          fill
+          className="object-cover opacity-60 scale-105"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black" />
+        
+        <div className="relative z-10 text-center space-y-8 px-6 max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5 }}
+          >
+            <span className="text-xs font-bold tracking-[0.5em] text-white/40 uppercase block mb-4">Bespoke Excellence</span>
+            <h1 className="text-5xl md:text-8xl font-bold tracking-tighter leading-none mb-6">
+              オーダーメイドの<br />
+              ご相談
+            </h1>
+            <p className="text-lg md:text-xl text-white/60 font-light italic tracking-wide">
+              「1cmのこだわり、一生の対話。」<br className="md:hidden" />
+              あなたの空間に、完璧な一点を。
+            </p>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+            className="flex justify-center"
+          >
+            <div className="w-px h-24 bg-gradient-to-b from-white/0 via-white/40 to-white/0" />
+          </motion.div>
+        </div>
+      </section>
+
+      <div className="max-w-7xl mx-auto px-6 space-y-32 pb-32">
+        
+        {/* Philosophy Section */}
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center pt-24">
+          <FadeIn>
+            <div className="space-y-8">
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight">1cm単位という、<br />究極の自由。</h2>
+              <p className="text-lg text-white/60 leading-relaxed text-justify">
+                KamaKraftのオーダーメイドは、単なるサイズ変更ではありません。それは、あなたのライフスタイルや空間の呼吸、そして100年先まで続く「使い心地」を設計するプロセスです。
+                <br /><br />
+                アイアンウッド「ウリン」の圧倒的な重量感と美しさを、ミリ単位の精度で制御する。私たちは既製品の枠組みを捨て、一人の職人が一人の主（あるじ）のために、魂を削り出して形にします。
+              </p>
+              <div className="flex gap-8 pt-4">
+                <div className="space-y-2">
+                  <div className="text-2xl font-bold text-white">1cm</div>
+                  <div className="text-xs text-white/40 tracking-widest font-bold uppercase">精度</div>
+                </div>
+                <div className="w-px h-12 bg-white/10" />
+                <div className="space-y-2">
+                  <div className="text-2xl font-bold text-white">Full</div>
+                  <div className="text-xs text-white/40 tracking-widest font-bold uppercase">Bespoke</div>
+                </div>
+                <div className="w-px h-12 bg-white/10" />
+                <div className="space-y-2">
+                  <div className="text-2xl font-bold text-white">Life</div>
+                  <div className="text-xs text-white/40 tracking-widest font-bold uppercase">Warranty</div>
+                </div>
+              </div>
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <div className="relative aspect-square rounded-2xl overflow-hidden group">
+              <Image
+                src="/order-precision.png"
+                alt="Precision Measurement"
+                fill
+                className="object-cover transition-transform duration-1000 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black/20" />
+            </div>
+          </FadeIn>
+        </section>
+
+        {/* Simulator Section */}
+        <section id="simulator" className="p-8 md:p-16 bg-[#0a0a0a] rounded-[3rem] border border-white/5 shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white opacity-[0.02] blur-[100px] -mr-48 -mt-48" />
+          
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
+            {/* Control Panel */}
+            <div className="lg:col-span-2 space-y-12">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 text-white/40">
+                  <Settings size={18} />
+                  <span className="text-xs font-bold tracking-[0.3em] uppercase">Studio Simulation</span>
+                </div>
+                <h2 className="text-3xl font-bold tracking-tight">概算お見積り</h2>
+                <p className="text-sm text-white/40">サイズを入力すると、職人による基本制作費を含めた概算金額が算出されます。</p>
+              </div>
+
+              <div className="space-y-10">
+                {/* Width Input */}
+                <div className="space-y-4 text-left">
+                  <div className="flex justify-between items-end">
+                    <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40">Width / 幅 (cm)</label>
+                    <span className="text-xl font-mono text-white">{width}cm</span>
+                  </div>
+                  <input 
+                    type="range" min="100" max="240" step="1" 
+                    value={width} onChange={(e) => setWidth(Number(e.target.value))}
+                    className="w-full h-1 bg-white/10 rounded-full appearance-none cursor-pointer accent-white"
+                  />
+                </div>
+
+                {/* Depth Input */}
+                <div className="space-y-4 text-left">
+                  <div className="flex justify-between items-end">
+                    <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40">Depth / 奥行き (cm)</label>
+                    <span className="text-xl font-mono text-white">{depth}cm</span>
+                  </div>
+                  <input 
+                    type="range" min="60" max="120" step="1" 
+                    value={depth} onChange={(e) => setDepth(Number(e.target.value))}
+                    className="w-full h-1 bg-white/10 rounded-full appearance-none cursor-pointer accent-white"
+                  />
+                </div>
+
+                {/* Height Input */}
+                <div className="space-y-4 text-left">
+                  <div className="flex justify-between items-end">
+                    <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40">Height / 高さ (cm)</label>
+                    <span className="text-xl font-mono text-white">{height}cm</span>
+                  </div>
+                  <input 
+                    type="range" min="30" max="100" step="1" 
+                    value={height} onChange={(e) => setHeight(Number(e.target.value))}
+                    className="w-full h-1 bg-white/10 rounded-full appearance-none cursor-pointer accent-white"
+                  />
+                </div>
+              </div>
+
+              <div className="pt-8 border-t border-white/5 space-y-4">
+                <div className="flex justify-between items-center bg-white/5 p-6 rounded-2xl">
+                  <span className="text-xs font-bold tracking-widest text-white/40 uppercase">Estimated Price</span>
+                  <div className="text-right">
+                    <motion.div 
+                      key={estimatedPrice}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      className="text-3xl font-bold tracking-tighter"
+                    >
+                      {formattedPrice(estimatedPrice)}
+                    </motion.div>
+                    <span className="text-[10px] text-white/20 italic">税込・国内標準配送料込</span>
+                  </div>
+                </div>
+                <p className="text-[10px] text-white/30 leading-relaxed text-center italic">
+                  ※上記は目安です。木材の希少性や詳細な加工指示により変動します。
+                </p>
+              </div>
+            </div>
+
+            {/* Visualization Canvas */}
+            <div className="lg:col-span-3 flex items-center justify-center p-8 bg-white/[0.02] rounded-[2rem] border border-white/5 relative group">
+              <div className="absolute inset-0 opacity-20 pointer-events-none">
+                <Image
+                  src="/order-sketch.png"
+                  alt="Dimension Sketch"
+                  fill
+                  className="object-contain p-12"
+                />
+              </div>
+              
+              {/* Dynamic 3D Box Representation (CSS) */}
+              <div className="relative w-full h-64 md:h-96 flex items-center justify-center pointer-events-none">
+                <motion.div 
+                  initial={false}
+                  animate={{ 
+                    width: width * 1.5, 
+                    height: height * 0.8,
+                    perspective: 1000
+                  }}
+                  className="relative preserve-3d rotate-x-12 rotate-y-[-20deg]"
+                >
+                  <div className="border border-white/40 w-full h-full relative">
+                    <div className="absolute bottom-0 right-0 p-2 text-[10px] text-white/40 font-mono flex flex-col items-end">
+                      <span>W: {width}cm</span>
+                      <span>D: {depth}cm</span>
+                      <span>H: {height}cm</span>
+                    </div>
+                    {/* Floating Indicators */}
+                    <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-[10px] tracking-widest font-bold opacity-40 uppercase">Top Surface</div>
+                  </div>
+                </motion.div>
+              </div>
+
+              <div className="absolute bottom-6 left-6 flex items-center gap-2 text-white/20 text-[10px] uppercase font-bold tracking-widest">
+                <Info size={14} />
+                <span>形状はイメージです。デザインは職人と対話して決定します。</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Process Steps */}
+        <section className="space-y-24 py-12">
+          <div className="text-center space-y-4">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">実現までの旅路</h2>
+            <p className="text-white/40 tracking-widest uppercase text-xs font-bold">The Story of Creation</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+            {[
+              { icon: MessageSquare, title: "対話と構想", desc: "空間の悩みや理想を、職人が丁寧にヒアリングします。" },
+              { icon: PenTool, title: "図面作成", desc: "1cm単位で理想を形にし、詳細な図面をご提案します。" },
+              { icon: Ruler, title: "素材選定", desc: "一本のウリンから、最も美しい表情を持つ部位を厳選します。" },
+              { icon: Truck, title: "魂を届ける", desc: "最終調整を施し、専門の配送員が据付まで行います。" }
+            ].map((step, i) => (
+              <FadeIn key={i} delay={i * 0.1}>
+                <div className="bg-white/5 p-8 rounded-3xl border border-white/5 h-full space-y-6 hover:bg-white/[0.08] transition-colors">
+                  <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center group">
+                    <step.icon size={24} className="text-white opacity-40 group-hover:opacity-100 transition-opacity" />
+                  </div>
+                  <h3 className="text-xl font-bold tracking-tight">{step.title}</h3>
+                  <p className="text-sm text-white/40 leading-relaxed">{step.desc}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </section>
+
+        {/* Integrated Inquiry Form */}
+        <section id="form" className="max-w-4xl mx-auto pt-24">
+          <div className="bg-[#0c0c0c] p-10 md:p-20 rounded-[3rem] border border-white/10 shadow-2xl relative">
+            <div className="absolute inset-0 bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
+            
+            <FadeIn>
+              <div className="text-center space-y-8 mb-16">
+                <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                  <span className="text-[10px] font-bold tracking-[0.2em] uppercase">Consultation Open</span>
+                </div>
+                <h2 className="text-4xl md:text-6xl font-bold tracking-tighter">理想を、言葉に。</h2>
+                <p className="text-white/40 text-sm leading-relaxed max-w-lg mx-auto italic">
+                  シミュレーション結果をもとに、さらに深く詳細なご相談を承ります。職人からの直接の回答をお待ちください。
+                </p>
+              </div>
+
+              {!isSubmitted ? (
+                <form onSubmit={handleSubmit} className="space-y-10 relative">
+                  <div className="space-y-1">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <div className="space-y-3">
+                        <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40 ml-4">お名前</label>
+                        <input 
+                          type="text" required
+                          value={name} onChange={(e) => setName(e.target.value)}
+                          placeholder="鎌倉 太郎"
+                          className="w-full bg-white/5 border border-white/10 p-5 rounded-2xl focus:border-white outline-none transition-all placeholder:text-white/10"
+                        />
+                      </div>
+                      <div className="space-y-3">
+                        <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40 ml-4">メールアドレス</label>
+                        <input 
+                          type="email" required
+                          value={email} onChange={(e) => setEmail(e.target.value)}
+                          placeholder="kamakura@example.com"
+                          className="w-full bg-white/5 border border-white/10 p-5 rounded-2xl focus:border-white outline-none transition-all placeholder:text-white/10"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40 ml-4">現在のシミュレーション内容</label>
+                    <div className="bg-white/5 border border-white/10 p-5 rounded-2xl text-sm font-mono text-white/60">
+                      幅: {width}cm / 奥行き: {depth}cm / 高さ: {height}cm <br />
+                      概算金額: {formattedPrice(estimatedPrice)}
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40 ml-4">具体的なご要望（任意）</label>
+                    <textarea 
+                      rows={5}
+                      value={message} onChange={(e) => setMessage(e.target.value)}
+                      placeholder="例：天板のエッジを自然な形で残したい、脚の素材を黒いアイアンにしたい、等"
+                      className="w-full bg-white/5 border border-white/10 p-5 rounded-2xl focus:border-white outline-none transition-all placeholder:text-white/10 resize-none"
+                    />
+                  </div>
+
+                  <button 
+                    type="submit"
+                    className="w-full bg-white text-black py-6 rounded-2xl font-bold tracking-[0.3em] text-xs uppercase hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 group"
+                  >
+                    この内容で相談する
+                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </form>
+              ) : (
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="py-20 text-center space-y-6"
+                >
+                  <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-green-500/20">
+                    <CheckCircle2 size={40} className="text-white" />
+                  </div>
+                  <h3 className="text-3xl font-bold">承りました。</h3>
+                  <p className="text-white/40 max-w-sm mx-auto leading-relaxed">
+                    職人が内容を精査し、3営業日以内にご入力いただいたメールアドレスへ回答いたします。一生ものの出会いを、今しばらくお待ちください。
+                  </p>
+                  <button 
+                    onClick={() => setIsSubmitted(false)}
+                    className="text-xs tracking-widest text-white/20 hover:text-white transition-colors uppercase font-bold pt-8"
+                  >
+                    別の内容で相談する
+                  </button>
+                </motion.div>
+              )}
+            </FadeIn>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  );
+}
