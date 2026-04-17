@@ -12,8 +12,8 @@ export const FeaturedProduct = () => {
 
   const handleAddToCart = () => {
     addToCart({
-      id: "heritage-coffee-table-1",
-      name: "Heritage Coffee Table",
+      id: "urin-standard-table-1",
+      name: "The Standard Table \"URIN\"",
       price: 70000,
       image: "/urin02.jpeg",
       quantity: 1,
@@ -54,7 +54,7 @@ export const FeaturedProduct = () => {
           >
             <Image
               src="/urin02.jpeg"
-              alt="Heritage Coffee Table - Ulin Edition"
+              alt="The Standard Table \"URIN\" - Ironwood Edition"
               fill
               className="object-cover transform hover:scale-105 transition-transform duration-1000"
               style={{ objectPosition: "center" }}
@@ -79,8 +79,8 @@ export const FeaturedProduct = () => {
                 transition={{ delay: 0.2 }}
                 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground leading-[1.1]"
               >
-                Heritage Coffee Table<br />
-                <span className="text-2xl md:text-3xl font-light italic text-[#3d2b1f]/60 dark:text-white/40">ウリン・エディション</span>
+                The Standard Table<br />
+                <span className="text-2xl md:text-3xl font-light italic text-[#3d2b1f]/60 dark:text-white/40 text-glow-premium uppercase tracking-[0.3em]">&quot;URIN&quot;</span>
               </motion.h2>
             </div>
 
@@ -92,9 +92,9 @@ export const FeaturedProduct = () => {
               className="text-lg leading-relaxed text-foreground/70 text-justify"
             >
               100年の封印を解かれた、ウリンの息吹。
-              圧倒的な厚みと密度を誇る「鉄の木」から削り出された、世界に一点だけのヘリテージ・コーヒーテーブル。
+              圧倒的な厚みと密度を誇る「鉄の木」から削り出された、世界に一点だけの特注品。
               自然が描いたライブエッジ（耳付き）の有機的なラインと、アイアンウッド特有の重厚な赤褐色のコントラストが、リビングルームに圧倒的な品格と野生の静寂をもたらします。
-              世代を超えて受け継がれる、真の資産価値を持つ名作です。
+              世代を超えて受け継がれる、真の資産価値を持つ「THE STANDARD」です。
             </motion.p>
 
             <motion.div
