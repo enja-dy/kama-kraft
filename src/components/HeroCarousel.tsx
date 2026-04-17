@@ -5,10 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 const slides = [
-  { url: "/urin02.jpeg", position: "left 30%" },
-  { url: "/urin06.jpeg", position: "right 35%" }, // 窓を隠しつつテーブルを中央に
+  { url: "/hero-urin-luxury.png", position: "center" },
+  { url: "/urin06.jpeg", position: "right 35%" },
   { url: "/hero-3.png", position: "center" },
-  { url: "/urin07.jpeg", position: "left 45%" }, // テーブルが見える高さまで引き上げ
+  { url: "/urin07.jpeg", position: "left 45%" },
 ];
 
 export const HeroCarousel = () => {
@@ -49,7 +49,7 @@ export const HeroCarousel = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 1 }}
-          className="text-6xl md:text-8xl font-bold tracking-tighter mb-4"
+          className="text-4xl md:text-5xl font-bold tracking-tighter mb-4"
         >
           KamaKraft
         </motion.h1>
