@@ -641,3 +641,16 @@ ANTIGRAVITY: 承知いたしました。Sanctuary Protocolを堅持し、KamaKra
 2. オフライン環境（Port 3001）およびオンライン環境（zrok tunnel: kamakraftdev）を起動しました。
 3. PROJECT_CONTEXT.md の各ルール（極小ステップ、完全承認制、Gitバックアップ等）を改めて確認・遵守いたします。
 4. 直近のステータスとして、Stripe Webhook連携、Supabase RLS設定、およびマイページ（注文履歴・住所録）のDB連動がすべて完了し、安定稼働していることを確認しました。
+
+--- Update: 2026-04-17 10:37 ---
+
+USER: 添付のお問い合わせページを制作します。kamakraftの世界観に合ったオシャレなUIでお願いします。お問い合わせは、「よくある質問」と「✉️お問い合わせ」の２つタブ、スライディングトグルでお願いします。メールでのお問い合わせはどういうツール・技術で行いますか？
+
+ANTIGRAVITY: (メール送信サービスとして「Resend」の利用を提案。Next.js API Routeと組み合わせることで、ブランドの世界観を壊さず100%カスタムUIで実装できる利点を解説。MyASPとの使い分けについても、UI/UXの観点からResendを推奨。)
+
+USER: 了解。慎重にお願いします。
+
+ANTIGRAVITY: 承知いたしました。Sanctuary Protocolを維持し、お問い合わせページの制作を開始します。
+1. 修正前バックアップ (pre: start contact page UI) を実行。
+2. `src/app/contact/page.tsx` を新規作成し、Framer Motionを用いたスライディングトグルによる「FAQ/お問い合わせ」切り替えインターフェースを構築します。
+3. 極小ステップで実装し、デザインの質感とレスポンシブ性を徹底します。
