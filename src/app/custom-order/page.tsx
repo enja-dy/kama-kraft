@@ -80,11 +80,11 @@ export default function CustomOrderPage() {
             transition={{ duration: 1.5 }}
           >
             <span className="text-xs font-bold tracking-[0.5em] text-white/40 uppercase block mb-4">Bespoke Excellence</span>
-            <h1 className="text-5xl md:text-8xl font-bold tracking-tighter leading-none mb-6">
+            <h1 className="text-4xl md:text-7xl font-extralight tracking-[0.2em] leading-tight mb-8">
               オーダーメイドの<br />
               ご相談
             </h1>
-            <p className="text-lg md:text-xl text-white/60 font-light italic tracking-wide">
+            <p className="text-lg md:text-2xl font-light tracking-[0.4em] text-white/80 leading-relaxed uppercase">
               「1cmのこだわり、一生の対話。」<br className="md:hidden" />
               あなたの空間に、完璧な一点を。
             </p>
