@@ -7,22 +7,19 @@ export const Footer = () => {
   return (
     <footer className="bg-[#050505] text-white border-t border-white/5 pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
-          {/* Brand Column */}
-          <div className="space-y-6">
-            <h2 className="text-2xl font-bold tracking-tighter">KamaKraft</h2>
-            <p className="text-white text-sm leading-relaxed tracking-wide font-medium">
-              100年レベルの耐久性・耐水性・耐虫性に優れ、シロアリや塩害にも負けない最高品質の「鉄の木」ウリン。世代を超えて受け継がれる極上の工芸美と、時と共に深まる風格。
-            </p>
-          </div>
+        {/* Brand Top Section */}
+        <div className="mb-20 space-y-8">
+          <h2 className="text-3xl font-bold tracking-tighter">KamaKraft</h2>
+          <p className="text-white/80 text-base leading-relaxed tracking-wide font-light max-w-2xl">
+            100年レベルの耐久性・耐水性・耐虫性に優れ、シロアリや塩害にも負けない最高品質の「鉄の木」ウリン。世代を超えて受け継がれる極上の工芸美と、時と共に深まる風格。
+          </p>
+        </div>
 
-          {/* Shop Column */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20 border-t border-white/5 pt-16">
+          {/* Column 1: STORY */}
           <div className="space-y-6">
-            <h3 className="text-xs font-bold tracking-[0.2em] text-white uppercase">製品一覧</h3>
+            <h3 className="text-xs font-bold tracking-[0.2em] text-white/40 uppercase">STORY</h3>
             <ul className="space-y-4">
-              <li>
-                <Link href="/products" className="text-sm text-white hover:text-white transition-colors font-medium">すべての商品</Link>
-              </li>
               <li>
                 <Link href="/about-ulin" className="text-sm text-white hover:text-white transition-colors font-medium">ウリンについて</Link>
               </li>
@@ -32,9 +29,22 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Column */}
+          {/* Column 2: CREATION */}
           <div className="space-y-6">
-            <h3 className="text-xs font-bold tracking-[0.2em] text-white uppercase">サポート</h3>
+            <h3 className="text-xs font-bold tracking-[0.2em] text-white/40 uppercase">CREATION</h3>
+            <ul className="space-y-4">
+              <li>
+                <Link href="/products" className="text-sm text-white hover:text-white transition-colors font-medium">The Standard Table &quot;URIN&quot;</Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-sm text-white hover:text-white transition-colors font-medium">オーダーメイドのご相談</Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: SUPPORT */}
+          <div className="space-y-6">
+            <h3 className="text-xs font-bold tracking-[0.2em] text-white/40 uppercase">SUPPORT</h3>
             <ul className="space-y-4">
               <li>
                 <Link href="/contact" className="text-sm text-white hover:text-white transition-colors font-medium">ヘルプ・お問い合わせ</Link>
@@ -45,9 +55,9 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Legal Column */}
+          {/* Column 4: POLICIES */}
           <div className="space-y-6">
-            <h3 className="text-xs font-bold tracking-[0.2em] text-white uppercase">規約・法定表記</h3>
+            <h3 className="text-xs font-bold tracking-[0.2em] text-white/40 uppercase">POLICIES</h3>
             <ul className="space-y-4">
               <li>
                 <Link href="/privacy" className="text-sm text-white hover:text-white transition-colors font-medium">プライバシーポリシー</Link>
