@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 const slides = [
-  { url: "/hero-urin-luxury.png", position: "center" },
+  { url: "/hero-urin-v3-accurate.png", position: "center" }, // 元の本物の画像に戻す場合は "/urin02.jpeg" に変更
   { url: "/urin06.jpeg", position: "right 35%" },
   { url: "/hero-3.png", position: "center" },
   { url: "/urin07.jpeg", position: "left 45%" },
