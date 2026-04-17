@@ -49,7 +49,7 @@ export default function AboutUlinPage() {
         <FadeIn>
           <div className="space-y-8 text-center md:text-left">
             <h2 className="text-3xl md:text-4xl font-light tracking-widest leading-tight">
-              ウリン（鉄の木 = アイアンウッド）とは？
+              ウリン <span className="text-[0.65em] opacity-50 ml-2">（鉄の木 = アイアンウッド）</span>とは？
             </h2>
             <div className="h-[1px] w-20 bg-white/20 mx-auto md:mx-0" />
             <p className="text-white/70 leading-relaxed text-lg font-light">
