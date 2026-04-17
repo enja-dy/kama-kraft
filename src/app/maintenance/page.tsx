@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Droplets, Sun, Wind, ShieldCheck, Sparkles, MessageCircleHistory } from "lucide-react";
+import { Droplets, Sun, Wind, ShieldCheck, Sparkles, MessageCircle } from "lucide-react";
 
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => (
   <motion.div
@@ -191,7 +191,7 @@ export default function MaintenancePage() {
             className="group relative inline-flex items-center gap-6 px-16 py-6 border border-white/10 overflow-hidden transition-all duration-700 hover:border-white/40"
           >
             <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out opacity-[0.03]" />
-            <MessageCircleHistory size={20} className="text-white/40 group-hover:text-white transition-colors duration-500" />
+            <MessageCircle size={20} className="text-white/40 group-hover:text-white transition-colors duration-500" />
             <span className="text-xs tracking-[0.5em] font-light group-hover:tracking-[0.6em] transition-all duration-500">
               お手入れのご相談・お問い合わせ
             </span>
