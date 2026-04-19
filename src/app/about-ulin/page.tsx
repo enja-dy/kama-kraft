@@ -36,7 +36,7 @@ export default function AboutUlinPage() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
           >
-            <h1 className="text-5xl md:text-8xl font-extralight tracking-[0.3em] mb-6">ULIN</h1>
+            <h1 className="text-3xl md:text-5xl font-extralight tracking-[0.4em] mb-6">ULIN</h1>
             <p className="text-lg md:text-2xl font-light tracking-[0.5em] text-white/80">
               水に沈む、鉄の木。
             </p>
