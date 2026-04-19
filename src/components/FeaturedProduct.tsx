@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { ShoppingCart, ArrowRight, CheckCircle2 } from "lucide-react";
 import { useCart } from "@/context/CartContext";
+import Link from "next/link";
 
 export const FeaturedProduct = () => {
   const [isAdded, setIsAdded] = useState(false);
@@ -148,10 +149,13 @@ export const FeaturedProduct = () => {
                     )}
                   </AnimatePresence>
                 </button>
-                <button className="flex-1 border border-foreground/20 text-foreground py-5 px-8 flex items-center justify-center gap-3 hover:bg-foreground/5 transition-all group active:scale-[0.98]">
+                <Link 
+                  href="/products/urin-table"
+                  className="flex-1 border border-foreground/20 text-foreground py-5 px-8 flex items-center justify-center gap-3 hover:bg-foreground/5 transition-all group active:scale-[0.98]"
+                >
                   <span className="text-sm tracking-widest font-bold">詳細を見る</span>
                   <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                </button>
+                </Link>
               </div>
             </motion.div>
           </div>
