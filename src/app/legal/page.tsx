@@ -48,7 +48,7 @@ export default function LegalNoticePage() {
             <Scale size={14} className="text-white/40" />
             <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-white/40">Specific Commercial Transactions Act</span>
           </div>
-          <h1 className="text-4xl md:text-8xl font-extralight tracking-[0.4em] uppercase mb-12">
+          <h1 className="text-3xl md:text-5xl font-extralight tracking-[0.4em] uppercase mb-12">
             Legal Notice
           </h1>
           <div className="space-y-6">

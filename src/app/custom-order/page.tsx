@@ -79,7 +79,7 @@ export default function CustomOrderPage() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.5 }}
           >
-            <h1 className="text-4xl md:text-8xl font-extralight tracking-[0.4em] uppercase mb-12">
+            <h1 className="text-3xl md:text-5xl font-extralight tracking-[0.4em] uppercase mb-12">
               Bespoke
             </h1>
             <div className="space-y-6">
