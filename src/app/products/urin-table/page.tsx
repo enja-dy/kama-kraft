@@ -41,16 +41,9 @@ export default function UrinTablePage() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2 }}
-            className="relative aspect-square rounded-2xl overflow-hidden bg-white/5 border border-white/5"
+            className="relative aspect-square rounded-2xl overflow-hidden bg-white/5 border border-white/5 flex items-center justify-center"
           >
-            <Image
-              src="/product-urin-highangle.png"
-              alt="The Standard Table URIN"
-              fill
-              className="object-cover"
-              priority
-              unoptimized
-            />
+            <span className="text-white/20 font-bold tracking-widest uppercase text-xs italic">Image Removed for Diagnosis</span>
           </motion.div>
 
           {/* Product Data */}
