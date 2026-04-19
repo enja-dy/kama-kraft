@@ -137,7 +137,7 @@ export default function UrinTablePage() {
             </div>
 
             <p className="text-white/60 leading-relaxed font-light text-lg">
-              不朽の強さを宿し、鎌倉の地で新たな命。
+              不朽の強さを宿し、世代を超えて受け継がれる「鉄の木」の誇り。
               アイアンウッド「ウリン」の圧倒的な重量感。
               自然の呼吸をそのまま形にしたライブエッジが、空間に唯一無二の品格を与えます。
             </p>
