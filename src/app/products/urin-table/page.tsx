@@ -14,8 +14,8 @@ export default function UrinTablePage() {
 
   const productImages = [
     "/product-urin-highangle-master.png", // Valid 589KB Master
-    "", // Blank placeholder 2
-    "", // Blank placeholder 3
+    "/product-urin-front.png", // Valid 379KB Master
+    "/product-urin-topdown.png", // Valid 538KB Master
     "", // Blank placeholder 4
   ];
 
