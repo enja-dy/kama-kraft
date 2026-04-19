@@ -146,7 +146,7 @@ export default function UrinTablePage() {
               <div className="text-center space-y-2">
                 <Ruler className="mx-auto text-white/20" size={20} />
                 <p className="text-[10px] font-bold tracking-widest text-white/40 uppercase">Size</p>
-                <p className="text-sm font-light">180×90</p>
+                <p className="text-sm font-light">90×45</p>
               </div>
               <div className="text-center space-y-2">
                 <Shield className="mx-auto text-white/20" size={20} />
