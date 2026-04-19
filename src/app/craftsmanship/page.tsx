@@ -29,7 +29,7 @@ export default function CraftsmanshipPage() {
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#050505]" />
-        
+
         <div className="relative z-10 text-center px-6">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -69,19 +69,19 @@ export default function CraftsmanshipPage() {
           <FadeIn>
             <h2 className="text-center text-xs tracking-[0.4em] text-white/40 uppercase mb-20">The Precision — 妥協なき精度</h2>
           </FadeIn>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-24">
-            <FeatureCard 
+            <FeatureCard
               icon={<Ruler size={32} />}
               title="0.1mmの制御"
               description="鉄に匹敵する硬度を持つウリンを、ミリ以下の単位で制御します。高度な工作機械と、職人の指先に伝わる僅かな振動が、完璧な精度を生み出します。"
             />
-            <FeatureCard 
+            <FeatureCard
               icon={<Hammer size={32} />}
               title="組木の美学"
               description="ネジや釘に頼りすぎない、伝統的な日本の組木技術を応用。木と木が互いに支え合うことで、地震や経年変化にも負けない、驚異的な堅牢さを実現します。"
             />
-            <FeatureCard 
+            <FeatureCard
               icon={<Sparkles size={32} />}
               title="究極の手ざわり"
               description="幾度もの研磨工程を経て、ウリンはシルクのような滑らかさを手に入れます。硬質な木材から生まれる意外なほどの温もりこそ、職人のこだわりの証です。"
@@ -170,7 +170,7 @@ export default function CraftsmanshipPage() {
                 職人と共に作り上げるプロセスそのものが、かけがえのない思い出となります。
               </p>
               <div className="pt-8 text-center md:text-left">
-                <a 
+                <a
                   href="/contact"
                   className="inline-block px-12 py-4 border border-white/20 hover:border-white hover:bg-white hover:text-black transition-all duration-500 tracking-[0.4em] text-xs font-light"
                 >
