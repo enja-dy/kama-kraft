@@ -92,7 +92,7 @@ export const FeaturedProduct = () => {
               transition={{ delay: 0.4 }}
               className="text-lg leading-relaxed text-foreground/70 text-justify"
             >
-              100年の封印を解かれた、ウリンの息吹。
+              100年の試練に耐え、世代を繋ぐ「鉄の木」の息吹。
               圧倒的な厚みと密度を誇る「鉄の木」から削り出された、世界に一点だけの特注品。
               自然が描いたライブエッジ（耳付き）の有機的なラインと、アイアンウッド特有の重厚な赤褐色のコントラストが、リビングルームに圧倒的な品格と野生の静寂をもたらします。
               世代を超えて受け継がれる、真の資産価値を持つ「THE STANDARD」です。
