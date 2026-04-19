@@ -17,6 +17,7 @@ export default function UrinTablePage() {
     "/product-urin-front.png", // Valid 379KB Master
     "/product-urin-topdown.png", // Valid 538KB Master
     "/product-urin-side.png", // Valid 515KB Master
+    "/product-urin-studio-highangle.png", // New Ultimate Master Rendering
   ];
 
   const handleAddToCart = () => {
@@ -98,12 +99,12 @@ export default function UrinTablePage() {
             </div>
 
             {/* Thumbnails */}
-            <div className="flex gap-4">
+            <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
               {productImages.map((img, idx) => (
                 <button
                   key={idx}
                   onClick={() => setCurrentImageIndex(idx)}
-                  className={`relative w-24 aspect-square rounded-xl overflow-hidden border-2 transition-all ${currentImageIndex === idx ? 'border-white opacity-100' : 'border-transparent opacity-30 hover:opacity-50'}`}
+                  className={`relative w-24 flex-shrink-0 aspect-square rounded-xl overflow-hidden border-2 transition-all ${currentImageIndex === idx ? 'border-white opacity-100' : 'border-transparent opacity-30 hover:opacity-50'}`}
                 >
                   {img ? (
                     <Image
