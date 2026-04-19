@@ -1,27 +1,43 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { ShoppingCart, CheckCircle2, Ruler, Shield, Clock, ArrowLeft } from "lucide-react";
+import { ShoppingCart, CheckCircle2, Ruler, Shield, Clock, ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { useCart } from "@/context/CartContext";
 import Link from "next/link";
 
 export default function UrinTablePage() {
   const [isAdded, setIsAdded] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const { addToCart } = useCart();
+
+  const productImages = [
+    "/product-urin-highangle-master.png", // Valid 589KB Master
+    "", // Blank placeholder 2
+    "", // Blank placeholder 3
+    "", // Blank placeholder 4
+  ];
 
   const handleAddToCart = () => {
     addToCart({
       id: "urin-standard-table-1",
       name: "The Standard Table \"URIN\"",
       price: 70000,
-      image: "/product-urin-highangle.png",
+      image: "/product-urin-highangle-master.png",
       quantity: 1,
     });
     
     setIsAdded(true);
     setTimeout(() => setIsAdded(false), 3000);
+  };
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % productImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + productImages.length) % productImages.length);
   };
 
   return (
@@ -35,26 +51,78 @@ export default function UrinTablePage() {
           <span className="text-xs font-bold tracking-[0.2em] uppercase">Return to Collection</span>
         </Link>
 
+        {/* Product Hero Section with Carousel */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 mb-32">
-          {/* Main Visual - Single Image for Stability with Bypass Cache */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2 }}
-            className="relative aspect-square rounded-2xl overflow-hidden bg-white/5 border border-white/5"
-          >
-            <Image
-              src="/product-urin-highangle-master.png"
-              alt="The Standard Table URIN"
-              fill
-              className="object-cover"
-              priority
-              unoptimized
-            />
-          </motion.div>
+          {/* Carousel Stage */}
+          <div className="space-y-6">
+            <div className="relative aspect-square rounded-2xl overflow-hidden bg-white/5 border border-white/5 group">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentImageIndex}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="absolute inset-0"
+                >
+                  {productImages[currentImageIndex] ? (
+                    <Image
+                      src={productImages[currentImageIndex]}
+                      alt={`Product Image ${currentImageIndex + 1}`}
+                      fill
+                      className="object-cover"
+                      priority
+                      unoptimized
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-white/[0.02]">
+                      <span className="text-white/10 font-bold tracking-[0.5em] uppercase text-[10px] italic">Image {currentImageIndex + 1} Pending</span>
+                    </div>
+                  )}
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Navigation Arrows */}
+              <button 
+                onClick={prevImage}
+                className="absolute left-4 top-1/2 -translate-y-1/2 p-4 rounded-full bg-black/40 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/60 backdrop-blur-md border border-white/5"
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <button 
+                onClick={nextImage}
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-4 rounded-full bg-black/40 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/60 backdrop-blur-md border border-white/5"
+              >
+                <ChevronRight size={20} />
+              </button>
+            </div>
+
+            {/* Thumbnails */}
+            <div className="flex gap-4">
+              {productImages.map((img, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentImageIndex(idx)}
+                  className={`relative w-24 aspect-square rounded-xl overflow-hidden border-2 transition-all ${currentImageIndex === idx ? 'border-white opacity-100' : 'border-transparent opacity-30 hover:opacity-50'}`}
+                >
+                  {img ? (
+                    <Image
+                      src={img}
+                      alt={`Thumbnail ${idx + 1}`}
+                      fill
+                      className="object-cover"
+                      unoptimized
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-white/5" />
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
 
           {/* Product Data */}
-          <div className="space-y-12">
+          <div className="flex flex-col justify-center space-y-12">
             <div className="space-y-6">
               <span className="text-[10px] uppercase tracking-[0.6em] font-bold text-white/40 block">The Standard Series</span>
               <h1 className="text-3xl md:text-5xl font-extralight tracking-[0.2em] leading-tight">
@@ -113,7 +181,7 @@ export default function UrinTablePage() {
           </div>
         </div>
 
-        {/* Sub Information */}
+        {/* Sub Information Sections - Consistent with restored content */}
         <section className="space-y-32">
           {/* Material Detail */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
@@ -137,7 +205,7 @@ export default function UrinTablePage() {
                 </div>
               </div>
             </div>
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/5">
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/5 bg-white/5">
               <Image
                 src="/product-urin-macro.png"
                 alt="Ulin Texture"
@@ -150,7 +218,7 @@ export default function UrinTablePage() {
 
           {/* Aging Detail */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center flex-row-reverse">
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/5 md:order-last">
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/5 md:order-last bg-white/5">
               <Image
                 src="/product-urin-topdown.png"
                 alt="Ulin Topdown Pattern"
@@ -183,7 +251,7 @@ export default function UrinTablePage() {
                 見た目の美しさだけでなく、家具としての「道具的完成度」を追求しました。
               </p>
             </div>
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/5">
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/5 bg-white/5">
               <Image
                 src="/product-urin-side.png"
                 alt="Ulin Structure"
