@@ -36,12 +36,12 @@ export default function UrinTablePage() {
         </Link>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 mb-32">
-          {/* Main Visual - Single Image for Stability */}
+          {/* Main Visual - Single Image for Stability with Bypass Cache */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2 }}
-            className="relative aspect-square rounded-[2rem] overflow-hidden bg-white"
+            className="relative aspect-square rounded-2xl overflow-hidden bg-white/5 border border-white/5"
           >
             <Image
               src="/product-urin-highangle.png"
@@ -137,24 +137,26 @@ export default function UrinTablePage() {
                 </div>
               </div>
             </div>
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-white">
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/5">
               <Image
                 src="/product-urin-macro.png"
                 alt="Ulin Texture"
                 fill
                 className="object-cover"
+                unoptimized
               />
             </div>
           </div>
 
           {/* Aging Detail */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center flex-row-reverse">
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-white md:order-last">
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/5 md:order-last">
               <Image
                 src="/product-urin-topdown.png"
                 alt="Ulin Topdown Pattern"
                 fill
                 className="object-cover"
+                unoptimized
               />
             </div>
             <div className="space-y-8">
@@ -170,7 +172,7 @@ export default function UrinTablePage() {
           </div>
 
           {/* Structural Detail */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center pb-24">
             <div className="space-y-8">
               <h2 className="text-3xl font-light tracking-widest">揺るぎない、構造。</h2>
               <div className="h-[1px] w-12 bg-white/20" />
@@ -181,12 +183,13 @@ export default function UrinTablePage() {
                 見た目の美しさだけでなく、家具としての「道具的完成度」を追求しました。
               </p>
             </div>
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-white">
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/5">
               <Image
                 src="/product-urin-side.png"
                 alt="Ulin Structure"
                 fill
                 className="object-cover"
+                unoptimized
               />
             </div>
           </div>
