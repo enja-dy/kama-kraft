@@ -44,7 +44,7 @@ export default function UrinTablePage() {
             className="relative aspect-square rounded-2xl overflow-hidden bg-white/5 border border-white/5"
           >
             <Image
-              src="/product-urin-highangle.png"
+              src="/product-urin-highangle-master.png"
               alt="The Standard Table URIN"
               fill
               className="object-cover"
