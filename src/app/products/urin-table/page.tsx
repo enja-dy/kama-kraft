@@ -16,7 +16,7 @@ export default function UrinTablePage() {
     "/product-urin-highangle-master.png", // Valid 589KB Master
     "/product-urin-front.png", // Valid 379KB Master
     "/product-urin-topdown.png", // Valid 538KB Master
-    "", // Blank placeholder 4
+    "/product-urin-side.png", // Valid 515KB Master
   ];
 
   const handleAddToCart = () => {
