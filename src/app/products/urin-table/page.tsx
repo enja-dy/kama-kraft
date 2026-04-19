@@ -41,7 +41,7 @@ export default function UrinTablePage() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2 }}
-            className="relative aspect-square rounded-2xl overflow-hidden bg-white/5 border border-white/5"
+            className="relative aspect-square rounded-[2rem] overflow-hidden bg-white"
           >
             <Image
               src="/product-urin-highangle.png"
@@ -137,7 +137,7 @@ export default function UrinTablePage() {
                 </div>
               </div>
             </div>
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/5">
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-white">
               <Image
                 src="/product-urin-macro.png"
                 alt="Ulin Texture"
@@ -149,7 +149,7 @@ export default function UrinTablePage() {
 
           {/* Aging Detail */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center flex-row-reverse">
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/5 md:order-last">
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-white md:order-last">
               <Image
                 src="/product-urin-topdown.png"
                 alt="Ulin Topdown Pattern"
@@ -181,7 +181,7 @@ export default function UrinTablePage() {
                 見た目の美しさだけでなく、家具としての「道具的完成度」を追求しました。
               </p>
             </div>
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/5">
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-white">
               <Image
                 src="/product-urin-side.png"
                 alt="Ulin Structure"
