@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ShoppingCart, CheckCircle2, Ruler, Shield, Clock, Droplets, ArrowLeft, Info, Calendar } from "lucide-react";
+import { ShoppingCart, CheckCircle2, Ruler, Shield, Clock, ArrowLeft } from "lucide-react";
 import { useState } from "react";
 import { useCart } from "@/context/CartContext";
 import Link from "next/link";
@@ -24,34 +24,21 @@ export default function UrinTablePage() {
     setTimeout(() => setIsAdded(false), 3000);
   };
 
-  const sections = [
-    {
-      id: "story",
-      title: "100年の封印、その息吹。",
-      content: "東南アジアの熱帯雨林で、一世紀近い歳月をかけて育まれた「鉄の木」ウリン。かつては橋梁や埠頭など、国家レベルの重要インフラを支えてきたこの稀少材が、鎌倉の職人の手仕事によって、あなたの家の中心（センターテーブル）として生まれ変わります。水に沈むほどの圧倒的な密度、そして腐朽菌を寄せ付けない強靭な生命力を、日常の空間に。"
-    },
-    {
-      id: "detail",
-      title: "資産としての、家具。",
-      content: "ウリンは単なる木材ではありません。時と共に明るい赤褐色から、深みのあるダークブラウンへと深まり、最終的には気高いシルバーグレーへと昇華していきます。一生を添い遂げ、世代を超えて受け継がれる「真のラグジュアリー」を。屋外のテラスからラグジュアリーなリビングまで、あらゆる環境でその真価を発揮します。"
-    }
-  ];
-
   return (
-    <div className="min-h-screen bg-[#050505] text-white pt-48 pb-40">
+    <div className="min-h-screen bg-[#050505] text-white pt-48 pb-32">
       <div className="max-w-7xl mx-auto px-6">
         {/* Navigation */}
         <Link 
           href="/"
-          className="inline-flex items-center gap-3 text-white/40 hover:text-white transition-all mb-16 group"
+          className="inline-flex items-center gap-2 text-white/40 hover:text-white transition-colors mb-16 group"
         >
           <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-          <span className="text-[10px] font-bold tracking-[0.4em] uppercase">Return to Collection</span>
+          <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-glow-none">Return to Collection</span>
         </Link>
 
-        {/* Hero Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32 mb-48">
-          {/* Main Visual */}
+        {/* Main Product Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32 mb-40">
+          {/* Main Image Stage */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -68,7 +55,7 @@ export default function UrinTablePage() {
             />
           </motion.div>
 
-          {/* Product Info */}
+          {/* Product Info Panel */}
           <div className="flex flex-col justify-center space-y-12">
             <div className="space-y-6">
               <span className="text-[10px] uppercase tracking-[0.6em] font-bold text-white/30 block">The Standard Series</span>
@@ -82,32 +69,31 @@ export default function UrinTablePage() {
               </div>
             </div>
 
-            <p className="text-white/50 leading-[2.2] font-light text-lg tracking-wide text-justify">
-              アイアンウッド「ウリン」の圧倒的な重量感と生命力。
-              自然の息吹をそのまま形にしたライブエッジが、あなたの空間に静謐な品格をもたらします。
-              100年の熟成を経て、新たな歴史を刻み始める一枚。
+            <p className="text-white/60 leading-[2.2] font-light text-lg tracking-wide text-justify">
+              100年の熟成を経て、鎌倉の地で新たな命。
+              アイアンウッド「ウリン」の圧倒的な重量感。
+              自然の呼吸をそのまま形にしたライブエッジが、空間に唯一無二の品格を与えます。
             </p>
 
-            {/* Quick Specs */}
-            <div className="grid grid-cols-3 gap-6 py-10 border-y border-white/5">
+            <div className="grid grid-cols-3 gap-8 py-10 border-y border-white/5">
               <div className="text-center space-y-3">
-                <Ruler className="mx-auto text-white/20" size={18} />
+                <Ruler className="mx-auto text-white/20" size={20} />
                 <p className="text-[9px] font-bold tracking-[0.3em] text-white/30 uppercase">Size</p>
-                <p className="text-xs font-light">180 × 90</p>
+                <p className="text-sm font-light tracking-tight">180 × 90</p>
               </div>
               <div className="text-center space-y-3">
-                <Shield className="mx-auto text-white/20" size={18} />
+                <Shield className="mx-auto text-white/20" size={20} />
                 <p className="text-[9px] font-bold tracking-[0.3em] text-white/30 uppercase">Armor</p>
-                <p className="text-xs font-light">Iron Wood</p>
+                <p className="text-sm font-light tracking-tight">Iron Wood</p>
               </div>
               <div className="text-center space-y-3">
-                <Clock className="mx-auto text-white/20" size={18} />
+                <Clock className="mx-auto text-white/20" size={20} />
                 <p className="text-[9px] font-bold tracking-[0.3em] text-white/30 uppercase">Life</p>
-                <p className="text-xs font-light">Century</p>
+                <p className="text-sm font-light tracking-tight">Century</p>
               </div>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-4 pt-4">
               <button 
                 onClick={handleAddToCart}
                 disabled={isAdded}
@@ -129,69 +115,81 @@ export default function UrinTablePage() {
           </div>
         </div>
 
-        {/* Philosophy & Story Section */}
-        <div className="space-y-48">
-          {sections.map((section, idx) => (
-            <motion.section 
-              key={section.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2 }}
-              className={`grid grid-cols-1 md:grid-cols-2 gap-20 items-center ${idx % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
-            >
-              <div className={idx % 2 === 1 ? 'md:order-2' : ''}>
-                <div className="space-y-8">
-                  <h2 className="text-3xl font-light tracking-[0.3em] leading-tight">
-                    {section.title}
-                  </h2>
-                  <div className="h-[1px] w-12 bg-white/20" />
-                  <p className="text-white/40 leading-[2.4] font-light tracking-[0.1em] text-justify text-[15px]">
-                    {section.content}
-                  </p>
-                </div>
-              </div>
-              <div className={`aspect-video rounded-[2rem] bg-white/[0.02] border border-white/5 relative overflow-hidden ${idx % 2 === 1 ? 'md:order-1' : ''}`}>
-                 {/* Decorative background for story */}
-                 <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-20" />
-                 <div className="absolute inset-0 flex items-center justify-center opacity-10">
-                    {section.id === 'story' ? <Info size={120} /> : <Calendar size={120} />}
-                 </div>
-              </div>
-            </motion.section>
-          ))}
-        </div>
-
-        {/* Technical Detail */}
-        <section className="mt-48 pt-32 border-t border-white/5">
-          <div className="max-w-3xl">
-            <h2 className="text-2xl font-light tracking-[0.3em] mb-16 underline decoration-white/10 underline-offset-[20px]">
-              鉄の木、ウリン。
-            </h2>
-            <div className="space-y-12">
-              <p className="text-white/40 leading-[2.4] font-light tracking-wide text-justify">
+        {/* Detailed Story Sections */}
+        <section className="space-y-48 mt-48">
+          {/* Material Detail */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+            <div className="space-y-8">
+              <h2 className="text-3xl font-light tracking-[0.3em] leading-tight text-glow-none">鉄の木、ウリン。</h2>
+              <div className="h-[1px] w-12 bg-white/20" />
+              <p className="text-white/40 leading-[2.4] font-light tracking-[0.05em] text-justify text-[16px]">
                 東南アジアで「アイアンウッド（鉄の木）」と呼ばれるウリン。
                 他の木材とは一線を画す圧倒的な密度を持ち、水に沈むほどの重量を誇ります。
                 シロアリや腐朽菌を寄せ付けないポリフェノールを豊富に含み、
                 屋外でも数十年にわたってその強度を維持し続ける、最強の木材です。
               </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8">
-                <div className="flex gap-6 items-start">
-                  <Droplets className="text-white/20 shrink-0" size={20} />
-                  <div className="space-y-2">
-                    <p className="text-xs font-bold tracking-widest text-white/60">圧倒的な耐水性</p>
-                    <p className="text-[11px] text-white/30 leading-relaxed font-light">水を含んでも膨張や割れが少なく、常に安定した強度を維持します。</p>
-                  </div>
+              <div className="flex gap-12 pt-4">
+                <div className="space-y-1">
+                  <div className="text-xl font-bold tracking-tighter">1200+</div>
+                  <div className="text-[10px] text-white/30 uppercase tracking-widest font-bold">Gravity (kg/m3)</div>
                 </div>
-                <div className="flex gap-6 items-start">
-                  <Shield className="text-white/20 shrink-0" size={20} />
-                  <div className="space-y-2">
-                    <p className="text-xs font-bold tracking-widest text-white/60">腐敗ゼロの歴史</p>
-                    <p className="text-[11px] text-white/30 leading-relaxed font-light">港湾施設などで100年以上の使用に耐えうる実績が、その信頼を証明します。</p>
-                  </div>
+                <div className="space-y-1">
+                  <div className="text-xl font-bold tracking-tighter">Grade A</div>
+                  <div className="text-[10px] text-white/30 uppercase tracking-widest font-bold">Resilience</div>
                 </div>
               </div>
+            </div>
+            <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden border border-white/5 bg-white/[0.02]">
+              <Image
+                src="/product-urin-macro.png"
+                alt="Ulin Texture Detail"
+                fill
+                className="object-cover opacity-60"
+              />
+            </div>
+          </div>
+
+          {/* Aging Detail */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+            <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden border border-white/5 bg-white/[0.02] md:order-last">
+              <Image
+                src="/product-urin-topdown.png"
+                alt="Ulin Aging Transition"
+                fill
+                className="object-cover opacity-60"
+              />
+            </div>
+            <div className="space-y-8">
+              <h2 className="text-3xl font-light tracking-[0.3em] leading-tight text-glow-none">シルバーグレーへの、物語。</h2>
+              <div className="h-[1px] w-12 bg-white/20" />
+              <p className="text-white/40 leading-[2.4] font-light tracking-[0.05em] text-justify text-[16px]">
+                ウリンは、時間の経過と共に重厚な赤褐色から、美しいシルバーグレー（銀白色）へと変化していきます。
+                これは天然の酸化被膜によるもので、木材の強度が落ちたわけではありません。
+                色が変わるたびに深まる表情は、あなたと共に年を重ね、
+                このテーブルが真の「家族の一員」になった証となります。
+              </p>
+            </div>
+          </div>
+
+          {/* Structural Detail */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center pb-32">
+            <div className="space-y-8">
+              <h2 className="text-3xl font-light tracking-[0.3em] leading-tight text-glow-none">揺るぎない、構造。</h2>
+              <div className="h-[1px] w-12 bg-white/20" />
+              <p className="text-white/40 leading-[2.4] font-light tracking-[0.05em] text-justify text-[16px]">
+                ハの字型に設計された堅牢な脚部フレームは、重量級のウリン天板を確実に支え、
+                何世代にもわたって使い続けられる安定性を提供します。
+                接合部には伝統的な木組みの知恵と現代の技術を融合。
+                見た目の美しさだけでなく、家具としての「道具的完成度」を追求しました。
+              </p>
+            </div>
+            <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden border border-white/5 bg-white/[0.02]">
+              <Image
+                src="/product-urin-side.png"
+                alt="Ulin Structural Precision"
+                fill
+                className="object-cover opacity-60"
+              />
             </div>
           </div>
         </section>
