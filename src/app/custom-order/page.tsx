@@ -233,7 +233,7 @@ export default function CustomOrderPage() {
                   animate={{ 
                     rotateY: -45,
                     rotateX: 18,
-                    scale: 0.7
+                    scale: 1.6
                   }}
                   className="relative w-0 h-0"
                   style={{ transformStyle: "preserve-3d" }}
