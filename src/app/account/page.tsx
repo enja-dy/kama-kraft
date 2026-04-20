@@ -192,7 +192,7 @@ export default function AccountPage() {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
-            <h1 className="text-3xl md:text-5xl font-bold tracking-tighter text-foreground mb-2">My Page</h1>
+            <h1 className="text-3xl md:text-5xl font-bold tracking-tighter text-foreground mb-2">マイページ</h1>
             <p className="text-foreground/40 tracking-[0.2em] text-[10px] sm:text-xs uppercase">{user.email}</p>
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
@@ -202,7 +202,7 @@ export default function AccountPage() {
               className="flex items-center gap-2 text-xs tracking-[0.1em] font-bold uppercase text-foreground/60 hover:text-foreground transition-colors disabled:opacity-50 border border-foreground/10 hover:border-foreground/30 px-5 py-3 rounded-full"
             >
               <LogOut size={16} />
-              {isSigningOut ? "Processing..." : "ログアウト"}
+              {isSigningOut ? "処理中..." : "ログアウト"}
             </button>
           </motion.div>
         </div>
@@ -295,11 +295,11 @@ export default function AccountPage() {
                     <h2 className="text-xl font-bold tracking-widest border-b border-foreground/10 pb-4 mb-6">基本情報設定</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="bg-foreground/5 p-6 rounded-2xl border border-foreground/10">
-                        <label className="block text-[10px] font-bold tracking-[0.2em] text-foreground/60 uppercase mb-2">Name</label>
+                        <label className="block text-[10px] font-bold tracking-[0.2em] text-foreground/60 uppercase mb-2">お名前</label>
                         <input type="text" placeholder="氏名をご入力ください" className="w-full bg-transparent border-b border-foreground/20 py-2 text-foreground focus:border-foreground outline-none transition-colors text-sm" />
                       </div>
                       <div className="bg-foreground/5 p-6 rounded-2xl border border-foreground/10">
-                        <label className="block text-[10px] font-bold tracking-[0.2em] text-foreground/60 uppercase mb-2">Email</label>
+                        <label className="block text-[10px] font-bold tracking-[0.2em] text-foreground/60 uppercase mb-2">メールアドレス</label>
                         <input type="email" defaultValue={user.email} disabled className="w-full bg-transparent border-b border-foreground/20 py-2 text-foreground/50 outline-none transition-colors text-sm cursor-not-allowed" />
                         <p className="text-[10px] text-foreground/40 mt-2">※メールアドレスの変更はお問い合わせにて承ります</p>
                       </div>
@@ -311,11 +311,11 @@ export default function AccountPage() {
                     <div className="bg-foreground/5 p-8 rounded-3xl border border-foreground/10 max-w-lg">
                       <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                         <div>
-                          <label className="block text-[10px] font-bold tracking-[0.2em] text-foreground/60 uppercase mb-2">New Password</label>
+                          <label className="block text-[10px] font-bold tracking-[0.2em] text-foreground/60 uppercase mb-2">新しいパスワード</label>
                           <input type="password" placeholder="新しいパスワード" className="w-full bg-transparent border-b border-foreground/20 py-2 text-foreground focus:border-foreground outline-none transition-colors text-sm" />
                         </div>
                         <div>
-                          <label className="block text-[10px] font-bold tracking-[0.2em] text-foreground/60 uppercase mb-2">Confirm Password</label>
+                          <label className="block text-[10px] font-bold tracking-[0.2em] text-foreground/60 uppercase mb-2">パスワード（再入力）</label>
                           <input type="password" placeholder="パスワード（確認用）" className="w-full bg-transparent border-b border-foreground/20 py-2 text-foreground focus:border-foreground outline-none transition-colors text-sm" />
                         </div>
                         <button type="submit" className="bg-foreground text-background text-xs font-bold tracking-widest uppercase px-6 py-3 rounded-full hover:scale-105 transition-transform shadow-lg shadow-foreground/10">変更を保存する</button>
@@ -331,7 +331,7 @@ export default function AccountPage() {
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {loadingAddresses ? (
-                        <div className="col-span-1 md:col-span-2 text-center py-10 text-foreground/40 text-xs tracking-widest uppercase animate-pulse">Loading Addresses...</div>
+                        <div className="col-span-1 md:col-span-2 text-center py-10 text-foreground/40 text-xs tracking-widest uppercase animate-pulse">住所を読み込み中...</div>
                       ) : (
                         <>
                           {addresses.map((addr) => (

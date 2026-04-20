@@ -62,7 +62,7 @@ export default function CheckoutAuthPage() {
           >
             {/* Recommendation Badge */}
             <div className="absolute top-8 right-8 bg-[#3d2b1f] text-white text-[10px] px-3 py-1 tracking-[0.2em] font-bold uppercase rounded-full">
-              Recommended
+              おすすめ
             </div>
 
             <div>

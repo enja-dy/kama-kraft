@@ -185,7 +185,7 @@ export default function AuthPage() {
                   </p>
                 </div>
                 <div>
-                  <label className="block text-[10px] font-bold tracking-[0.2em] text-foreground/60 uppercase mb-2">Email Address</label>
+                  <label className="block text-[10px] font-bold tracking-[0.2em] text-foreground/60 uppercase mb-2">メールアドレス</label>
                   <input type="email" placeholder="メールアドレス" required value={email} onChange={(e) => setEmail(e.target.value)} className="w-full bg-transparent border-b border-foreground/20 py-3 text-foreground focus:border-foreground outline-none transition-colors text-sm" />
                 </div>
               </motion.div>
@@ -220,7 +220,7 @@ export default function AuthPage() {
                   </div>
 
                   <div>
-                    <label className="block text-[10px] font-bold tracking-[0.2em] text-foreground/60 uppercase mb-2">Email Address</label>
+                    <label className="block text-[10px] font-bold tracking-[0.2em] text-foreground/60 uppercase mb-2">メールアドレス</label>
                     <input type="email" placeholder="メールアドレス" required value={email} onChange={(e) => setEmail(e.target.value)} className="w-full bg-transparent border-b border-foreground/20 py-3 text-foreground focus:border-foreground outline-none transition-colors text-sm" />
                   </div>
                   
@@ -228,7 +228,7 @@ export default function AuthPage() {
                     <div className="mt-5 space-y-5">
                       <div>
                         <div className="flex justify-between items-end mb-2">
-                          <label className="block text-[10px] font-bold tracking-[0.2em] text-foreground/60 uppercase">Password</label>
+                          <label className="block text-[10px] font-bold tracking-[0.2em] text-foreground/60 uppercase">パスワード</label>
                           {!isSignUp && (
                             <button type="button" onClick={() => { setIsForgotMode(true); setMessage(null); }} className="text-[10px] text-foreground/40 hover:text-foreground transition-colors underline-offset-4 hover:underline">お忘れですか？</button>
                           )}
@@ -238,7 +238,7 @@ export default function AuthPage() {
 
                       {isSignUp && (
                         <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} className="pt-2">
-                          <label className="block text-[10px] font-bold tracking-[0.2em] text-foreground/60 uppercase mb-2">Confirm Password</label>
+                          <label className="block text-[10px] font-bold tracking-[0.2em] text-foreground/60 uppercase mb-2">パスワード（再入力）</label>
                           <input type="password" placeholder="パスワード（確認用）" required={isSignUp} value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className="w-full bg-transparent border-b border-foreground/20 py-3 text-foreground focus:border-foreground outline-none transition-colors text-sm" />
                         </motion.div>
                       )}
@@ -253,7 +253,7 @@ export default function AuthPage() {
               disabled={loading}
               className="w-full bg-foreground text-background py-4 flex items-center justify-center gap-2 hover:scale-[1.02] transition-all font-bold tracking-[0.2em] text-xs uppercase shadow-xl shadow-foreground/10 mt-8 disabled:opacity-50 disabled:hover:scale-100"
             >
-              {loading ? "PROCESSING..." : activeTab === 'magic' ? "ログインリンクを送信" : isForgotMode ? "再設定リンクを送信" : isSignUp ? "会員登録する" : "ログイン"}
+              {loading ? "処理中..." : activeTab === 'magic' ? "ログインリンクを送信" : isForgotMode ? "再設定リンクを送信" : isSignUp ? "会員登録する" : "ログイン"}
             </button>
           </form>
 

@@ -49,7 +49,7 @@ export default function UrinTablePage() {
           className="inline-flex items-center gap-2 text-white/40 hover:text-white transition-colors mb-12 group"
         >
           <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
-          <span className="text-xs font-bold tracking-[0.2em] uppercase">Return to Collection</span>
+          <span className="text-xs font-bold tracking-[0.2em] uppercase">コレクションに戻る</span>
         </Link>
 
         {/* Product Hero Section with Carousel */}
@@ -173,12 +173,12 @@ export default function UrinTablePage() {
                 {isAdded ? (
                   <>
                     <CheckCircle2 size={18} />
-                    <span>Added to Cart</span>
+                    <span>カートに追加しました</span>
                   </>
                 ) : (
                   <>
                     <ShoppingCart size={18} />
-                    <span>Purchase Order</span>
+                    <span>カートに入れる</span>
                   </>
                 )}
               </button>
