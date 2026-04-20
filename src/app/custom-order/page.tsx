@@ -148,87 +148,14 @@ export default function CustomOrderPage() {
           <div className="absolute top-0 right-0 w-96 h-96 bg-white opacity-[0.02] blur-[100px] -mr-48 -mt-48" />
           
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
-            {/* Control Panel */}
-            <div className="lg:col-span-2 space-y-12">
-              <div className="space-y-4">
-                <div className="flex items-center gap-3 text-white/40">
-                  <Settings size={18} />
-                  <span className="text-xs font-bold tracking-[0.4em] uppercase">Studio Simulation</span>
-                </div>
-                <h2 className="text-3xl font-bold tracking-tight">概算お見積り</h2>
-                <p className="text-sm text-white/40">サイズを入力すると、職人による基本制作費を含めた概算金額が算出されます。</p>
-              </div>
-
-              <div className="space-y-10">
-                {/* Width Input */}
-                <div className="space-y-4 text-left">
-                  <div className="flex justify-between items-end">
-                    <label className="text-[10px] uppercase tracking-[0.4em] font-bold text-white/40">Width / 幅 (cm)</label>
-                    <span className="text-xl font-mono text-white">{width}cm</span>
-                  </div>
-                  <input 
-                    type="range" min="50" max="200" step="1" 
-                    value={width} onChange={(e) => setWidth(Number(e.target.value))}
-                    className="w-full h-1 bg-white/10 rounded-full appearance-none cursor-pointer accent-white"
-                  />
-                </div>
-
-                {/* Depth Input */}
-                <div className="space-y-4 text-left">
-                  <div className="flex justify-between items-end">
-                    <label className="text-[10px] uppercase tracking-[0.4em] font-bold text-white/40">Depth / 奥行き (cm)</label>
-                    <span className="text-xl font-mono text-white">{depth}cm</span>
-                  </div>
-                  <input 
-                    type="range" min="30" max="100" step="1" 
-                    value={depth} onChange={(e) => setDepth(Number(e.target.value))}
-                    className="w-full h-1 bg-white/10 rounded-full appearance-none cursor-pointer accent-white"
-                  />
-                </div>
-
-                {/* Height Input */}
-                <div className="space-y-4 text-left">
-                  <div className="flex justify-between items-end">
-                    <label className="text-[10px] uppercase tracking-[0.4em] font-bold text-white/40">Height / 高さ (cm)</label>
-                    <span className="text-xl font-mono text-white">{height}cm</span>
-                  </div>
-                  <input 
-                    type="range" min="30" max="100" step="1" 
-                    value={height} onChange={(e) => setHeight(Number(e.target.value))}
-                    className="w-full h-1 bg-white/10 rounded-full appearance-none cursor-pointer accent-white"
-                  />
-                </div>
-              </div>
-
-              <div className="pt-8 border-t border-white/5 space-y-4">
-                <div className="flex justify-between items-center bg-white/5 p-6 rounded-2xl">
-                  <span className="text-xs font-bold tracking-widest text-white/40 uppercase">Estimated Price</span>
-                  <div className="text-right">
-                    <motion.div 
-                      key={estimatedPrice}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      className="text-3xl font-bold tracking-tighter"
-                    >
-                      {mounted ? formattedPrice(estimatedPrice) : "---"}
-                    </motion.div>
-                    <span className="text-[10px] text-white/20 italic">税込・国内標準配送料込</span>
-                  </div>
-                </div>
-                <p className="text-[10px] text-white/30 leading-relaxed text-center italic">
-                  ※上記は目安です。木材の希少性や詳細な加工指示により変動します。
-                </p>
-              </div>
-            </div>
-
-            {/* Visualization Canvas */}
-            <div className="lg:col-span-3 flex items-center justify-center p-8 bg-white/[0.02] rounded-[2rem] border border-white/5 relative group overflow-hidden min-h-[500px]">
+            {/* Visualization Canvas - Order 1 on Mobile, 2 on Desktop */}
+            <div className="order-1 lg:order-2 lg:col-span-3 flex items-center justify-center p-6 bg-white/[0.02] rounded-[2rem] border border-white/5 relative group overflow-hidden min-h-[350px] lg:min-h-[500px]">
               <div className="absolute inset-0 opacity-10 pointer-events-none">
                 <Image
                   src="/order-sketch.png"
                   alt="Dimension Sketch"
                   fill
-                  className="object-contain p-12 opacity-30"
+                  className="object-contain p-8 lg:p-12 opacity-30"
                 />
               </div>
               
@@ -327,32 +254,104 @@ export default function CustomOrderPage() {
               </div>
 
               {/* Data Display */}
-              <div className="absolute bottom-8 right-8 flex flex-col items-end gap-2">
-                <div className="px-5 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl flex flex-col gap-1 items-end">
+              <div className="absolute bottom-6 right-6 lg:bottom-8 lg:right-8 flex flex-col items-end gap-2">
+                <div className="px-4 py-2 lg:px-5 lg:py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl flex flex-col gap-1 items-end">
                    <div className="text-[8px] text-white/30 uppercase tracking-widest font-bold mb-1">Dimensions</div>
                    <div className="flex gap-4">
                      <div className="text-right">
-                       <span className="block text-[8px] text-white/20 uppercase">W</span>
-                       <span className="text-sm font-bold text-white">{width}cm</span>
+                       <span className="block text-[8px] text-white/20 uppercase font-mono">W</span>
+                       <span className="text-xs lg:text-sm font-bold text-white font-mono">{width}cm</span>
                      </div>
                      <div className="text-right">
-                       <span className="block text-[8px] text-white/20 uppercase">D</span>
-                       <span className="text-sm font-bold text-white/80">{depth}cm</span>
+                       <span className="block text-[8px] text-white/20 uppercase font-mono">D</span>
+                       <span className="text-xs lg:text-sm font-bold text-white/80 font-mono">{depth}cm</span>
                      </div>
                      <div className="text-right">
-                       <span className="block text-[8px] text-white/20 uppercase">H</span>
-                       <span className="text-sm font-bold text-white/60">{height}cm</span>
+                       <span className="block text-[8px] text-white/20 uppercase font-mono">H</span>
+                       <span className="text-xs lg:text-sm font-bold text-white/60 font-mono">{height}cm</span>
                      </div>
                    </div>
                 </div>
               </div>
 
-              <div className="absolute top-8 left-8 flex flex-col gap-1 opacity-40 group-hover:opacity-100 transition-opacity">
+              <div className="absolute top-6 left-6 lg:top-8 lg:left-8 flex flex-col gap-1 opacity-40 group-hover:opacity-100 transition-opacity">
                 <div className="flex items-center gap-2 text-white text-[10px] uppercase font-bold tracking-[0.3em]">
-                  <Maximize size={14} />
+                  <Maximize size={12} className="lg:w-4 lg:h-4" />
                   <span>3D Space Visualizer</span>
                 </div>
-                <p className="text-[8px] text-white/40 tracking-widest uppercase">Depth-enabled simulation</p>
+              </div>
+            </div>
+
+            {/* Control Panel - Order 2 on Mobile, 1 on Desktop */}
+            <div className="order-2 lg:order-1 lg:col-span-2 space-y-8 lg:space-y-12">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 text-white/40">
+                  <Settings size={18} />
+                  <span className="text-xs font-bold tracking-[0.4em] uppercase">Studio Simulation</span>
+                </div>
+                <h2 className="text-2xl lg:text-3xl font-bold tracking-tight">概算お見積り</h2>
+                <p className="text-sm text-white/40 italic leading-relaxed">サイズを設定すると、職人の基本工賃を含む概算金額が算出されます。</p>
+              </div>
+
+              <div className="space-y-8 lg:space-y-10">
+                {/* Width Input */}
+                <div className="space-y-4 text-left">
+                  <div className="flex justify-between items-end">
+                    <label className="text-[10px] uppercase tracking-[0.4em] font-bold text-white/40">Width / 幅 (cm)</label>
+                    <span className="text-xl font-mono text-white tracking-widest">{width}cm</span>
+                  </div>
+                  <input 
+                    type="range" min="50" max="200" step="1" 
+                    value={width} onChange={(e) => setWidth(Number(e.target.value))}
+                    className="w-full h-1 bg-white/10 rounded-full appearance-none cursor-pointer accent-white"
+                  />
+                </div>
+
+                {/* Depth Input */}
+                <div className="space-y-4 text-left">
+                  <div className="flex justify-between items-end">
+                    <label className="text-[10px] uppercase tracking-[0.4em] font-bold text-white/40">Depth / 奥行き (cm)</label>
+                    <span className="text-xl font-mono text-white tracking-widest">{depth}cm</span>
+                  </div>
+                  <input 
+                    type="range" min="30" max="100" step="1" 
+                    value={depth} onChange={(e) => setDepth(Number(e.target.value))}
+                    className="w-full h-1 bg-white/10 rounded-full appearance-none cursor-pointer accent-white"
+                  />
+                </div>
+
+                {/* Height Input */}
+                <div className="space-y-4 text-left">
+                  <div className="flex justify-between items-end">
+                    <label className="text-[10px] uppercase tracking-[0.4em] font-bold text-white/40">Height / 高さ (cm)</label>
+                    <span className="text-xl font-mono text-white tracking-widest">{height}cm</span>
+                  </div>
+                  <input 
+                    type="range" min="30" max="100" step="1" 
+                    value={height} onChange={(e) => setHeight(Number(e.target.value))}
+                    className="w-full h-1 bg-white/10 rounded-full appearance-none cursor-pointer accent-white"
+                  />
+                </div>
+              </div>
+
+              <div className="pt-8 border-t border-white/5 space-y-4">
+                <div className="flex justify-between items-center bg-white/5 p-6 rounded-2xl">
+                  <span className="text-xs font-bold tracking-widest text-white/40 uppercase">Estimated Price</span>
+                  <div className="text-right">
+                    <motion.div 
+                      key={estimatedPrice}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      className="text-3xl font-bold tracking-tighter"
+                    >
+                      {mounted ? formattedPrice(estimatedPrice) : "---"}
+                    </motion.div>
+                    <span className="text-[10px] text-white/20 italic">税込・国内標準配送料込</span>
+                  </div>
+                </div>
+                <p className="text-[10px] text-white/30 leading-relaxed text-center italic">
+                  ※上記は目安です。職人との対話により、ディテールや希少材料の選定で変動します。
+                </p>
               </div>
             </div>
           </div>
