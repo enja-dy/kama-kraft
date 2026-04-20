@@ -73,8 +73,8 @@ export default function CraftsmanshipPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-24">
             <FeatureCard
               icon={<Ruler size={32} />}
-              title="0.1mmの制御"
-              description="鉄に匹敵する硬度を持つウリンを、ミリ以下の単位で制御します。高度な工作機械と、職人の指先に伝わる僅かな振動が、完璧な精度を生み出します。"
+              title="1cmの設計思想"
+              description="鉄に匹敵する硬度を持つウリンを、1cm単位の緻密な設計で制御します。豪胆さと繊細さが同居するその計算が、空間に置いた瞬間の圧倒的な『収まり』の良さを生み出します。"
             />
             <FeatureCard
               icon={<Hammer size={32} />}
@@ -165,7 +165,7 @@ export default function CraftsmanshipPage() {
               </h2>
               <p className="text-white/60 leading-relaxed font-light text-lg">
                 お客様の「こんな暮らしがしたい」という漠然としたイメージを、職人が確かな技術で具現化します。
-                スケッチから始まる対話、空間に合わせたミリ単位の調整。
+                スケッチから始まる対話、空間に合わせた1cm単位の調整。
                 完全特注（オーダーメイド）という贅沢を、もっと身近に。
                 職人と共に作り上げるプロセスそのものが、かけがえのない思い出となります。
               </p>
