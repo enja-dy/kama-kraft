@@ -146,9 +146,11 @@ export default function UrinTablePage() {
               <div className="text-center space-y-3 sm:space-y-2">
                 <Ruler className="mx-auto text-white/20" size={20} />
                 <p className="text-[10px] font-bold tracking-widest text-white/40 uppercase">Size</p>
-                <p className="text-sm sm:text-xs font-light leading-relaxed tracking-wider">
-                  幅90cm × 奥行き45cm × 高さ35cm
-                </p>
+                <div className="text-sm sm:text-xs font-light leading-relaxed tracking-wider space-y-1">
+                  <p>幅 90cm</p>
+                  <p>奥行 45cm</p>
+                  <p>高さ 35cm</p>
+                </div>
               </div>
               <div className="text-center space-y-3 sm:space-y-2 sm:border-x border-white/5 px-2">
                 <Shield className="mx-auto text-white/20" size={20} />
