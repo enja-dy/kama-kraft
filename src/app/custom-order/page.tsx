@@ -46,12 +46,17 @@ export default function CustomOrderPage() {
 
   // Price Calculation Logic
   useEffect(() => {
-    const basePrice = 80000; // 職人の工賃・基本料
-    const surfaceArea = width * depth;
-    const materialCost = surfaceArea * 12; // 1平米あたりのウリン材単価シミュレート
-    const heightAdjustment = Math.abs(height - 70) * 1000; // 標準70cmからの乖離
+    // 基準モデル（90x45x35cm = 70,000円）に基づいた計算ロジック
+    // 固定費: 45,000円（脚部製作費 + デザイン・基本技術料）
+    // 変動費: 面積(cm2) × 6.2円（ウリン材材料費 + 面積比例の加工人件費）
+    // 高さ調整: 35cmを基準とし、1cmごとに500円
     
-    setEstimatedPrice(Math.round(basePrice + materialCost + heightAdjustment));
+    const fixedBaseCost = 45000;
+    const surfaceArea = width * depth;
+    const variableCost = surfaceArea * 6.2;
+    const heightAdjustment = Math.max(0, height - 35) * 500;
+    
+    setEstimatedPrice(Math.round(fixedBaseCost + variableCost + heightAdjustment));
   }, [width, depth, height]);
 
   const handleSubmit = (e: React.FormEvent) => {
