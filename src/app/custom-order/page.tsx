@@ -222,31 +222,29 @@ export default function CustomOrderPage() {
                 />
               </div>
               
-              {/* 3D Wireframe Scene */}
-              <div className="relative w-full h-full flex items-center justify-center pointer-events-none" style={{ perspective: "1200px" }}>
+              {/* 3D Wireframe Scene - Precision Prism */}
+              <div className="relative w-full h-full flex items-center justify-center pointer-events-none" style={{ perspective: "5000px" }}>
                 <motion.div 
                   animate={{ 
                     rotateY: -35,
                     rotateX: 20
                   }}
-                  className="relative"
+                  className="relative w-0 h-0"
                   style={{ transformStyle: "preserve-3d" }}
                 >
                   <motion.div
-                    animate={{
-                      width: width * 1.1,
-                      height: height * 1.1,
-                    }}
                     className="relative"
                     style={{ transformStyle: "preserve-3d" }}
                   >
                     {/* Front Face */}
                     <div 
-                      className="absolute inset-0 border border-white/20 bg-white/5 flex items-center justify-center" 
+                      className="absolute border border-white/20 bg-white/5 flex items-center justify-center" 
                       style={{ 
-                        transform: `translateZ(${depth * 0.55}px)`,
-                        width: '100%',
-                        height: '100%'
+                        width: width,
+                        height: height,
+                        left: -width / 2,
+                        top: -height / 2,
+                        transform: `translateZ(${depth / 2}px)`
                       }} 
                     >
                        <div className="text-[8px] text-white/5 uppercase tracking-widest font-bold">FRONT</div>
@@ -254,11 +252,13 @@ export default function CustomOrderPage() {
 
                     {/* Back Face */}
                     <div 
-                      className="absolute inset-0 border border-white/10 bg-white/[0.02]" 
+                      className="absolute border border-white/10 bg-white/[0.02]" 
                       style={{ 
-                        transform: `translateZ(${-depth * 0.55}px)`,
-                        width: '100%',
-                        height: '100%'
+                        width: width,
+                        height: height,
+                        left: -width / 2,
+                        top: -height / 2,
+                        transform: `rotateY(180deg) translateZ(${depth / 2}px)`
                       }} 
                     />
 
@@ -266,11 +266,11 @@ export default function CustomOrderPage() {
                     <div 
                       className="absolute border border-white/10 bg-white/[0.03]" 
                       style={{ 
-                        width: depth * 1.1, 
-                        height: '100%',
-                        left: '50%',
-                        top: '0',
-                        transform: `translateX(-50%) rotateY(90deg) translateZ(${width * 0.55}px)` 
+                        width: depth, 
+                        height: height,
+                        left: -depth / 2,
+                        top: -height / 2,
+                        transform: `rotateY(90deg) translateZ(${width / 2}px)` 
                       }} 
                     />
 
@@ -278,39 +278,37 @@ export default function CustomOrderPage() {
                     <div 
                       className="absolute border border-white/10 bg-white/[0.03]" 
                       style={{ 
-                        width: depth * 1.1, 
-                        height: '100%',
-                        left: '50%',
-                        top: '0',
-                        transform: `translateX(-50%) rotateY(-90deg) translateZ(${width * 0.55}px)` 
+                        width: depth, 
+                        height: height,
+                        left: -depth / 2,
+                        top: -height / 2,
+                        transform: `rotateY(-90deg) translateZ(${width / 2}px)` 
                       }} 
                     />
 
                     {/* Top Face */}
                     <div 
-                      className="absolute border border-white/40 bg-white/10" 
+                      className="absolute border border-white/40 bg-white/10 flex items-center justify-center" 
                       style={{ 
-                        width: '100%',
-                        height: depth * 1.1, 
-                        top: '50%',
-                        left: '0',
-                        transform: `translateY(-50%) rotateX(90deg) translateZ(${height * 0.55}px)` 
+                        width: width,
+                        height: depth, 
+                        left: -width / 2,
+                        top: -depth / 2,
+                        transform: `rotateX(90deg) translateZ(${height / 2}px)` 
                       }} 
                     >
-                       <div className="absolute inset-0 flex items-center justify-center">
-                         <div className="text-[8px] text-white/10 uppercase tracking-[0.4em] font-bold">TOP SURFACE</div>
-                       </div>
+                       <div className="text-[8px] text-white/10 uppercase tracking-[0.4em] font-bold">TOP SURFACE</div>
                     </div>
 
                     {/* Bottom Face */}
                     <div 
                       className="absolute border border-white/5 bg-white/[0.01]" 
                       style={{ 
-                        width: '100%',
-                        height: depth * 1.1, 
-                        top: '50%',
-                        left: '0',
-                        transform: `translateY(-50%) rotateX(-90deg) translateZ(${height * 0.55}px)` 
+                        width: width,
+                        height: depth, 
+                        left: -width / 2,
+                        top: -depth / 2,
+                        transform: `rotateX(-90deg) translateZ(${height / 2}px)` 
                       }} 
                     />
                   </motion.div>
