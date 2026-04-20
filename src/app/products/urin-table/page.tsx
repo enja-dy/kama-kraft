@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { ShoppingCart, CheckCircle2, Ruler, Shield, Clock, ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
+import { ShoppingCart, CheckCircle2, Ruler, Shield, ArrowLeft, ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 import { useState } from "react";
 import { useCart } from "@/context/CartContext";
 import Link from "next/link";
@@ -146,17 +146,17 @@ export default function UrinTablePage() {
               <div className="text-center space-y-2">
                 <Ruler className="mx-auto text-white/20" size={20} />
                 <p className="text-[10px] font-bold tracking-widest text-white/40 uppercase">Size</p>
-                <p className="text-sm font-light">90×45</p>
+                <p className="text-[10px] sm:text-xs font-light leading-relaxed">幅90cm × 奥行き45cm<br className="sm:hidden" /> × 高さ35cm</p>
               </div>
-              <div className="text-center space-y-2">
+              <div className="text-center space-y-2 border-x border-white/5 px-2">
                 <Shield className="mx-auto text-white/20" size={20} />
-                <p className="text-[10px] font-bold tracking-widest text-white/40 uppercase">Armor</p>
-                <p className="text-sm font-light">Iron Wood</p>
+                <p className="text-[10px] font-bold tracking-widest text-white/40 uppercase">Material</p>
+                <p className="text-sm font-light">ウリン</p>
               </div>
               <div className="text-center space-y-2">
-                <Clock className="mx-auto text-white/20" size={20} />
-                <p className="text-[10px] font-bold tracking-widest text-white/40 uppercase">Life</p>
-                <p className="text-sm font-light">Century</p>
+                <MapPin className="mx-auto text-white/20" size={20} />
+                <p className="text-[10px] font-bold tracking-widest text-white/40 uppercase">Origin</p>
+                <p className="text-sm font-light">日本 鎌倉</p>
               </div>
             </div>
 
