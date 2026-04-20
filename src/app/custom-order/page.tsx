@@ -38,6 +38,11 @@ export default function CustomOrderPage() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Price Calculation Logic
   useEffect(() => {
@@ -200,7 +205,7 @@ export default function CustomOrderPage() {
                       animate={{ opacity: 1, x: 0 }}
                       className="text-3xl font-bold tracking-tighter"
                     >
-                      {formattedPrice(estimatedPrice)}
+                      {mounted ? formattedPrice(estimatedPrice) : "---"}
                     </motion.div>
                     <span className="text-[10px] text-white/20 italic">税込・国内標準配送料込</span>
                   </div>
@@ -421,7 +426,7 @@ export default function CustomOrderPage() {
                     <label className="text-[10px] uppercase tracking-[0.4em] font-bold text-white/40 ml-4">現在のシミュレーション内容</label>
                     <div className="bg-white/5 border border-white/10 p-5 rounded-2xl text-sm font-mono text-white/60">
                       幅: {width}cm / 奥行き: {depth}cm / 高さ: {height}cm <br />
-                      概算金額: {formattedPrice(estimatedPrice)}
+                      概算金額: {mounted ? formattedPrice(estimatedPrice) : "---"}
                     </div>
                   </div>
 
