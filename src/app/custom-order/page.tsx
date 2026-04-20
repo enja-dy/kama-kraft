@@ -117,22 +117,7 @@ export default function CustomOrderPage() {
                 <br /><br />
                 アイアンウッド「ウリン」の圧倒的な重量感と美しさを、ミリ単位の精度で制御する。私たちは既製品の枠組みを捨て、一人の職人が一人の主（あるじ）のために、魂を削り出して形にします。
               </p>
-              <div className="flex gap-8 pt-4">
-                <div className="space-y-2">
-                  <div className="text-2xl font-bold text-white">1cm</div>
-                  <div className="text-xs text-white/40 tracking-widest font-bold uppercase">精度</div>
-                </div>
-                <div className="w-px h-12 bg-white/10" />
-                <div className="space-y-2">
-                  <div className="text-2xl font-bold text-white">Full</div>
-                  <div className="text-xs text-white/40 tracking-widest font-bold uppercase">Bespoke</div>
-                </div>
-                <div className="w-px h-12 bg-white/10" />
-                <div className="space-y-2">
-                  <div className="text-2xl font-bold text-white">Life</div>
-                  <div className="text-xs text-white/40 tracking-widest font-bold uppercase">Warranty</div>
-                </div>
-              </div>
+
             </div>
           </FadeIn>
           <FadeIn delay={0.2}>
