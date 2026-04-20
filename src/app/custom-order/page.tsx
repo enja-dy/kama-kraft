@@ -28,9 +28,9 @@ const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 export default function CustomOrderPage() {
   // Simulator State
-  const [width, setWidth] = useState(180);
-  const [depth, setDepth] = useState(90);
-  const [height, setHeight] = useState(72);
+  const [width, setWidth] = useState(90);
+  const [depth, setDepth] = useState(45);
+  const [height, setHeight] = useState(35);
   const [estimatedPrice, setEstimatedPrice] = useState(0);
 
   // Form State
