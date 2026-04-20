@@ -8,7 +8,7 @@ const slides = [
   { url: "/hero-urin-v4-real-mixed.png", position: "center" }, // 元の本物の画像に戻す場合は "/urin02.jpeg" に変更
   { url: "/urin06.jpeg", position: "right 35%" },
   { url: "/hero-3.png", position: "center" },
-  { url: "/urin07.jpeg", position: "left 45%" },
+  { url: "/ulin-2.png", position: "center" },
 ];
 
 export const HeroCarousel = () => {
