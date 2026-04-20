@@ -361,8 +361,8 @@ export default function CustomOrderPage() {
         {/* Process Steps */}
         <section className="space-y-24 py-12">
           <div className="text-center space-y-4">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">実現までの旅路</h2>
-            <p className="text-white/40 tracking-widest uppercase text-xs font-bold">The Story of Creation</p>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">唯一無二ができるまで</h2>
+            <p className="text-white/40 tracking-widest uppercase text-xs font-bold">How it's made for you</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
