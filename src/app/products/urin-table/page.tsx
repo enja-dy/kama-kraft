@@ -182,88 +182,105 @@ export default function UrinTablePage() {
           </div>
         </div>
 
-        {/* Sub Information Sections - Consistent with restored content */}
-        <section className="space-y-32">
-          {/* Material Detail */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
-            <div className="space-y-8">
-              <h2 className="text-3xl font-light tracking-widest">鉄の木、ウリン。</h2>
+        {/* Detail Sections: Story & Technical Mastery */}
+        <section className="mt-48 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
+          {/* Emotional Visual Anchor */}
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="relative aspect-square lg:aspect-auto lg:h-[800px] rounded-2xl overflow-hidden bg-white/5 border border-white/5"
+          >
+            <Image
+              src="/product-urin-macro.png"
+              alt="Artisan Texture Detail"
+              fill
+              className="object-cover"
+              unoptimized
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
+            <div className="absolute bottom-8 left-8">
+              <span className="text-[10px] uppercase tracking-[0.4em] text-white/60 font-bold">Material Focus</span>
+              <p className="text-xl font-light tracking-widest mt-2 italic text-white/90">Undying Soul of Ironwood</p>
+            </div>
+          </motion.div>
+
+          {/* Text & Table Column */}
+          <div className="space-y-24">
+            {/* 1. Description: Artisan Narrative */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
+              <h2 className="text-3xl font-light tracking-[0.3em] leading-tight">
+                不朽を纏い、時を刻む。<br />
+                <span className="italic">一生を共にする一脚。</span>
+              </h2>
               <div className="h-[1px] w-12 bg-white/20" />
-              <p className="text-white/40 leading-relaxed font-light">
-                東南アジアで「アイアンウッド（鉄の木）」と呼ばれるウリン。
-                他の木材とは一線を画す圧倒的な密度を持ち、水に沈むほどの重量を誇ります。
-                シロアリや腐朽菌を寄せ付けないポリフェノールを豊富に含み、
-                屋外でも数十年にわたってその強度を維持し続ける、最強の木材です。
-              </p>
-              <div className="flex gap-12 pt-4">
-                <div className="space-y-1">
-                  <div className="text-xl font-bold">1200+</div>
-                  <div className="text-[10px] text-white/40 uppercase tracking-widest">Gravity (kg/m3)</div>
-                </div>
-                <div className="space-y-1">
-                  <div className="text-xl font-bold">Grade A</div>
-                  <div className="text-[10px] text-white/40 uppercase tracking-widest">Resilience</div>
-                </div>
+              
+              <div className="space-y-8 text-white/50 leading-relaxed font-light text-sm text-justify">
+                <p>
+                  鉄の木、ウリン。その圧倒的な密度と強度は、自然界が生み出した奇跡です。水に沈むほどの重量と、腐朽を寄せ付けない成分。鎌倉の職人は、この強固な素材に敬意を払い、一つひとつ手作業で削り出します。
+                </p>
+                <p>
+                  リビングの主役として、あるいは潮風薫るテラスの相棒として。ウリンは場所を選ばず、その気高い佇まいを維持します。屋内では艶やかな琥珀色の輝きを、屋外では風格漂うシルバーグレーへの変遷を。環境に寄り添いながら、空間の品格を高めます。
+                </p>
+                <p>
+                  手入れという名の、対話。数十年、あるいは一世紀という時間を共にするための準備は、その驚異的な耐候性によってすでに整っています。日常的なメンテナンスは不要。ただ、時折その肌に触れ、色の深化を愛でる。それだけで十分です。
+                </p>
               </div>
-            </div>
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/5 bg-white/5">
-              <Image
-                src="/product-urin-macro.png"
-                alt="Ulin Texture"
-                fill
-                className="object-cover"
-                unoptimized
-              />
-            </div>
-          </div>
+            </motion.div>
 
-          {/* Aging Detail */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center flex-row-reverse">
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/5 md:order-last bg-white/5">
-              <Image
-                src="/product-urin-topdown.png"
-                alt="Ulin Topdown Pattern"
-                fill
-                className="object-cover"
-                unoptimized
-              />
-            </div>
-            <div className="space-y-8">
-              <h2 className="text-3xl font-light tracking-widest">シルバーグレーへの、物語。</h2>
-              <div className="h-[1px] w-12 bg-white/20" />
-              <p className="text-white/40 leading-relaxed font-light">
-                ウリンは、時間の経過と共に重厚な赤褐色から、美しいシルバーグレー（銀白色）へと変化していきます。
-                これは天然の酸化被膜によるもので、木材の強度が落ちたわけではありません。
-                色が変わるたびに深まる表情は、あなたと共に年を重ね、
-                このテーブルが真の「家族の一員」になった証となります。
-              </p>
-            </div>
-          </div>
-
-          {/* Structural Detail */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center pb-24">
-            <div className="space-y-8">
-              <h2 className="text-3xl font-light tracking-widest">揺るぎない、構造。</h2>
-              <div className="h-[1px] w-12 bg-white/20" />
-              <p className="text-white/40 leading-relaxed font-light">
-                ハの字型に設計された堅牢な脚部フレームは、重量級のウリン天板を確実に支え、
-                何世代にもわたって使い続けられる安定性を提供します。
-                接合部には伝統的な木組みの知恵と現代の技術を融合。
-                見た目の美しさだけでなく、家具としての「道具的完成度」を追求しました。
-              </p>
-            </div>
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/5 bg-white/5">
-              <Image
-                src="/product-urin-side.png"
-                alt="Ulin Structure"
-                fill
-                className="object-cover"
-                unoptimized
-              />
-            </div>
+            {/* 2. Specs: Technical Mastery */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="space-y-8 pt-12 border-t border-white/5"
+            >
+              <div className="flex items-center gap-4">
+                <Shield size={16} className="text-white/20" />
+                <h3 className="text-sm uppercase tracking-[0.5em] font-bold text-white/40">Technical Mastery</h3>
+              </div>
+              
+              <div className="grid grid-cols-1 gap-px bg-white/5 border border-white/5 rounded-xl overflow-hidden shadow-2xl">
+                <SpecRow label="商品名" value='The Standard Table "URIN"' />
+                <SpecRow label="木材" value="ウリン（アイアンウッド / 無垢材）" />
+                <SpecRow label="生産地" value="日本 鎌倉（KamaKraft）" />
+                <SpecRow 
+                  label="サイズ" 
+                  value="幅90cm × 奥行き45cm × 高さ35cm" 
+                  subValue={
+                    <Link href="/contact" className="text-white/40 hover:text-white underline underline-offset-4 transition-colors">
+                      ※オーダーメイド承ります。詳細はこちら。
+                    </Link>
+                  } 
+                />
+                <SpecRow label="重量 / 耐荷重" value="9.8kg / 75kg" />
+                <SpecRow label="屋外使用" value="OK（最高レベルの耐候性）" />
+                <SpecRow label="発送方法" value="ヤマト運輸 / 佐川急便 (大型家具便)" />
+                <SpecRow label="発送までの目安" value="ご注文確定後、約3〜4週間" />
+              </div>
+            </motion.div>
           </div>
         </section>
       </div>
     </div>
   );
 }
+
+// Local helper for specification table rows to maintain code cleanliness
+const SpecRow = ({ label, value, subValue }: { label: string; value: string; subValue?: React.ReactNode }) => (
+  <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-8 p-5 bg-black/40">
+    <span className="w-full sm:w-32 text-[10px] font-bold tracking-widest text-white/30 uppercase shrink-0">{label}</span>
+    <div className="space-y-2">
+      <span className="text-sm font-light tracking-wider text-white/80">{value}</span>
+      {subValue && (
+        <div className="text-[10px] block opacity-80">{subValue}</div>
+      )}
+    </div>
+  </div>
+);
