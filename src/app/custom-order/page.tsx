@@ -162,7 +162,7 @@ export default function CustomOrderPage() {
                     <span className="text-xl font-mono text-white">{width}cm</span>
                   </div>
                   <input 
-                    type="range" min="100" max="200" step="1" 
+                    type="range" min="50" max="200" step="1" 
                     value={width} onChange={(e) => setWidth(Number(e.target.value))}
                     className="w-full h-1 bg-white/10 rounded-full appearance-none cursor-pointer accent-white"
                   />
@@ -175,7 +175,7 @@ export default function CustomOrderPage() {
                     <span className="text-xl font-mono text-white">{depth}cm</span>
                   </div>
                   <input 
-                    type="range" min="60" max="100" step="1" 
+                    type="range" min="30" max="100" step="1" 
                     value={depth} onChange={(e) => setDepth(Number(e.target.value))}
                     className="w-full h-1 bg-white/10 rounded-full appearance-none cursor-pointer accent-white"
                   />
