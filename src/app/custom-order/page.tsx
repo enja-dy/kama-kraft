@@ -138,8 +138,8 @@ export default function CustomOrderPage() {
           <FadeIn delay={0.2}>
             <div className="relative aspect-square rounded-2xl overflow-hidden group">
               <Image
-                src="/order-precision.png"
-                alt="Precision Measurement"
+                src="/order-precision-ulin.png"
+                alt="Precision Measurement in Ulin Wood"
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-110"
               />
