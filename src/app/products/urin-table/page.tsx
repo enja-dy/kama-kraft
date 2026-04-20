@@ -132,7 +132,7 @@ export default function UrinTablePage() {
               </h1>
               <div className="flex items-baseline gap-4 pt-4">
                 <span className="text-3xl font-light tracking-tighter">¥70,000</span>
-                <span className="text-xs text-white/20 uppercase tracking-widest italic">Tax included</span>
+                <span className="text-sm text-white/50 font-bold ml-1">税込</span>
               </div>
             </div>
 

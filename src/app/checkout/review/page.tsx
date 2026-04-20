@@ -287,13 +287,13 @@ export default function ReviewPage() {
                 </div>
                 <div className="flex justify-between text-foreground/60 text-[10px] tracking-[0.2em] uppercase font-bold">
                   <span>配送料</span>
-                  <span className="text-green-600 font-bold italic tracking-normal">Free</span>
+                  <span className="text-green-600 font-bold tracking-normal">無料</span>
                 </div>
                 
                 <div className="pt-6 mt-2 border-t-2 border-foreground flex justify-between text-2xl font-bold tracking-tighter items-end">
                   <div className="flex flex-col">
                     <span className="text-[10px] uppercase tracking-[0.4em] font-bold opacity-30 mb-2">総計</span>
-                    <span className="text-lg leading-none opacity-50 font-medium">Grand Total</span>
+                    <span className="text-lg leading-none opacity-50 font-bold ml-1">（税込）</span>
                   </div>
                   <motion.span 
                     className="text-3xl leading-none"

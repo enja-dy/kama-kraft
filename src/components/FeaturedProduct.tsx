@@ -107,7 +107,7 @@ export const FeaturedProduct = () => {
             >
               <div className="flex items-baseline gap-4">
                 <span className="text-3xl font-bold">¥70,000</span>
-                <span className="text-sm text-foreground/40 italic">税込</span>
+                <span className="text-sm text-foreground/60 font-bold ml-1">税込</span>
               </div>
 
               <div className="space-y-4 text-sm text-foreground/60">
