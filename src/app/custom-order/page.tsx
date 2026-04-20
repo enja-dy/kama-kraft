@@ -212,42 +212,138 @@ export default function CustomOrderPage() {
             </div>
 
             {/* Visualization Canvas */}
-            <div className="lg:col-span-3 flex items-center justify-center p-8 bg-white/[0.02] rounded-[2rem] border border-white/5 relative group">
-              <div className="absolute inset-0 opacity-20 pointer-events-none">
+            <div className="lg:col-span-3 flex items-center justify-center p-8 bg-white/[0.02] rounded-[2rem] border border-white/5 relative group overflow-hidden min-h-[500px]">
+              <div className="absolute inset-0 opacity-10 pointer-events-none">
                 <Image
                   src="/order-sketch.png"
                   alt="Dimension Sketch"
                   fill
-                  className="object-contain p-12"
+                  className="object-contain p-12 opacity-30"
                 />
               </div>
               
-              {/* Dynamic 3D Box Representation (CSS) */}
-              <div className="relative w-full h-64 md:h-96 flex items-center justify-center pointer-events-none">
+              {/* 3D Wireframe Scene */}
+              <div className="relative w-full h-full flex items-center justify-center pointer-events-none" style={{ perspective: "1200px" }}>
                 <motion.div 
-                  initial={false}
                   animate={{ 
-                    width: width * 1.5, 
-                    height: height * 0.8,
-                    perspective: 1000
+                    rotateY: -35,
+                    rotateX: 20
                   }}
-                  className="relative preserve-3d rotate-x-12 rotate-y-[-20deg]"
+                  className="relative"
+                  style={{ transformStyle: "preserve-3d" }}
                 >
-                  <div className="border border-white/40 w-full h-full relative">
-                    <div className="absolute bottom-0 right-0 p-2 text-[10px] text-white/40 font-mono flex flex-col items-end">
-                      <span>W: {width}cm</span>
-                      <span>D: {depth}cm</span>
-                      <span>H: {height}cm</span>
+                  <motion.div
+                    animate={{
+                      width: width * 1.1,
+                      height: height * 1.1,
+                    }}
+                    className="relative"
+                    style={{ transformStyle: "preserve-3d" }}
+                  >
+                    {/* Front Face */}
+                    <div 
+                      className="absolute inset-0 border border-white/20 bg-white/5 flex items-center justify-center" 
+                      style={{ 
+                        transform: `translateZ(${depth * 0.55}px)`,
+                        width: '100%',
+                        height: '100%'
+                      }} 
+                    >
+                       <div className="text-[8px] text-white/5 uppercase tracking-widest font-bold">FRONT</div>
                     </div>
-                    {/* Floating Indicators */}
-                    <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-[10px] tracking-widest font-bold opacity-40 uppercase">Top Surface</div>
-                  </div>
+
+                    {/* Back Face */}
+                    <div 
+                      className="absolute inset-0 border border-white/10 bg-white/[0.02]" 
+                      style={{ 
+                        transform: `translateZ(${-depth * 0.55}px)`,
+                        width: '100%',
+                        height: '100%'
+                      }} 
+                    />
+
+                    {/* Right Face */}
+                    <div 
+                      className="absolute border border-white/10 bg-white/[0.03]" 
+                      style={{ 
+                        width: depth * 1.1, 
+                        height: '100%',
+                        left: '50%',
+                        top: '0',
+                        transform: `translateX(-50%) rotateY(90deg) translateZ(${width * 0.55}px)` 
+                      }} 
+                    />
+
+                    {/* Left Face */}
+                    <div 
+                      className="absolute border border-white/10 bg-white/[0.03]" 
+                      style={{ 
+                        width: depth * 1.1, 
+                        height: '100%',
+                        left: '50%',
+                        top: '0',
+                        transform: `translateX(-50%) rotateY(-90deg) translateZ(${width * 0.55}px)` 
+                      }} 
+                    />
+
+                    {/* Top Face */}
+                    <div 
+                      className="absolute border border-white/40 bg-white/10" 
+                      style={{ 
+                        width: '100%',
+                        height: depth * 1.1, 
+                        top: '50%',
+                        left: '0',
+                        transform: `translateY(-50%) rotateX(90deg) translateZ(${height * 0.55}px)` 
+                      }} 
+                    >
+                       <div className="absolute inset-0 flex items-center justify-center">
+                         <div className="text-[8px] text-white/10 uppercase tracking-[0.4em] font-bold">TOP SURFACE</div>
+                       </div>
+                    </div>
+
+                    {/* Bottom Face */}
+                    <div 
+                      className="absolute border border-white/5 bg-white/[0.01]" 
+                      style={{ 
+                        width: '100%',
+                        height: depth * 1.1, 
+                        top: '50%',
+                        left: '0',
+                        transform: `translateY(-50%) rotateX(-90deg) translateZ(${height * 0.55}px)` 
+                      }} 
+                    />
+                  </motion.div>
                 </motion.div>
               </div>
 
-              <div className="absolute bottom-6 left-6 flex items-center gap-2 text-white/20 text-[10px] uppercase font-bold tracking-widest">
-                <Info size={14} />
-                <span>形状はイメージです。デザインは職人と対話して決定します。</span>
+              {/* Data Display */}
+              <div className="absolute bottom-8 right-8 flex flex-col items-end gap-2">
+                <div className="px-5 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl flex flex-col gap-1 items-end">
+                   <div className="text-[8px] text-white/30 uppercase tracking-widest font-bold mb-1">Dimensions</div>
+                   <div className="flex gap-4">
+                     <div className="text-right">
+                       <span className="block text-[8px] text-white/20 uppercase">W</span>
+                       <span className="text-sm font-bold text-white">{width}cm</span>
+                     </div>
+                     <div className="text-right">
+                       <span className="block text-[8px] text-white/20 uppercase">D</span>
+                       <span className="text-sm font-bold text-white/80">{depth}cm</span>
+                     </div>
+                     <div className="text-right">
+                       <span className="block text-[8px] text-white/20 uppercase">H</span>
+                       <span className="text-sm font-bold text-white/60">{height}cm</span>
+                     </div>
+                   </div>
+                </div>
+              </div>
+
+              <div className="absolute top-8 left-8 flex flex-col gap-1 opacity-40 group-hover:opacity-100 transition-opacity">
+                <div className="flex items-center gap-2 text-white text-[10px] uppercase font-bold tracking-[0.3em]">
+                  <Maximize size={14} />
+                  <span>3D Space Visualizer</span>
+                </div>
+                <p className="text-[8px] text-white/40 tracking-widest uppercase">Depth-enabled simulation</p>
               </div>
             </div>
           </div>
