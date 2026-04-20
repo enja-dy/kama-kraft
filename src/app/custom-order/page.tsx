@@ -71,7 +71,8 @@ export default function CustomOrderPage() {
     new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(price);
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-[#050505] text-white selection:bg-white selection:text-black">
+      <main className="container mx-auto px-6 pt-16 pb-16 space-y-16 lg:space-y-20">
       {/* Hero Section */}
       <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
         <Image
@@ -115,7 +116,7 @@ export default function CustomOrderPage() {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-6 space-y-32 pb-32">
+      <div className="max-w-7xl mx-auto px-6 space-y-20 lg:space-y-24 pb-32">
         
         {/* Philosophy Section */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center pt-24">
@@ -388,7 +389,7 @@ export default function CustomOrderPage() {
         </section>
 
         {/* Integrated Inquiry Form */}
-        <section id="form" className="max-w-4xl mx-auto pt-24">
+        <section id="form" className="max-w-4xl mx-auto pt-16 lg:pt-20">
           <div className="bg-[#0c0c0c] p-10 md:p-20 rounded-[3rem] border border-white/10 shadow-2xl relative">
             <div className="absolute inset-0 bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
             
@@ -400,7 +401,8 @@ export default function CustomOrderPage() {
                 </div>
                 <h2 className="text-4xl md:text-6xl font-bold tracking-tighter">理想を、言葉に。</h2>
                 <p className="text-white/40 text-sm leading-relaxed max-w-lg mx-auto italic">
-                  シミュレーション結果をもとに、さらに深く詳細なご相談を承ります。職人からの直接の回答をお待ちください。
+                  シミュレーション結果をもとに、さらに深く詳細なご相談を承ります。<br />
+                  職人からの直接の回答をお待ちください。
                 </p>
               </div>
 
@@ -442,7 +444,7 @@ export default function CustomOrderPage() {
                     <textarea 
                       rows={5}
                       value={message} onChange={(e) => setMessage(e.target.value)}
-                      placeholder="例：天板のエッジを自然な形で残したい、脚の素材を黒いアイアンにしたい、等"
+                      placeholder=""
                       className="w-full bg-white/5 border border-white/10 p-5 rounded-2xl focus:border-white outline-none transition-all placeholder:text-white/10 resize-none"
                     />
                   </div>
@@ -481,6 +483,7 @@ export default function CustomOrderPage() {
         </section>
 
       </div>
+      </main>
     </div>
   );
 }
