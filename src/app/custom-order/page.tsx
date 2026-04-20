@@ -162,7 +162,7 @@ export default function CustomOrderPage() {
                     <span className="text-xl font-mono text-white">{width}cm</span>
                   </div>
                   <input 
-                    type="range" min="100" max="240" step="1" 
+                    type="range" min="100" max="200" step="1" 
                     value={width} onChange={(e) => setWidth(Number(e.target.value))}
                     className="w-full h-1 bg-white/10 rounded-full appearance-none cursor-pointer accent-white"
                   />
@@ -175,7 +175,7 @@ export default function CustomOrderPage() {
                     <span className="text-xl font-mono text-white">{depth}cm</span>
                   </div>
                   <input 
-                    type="range" min="60" max="120" step="1" 
+                    type="range" min="60" max="100" step="1" 
                     value={depth} onChange={(e) => setDepth(Number(e.target.value))}
                     className="w-full h-1 bg-white/10 rounded-full appearance-none cursor-pointer accent-white"
                   />
@@ -233,7 +233,7 @@ export default function CustomOrderPage() {
                   animate={{ 
                     rotateY: -45,
                     rotateX: 18,
-                    scale: 1.6
+                    scale: 1.85
                   }}
                   className="relative w-0 h-0"
                   style={{ transformStyle: "preserve-3d" }}
