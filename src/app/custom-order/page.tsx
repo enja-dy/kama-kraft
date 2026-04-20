@@ -222,12 +222,13 @@ export default function CustomOrderPage() {
                 />
               </div>
               
-              {/* 3D Wireframe Scene - Precision Prism */}
-              <div className="relative w-full h-full flex items-center justify-center pointer-events-none" style={{ perspective: "5000px" }}>
+              {/* 3D Wireframe Scene - Perfectionist Prism */}
+              <div className="relative w-full h-full flex items-center justify-center pointer-events-none" style={{ perspective: "20000px" }}>
                 <motion.div 
                   animate={{ 
-                    rotateY: -35,
-                    rotateX: 20
+                    rotateY: -45,
+                    rotateX: 18,
+                    scale: 0.7
                   }}
                   className="relative w-0 h-0"
                   style={{ transformStyle: "preserve-3d" }}
@@ -264,7 +265,7 @@ export default function CustomOrderPage() {
 
                     {/* Right Face */}
                     <div 
-                      className="absolute border border-white/10 bg-white/[0.03]" 
+                      className="absolute border border-white/10 bg-white/[0.05]" 
                       style={{ 
                         width: depth, 
                         height: height,
@@ -276,7 +277,7 @@ export default function CustomOrderPage() {
 
                     {/* Left Face */}
                     <div 
-                      className="absolute border border-white/10 bg-white/[0.03]" 
+                      className="absolute border border-white/10 bg-white/[0.05]" 
                       style={{ 
                         width: depth, 
                         height: height,
@@ -288,7 +289,7 @@ export default function CustomOrderPage() {
 
                     {/* Top Face */}
                     <div 
-                      className="absolute border border-white/40 bg-white/10 flex items-center justify-center" 
+                      className="absolute border-2 border-white/40 bg-white/20 flex items-center justify-center shadow-2xl shadow-white/5" 
                       style={{ 
                         width: width,
                         height: depth, 
@@ -297,7 +298,7 @@ export default function CustomOrderPage() {
                         transform: `rotateX(90deg) translateZ(${height / 2}px)` 
                       }} 
                     >
-                       <div className="text-[8px] text-white/10 uppercase tracking-[0.4em] font-bold">TOP SURFACE</div>
+                       <div className="text-[8px] text-white/20 uppercase tracking-[0.4em] font-bold">TOP SURFACE</div>
                     </div>
 
                     {/* Bottom Face */}
