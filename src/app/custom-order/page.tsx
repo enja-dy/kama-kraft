@@ -365,20 +365,23 @@ export default function CustomOrderPage() {
             <p className="text-white/40 tracking-widest uppercase text-xs font-bold">How it's made for you</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
             {[
-              { icon: MessageSquare, title: "対話と構想", desc: "空間の悩みや理想を、職人が丁寧にヒアリングします。" },
-              { icon: PenTool, title: "図面作成", desc: "1cm単位で理想を形にし、詳細な図面をご提案します。" },
-              { icon: Ruler, title: "素材選定", desc: "一本のウリンから、最も美しい表情を持つ部位を厳選します。" },
-              { icon: Truck, title: "魂を届ける", desc: "最終調整を施し、専門の配送員が据付まで行います。" }
+              { icon: Maximize, title: "理想のサイズを算出", desc: "上記のシミュレーターにて、空間にぴったりのサイズを設定してください。" },
+              { icon: MessageSquare, title: "想いをフォームへ", desc: "以下のお問い合わせフォームより、必要事項とシミュレーション内容を送信してください。" },
+              { icon: PenTool, title: "職人よりご提案", desc: "内容を確認させていただき、詳細なお見積もりと制作スケジュールをご返信します。" }
             ].map((step, i) => (
               <FadeIn key={i} delay={i * 0.1}>
-                <div className="bg-white/5 p-8 rounded-3xl border border-white/5 h-full space-y-6 hover:bg-white/[0.08] transition-colors">
-                  <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center group">
-                    <step.icon size={24} className="text-white opacity-40 group-hover:opacity-100 transition-opacity" />
+                <div className="bg-white/5 p-10 rounded-[2.5rem] border border-white/5 h-full space-y-8 hover:bg-white/[0.08] transition-all group relative overflow-hidden">
+                  <div className="absolute top-0 left-0 w-1 h-full bg-white/10 group-hover:bg-white/40 transition-colors" />
+                  <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center">
+                    <step.icon size={28} className="text-white opacity-40 group-hover:opacity-100 transition-opacity" />
                   </div>
-                  <h3 className="text-xl font-bold tracking-tight">{step.title}</h3>
-                  <p className="text-sm text-white/40 leading-relaxed">{step.desc}</p>
+                  <div className="space-y-4">
+                    <div className="text-white/20 text-[10px] font-mono uppercase tracking-[0.3em]">Step 0{i + 1}</div>
+                    <h3 className="text-2xl font-bold tracking-tight">{step.title}</h3>
+                    <p className="text-sm text-white/50 leading-relaxed">{step.desc}</p>
+                  </div>
                 </div>
               </FadeIn>
             ))}
