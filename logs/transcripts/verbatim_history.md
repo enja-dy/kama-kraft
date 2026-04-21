@@ -3,11 +3,11 @@
 
 ---
 
-## [Request 31]
+## [Request 32]
 ... (Previous record) ...
 
-## [Request 32]
-**USER:** 添付の商品紹介部分も、他の商品ページの体裁・文章量を参考にして、この商品の魅力を最大限に表現させた、文章を生成してください。
-(Screenshot showing 'Coming Soon' placeholder area.)
+## [Request 33]
+**USER:** 添付のセクションも、他商品を参考に制作してください。
+(Screenshot of empty '製品仕様' (Specs) section.)
 
-**RESPONSE:** (Developed a 3-paragraph masterpiece narrative focused on 'Vertical Aesthetics', 'New Rituals', and 'Timeless Integrity'. Replaced the 'Coming Soon' placeholder in products.ts and deployed under Sanctuary Protocol.)
+**RESPONSE:** (Populated the complete 'Technical Specifications' for the High-Leg Counter, including Timber type, Origin, Estimated Weight/Capacity (18.5kg/80kg), and Shipping details. Updated products.ts under Sanctuary Protocol.)
