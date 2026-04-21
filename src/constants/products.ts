@@ -55,9 +55,6 @@ export const products: Product[] = [
       origin: "日本 鎌倉"
     },
     specs: [
-      { label: "商品名", value: "The Standard Table \"URIN\"" },
-      { label: "木材", value: "ウリン（アイアンウッド / 無垢材）" },
-      { label: "生産地", value: "日本 鎌倉（KamaKraft）" },
       { 
         label: "サイズ", 
         value: "幅90cm × 奥行き45cm × 高さ35cm",
@@ -66,6 +63,8 @@ export const products: Product[] = [
           link: "/custom-order"
         }
       },
+      { label: "木材", value: "ウリン（アイアンウッド / 無垢材）" },
+      { label: "生産地", value: "日本 鎌倉（KamaKraft）" },
       { label: "重量 / 耐荷重", value: "9.8kg / 75kg" },
       { label: "屋外使用", value: "OK（最高レベルの耐候性）" },
       { label: "発送方法", value: "ヤマト運輸 / 佐川急便 (大型家具便)" },
@@ -104,9 +103,6 @@ export const products: Product[] = [
       origin: "日本 鎌倉"
     },
     specs: [
-      { label: "商品名", value: "The V-Leg Compact" },
-      { label: "木材", value: "ウリン（アイアンウッド / 無垢材）" },
-      { label: "生産地", value: "日本 鎌倉（KamaKraft）" },
       { 
         label: "サイズ", 
         value: "幅60cm × 奥行40cm × 高さ35cm",
@@ -115,6 +111,8 @@ export const products: Product[] = [
           link: "/custom-order"
         }
       },
+      { label: "木材", value: "ウリン（アイアンウッド / 無垢材）" },
+      { label: "生産地", value: "日本 鎌倉（KamaKraft）" },
       { label: "重量 / 耐荷重", value: "約6.5kg / 50kg" },
       { label: "屋外使用", value: "OK（最高レベルの耐候性）" },
       { label: "発送方法", value: "ヤマト運輸 / 佐川急便 (大型家具便)" },
@@ -151,7 +149,7 @@ export const products: Product[] = [
       origin: "日本 鎌倉"
     },
     specs: [
-      { label: "商品名", value: "The High-Leg Counter" }
+      { label: "サイズ", value: "準備中 / オーダーメイド可" }
     ],
     story: {
       title: "Coming Soon",
