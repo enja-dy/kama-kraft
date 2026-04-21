@@ -102,7 +102,8 @@ The header text has been shortened and optimized for the current `tracking-[0.3e
 
 ## 3. Safety Execution
 - **Physical Backup:** `logs/backups/UlinCharms.tsx.bak_20260422_0821`
-- **Pre-commit:** `pre: [home] rewrite heavy attribute to solid texture for UlinCharms`
+- **Latest Commit:** `4c83af8` - "step: [home] rewrite heavy attribute to solid texture for UlinCharms"
 
 ---
-**Processing Status:** **In Progress**
+**Status:** **Homepage Narrative Rewrite Complete.**
+The "heavy" description in the durability section has been replaced with "solid texture" (重厚感) associated with the "Ironwood" title. This maintains the emphasis on high density and durability while framing it as a premium furniture benefit.
