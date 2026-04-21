@@ -92,8 +92,8 @@ export const products: Product[] = [
     slug: "urin-v-leg",
     name: "The V-Leg Compact",
     series: "The Artisan Series",
-    price: 49500,
-    description: "一握の重厚が、空間を静かに支配する。限られた場所にこそ、本物のウリンを。ベッドサイドやエントランス、都市のバルコニーにも。コンパクトだからこそ叶う、場所を選ばない『最高峰の贅沢』を提案します。特徴的なV字脚が、重厚なウリン材にモダンなリズムを与えます。",
+    price: 60000,
+    description: "限られた場所にこそ、本物のウリンを。ベッドサイドやエントランス、都市のバルコニーにも。コンパクトだからこそ叶う、場所を選ばない『最高峰の贅沢』を提案します。特徴的なV字脚が、重厚なウリン材にモダンなリズムを与えます。",
     images: [
       "/urin07.jpeg",
       "/ulin-v-leg-wing.png",
