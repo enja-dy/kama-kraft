@@ -135,5 +135,30 @@ export const products: Product[] = [
       bio: "鎌倉を拠点に、ウリン材に特化した一点物の家具を製作する工房。"
     },
     objectPosition: "center 60%"
+  },
+  {
+    id: "urin-counter-table-1",
+    slug: "urin-counter",
+    name: "The High-Leg Counter \"URIN\"",
+    series: "The Artisan Series",
+    price: 0,
+    description: "新製品「High-Leg Counter」の情報を準備中です。",
+    images: [],
+    thumbnail: "",
+    quickSpecs: {
+      size: ["サイズ未定", "サイズ未定", "サイズ未定"],
+      material: "ウリン",
+      origin: "日本 鎌倉"
+    },
+    specs: [],
+    story: {
+      title: "Coming Soon",
+      paragraphs: ["職人による最終仕上げと情報の整理を行っております。詳細の公開まで今しばらくお待ちください。"]
+    },
+    artisan: {
+      name: "KamaKraft",
+      location: "日本 鎌倉",
+      bio: "鎌倉を拠点に、ウリン材に特化した一点物の家具を製作する工房。"
+    }
   }
 ];
