@@ -283,3 +283,37 @@ The product description has been finalized with "気高く強靭な佇まい" (N
 ---
 **Status:** **Craftsmanship Content Correction Complete.**
 The incorrect reference to "Kumiki" (Joinery) has been removed from the Craftsmanship page. It has been replaced with "魂を宿す構築" (Construction that Embodies the Soul), which accurately reflects the artisan's hand-built approach and focus on material-driven structural integrity.
+
+---
+
+# KamaKraft Action Transcript: Lifetime Promise Narrative Rewrite
+**Date:** 2026-04-22 08:50 (JST)
+**Task:** Aligning Lifetime Promise with the "No Maintenance" philosophy
+
+## 1. User Instructions & Correct Definition
+- **URL:** http://localhost:3001/craftsmanship
+- **Current Issue:** The section mentions a "Lifetime repair/maintenance system" which contradicts the brand philosophy stated on the maintenance page (that Ulin's quality makes repair unnecessary).
+- **Requirement:** Rewrite to focus on "Quality that needs no repair" (修理を必要としない品質).
+- **Approved Text (Option 1):**
+  - Before: "生涯を通した修理・メンテナンス体制。それは、職人が一生をかけて..."
+  - After: "修理を必要としないほどの、絶対的な素材品質。それは、家具が一生、そして次世代まで..."
+
+## 2. Change Details
+- **Target:** `src/app/craftsmanship/page.tsx` (L130-131)
+- **Before:**
+  ```tsx
+  生涯を通した修理・メンテナンス体制。
+  それは、職人が一生をかけてあなたの暮らしを見守り続けるという、私たちの誇り高き約束です。
+  ```
+- **After:**
+  ```tsx
+  修理を必要としないほどの、絶対的な素材品質。
+  それは、家具が一生、そして次世代まであなたの暮らしに寄り添い続けるという、私たちの誇り高き約束です。
+  ```
+
+## 3. Safety Execution
+- **Physical Backup:** `logs/backups/craftsmanship_page.tsx.bak_20260422_0850`
+- **Pre-commit:** `pre: [craftsmanship] align lifetime promise with no-maintenance philosophy`
+
+---
+**Processing Status:** **In Progress**
