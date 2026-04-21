@@ -180,16 +180,7 @@ export default function CraftsmanshipPage() {
             </div>
           </FadeIn>
 
-          <FadeIn delay={0.2}>
-            <div className="relative aspect-[16/9] md:aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl opacity-80 hover:opacity-100 transition-opacity duration-1000">
-              <Image
-                src="/craft-4.png"
-                alt="Design Sketch"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </FadeIn>
+
         </div>
       </section>
     </div>
