@@ -46,7 +46,7 @@ export const products: Product[] = [
       "/product-urin-front.png",
       "/product-urin-topdown.png",
       "/product-urin-side.png",
-      "/urin04.jpeg",
+      "/product-urin-final-master-highangle.png",
     ],
     thumbnail: "/urin04.jpeg",
     quickSpecs: {
