@@ -143,8 +143,8 @@ export const products: Product[] = [
     series: "The Artisan Series",
     price: 0,
     description: "新製品「High-Leg Counter」の情報を準備中です。",
-    images: [],
-    thumbnail: "",
+    images: ["/product-urin-highangle-master.png"],
+    thumbnail: "/product-urin-highangle-master.png",
     quickSpecs: {
       size: ["サイズ未定", "サイズ未定", "サイズ未定"],
       material: "ウリン",
