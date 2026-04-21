@@ -1,0 +1,18 @@
+
+> kama-kraft@0.1.0 dev
+> next dev -p 3033
+
+▲ Next.js 16.2.2 (Turbopack)
+- Local:         http://localhost:3033
+- Network:       http://192.168.3.124:3033
+- Environments: .env.local
+✓ Ready in 810ms
+⨯ Another next dev server is already running.
+
+- Local:        http://localhost:3000
+- PID:          23651
+- Dir:          /Users/daichiyokoyama/Dropbox/My Mac (yokoyamadaichinoiMac.local)/Desktop/kamakraft
+- Log:          .next/dev/logs/next-development.log
+
+Run kill 23651 to stop it.
+[?25h
