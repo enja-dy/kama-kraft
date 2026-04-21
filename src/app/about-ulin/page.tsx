@@ -54,9 +54,9 @@ export default function AboutUlinPage() {
             <div className="h-[1px] w-20 bg-white/20 mx-auto md:mx-0" />
             <p className="text-white/70 leading-relaxed text-lg font-light">
               ウリンは、東南アジア原産の非常に珍しい木材です。
-              普通の木は水に浮きますが、ウリンはあまりに密度が高く重いため、
-              <span className="text-white font-medium border-b border-white/40 pb-1 mx-1">水に入れると石のように沈みます。</span>
-              その圧倒的な硬さから、世界中で「アイアンウッド（鉄の木）」と呼ばれ、
+              普通の木は水に浮きますが、ウリンは圧倒的な密度を誇り、
+              <span className="text-white font-medium border-b border-white/40 pb-1 mx-1">その組織は水に沈むほどに緻密です。</span>
+              その重厚さが生む揺るぎない安定感と硬さから、世界中で「アイアンウッド（鉄の木）」と呼ばれ、
               最強の耐久性を持つ木として愛されています。
             </p>
           </div>
