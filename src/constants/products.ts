@@ -141,8 +141,8 @@ export const products: Product[] = [
     series: "The Artisan Series",
     price: 0,
     description: "新製品「High-Leg Counter」の情報を準備中です。",
-    images: ["/product-urin-highangle-master.png"],
-    thumbnail: "/product-urin-highangle-master.png",
+    images: ["/urin09.jpeg"],
+    thumbnail: "/urin09.jpeg",
     quickSpecs: {
       size: ["サイズ未定", "サイズ未定", "サイズ未定"],
       material: "ウリン",
@@ -159,6 +159,7 @@ export const products: Product[] = [
       name: "KamaKraft",
       location: "日本 鎌倉",
       bio: "鎌倉を拠点に、ウリン材に特化した一点物の家具を製作する工房。"
-    }
+    },
+    objectPosition: "center 35%"
   }
 ];
