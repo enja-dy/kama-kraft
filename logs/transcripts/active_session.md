@@ -172,3 +172,31 @@ The hero headline has been updated from a technical description of density ("水
 ---
 **Status:** **About Ulin Intro Rewrite Complete.**
 The introduction paragraph has been significantly improved by framing the high density of Ulin wood as a marker of quality ("緻密な組織") and a source of functional benefit ("揺るぎない安定感"). This prevents the information from being perceived as a disadvantage (heavy/difficult to handle).
+
+---
+
+# KamaKraft Action Transcript: URIN Standard Product Narrative Rewrite
+**Date:** 2026-04-22 08:34 (JST)
+**Task:** Updating the narrative for URIN Standard Table to focus on stability
+
+## 1. User Instructions & Correct Definition
+- **URL:** http://localhost:3001/products/urin-standard
+- **Current Issue:** "水に沈むほどの重量と" (Weight enough to sink) is too technical and implies burden.
+- **Requirement:** Rewrite to focus on "Stability/Solid Presence" (安定感/存在感).
+- **Approved Text (Option C):**
+  - Story Section: "圧倒的な存在感が生み出す揺るぎない安定感と、..."
+  - Description Section: Change "重量感" to "重厚感".
+
+## 2. Change Details
+- **Target:** `src/constants/products.ts`
+- **Story Before (L77):** `水に沈むほどの重量と、腐朽を寄せ付けない成分。`
+- **Story After (L77):** `圧倒的な存在感が生み出す揺るぎない安定感と、腐朽を寄せ付けない成分。`
+- **Description Before (L43):** `アイアンウッド「ウリン」の圧倒的な重量感。`
+- **Description After (L43):** `アイアンウッド「ウリン」の圧倒的な重厚感。`
+
+## 3. Safety Execution
+- **Physical Backup:** `logs/backups/products.ts.bak_20260422_0834`
+- **Pre-commit:** `pre: [products] rewrite standard table narrative to focus on stability`
+
+---
+**Processing Status:** **In Progress**
