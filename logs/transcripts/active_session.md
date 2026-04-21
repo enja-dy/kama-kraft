@@ -278,7 +278,8 @@ The product description has been finalized with "気高く強靭な佇まい" (N
 
 ## 3. Safety Execution
 - **Physical Backup:** `logs/backups/craftsmanship_page.tsx.bak_20260422_0846`
-- **Pre-commit:** `pre: [craftsmanship] correct misinformation about Kumiki and focus on hand-built construction`
+- **Latest Commit:** `25450b1` - "step: [craftsmanship] correct misinformation about Kumiki and focus on hand-built construction"
 
 ---
-**Processing Status:** **In Progress**
+**Status:** **Craftsmanship Content Correction Complete.**
+The incorrect reference to "Kumiki" (Joinery) has been removed from the Craftsmanship page. It has been replaced with "魂を宿す構築" (Construction that Embodies the Soul), which accurately reflects the artisan's hand-built approach and focus on material-driven structural integrity.
