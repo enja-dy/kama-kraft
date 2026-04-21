@@ -227,3 +227,27 @@ The product story and description for the Standard Table have been updated to fr
 ---
 **Status:** **URIN Standard Wording Refinement Complete.**
 The overlapping use of "圧倒的な" (Overwhelming) coached in the previous edit has been corrected. The first occurrence has been replaced with "比類なき" (Unparalleled), which enhances the reading rhythm and reinforces the premium, unique quality of the Ulin material.
+
+---
+
+# KamaKraft Action Transcript: URIN Standard Description Final Refinement
+**Date:** 2026-04-22 08:39 (JST)
+**Task:** Finalizing the product description for URIN Standard Table
+
+## 1. User Instructions & Correct Definition
+- **URL:** http://localhost:3001/products/urin-standard
+- **Issue:** The word "圧倒的な重厚感" in the short description still felt slightly generic or focused on weight.
+- **Requirement:** Replace with a more sophisticated and evocative expression.
+- **Improved Text:** "アイアンウッド「ウリン」の、気高く強靭な佇まい。"
+
+## 2. Change Details
+- **Target:** `src/constants/products.ts` (L43)
+- **Before:** `アイアンウッド「ウリン」の圧倒的な重厚感。`
+- **After:** `アイアンウッド「ウリン」の、気高く強靭な佇まい。`
+
+## 3. Safety Execution
+- **Physical Backup:** `logs/backups/products.ts.bak_20260422_0839`
+- **Pre-commit:** `pre: [products] finalize standard table description with noble and tough appearance`
+
+---
+**Processing Status:** **In Progress**
