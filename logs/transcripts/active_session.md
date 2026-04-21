@@ -167,7 +167,8 @@ The hero headline has been updated from a technical description of density ("水
 
 ## 3. Safety Execution
 - **Physical Backup:** `logs/backups/about-ulin_page.tsx.bak_20260422_0831`
-- **Pre-commit:** `pre: [about-ulin] rewrite intro to focus on density and stability`
+- **Latest Commit:** `8080b94` - "step: [about-ulin] rewrite intro to focus on density and stability"
 
 ---
-**Processing Status:** **In Progress**
+**Status:** **About Ulin Intro Rewrite Complete.**
+The introduction paragraph has been significantly improved by framing the high density of Ulin wood as a marker of quality ("緻密な組織") and a source of functional benefit ("揺るぎない安定感"). This prevents the information from being perceived as a disadvantage (heavy/difficult to handle).
