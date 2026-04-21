@@ -78,3 +78,31 @@ The product story header is now both grammatically correct and emotionally reson
 ---
 **Status:** **Responsive Optimization Complete.**
 The header text has been shortened and optimized for the current `tracking-[0.3em]` design, ensuring it fits on two clean lines without unintended wrapping on standard screens.
+
+---
+
+# KamaKraft Action Transcript: Homepage Narrative Rewrite (Durability)
+**Date:** 2026-04-22 08:21 (JST)
+**Task:** Softening the "heavy" attribute in the homepage durability section
+
+## 1. User Instructions & Correct Definition
+- **Location:** Homepage (http://localhost:3001) -> `src/components/UlinCharms.tsx`
+- **Current Issue:** "水に沈むほど重い" (Heavy enough to sink) can be perceived as a disadvantage for furniture.
+- **Requirement:** Rewrite the phrase into a more natural and positive expression for furniture context.
+- **Approved Text (Option C):**
+  - Before: "水に沈むほど重く、..."
+  - After: "鉄の木に相応しい圧倒的な重厚感を誇り、..."
+- **Constraint:** Only modify this specific component. Leave other occurrences in the site untouched.
+
+## 2. Change Details
+- **Target:** `src/components/UlinCharms.tsx` (L9)
+- **Change:**
+  - Original: `水に沈むほど重く、腐食を寄せ付けない...`
+  - New: `鉄の木に相応しい圧倒的な重厚感を誇り、腐食を寄せ付けない...`
+
+## 3. Safety Execution
+- **Physical Backup:** `logs/backups/UlinCharms.tsx.bak_20260422_0821`
+- **Pre-commit:** `pre: [home] rewrite heavy attribute to solid texture for UlinCharms`
+
+---
+**Processing Status:** **In Progress**
