@@ -48,3 +48,32 @@ The artisan product description is now lean, intuitive, and perfectly fits the b
 ---
 **Status:** **Header Clarification Complete.**
 The product story header is now both grammatically correct and emotionally resonant, ensuring a clear value proposition for the standard table.
+
+---
+
+# KamaKraft Action Transcript: Responsive Header Optimization
+**Date:** 2026-04-22 08:15 (JST)
+**Task:** Preventing unintended line breaks in the product header
+
+## 1. User Instructions & Correct Definition
+- **Issue:** The previous text was too long for the wide letter-spacing (`tracking-[0.3em]`), causing it to wrap into 4 lines instead of 2.
+- **Requirement:** Shorten the text to ensure it fits on a single line per row (total 2 rows) without unintended breaks.
+- **Approved Text:**
+  - Title: "受け継がれる、不朽の美。"
+  - Italic: "一生を共にする、最高峰の一台。"
+
+## 2. Change Details
+- **Target:** `src/constants/products.ts`
+- **Before:**
+  - title: "世代を超えて受け継がれる、不朽の美しさ。"
+  - titleItalic: "一生を共にする、最高峰の一台。"
+- **After:**
+  - title: "受け継がれる、不朽の美。"
+  - titleItalic: "一生を共にする、最高峰の一台。"
+
+## 3. Safety Execution
+- **Physical Backup:** `logs/backups/products.ts.bak_20260422_0815`
+- **Pre-commit:** `pre: [urin-standard] responsive layout optimization for header`
+
+---
+**Processing Status:** **In Progress**
