@@ -139,17 +139,24 @@ export const products: Product[] = [
     slug: "urin-counter",
     name: "The High-Leg Counter \"URIN\"",
     series: "The Artisan Series",
-    price: 0,
+    price: 120000,
     description: "視点を高め、空間を研ぎ澄ます。バーカウンターや洗練されたワークスペースに、アイアンウッド『ウリン』の圧倒的な力強さを。天に伸びるしなやかな脚部が、重厚な天板を確かな品格で支えます。立ち上がり、視座を変える。日常の何気ない瞬間を、特別な時間へと昇華させる一台です。",
     images: ["/urin09.jpeg"],
     thumbnail: "/urin09.jpeg",
     quickSpecs: {
-      size: ["サイズ未定", "サイズ未定", "サイズ未定"],
+      size: ["幅 150cm", "奥行 45cm", "高さ 100cm"],
       material: "ウリン",
       origin: "日本 鎌倉"
     },
     specs: [
-      { label: "サイズ", value: "準備中 / オーダーメイド可" }
+      { 
+        label: "サイズ", 
+        value: "幅150cm × 奥行き45cm × 高さ100cm",
+        subValue: {
+          text: "※オーダーメイド承ります。詳細はこちら。",
+          link: "/custom-order"
+        }
+      }
     ],
     story: {
       title: "Coming Soon",
