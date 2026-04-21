@@ -107,3 +107,26 @@ The header text has been shortened and optimized for the current `tracking-[0.3e
 ---
 **Status:** **Homepage Narrative Rewrite Complete.**
 The "heavy" description in the durability section has been replaced with "solid texture" (重厚感) associated with the "Ironwood" title. This maintains the emphasis on high density and durability while framing it as a premium furniture benefit.
+
+---
+
+# KamaKraft Action Transcript: About Ulin Headline Rewrite
+**Date:** 2026-04-22 08:28 (JST)
+**Task:** Updating the hero headline for About Ulin page
+
+## 1. User Instructions & Correct Definition
+- **URL:** http://localhost:3001/about-ulin
+- **Requirement:** Replace the technical/heavy headline "水に沈む、鉄の木。" with a more poetic/positive expression focused on time and history.
+- **Improved Text:** "時を刻む、鉄の木。"
+
+## 2. Change Details
+- **Target:** `src/app/about-ulin/page.tsx` (L41)
+- **Before:** `水に沈む、鉄の木。`
+- **After:** `時を刻む、鉄の木。`
+
+## 3. Safety Execution
+- **Physical Backup:** `logs/backups/about-ulin_page.tsx.bak_20260422_0828`
+- **Pre-commit:** `pre: [about-ulin] update hero headline to focus on time/history`
+
+---
+**Processing Status:** **In Progress**
