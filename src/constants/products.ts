@@ -156,7 +156,13 @@ export const products: Product[] = [
           text: "※オーダーメイド承ります。詳細はこちら。",
           link: "/custom-order"
         }
-      }
+      },
+      { label: "木材", value: "ウリン（アイアンウッド / 無垢材）" },
+      { label: "生産地", value: "日本 鎌倉（KamaKraft）" },
+      { label: "重量 / 耐荷重", value: "約18.5kg / 80kg" },
+      { label: "屋外使用", value: "OK（最高レベルの耐候性）" },
+      { label: "発送方法", value: "ヤマト運輸 / 佐川急便 (大型家具便)" },
+      { label: "発送までの目安", value: "ご注文確定後、約4〜5週間" }
     ],
     story: {
       title: "天空を操り、空間に自由を。",
