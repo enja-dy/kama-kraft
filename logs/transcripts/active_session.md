@@ -126,7 +126,8 @@ The "heavy" description in the durability section has been replaced with "solid 
 
 ## 3. Safety Execution
 - **Physical Backup:** `logs/backups/about-ulin_page.tsx.bak_20260422_0828`
-- **Pre-commit:** `pre: [about-ulin] update hero headline to focus on time/history`
+- **Latest Commit:** `d0855b5` - "step: [about-ulin] update hero headline to focus on time/history"
 
 ---
-**Processing Status:** **In Progress**
+**Status:** **About Ulin Hero Rewrite Complete.**
+The hero headline has been updated from a technical description of density ("水に沈む") to an emotional value proposition ("時を刻む"). This aligns with the brand's shift towards focusing on the long-term historical value of the ironwood furniture.
