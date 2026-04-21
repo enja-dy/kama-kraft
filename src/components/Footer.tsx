@@ -34,7 +34,7 @@ export const Footer = () => {
             <h3 className="text-xs font-bold tracking-[0.2em] text-white/40 uppercase">CREATION</h3>
             <ul className="space-y-4">
               <li>
-                <Link href="/products/urin-table" className="text-sm text-white hover:text-white transition-colors font-medium">The Standard Table &quot;URIN&quot;</Link>
+                <Link href="/products/urin-standard" className="text-sm text-white hover:text-white transition-colors font-medium">The Standard Table &quot;URIN&quot;</Link>
               </li>
               <li>
                 <Link href="/custom-order" className="text-sm text-white hover:text-white transition-colors font-medium">オーダーメイドのご相談</Link>

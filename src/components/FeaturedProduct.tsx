@@ -150,7 +150,7 @@ export const FeaturedProduct = () => {
                   </AnimatePresence>
                 </button>
                 <Link 
-                  href="/products/urin-table"
+                  href="/products/urin-standard"
                   className="flex-1 border border-foreground/20 text-foreground py-5 px-8 flex items-center justify-center gap-3 hover:bg-foreground/5 transition-all group active:scale-[0.98]"
                 >
                   <span className="text-sm tracking-widest font-bold">詳細を見る</span>

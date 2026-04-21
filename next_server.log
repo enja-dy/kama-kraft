@@ -1,0 +1,27 @@
+
+> kama-kraft@0.1.0 dev
+> next dev -p 3001
+
+▲ Next.js 16.2.2 (Turbopack)
+- Local:         http://localhost:3001
+- Network:       http://10.141.85.24:3001
+- Environments: .env.local
+✓ Ready in 674ms
+⚠ Slow filesystem detected. The benchmark took 222ms. If /Users/daichiyokoyama/Dropbox/My Mac (yokoyamadaichinoiMac.local)/Desktop/kamakraft/.next/dev is a network drive, consider moving it to a local folder.
+See more: https://nextjs.org/docs/app/guides/local-development
+
+ GET / 200 in 1885ms (next.js: 454ms, application-code: 1431ms)
+[browser] Image with src "/charms-2.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes (file:///Users/daichiyokoyama/Dropbox/My Mac (yokoyamadaichinoiMac.local)
+[browser] Image with src "/charms-1.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes (file:///Users/daichiyokoyama/Dropbox/My Mac (yokoyamadaichinoiMac.local)
+⚠ Server is approaching the used memory threshold, restarting...
+⨯ Failed to start server
+Error: listen EADDRINUSE: address already in use :::3001
+    at <unknown> (Error: listen EADDRINUSE: address already in use :::3001)
+    at new Promise (<anonymous>) {
+  code: 'EADDRINUSE',
+  errno: -48,
+  syscall: 'listen',
+  address: '::',
+  port: 3001
+}
+[?25h
