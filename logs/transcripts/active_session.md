@@ -313,7 +313,8 @@ The incorrect reference to "Kumiki" (Joinery) has been removed from the Craftsma
 
 ## 3. Safety Execution
 - **Physical Backup:** `logs/backups/craftsmanship_page.tsx.bak_20260422_0850`
-- **Pre-commit:** `pre: [craftsmanship] align lifetime promise with no-maintenance philosophy`
+- **Latest Commit:** `d25f207` - "step: [craftsmanship] align lifetime promise with no-maintenance philosophy"
 
 ---
-**Processing Status:** **In Progress**
+**Status:** **Lifetime Promise Narrative Rewrite Complete.**
+The "Lifetime Promise" section has been reframed to align with the maintenance page's philosophy. Instead of a service-based repair system, it now emphasizes the "absolute material quality" of Ulin that makes repairs unnecessary, framing the product as a generational asset that naturally endures.
