@@ -196,7 +196,8 @@ The introduction paragraph has been significantly improved by framing the high d
 
 ## 3. Safety Execution
 - **Physical Backup:** `logs/backups/products.ts.bak_20260422_0834`
-- **Pre-commit:** `pre: [products] rewrite standard table narrative to focus on stability`
+- **Latest Commit:** `11e736c` - "step: [products] rewrite standard table narrative to focus on stability"
 
 ---
-**Processing Status:** **In Progress**
+**Status:** **URIN Standard Narrative Rewrite Complete.**
+The product story and description for the Standard Table have been updated to frame Ulin's high density as "solid presence" (存在感) and "unwavering stability" (揺るぎない安定感). This terminology shifts the focus from physical weight to the premium quality and functional reliability of the furniture.
