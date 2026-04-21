@@ -93,7 +93,7 @@ export const products: Product[] = [
     name: "The V-Leg Compact \"WING\"",
     series: "The Artisan Series",
     price: 49500,
-    description: "静寂に翼を。コンパクトな空間に、ウリンの品格を。特徴的なV字脚が、重厚なウリン材に軽やかなリズムを与えます。サイドテーブルや花台として、モダンな空間を引き立てます。",
+    description: "重厚なるウリンに、鋭いリズムを。空間を研ぎ澄ます、静寂の『翼』。特徴的なV字脚が、重厚なウリン材に軽やかなリズムを与えます。サイドテーブルや花台として、モダンな空間を引き立てます。",
     images: [
       "/urin07.jpeg",
       "/ulin-v-leg-wing.png",
