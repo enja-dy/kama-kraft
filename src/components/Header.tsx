@@ -42,6 +42,12 @@ export const Header = () => {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-10">
             <Link
+              href="/custom-order"
+              className="text-sm tracking-widest text-white hover:text-white transition-colors"
+            >
+              オーダーメイド
+            </Link>
+            <Link
               href="/cart"
               className="relative group flex items-center gap-2 text-sm tracking-widest text-white hover:text-white transition-colors"
             >
@@ -102,6 +108,13 @@ export const Header = () => {
               </button>
             </div>
             <div className="flex flex-col gap-8">
+              <Link
+                href="/custom-order"
+                className="text-3xl font-bold text-white tracking-widest"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                オーダーメイド
+              </Link>
               <Link
                 href="/cart"
                 className="text-3xl font-bold text-white tracking-widest flex items-center gap-4"
