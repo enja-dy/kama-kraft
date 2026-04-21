@@ -318,3 +318,30 @@ The incorrect reference to "Kumiki" (Joinery) has been removed from the Craftsma
 ---
 **Status:** **Lifetime Promise Narrative Rewrite Complete.**
 The "Lifetime Promise" section has been reframed to align with the maintenance page's philosophy. Instead of a service-based repair system, it now emphasizes the "absolute material quality" of Ulin that makes repairs unnecessary, framing the product as a generational asset that naturally endures.
+
+---
+
+# KamaKraft Action Transcript: Co-Creation Layout Optimization
+**Date:** 2026-04-22 08:52 (JST)
+**Task:** Centering the Co-Creation section for a premium emotional impact
+
+## 1. User Instructions & Correct Definition
+- **URL:** http://localhost:3001/craftsmanship
+- **Current Layout:** Split layout (Text Left, Image Right) with left-aligned text.
+- **Requirement:** Change to a centered layout to create a "Special Feel" (特別感) for the final call-to-action.
+- **Design:** Center all text content and the button, then place the image below them as a focused visual element.
+
+## 2. Change Details
+- **Target:** `src/app/craftsmanship/page.tsx` (L155-195)
+- **Modifications:**
+  - Change `flex-row` to `flex-col`.
+  - Add `text-center` and `items-center` to the container.
+  - Adjust widths and margins for optimal readability.
+  - Make the image full-width (within container) and centered below the text.
+
+## 3. Safety Execution
+- **Physical Backup:** `logs/backups/craftsmanship_page.tsx.bak_20260422_0852`
+- **Pre-commit:** `pre: [craftsmanship] optimize co-creation section for premium centered layout`
+
+---
+**Processing Status:** **In Progress**
