@@ -369,7 +369,8 @@ The "Co-Creation" section has been centered for higher impact. During this proce
 
 ## 3. Safety Execution
 - **Physical Backup:** `logs/backups/custom-order_page.tsx.bak_20260422_0857`
-- **Pre-commit:** `pre: [custom-order] update introduction to 1cm unit and noble appearance`
+- **Latest Commit:** `e6b6bf6` - "step: [custom-order] update introduction to 1cm unit and noble appearance"
 
 ---
-**Processing Status:** **In Progress**
+**Status:** **Custom Order Narrative Update Complete.**
+The introduction to the Custom Order page has been updated to align with the artisan's "1cm design philosophy" and the overall brand shift away from focus on weight. The new copy frames the high density of Ulin as "noble and tough appearance" (気高く強靭な佇まい), maintaining consistency with the Craftsmanship and Product pages.
