@@ -150,7 +150,9 @@ export const products: Product[] = [
       material: "ウリン",
       origin: "日本 鎌倉"
     },
-    specs: [],
+    specs: [
+      { label: "商品名", value: "The High-Leg Counter" }
+    ],
     story: {
       title: "Coming Soon",
       paragraphs: ["職人による最終仕上げと情報の整理を行っております。詳細の公開まで今しばらくお待ちください。"]
