@@ -346,3 +346,30 @@ The "Lifetime Promise" section has been reframed to align with the maintenance p
 ---
 **Status:** **Co-Creation Layout Optimization & Data Correction Complete.**
 The "Co-Creation" section has been centered for higher impact. During this process, an incorrect stock image (referencing "Walnut wood" instead of "Ulin") was identified and removed at the USER's request. The final section now purely focuses on the invitation to consultation with centered text and button.
+
+---
+
+# KamaKraft Action Transcript: Custom Order Narrative Update
+**Date:** 2026-04-22 08:57 (JST)
+**Task:** Refining the Custom Order introduction for clarity and consistency
+
+## 1. User Instructions & Correct Definition
+- **URL:** http://localhost:3001/custom-order
+- **Requirement:**
+  - Change "ミリ単位" (millimeter unit) to "1センチ単位" (1 centimeter unit) to align with actual artisan policy.
+  - Replace "重量感" (weight feel) with a more positive expression that aligns with previous refinements.
+- **Approved Text (Option 1):**
+  - Before: "アイアンウッド「ウリン」の圧倒的な重量感と美しさを、ミリ単位の精度で..."
+  - After: "アイアンウッド「ウリン」の気高く強靭な佇まいと美しさを、1センチ単位の緻密な設計で..."
+
+## 2. Change Details
+- **Target:** `src/app/custom-order/page.tsx` (L129)
+- **Before:** `アイアンウッド「ウリン」の圧倒的な重量感と美しさを、ミリ単位の精度で制御する。`
+- **After:** `アイアンウッド「ウリン」の気高く強靭な佇まいと美しさを、1センチ単位の緻密な設計で制御する。`
+
+## 3. Safety Execution
+- **Physical Backup:** `logs/backups/custom-order_page.tsx.bak_20260422_0857`
+- **Pre-commit:** `pre: [custom-order] update introduction to 1cm unit and noble appearance`
+
+---
+**Processing Status:** **In Progress**
