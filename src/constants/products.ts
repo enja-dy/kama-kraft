@@ -40,7 +40,7 @@ export const products: Product[] = [
     name: "The Standard Table \"URIN\"",
     series: "The Standard Series",
     price: 70000,
-    description: "不朽の強さを宿し、世代を超えて受け継がれる「鉄の木」の誇り。 アイアンウッド「ウリン」の圧倒的な重厚感。 自然の呼吸をそのまま形にしたライブエッジが、空間に唯一無二の品格を与えます。",
+    description: "不朽の強さを宿し、世代を超えて受け継がれる「鉄の木」の誇り。 アイアンウッド「ウリン」の、気高く強靭な佇まい。 自然の呼吸をそのまま形にしたライブエッジが、空間に唯一無二の品格を与えます。",
     images: [
       "/product-urin-highangle-master.png",
       "/product-urin-front.png",
