@@ -35,14 +35,14 @@ export default function ProductsPage() {
               <Link href={`/products/${product.slug}`} className="block">
                 {/* Image Stage */}
                 <div className="relative aspect-[4/5] md:aspect-square overflow-hidden">
-                  <Image
-                    src={product.images[0]}
-                    alt={product.name}
-                    fill
-                    className="object-cover transition-transform duration-1000 group-hover:scale-110"
-                    unoptimized
-                    style={{ objectPosition: product.objectPosition || 'center' }}
-                  />
+                    <Image
+                      src={product.thumbnail || product.images[0]}
+                      alt={product.name}
+                      fill
+                      className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                      unoptimized
+                      style={{ objectPosition: product.objectPosition || 'center' }}
+                    />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
                   
                   {/* Floating Specs */}

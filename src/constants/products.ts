@@ -6,6 +6,7 @@ export type Product = {
   price: number;
   description: string;
   images: string[];
+  thumbnail?: string;
   quickSpecs: {
     size: string[];
     material: string;
@@ -41,12 +42,13 @@ export const products: Product[] = [
     price: 70000,
     description: "不朽の強さを宿し、世代を超えて受け継がれる「鉄の木」の誇り。 アイアンウッド「ウリン」の圧倒的な重量感。 自然の呼吸をそのまま形にしたライブエッジが、空間に唯一無二の品格を与えます。",
     images: [
-      "/urin04.jpeg",
       "/product-urin-highangle-master.png",
       "/product-urin-front.png",
       "/product-urin-topdown.png",
       "/product-urin-side.png",
+      "/urin04.jpeg",
     ],
+    thumbnail: "/urin04.jpeg",
     quickSpecs: {
       size: ["幅 90cm", "奥行 45cm", "高さ 35cm"],
       material: "ウリン",
