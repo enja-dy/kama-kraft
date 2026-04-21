@@ -201,3 +201,28 @@ The introduction paragraph has been significantly improved by framing the high d
 ---
 **Status:** **URIN Standard Narrative Rewrite Complete.**
 The product story and description for the Standard Table have been updated to frame Ulin's high density as "solid presence" (存在感) and "unwavering stability" (揺るぎない安定感). This terminology shifts the focus from physical weight to the premium quality and functional reliability of the furniture.
+
+---
+
+# KamaKraft Action Transcript: URIN Standard Wording Refinement
+**Date:** 2026-04-22 08:36 (JST)
+**Task:** Eliminating repetitive use of "圧倒的な" in the product story
+
+## 1. User Instructions & Correct Definition
+- **URL:** http://localhost:3001/products/urin-standard
+- **Issue:** The word "圧倒的な" (Overwhelming/Astounding) was used twice in the same paragraph, affecting rhythm.
+- **Requirement:** Replace the first occurrence with a more elegant/premium expression.
+- **Approved Text (Option 1):**
+  - Change "圧倒的な密度" to "比類なき密度" (Unparalleled density).
+
+## 2. Change Details
+- **Target:** `src/constants/products.ts` (L77)
+- **Before:** `その圧倒的な密度と強度は、自然界が生み出した奇跡です。圧倒的な存在感が生み出す...`
+- **After:** `その比類なき密度と強度は、自然界が生み出した奇跡です。圧倒的な存在感が生み出す...`
+
+## 3. Safety Execution
+- **Physical Backup:** `logs/backups/products.ts.bak_20260422_0836`
+- **Pre-commit:** `pre: [products] refine standard table narrative to remove wording redundancy`
+
+---
+**Processing Status:** **In Progress**
