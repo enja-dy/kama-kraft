@@ -78,8 +78,8 @@ export default function CraftsmanshipPage() {
             />
             <FeatureCard
               icon={<Hammer size={32} />}
-              title="組木の美学"
-              description="ネジや釘に頼りすぎない、伝統的な日本の組木技術を応用。木と木が互いに支え合うことで、地震や経年変化にも負けない、驚異的な堅牢さを実現します。"
+              title="魂を宿す構築"
+              description="鉄に匹敵する硬度を持つウリンを、職人の確かな手技で一つひとつ丁寧に組み上げます。単なる接合を超え、木材の個性を引き出しながら形にするその工程が、他にはない唯一無二の品格を生み出します。"
             />
             <FeatureCard
               icon={<Sparkles size={32} />}
