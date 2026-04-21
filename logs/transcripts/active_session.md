@@ -252,3 +252,33 @@ The overlapping use of "圧倒的な" (Overwhelming) coached in the previous edi
 ---
 **Status:** **URIN Standard Final Description Complete.**
 The product description has been finalized with "気高く強靭な佇まい" (Noble and tough appearance). This refinement completes the overall copy-optimization task, ensuring that the heavy/technical attributes of Ulin are consistently framed as premium aesthetic and functional benefits across the site.
+
+---
+
+# KamaKraft Action Transcript: Craftsmanship Content Correction
+**Date:** 2026-04-22 08:46 (JST)
+**Task:** Correcting technical misinformation in the Craftsmanship page
+
+## 1. User Instructions & Correct Definition
+- **URL:** http://localhost:3001/craftsmanship
+- **Current Issue:** The section "組木の美学" (Aesthetics of Kumiki) describes Japanese joinery techniques which are not actualy used in these products.
+- **Requirement:** Replace with a description focused on "Hand-built Construction/Building Heart" (職人の手仕事/魂を込めた構築).
+- **Approved Text (Option 3):**
+  - Title: "魂を宿す構築"
+  - Description: "鉄に匹敵する硬度を持つウリンを、職人の確かな手技で一つひとつ丁寧に組み上げます。単なる接合を超え、木材の個性を引き出しながら形にするその工程が、他にはない唯一無二の品格を生み出します。"
+
+## 2. Change Details
+- **Target:** `src/app/craftsmanship/page.tsx` (L81-82)
+- **Before:**
+  - title="組木の美学"
+  - description="ネジや釘に頼りすぎない、伝統的な日本の組木技術を応用。木と木が互いに支え合うことで、地震や経年変化にも負けない、驚異的な堅牢さを実現します。"
+- **After:**
+  - title="魂を宿す構築"
+  - description="鉄に匹敵する硬度を持つウリンを、職人の確かな手技で一つひとつ丁寧に組み上げます。単なる接合を超え、木材の個性を引き出しながら形にするその工程が、他にはない唯一無二の品格を生み出します。"
+
+## 3. Safety Execution
+- **Physical Backup:** `logs/backups/craftsmanship_page.tsx.bak_20260422_0846`
+- **Pre-commit:** `pre: [craftsmanship] correct misinformation about Kumiki and focus on hand-built construction`
+
+---
+**Processing Status:** **In Progress**
