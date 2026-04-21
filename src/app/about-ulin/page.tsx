@@ -38,7 +38,7 @@ export default function AboutUlinPage() {
           >
             <h1 className="text-3xl md:text-5xl font-extralight tracking-[0.4em] mb-6">ULIN</h1>
             <p className="text-lg md:text-2xl font-light tracking-[0.5em] text-white/80">
-              水に沈む、鉄の木。
+              時を刻む、鉄の木。
             </p>
           </motion.div>
         </div>
