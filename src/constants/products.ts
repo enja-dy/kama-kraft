@@ -140,7 +140,7 @@ export const products: Product[] = [
     name: "The High-Leg Counter \"URIN\"",
     series: "The Artisan Series",
     price: 0,
-    description: "新製品「High-Leg Counter」の情報を準備中です。",
+    description: "視点を高め、空間を研ぎ澄ます。バーカウンターや洗練されたワークスペースに、アイアンウッド『ウリン』の圧倒的な力強さを。天に伸びるしなやかな脚部が、重厚な天板を確かな品格で支えます。立ち上がり、視座を変える。日常の何気ない瞬間を、特別な時間へと昇華させる一台です。",
     images: ["/urin09.jpeg"],
     thumbnail: "/urin09.jpeg",
     quickSpecs: {
