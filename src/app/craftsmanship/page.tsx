@@ -153,23 +153,23 @@ export default function CraftsmanshipPage() {
 
       {/* Creation: Custom Made */}
       <section className="py-32 bg-white/[0.02] relative overflow-hidden">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center gap-16">
-          <div className="w-full md:w-1/2 space-y-8 relative z-10">
-            <FadeIn>
-              <div className="flex items-center gap-4 text-white/30 mb-4">
+        <div className="max-w-4xl mx-auto px-6 text-center space-y-16">
+          <FadeIn>
+            <div className="space-y-8">
+              <div className="flex items-center justify-center gap-4 text-white/30 mb-4">
                 <Compass size={24} />
                 <span className="text-xs tracking-[0.3em] uppercase">Co-Creation</span>
               </div>
-              <h2 className="text-3xl md:text-5xl font-light tracking-widest leading-tight">
+              <h2 className="text-3xl md:text-6xl font-light tracking-widest leading-tight text-white">
                 あなたの想いを、<br />硬質な木に刻む。
               </h2>
-              <p className="text-white/60 leading-relaxed font-light text-lg">
+              <p className="text-white/60 leading-relaxed font-light text-lg max-w-2xl mx-auto">
                 お客様の「こんな暮らしがしたい」という漠然としたイメージを、職人が確かな技術で具現化します。
                 スケッチから始まる対話、空間に合わせた1cm単位の調整。
                 完全特注（オーダーメイド）という贅沢を、もっと身近に。
                 職人と共に作り上げるプロセスそのものが、かけがえのない思い出となります。
               </p>
-              <div className="pt-8 text-center md:text-left">
+              <div className="pt-8">
                 <a
                   href="/contact"
                   className="inline-block px-12 py-4 border border-white/20 hover:border-white hover:bg-white hover:text-black transition-all duration-500 tracking-[0.4em] text-xs font-light"
@@ -177,20 +177,19 @@ export default function CraftsmanshipPage() {
                   職人へのご相談 — CONSULTATION
                 </a>
               </div>
-            </FadeIn>
-          </div>
-          <div className="w-full md:w-1/2 relative h-[500px]">
-            <FadeIn>
-              <div className="relative h-full w-full rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/craft-4.png"
-                  alt="Design Sketch"
-                  fill
-                  className="object-cover opacity-90"
-                />
-              </div>
-            </FadeIn>
-          </div>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.2}>
+            <div className="relative aspect-[16/9] md:aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl opacity-80 hover:opacity-100 transition-opacity duration-1000">
+              <Image
+                src="/craft-4.png"
+                alt="Design Sketch"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </FadeIn>
         </div>
       </section>
     </div>
