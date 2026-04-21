@@ -131,3 +131,43 @@ The "heavy" description in the durability section has been replaced with "solid 
 ---
 **Status:** **About Ulin Hero Rewrite Complete.**
 The hero headline has been updated from a technical description of density ("水に沈む") to an emotional value proposition ("時を刻む"). This aligns with the brand's shift towards focusing on the long-term historical value of the ironwood furniture.
+
+---
+
+# KamaKraft Action Transcript: About Ulin Intro Rewrite
+**Date:** 2026-04-22 08:31 (JST)
+**Task:** Softening technical descriptions in the About Ulin introduction
+
+## 1. User Instructions & Correct Definition
+- **URL:** http://localhost:3001/about-ulin
+- **Target Section:** Introduction paragraph (What is Ulin?)
+- **Current Issue:** "水に入れると石のように沈みます" (Sinks like a stone when put in water) and "重いため" (Because it is heavy) focus on physical burden.
+- **Requirement:** Rewrite to focus on "Density/Value/Stability" (緻密さ/価値/安定感).
+- **Approved Text (Option A):**
+  - "ウリンは圧倒的な密度を誇り、その組織は水に沈むほどに緻密です。その重厚さが生む揺るぎない安定感と..."
+
+## 2. Change Details
+- **Target:** `src/app/about-ulin/page.tsx` (L55-61)
+- **Before:**
+  ```tsx
+  ウリンは、東南アジア原産の非常に珍しい木材です。
+  普通の木は水に浮きますが、ウリンはあまりに密度が高く重いため、
+  <span className="text-white font-medium border-b border-white/40 pb-1 mx-1">水に入れると石のように沈みます。</span>
+  その圧倒的な硬さから、世界中で「アイアンウッド（鉄の木）」と呼ばれ、
+  最強の耐久性を持つ木として愛されています。
+  ```
+- **After:**
+  ```tsx
+  ウリンは、東南アジア原産の非常に珍しい木材です。
+  普通の木は水に浮きますが、ウリンは圧倒的な密度を誇り、
+  <span className="text-white font-medium border-b border-white/40 pb-1 mx-1">その組織は水に沈むほどに緻密です。</span>
+  その重厚さが生む揺るぎない安定感と硬さから、世界中で「アイアンウッド（鉄の木）」と呼ばれ、
+  最強の耐久性を持つ木として愛されています。
+  ```
+
+## 3. Safety Execution
+- **Physical Backup:** `logs/backups/about-ulin_page.tsx.bak_20260422_0831`
+- **Pre-commit:** `pre: [about-ulin] rewrite intro to focus on density and stability`
+
+---
+**Processing Status:** **In Progress**
