@@ -127,8 +127,8 @@ export default function CraftsmanshipPage() {
           <p className="text-white/50 leading-relaxed font-light text-lg max-w-2xl mx-auto">
             KamaKraftの家具に終わりはありません。
             数十年後に現れるシルバーグレーへの美しき変貌さえも、私たちは設計図の中に描き込んでいます。
-            生涯を通した修理・メンテナンス体制。
-            それは、職人が一生をかけてあなたの暮らしを見守り続けるという、私たちの誇り高き約束です。
+            修理を必要としないほどの、絶対的な素材品質。
+            それは、家具が一生、そして次世代まであなたの暮らしに寄り添い続けるという、私たちの誇り高き約束です。
           </p>
         </FadeIn>
       </section>
