@@ -72,15 +72,6 @@ export default function ProductsPage() {
                     <span className="text-xl font-light tracking-tighter">¥{product.price.toLocaleString()}</span>
                   </div>
 
-                  <div className="flex items-center gap-4 pt-4 border-t border-white/5">
-                    <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
-                      <MapPin size={14} className="text-white/40" />
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-bold tracking-[0.2em] text-white/40 uppercase">Artisan</p>
-                      <p className="text-xs font-light tracking-wider">{product.artisan.name}（{product.artisan.location}）</p>
-                    </div>
-                  </div>
                 </div>
               </Link>
             </motion.div>
