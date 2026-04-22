@@ -1278,5 +1278,22 @@ The first major legacy article is now live with high-end visual storytelling.
 - **Cleanup Commit:** `step: [fix] replace literal markdown symbols with JSX tags`
 
 ---
-**Status:** **Article 1 Full Content & Styling Verified.**
-The article is now live, stable, and visually polished without any leftover source markers.
+
+# KamaKraft Action Transcript: Journal Article visual refinement (Density Proof)
+**Date:** 2026-04-23 07:19 (JST)
+**Task:** Replacing generic placeholder with authentic 'Submerged Ulin' photo
+
+## 1. Editorial Vision
+- **Insight:** The text mentions wood sinking in water; the image must prove this.
+- **Correction:** Replaced a generic table photo with a macro studio shot of a raw Ulin block at the bottom of a water tank.
+
+## 2. Technical Execution
+- **Asset Path:** `public/journal/common/ulin-submerged-density.png` (categorized for reuse).
+- **Quality:** 8k resolution, authentic straight grain (species-accurate).
+
+## 3. Safety Execution
+- **Asset Commit:** `2b823e3` - "step: [assets] add and link 'Ulin Submerged' density proof photo to Article 1"
+
+---
+**Status:** **Article 1 Scientific Visuals Optimized.**
+The density section now includes definitive visual proof of Ulin's unique physical properties.
