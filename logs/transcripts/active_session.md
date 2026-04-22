@@ -1279,21 +1279,22 @@ The first major legacy article is now live with high-end visual storytelling.
 
 ---
 
-# KamaKraft Action Transcript: Journal Article visual refinement (Density Proof)
-**Date:** 2026-04-23 07:19 (JST)
-**Task:** Replacing generic placeholder with authentic 'Submerged Ulin' photo
+# KamaKraft Action Transcript: Journal Article visual refinement (Natural Density)
+**Date:** 2026-04-23 07:30 (JST)
+**Task:** Moving from 'experimental' to 'cinematic natural' density proof
 
-## 1. Editorial Vision
-- **Insight:** The text mentions wood sinking in water; the image must prove this.
-- **Correction:** Replaced a generic table photo with a macro studio shot of a raw Ulin block at the bottom of a water tank.
+## 1. Editorial Pivot
+- **Critique:** The glass water tank image felt too detached and "lab-like" for a premium artisan brand.
+- **Correction:** Re-imagined the proof in the wild. A massive Ulin beam submerged in a clear Borneo stream.
+- **Visual Impact:** Demonstrates density (sinking in current) while feeling organic and timeless.
 
 ## 2. Technical Execution
-- **Asset Path:** `public/journal/common/ulin-submerged-density.png` (categorized for reuse).
-- **Quality:** 8k resolution, authentic straight grain (species-accurate).
+- **Asset Name:** `public/journal/common/ulin-natural-submerged-v2.png`
+- **Integrity:** Maintained species-accurate straight grain under water caustic lighting patterns.
 
 ## 3. Safety Execution
-- **Asset Commit:** `2b823e3` - "step: [assets] add and link 'Ulin Submerged' density proof photo to Article 1"
+- **Refinement Commit:** `step: [assets] replace experimental tank with natural stream proof photo`
 
 ---
-**Status:** **Article 1 Scientific Visuals Optimized.**
-The density section now includes definitive visual proof of Ulin's unique physical properties.
+**Status:** **Article 1 Aesthetic Correction Complete.**
+The density section now balances scientific proof with premium, emotive visual storytelling.
