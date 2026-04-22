@@ -631,7 +631,8 @@ The "View Details" link on each homepage product card has been upgraded to a vis
 
 ## 3. Safety Execution
 - **Physical Backup:** `logs/backups/FeaturedProduct.tsx.bak_20260422_0935`
-- **Pre-commit:** `pre: [home] implement dual-button hover overlay for product cards`
+- **Latest Commit:** `4d3d632` - "step: [home] implement dual-button hover overlay for product cards"
 
 ---
-**Processing Status:** **In Progress**
+**Status:** **Home Product Card Overlay Dual Buttons Reorganization Complete.**
+The product card hover overlay has been updated to feature side-by-side "詳細をみる" (Detail) and "カートに入れる" (Cart) buttons. The Detail button utilizes a semi-transparent glassmorphism style, while the Cart button remains high-contrast white for clarity. This dual-button configuration improves user flow by allowing immediate navigation or purchase directly from the image hover state. Standalone detail buttons below the product info were removed to maintain a clean, artisan-focused aesthetic.
