@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, Suspense, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Mail, HelpCircle, Send } from "lucide-react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 const FAQ_DATA: { category: string; question: string; answer: string | React.ReactNode }[] = [
   // お支払い
@@ -87,7 +88,23 @@ const FAQ_DATA: { category: string; question: string; answer: string | React.Rea
 ];
 
 export default function ContactPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#050505]" />}>
+      <ContactContent />
+    </Suspense>
+  );
+}
+
+function ContactContent() {
+  const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState<"faq" | "email">("faq");
+
+  useEffect(() => {
+    const tab = searchParams.get("tab");
+    if (tab === "email") {
+      setActiveTab("email");
+    }
+  }, [searchParams]);
 
   return (
     <div className="min-h-screen bg-[#050505] text-white pt-32 pb-20 px-4 sm:px-6">

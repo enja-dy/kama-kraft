@@ -287,7 +287,7 @@ export default function PrivacyPolicyPage() {
                   </div>
                 </div>
                 <Link 
-                  href="/contact"
+                  href="/contact?tab=email"
                   className="bg-white text-black py-5 px-12 rounded-full font-bold tracking-[0.2em] text-[11px] uppercase hover:scale-[1.05] transition-transform shadow-xl shadow-white/20 inline-block"
                 >
                   お問い合わせフォームを開く
