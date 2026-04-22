@@ -578,3 +578,28 @@ The featured products section on the home page has been completely redesigned. I
 ---
 **Status:** **Home Product Grid Localization Complete.**
 All English labels within the homepage product grid have been converted to Japanese to improve usability for local customers. This includes "Tax incl." to "（税込）", "View Details" to "詳細を見る", "Add to Cart" to "カートに入れる", and the corresponding success messages. The premium typography and layout were preserved during this translation process.
+
+---
+
+# KamaKraft Action Transcript: Home Product Card Detail Button Refinement
+**Date:** 2026-04-22 09:32 (JST)
+**Task:** Refining the "View Details" button for better accessibility and world-view consistency
+
+## 1. User Instructions & Correct Definition
+- **URL:** http://localhost:3001 (Home)
+- **Requirement 1:** Change "詳細を見る" to "詳細をみる" (using hiragana for "to see/view").
+- **Requirement 2:** Convert the text link into a visually distinct button to make it more obvious to users.
+- **Design Strategy:** Implement an elegant outline button that fits the artisan aesthetic.
+
+## 2. Change Details
+- **Target:** `src/components/FeaturedProduct.tsx`
+- **Modifications:**
+  - Change text content to "詳細をみる".
+  - Apply button-like styling (border, padding, hover effect) to the `Link` component.
+
+## 3. Safety Execution
+- **Physical Backup:** `logs/backups/FeaturedProduct.tsx.bak_20260422_0932`
+- **Pre-commit:** `pre: [home] refine detail button text and style for better visibility`
+
+---
+**Processing Status:** **In Progress**
