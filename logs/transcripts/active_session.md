@@ -514,3 +514,36 @@ The Contact page now supports direct access to specific tabs using the `tab` que
 ---
 **Status:** **Craftsmanship Consultation Link Implementation Complete.**
 The "職人へのご相談 — CONSULTATION" button on the Craftsmanship page has been updated to use Next.js `Link` and now points directly to `/contact?tab=email`. This ensures that potential clients are directed immediately to the inquiry form rather than the FAQ section, streamlining the path to professional consultation.
+
+---
+
+# KamaKraft Action Transcript: Home Product Grid Reorganization
+**Date:** 2026-04-22 09:28 (JST)
+**Task:** Replacing the single featured product section with a 3-column responsive grid
+
+## 1. User Instructions & Correct Definition
+- **URL:** http://localhost:3001 (Home)
+- **Requirement:**
+  - PC/Tablet: Display 3 products side-by-side in a grid.
+  - Mobile: Display 3 products stacked vertically.
+  - Aesthetic: "Overwhelming style", conversion-oriented, artisan feel.
+  - Animation: Reveal-on-scroll, hover zoom, smooth transitions.
+- **Products to Display:**
+  1. The Standard Table "URIN"
+  2. The V-Leg Compact
+  3. The High-Leg Counter "URIN"
+
+## 2. Change Details
+- **Target:** `src/components/FeaturedProduct.tsx`
+- **Modifications:**
+  - Rewrite component to map through the 3 featured products.
+  - Implement a `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3` layout.
+  - Enhance visual aesthetics with Framer Motion `stagger` and `whileHover`.
+  - Add individual "Details" (Link) and "Add to Cart" (Action) buttons for each card.
+
+## 3. Safety Execution
+- **Physical Backup:** `logs/backups/FeaturedProduct.tsx.bak_20260422_0928`
+- **Pre-commit:** `pre: [home] reorganize featured products into 3-column responsive grid`
+
+---
+**Processing Status:** **In Progress**
