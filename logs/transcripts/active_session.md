@@ -1263,21 +1263,20 @@ The first major legacy article is now live with high-end visual storytelling.
 
 ---
 
-# KamaKraft Action Transcript: Journal Article 1 Hotfix (Next.js 15 & Hydration)
-**Date:** 2026-04-23 07:09 (JST)
-**Task:** Resolving environment-specific rendering errors
+# KamaKraft Action Transcript: Journal Article visual refinement (Markdown Cleanup)
+**Date:** 2026-04-23 07:14 (JST)
+**Task:** Removing literal Markdown symbols from JSX article body
 
-## 1. Problem Identification
-- **Error 1:** `params.slug` sync access error (Next.js 15 dynamic API changes).
-- **Error 2:** `useScroll` target ref hydration error (Framer Motion mount timing).
+## 1. Resolution
+- **Symbol Removal:** Replaced all literal `**` markers with `<span className="font-medium text-white">` tags.
+- **Improved Styling:** Added `italic` decoration to the "submerging in water" sentence to further enhance readability.
 
-## 2. Technical Resolution
-- **Async Params:** Wrapped `params` with `React.use()` for proper promise unwrapping in the Client Component.
-- **Stable Scroll:** Switched from ref-targeted scroll to global scroll progress to avoid hydration mismatches.
+## 2. Technical Execution
+- **Sync:** Verified that no other markdown-style markers remain in the text-as-JSX blocks.
 
 ## 3. Safety Execution
-- **Hotfix Commit:** `step: [fix] ensure Next.js 15+ compatibility and stable hydration`
+- **Cleanup Commit:** `step: [fix] replace literal markdown symbols with JSX tags`
 
 ---
-**Status:** **Article 1 Stability Fixes Complete.**
-Rendering errors resolved. The article is now fully functional and stable.
+**Status:** **Article 1 Full Content & Styling Verified.**
+The article is now live, stable, and visually polished without any leftover source markers.

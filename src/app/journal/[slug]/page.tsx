@@ -120,7 +120,7 @@ export default function ArticlePage({ params: paramsPromise }: { params: Promise
               水に沈む圧倒的な<span className="font-medium text-white">「比重1.0」</span>の壁
             </h3>
             <p className="text-white/60 leading-relaxed text-lg">
-              一般的な木材の多くは水に浮きますが、ウリンは違います。その比重は1.0を超え、**水に投げ入れれば静かに底へ沈んでいきます。**
+              一般的な木材の多くは水に浮きますが、ウリンは違います。その比重は1.0を超え、<span className="font-medium text-white italic">水に投げ入れれば静かに底へ沈んでいきます。</span>
               <br /><br />
               この極めて高い密度は、木材組織の中に空隙（隙間）がほとんど存在しないことを意味します。これにより、腐朽菌の温床となる水分や、物理的に食い荒らそうとする害虫の侵入を徹底的に拒絶するのです。
             </p>
@@ -175,10 +175,10 @@ export default function ArticlePage({ params: paramsPromise }: { params: Promise
           </h3>
           <div className="text-lg md:text-xl text-white/50 leading-loose space-y-8 font-light">
             <p>
-              物理的な硬さに加え、ウリンには「化学的な鎧」が備わっています。それが大量に含まれる**超高濃度のポリフェノール**です。
+              物理的な硬さに加え、ウリンには「化学的な鎧」が備わっています。それが大量に含まれる<span className="font-medium text-white">超高濃度のポリフェノール</span>です。
             </p>
             <p className="text-white/80">
-              ウリン特有の赤褐色はこの成分によるもので、これが天然の防腐剤、防虫剤として機能します。施工直後に赤い樹液（アク）が出ることがありますが、これはウリンが周囲の環境から自らを護るための**「自己防御反応」**そのものなのです。
+              ウリン特有の赤褐色はこの成分によるもので、これが天然の防腐剤、防虫剤として機能します。施工直後に赤い樹液（アク）が出ることがありますが、これはウリンが周囲の環境から自らを護るための<span className="font-medium text-white">「自己防御反応」</span>そのものなのです。
             </p>
           </div>
         </motion.div>

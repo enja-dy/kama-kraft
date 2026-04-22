@@ -202,3 +202,8 @@
 **USER:** エラーです。 Console Error: A param property was accessed directly with params.slug. params is a Promise and must be unwrapped with React.use(). Runtime Error: Target ref is defined but not hydrated.
 
 **RESPONSE:** (Apologized for the version mismatch errors. Corrected the code to treat `params` as a Promise using `React.use()` for Next.js 15+ compatibility. Fixed the Framer Motion hydration error by using global scroll progress instead of an un-hydrated ref target.)
+
+## [Request 41]
+**USER:** 添付は一部ですが、 ** マークは何ですか？
+
+**RESPONSE:** (Apologized for the oversight of using literal Markdown bold markers in the JSX source. Replaced all `**` instances with styled `<span>` tags to ensure correct browser rendering and maintain the premium aesthetic.)
