@@ -1260,3 +1260,24 @@ The first major legacy article is now live with high-end visual storytelling.
 - **Word count:** ~2,800 characters (optimized for AdSense/SEO).
 - **Interactive:** Scroll-parallax, glassmorphism cards, and comparison tables.
 - **Integrity:** 100% responsive and isolated from existing styles.
+
+---
+
+# KamaKraft Action Transcript: Journal Article 1 Hotfix (Next.js 15 & Hydration)
+**Date:** 2026-04-23 07:09 (JST)
+**Task:** Resolving environment-specific rendering errors
+
+## 1. Problem Identification
+- **Error 1:** `params.slug` sync access error (Next.js 15 dynamic API changes).
+- **Error 2:** `useScroll` target ref hydration error (Framer Motion mount timing).
+
+## 2. Technical Resolution
+- **Async Params:** Wrapped `params` with `React.use()` for proper promise unwrapping in the Client Component.
+- **Stable Scroll:** Switched from ref-targeted scroll to global scroll progress to avoid hydration mismatches.
+
+## 3. Safety Execution
+- **Hotfix Commit:** `step: [fix] ensure Next.js 15+ compatibility and stable hydration`
+
+---
+**Status:** **Article 1 Stability Fixes Complete.**
+Rendering errors resolved. The article is now fully functional and stable.

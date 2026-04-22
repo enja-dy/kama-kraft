@@ -15,13 +15,11 @@ import {
   Droplets
 } from "lucide-react";
 
-export default function ArticlePage({ params }: { params: { slug: string } }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
+import { use } from "react";
 
+export default function ArticlePage({ params: paramsPromise }: { params: Promise<{ slug: string }> }) {
+  const params = use(paramsPromise);
+  const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 1.1]);
 
@@ -38,7 +36,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <div ref={containerRef} className="bg-[#050505] min-h-screen text-white/90 font-light overflow-x-hidden">
+    <div className="bg-[#050505] min-h-screen text-white/90 font-light overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
         <motion.div style={{ scale }} className="absolute inset-0 z-0">

@@ -197,3 +197,8 @@
 **USER:** (Waiting for implementation)
 
 **RESPONSE:** (Fully implemented Journal Article 1 at `/journal/[slug]`. Integrated scroll-parallax effects, Lucide icons, responsive knowledge tables, and ~2,800 characters of SEO-optimized content. Verified absolute style isolation and responsive performance.)
+
+## [Request 40]
+**USER:** エラーです。 Console Error: A param property was accessed directly with params.slug. params is a Promise and must be unwrapped with React.use(). Runtime Error: Target ref is defined but not hydrated.
+
+**RESPONSE:** (Apologized for the version mismatch errors. Corrected the code to treat `params` as a Promise using `React.use()` for Next.js 15+ compatibility. Fixed the Framer Motion hydration error by using global scroll progress instead of an un-hydrated ref target.)
