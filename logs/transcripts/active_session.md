@@ -599,7 +599,8 @@ All English labels within the homepage product grid have been converted to Japan
 
 ## 3. Safety Execution
 - **Physical Backup:** `logs/backups/FeaturedProduct.tsx.bak_20260422_0932`
-- **Pre-commit:** `pre: [home] refine detail button text and style for better visibility`
+- **Latest Commit:** `6509f58` - "step: [home] refine detail button text and style for better visibility"
 
 ---
-**Processing Status:** **In Progress**
+**Status:** **Home Product Card Detail Button Refinement Complete.**
+The "View Details" link on each homepage product card has been upgraded to a visually distinctive button. The text has been updated to "詳細をみる" (hiragana "みる"), and the styling now features a refined outline button with an oval shape, subtle background highlight, and elegant hover transition. This improvement enhances both visibility and the artisan brand aesthetic.
