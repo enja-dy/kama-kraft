@@ -509,7 +509,8 @@ The Contact page now supports direct access to specific tabs using the `tab` que
 
 ## 3. Safety Execution
 - **Physical Backup:** `logs/backups/craftsmanship_page.tsx.bak_20260422_0921`
-- **Pre-commit:** `pre: [craftsmanship] update consultation link to target email form tab`
+- **Latest Commit:** `0ff1da9` - "step: [craftsmanship] update consultation link to target email form tab"
 
 ---
-**Processing Status:** **In Progress**
+**Status:** **Craftsmanship Consultation Link Implementation Complete.**
+The "職人へのご相談 — CONSULTATION" button on the Craftsmanship page has been updated to use Next.js `Link` and now points directly to `/contact?tab=email`. This ensures that potential clients are directed immediately to the inquiry form rather than the FAQ section, streamlining the path to professional consultation.
