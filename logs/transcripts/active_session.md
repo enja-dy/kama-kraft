@@ -433,3 +433,28 @@ The FAQ entry for Custom Orders has been rewritten into a more natural and invit
 ---
 **Status:** **Privacy Policy AdSense Compliance Complete.**
 The Privacy Policy has been updated to include mandatory Google AdSense compliance clauses. This includes a new "広告の配信について" (About Ad Delivery) section, detailed information on Cookie usage for ad targeting, and clear instructions for users to opt-out via Google's settings. The "Last Updated" timestamp has also been refreshed to 2026/04/22. This change significantly lowers the risk of rejection during the AdSense review process.
+
+---
+
+# KamaKraft Action Transcript: Privacy Policy Contact Link Implementation
+**Date:** 2026-04-22 09:17 (JST)
+**Task:** Enabling the "Contact Form" button in the Privacy Policy page
+
+## 1. User Instructions & Correct Definition
+- **URL:** http://localhost:3001/privacy
+- **Issue:** The button labeled "お問い合わせフォームを開く" (Open contact form) at the bottom of the policy page is not functional.
+- **Requirement:** Implement a direct link to the Contact page (`/contact`) for this button.
+
+## 2. Change Details
+- **Target:** `src/app/privacy/page.tsx`
+- **Modifications:**
+  - Import `Link` from `next/link`.
+  - Replace the static `button` with a functional `Link` component.
+  - Apply consistent styling to maintain the artisan aesthetic.
+
+## 3. Safety Execution
+- **Physical Backup:** `logs/backups/privacy_page.tsx.bak_20260422_0917`
+- **Pre-commit:** `pre: [privacy] implement functional link for contact form button`
+
+---
+**Processing Status:** **In Progress**
