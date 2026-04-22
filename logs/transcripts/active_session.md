@@ -744,3 +744,29 @@ The main headline of the Featured Product section has been successfully updated 
 
 ---
 **Processing Status:** **In Progress**
+
+---
+
+# KamaKraft Action Transcript: Durability Visual Update (Seaside Background)
+**Date:** 2026-04-22 09:58 (JST)
+**Task:** Generating a new "All-Weather" visual for Ulin products featuring a seaside location to emphasize salt-damage resistance
+
+## 1. User Instructions & Correct Definition
+- **Objective:** Showcase Ulin wood's durability against sea breeze and salt damage.
+- **Requirements (Must Keep):**
+  - Ulin table as the centerpiece.
+  - Heavy rain environment.
+  - Mirror-like reflection on the wet wood surface.
+  - Ulin deck as the ground.
+- **Change:** Transition background from forest to seaside/ocean view.
+
+## 2. Generation Parameters
+- **Tool:** `generate_image`
+- **Filename:** `product-urin-all-weather-seaside.png`
+- **Prompt Logic:** Focus on the contrast between the harsh marine environment (stormy sea, salt spray, rain) and the indestructible, mirror-finish beauty of the Ulin furniture.
+
+## 3. Safety Execution
+- **Pre-commit:** `pre: [assets] prepare for generating salt-damage resistance visual`
+
+---
+**Processing Status:** **In Progress**
