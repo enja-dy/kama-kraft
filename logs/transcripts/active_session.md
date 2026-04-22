@@ -1296,5 +1296,22 @@ The first major legacy article is now live with high-end visual storytelling.
 - **Refinement Commit:** `step: [assets] replace experimental tank with natural stream proof photo`
 
 ---
-**Status:** **Article 1 Aesthetic Correction Complete.**
-The density section now balances scientific proof with premium, emotive visual storytelling.
+
+# KamaKraft Action Transcript: Journal Article stability (Layout Fix)
+**Date:** 2026-04-23 08:11 (JST)
+**Task:** Preventing automatic text disappearance and stabilizing hero content
+
+## 1. Root Cause Analysis
+- **Conflict:** The shared `relative` container was being stressed by an `absolute -top-32` navigation link, causing accidental layout shifts.
+- **Animation:** The `y: 30` entry animation was too aggressive on certain viewports, pushing content beyond safe margins during hydration.
+
+## 2. Technical Resolution
+- **Decoupling:** Moved the "Back to Journal" link to a fixed absolute position (`top-24`) relative to the section, not the content.
+- **Soft Landing:** Reduced the initial `y` offset from `30px` to `10px` and extended the transition to `1.2s` for a more grounded, stable appearance.
+
+## 3. Safety Execution
+- **Stability Commit:** `step: [fix] stabilize article text and prevent accidental displacement`
+
+---
+**Status:** **Article 1 Header Layout Verified.**
+The hero text is now firmly anchored and clearly visible without any erratic movement.

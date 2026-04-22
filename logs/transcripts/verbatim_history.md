@@ -227,3 +227,8 @@
 **USER:** ちょっと、タイトルとかぶってます。調整してください。 レスポンシブも考慮して！
 
 **RESPONSE:** (Apologized for the collision with the global header logo. Adjusted the absolute positioning to ensure valid clearance from the site title on all screen sizes. Centered the target safe area to ensure the link remains accessible and visually harmonious without overlapping core UI elements.)
+
+## [Request 46]
+**USER:** テキストが、上へ自動移動して画面から見えなくなってます。
+
+**RESPONSE:** (Identified a layout conflict between the absolute navigation link and the centered flex container, compounded by an aggressive entry animation. Decoupled the 'Back' link to a stable absolute position at the top of the section and reduced the vertical transform distance for the title to ensure it stays firmly in the viewport upon load.)

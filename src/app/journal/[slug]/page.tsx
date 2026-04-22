@@ -50,26 +50,27 @@ export default function ArticlePage({ params: paramsPromise }: { params: Promise
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#050505]" />
         </motion.div>
 
+        {/* Floating Top Nav - Decoupled from centered text to avoid layout overlap */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+          className="absolute top-24 left-6 md:left-10 z-20"
+        >
+          <Link 
+            href="/journal" 
+            className="flex items-center gap-2 text-[10px] font-bold tracking-[0.3em] text-white/40 hover:text-white transition-colors group"
+          >
+            <ChevronLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
+            BACK TO JOURNAL
+          </Link>
+        </motion.div>
+
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-8">
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="absolute -top-32 left-6 md:left-0"
-          >
-            <Link 
-              href="/journal" 
-              className="flex items-center gap-2 text-[10px] font-bold tracking-[0.3em] text-white/40 hover:text-white transition-colors group"
-            >
-              <ChevronLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
-              BACK TO JOURNAL
-            </Link>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
             className="space-y-4"
           >
             <span className="text-[10px] md:text-xs font-bold tracking-[0.6em] text-white/40 uppercase block">
@@ -86,7 +87,7 @@ export default function ArticlePage({ params: paramsPromise }: { params: Promise
           
           <motion.div
             initial={{ height: 0 }}
-            animate={{ height: "100px" }}
+            animate={{ height: "80px" }}
             transition={{ delay: 1, duration: 1.5 }}
             className="w-px bg-gradient-to-b from-white/40 to-transparent mx-auto"
           />
