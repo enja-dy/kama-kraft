@@ -399,7 +399,8 @@ The introduction to the Custom Order page has been updated to align with the art
 
 ## 3. Safety Execution
 - **Physical Backup:** `logs/backups/contact_page.tsx.bak_20260422_0902`
-- **Pre-commit:** `pre: [contact] update custom order FAQ with more natural phrasing and direct link`
+- **Latest Commit:** `e6f2f15` - "step: [contact] update custom order FAQ with more natural phrasing and direct link"
 
 ---
-**Processing Status:** **In Progress**
+**Status:** **Contact FAQ Narrative Optimization Complete.**
+The FAQ entry for Custom Orders has been rewritten into a more natural and invitational sentence. It now includes a functional deep link to the dedicated `/custom-order` page, guiding users directly to the layout simulator and detailed consultation process. The `FAQ_DATA` structure was also upgraded to support React components for future rich-text additions.
