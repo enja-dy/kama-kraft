@@ -1075,4 +1075,4 @@ The authoritative final version of the seaside durability visual `product-urin-a
 
 ---
 **Status:** **Ulin Charms Image Crossfade Implementation Complete.**
-The "All-Weather" section of the Ulin Charms component now features an elegant image crossfade. The implementation cycles between the Forest (`product-urin-all-weather-master.png`) and Seaside (`product-urin-all-weather-seaside.png`) visuals every 5 seconds with a smooth 1.5s transition. This dynamically showcases the artisan table's durability in both environments as requested by the user.
+The "All-Weather" section of the Ulin Charms component now features an elegant, seamless overlapping crossfade. By stacking the images and animating their opacities simultaneously (2.0s duration), the transition now flows directly between the Forest and Seaside environments without any intervening darkness.

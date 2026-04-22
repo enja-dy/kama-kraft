@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
@@ -52,24 +52,23 @@ export const UlinCharms = () => {
             >
               {charm.images ? (
                 <div className="relative w-full h-full">
-                  <AnimatePresence mode="wait">
+                  {charm.images.map((img, i) => (
                     <motion.div
-                      key={activeImageIndex}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 1.5, ease: "easeInOut" }}
+                      key={img}
+                      initial={false}
+                      animate={{ opacity: activeImageIndex === i ? 1 : 0 }}
+                      transition={{ duration: 2, ease: "easeInOut" }}
                       className="absolute inset-0"
                     >
                       <Image
-                        src={charm.images[activeImageIndex]}
+                        src={img}
                         alt={charm.title}
                         fill
                         className="object-cover"
-                        priority={activeImageIndex === 0}
+                        priority={i === 0}
                       />
                     </motion.div>
-                  </AnimatePresence>
+                  ))}
                 </div>
               ) : (
                 <Image
