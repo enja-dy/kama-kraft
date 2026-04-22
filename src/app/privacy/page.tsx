@@ -12,6 +12,7 @@ export default function PrivacyPolicyPage() {
     { title: "業務委託について", id: "outsourcing" },
     { title: "安全管理措置", id: "security" },
     { title: "Cookieの使用について", id: "cookies" },
+    { title: "広告の配信について", id: "ads" },
     { title: "権利の尊重", id: "rights" },
     { title: "ポリシーの変更", id: "changes" },
     { title: "お問い合わせ窓口", id: "contact" },
@@ -217,6 +218,32 @@ export default function PrivacyPolicyPage() {
               </div>
             </section>
 
+            {/* Ads Delivery */}
+            <section id="ads" className="space-y-6 scroll-mt-40">
+              <div className="flex items-center gap-4 mb-4">
+                 <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center">
+                   <Eye size={18} className="text-white" />
+                 </div>
+                 <h2 className="text-2xl font-bold tracking-tight text-white">広告の配信について</h2>
+              </div>
+              <div className="prose prose-invert prose-base max-w-none text-white/80 leading-relaxed font-medium">
+                <p>
+                  当ブランドは、第三者配信の広告サービス「Google AdSense」を利用しています。広告配信事業者は、ユーザーの興味に応じた商品やサービスの広告を表示するため、当サイトや他サイトへのアクセスに関する情報「Cookie」（氏名、住所、メール アドレス、電話番号は含まれません）を使用することがあります。
+                </p>
+                <p className="mt-4">
+                  Googleアドセンスに関して、このプロセスの詳細や、このような情報が広告配信事業者に使用されないようにする方法については、
+                  <a href="https://policies.google.com/technologies/ads?hl=ja" target="_blank" rel="noopener noreferrer" className="text-white border-b border-white/40 hover:border-white transition-colors mx-1">
+                    Googleポリシーと規約
+                  </a>
+                  をご覧ください。また、お客様は
+                  <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-white border-b border-white/40 hover:border-white transition-colors mx-1">
+                    広告設定
+                  </a>
+                  から、パーソナライズ広告を無効にすることができます。
+                </p>
+              </div>
+            </section>
+
             {/* Rights */}
             <section id="rights" className="space-y-6 scroll-mt-40">
               <h2 className="text-2xl font-bold tracking-tight text-white">権利の尊重</h2>
@@ -267,7 +294,7 @@ export default function PrivacyPolicyPage() {
             <div className="pt-24 flex flex-col items-center gap-4">
                <div className="w-12 h-0.5 bg-white/10" />
                <p className="text-[10px] text-white/20 font-bold uppercase tracking-[0.5em]">KamaKraft Artisan Collective</p>
-               <p className="text-[9px] text-white/20 font-bold uppercase tracking-[0.2em]">Last Updated: April 9, 2026</p>
+               <p className="text-[9px] text-white/20 font-bold uppercase tracking-[0.2em]">Last Updated: April 22, 2026</p>
             </div>
 
           </motion.div>
