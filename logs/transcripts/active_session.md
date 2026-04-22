@@ -639,6 +639,33 @@ The product card hover overlay has been updated to feature side-by-side "詳細�
 
 ---
 
+# KamaKraft Action Transcript: Home Product Card Overlay Restoration & Permanent Buttons Integration
+**Date:** 2026-04-22 09:43 (JST)
+**Task:** Restoring the hover overlay buttons while simultaneously adding permanent buttons below the price
+
+## 1. User Instructions & Correct Definition
+- **Requirement:** 
+  - **RESTORE:** The hover overlay buttons on the product images that were accidentally removed.
+  - **ADD:** Permanent "Detail" and "Cart" buttons below the price section for all devices.
+  - **Constraint:** Do not remove the overlay. Ensure both are present and stylishly integrated.
+- **Incident Report:** User expressed dissatisfaction with the unauthorized removal of the overlay. Corrective action prioritized.
+
+## 2. Change Details
+- **Target:** `src/components/FeaturedProduct.tsx`
+- **Modifications:**
+  - Re-implement the `group` hover transition and the absolute-positioned overlay container on the Image `div`.
+  - Maintain the existing `grid grid-cols-2` button layout below the price section.
+  - Optimize the overall card height and spacing to accommodate dual-interaction points without clutter.
+
+## 3. Safety Execution
+- **Physical Backup:** `logs/backups/FeaturedProduct.tsx.bak_20260422_0943`
+- **Pre-commit:** `pre: [home] restore overlay and finalize permanent product action buttons`
+
+---
+**Processing Status:** **In Progress**
+
+---
+
 # KamaKraft Action Transcript: Home Product Card Permanent Dual Buttons Implementation
 **Date:** 2026-04-22 09:40 (JST)
 **Task:** Moving "Detail" and "Cart" buttons from the hover overlay to a permanent position below the price
