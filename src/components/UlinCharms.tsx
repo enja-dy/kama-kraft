@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 const charms = [
   {
@@ -17,11 +18,20 @@ const charms = [
   {
     title: "全天候型の絶対的な信頼",
     description: "ウリンがその真価を最も発揮するのは、他の木材が屈服するような厳しい自然環境下においてです。海辺の潮風や、絶え間なく降り注ぐ豪雨、そして照りつける強い日差し。これら全ての試練に対し、ウリンは「全天候型」の絶対的な信頼を持って応えます。もともと桟橋やボルネオの橋梁に使われてきた歴史が、雨に濡れても全く腐食しない圧倒的な耐候性を証明しています。KamaKraftの家具は、この特性を最大限に活かし、屋内だけでなく、テラスやプライベートガーデンといった「屋外のリビング」でも、何一つ気兼ねすることなくご使用いただけます。自然の中に身を置きながら、最高級の質感に触れる贅沢。雨の日も晴れの日も、変わることのない気高い佇まい。それは環境に左右されない、真の自由と信頼を象徴しています。",
-    image: "/product-urin-all-weather-master.png",
+    images: ["/product-urin-all-weather-master.png", "/product-urin-all-weather-seaside.png"],
   },
 ];
 
 export const UlinCharms = () => {
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveImageIndex((prev) => (prev + 1) % 2);
+    }, 5000); // 5秒ごとに切り替え
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="py-24 bg-[#fbfbfb] dark:bg-[#050505]">
       <div className="max-w-7xl mx-auto px-4">
@@ -38,14 +48,37 @@ export const UlinCharms = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1 }}
-              className="w-full md:w-1/2 aspect-[4/3] relative rounded-lg overflow-hidden shadow-2xl"
+              className="w-full md:w-1/2 aspect-[4/3] relative rounded-lg overflow-hidden shadow-2xl bg-black/5"
             >
-              <Image
-                src={charm.image}
-                alt={charm.title}
-                fill
-                className="object-cover"
-              />
+              {charm.images ? (
+                <div className="relative w-full h-full">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={activeImageIndex}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 1.5, ease: "easeInOut" }}
+                      className="absolute inset-0"
+                    >
+                      <Image
+                        src={charm.images[activeImageIndex]}
+                        alt={charm.title}
+                        fill
+                        className="object-cover"
+                        priority={activeImageIndex === 0}
+                      />
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
+              ) : (
+                <Image
+                  src={charm.image || ""}
+                  alt={charm.title}
+                  fill
+                  className="object-cover"
+                />
+              )}
             </motion.div>
 
             {/* Text Section */}

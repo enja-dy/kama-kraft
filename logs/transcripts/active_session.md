@@ -1047,3 +1047,32 @@ The final, authoritative version of the seaside durability visual `product-urin-
 ---
 **Status:** **Durability Visual Update v11 (Extreme Leg Thinning) Complete.**
 The authoritative final version of the seaside durability visual `product-urin-all-weather-seaside-final.png` (v11) is now complete. This iteration achieves the ultimate artisan balance by enforcing a visible 50% thinning of the leg profile, resulting in the "razor-thin" elegant look requested by the user. Background pixel preservation was strictly maintained, ensuring that the approved seaside environment remains untouched while the furniture subject reaches its final state of geometric perfection.
+
+---
+
+# KamaKraft Action Transcript: Ulin Charms Image Crossfade Implementation
+**Date:** 2026-04-22 12:25 (JST)
+**Task:** Implementing an elegant image crossfade animation for the "All-Weather" section
+
+## 1. User Instructions & Strategy
+- **Target:** `src/components/UlinCharms.tsx` (All-weather section).
+- **Images:** 
+  1. `product-urin-all-weather-master.png` (Forest/Original)
+  2. `product-urin-all-weather-seaside.png` (Seaside/New, renamed from v7)
+- **Animation:** Smooth crossfade (Fade in/out) alternating every few seconds.
+- **OBJECTIVE:** Visually demonstrate Ulin's dominance in both forest (rain) and seaside (salt/rain) environments.
+
+## 2. Technical Plan
+- **Asset Preparation:** Rename `product-urin-all-weather-seaside-v7.png` to `product-urin-all-weather-seaside.png`.
+- **Component Logic:**
+  - Add state for tracking the active image index.
+  - Implement a `useEffect` timer to cycle the index.
+  - Use absolute positioning and CSS transitions/framer-motion for smooth opacity blending.
+
+## 3. Safety Execution
+- **Pre-commit:** `pre: [ui] implement crossfade for all-weather charms section`
+- **Latest Commit:** `1d68b8d` - "pre: [ui] implement crossfade for all-weather charms section"
+
+---
+**Status:** **Ulin Charms Image Crossfade Implementation Complete.**
+The "All-Weather" section of the Ulin Charms component now features an elegant image crossfade. The implementation cycles between the Forest (`product-urin-all-weather-master.png`) and Seaside (`product-urin-all-weather-seaside.png`) visuals every 5 seconds with a smooth 1.5s transition. This dynamically showcases the artisan table's durability in both environments as requested by the user.
