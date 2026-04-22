@@ -659,10 +659,11 @@ The product card hover overlay has been updated to feature side-by-side "詳細�
 
 ## 3. Safety Execution
 - **Physical Backup:** `logs/backups/FeaturedProduct.tsx.bak_20260422_0943`
-- **Pre-commit:** `pre: [home] restore overlay and finalize permanent product action buttons`
+- **Latest Commit:** `6117db5` - "step: [home] restore overlay and integrate permanent product buttons"
 
 ---
-**Processing Status:** **In Progress**
+**Status:** **Home Product Card Overlay Restoration & Permanent Buttons Integration Complete.**
+The hover overlay on the homepage product cards has been fully restored as per the user's requirement. Simultaneously, a pair of stylish permanent buttons for "詳細をみる" and "カートに入れる" has been integrated below the price display section on all devices. This "dual-access" design ensures that users can interact with products either via the modern hover effect on images or via the fixed buttons, maximizing both aesthetic appeal and conversion accessibility. redundant components were carefully synchronized to maintain the premium artisan world-view.
 
 ---
 
