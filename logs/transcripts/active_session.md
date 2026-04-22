@@ -636,3 +636,32 @@ The "View Details" link on each homepage product card has been upgraded to a vis
 ---
 **Status:** **Home Product Card Overlay Dual Buttons Reorganization Complete.**
 The product card hover overlay has been updated to feature side-by-side "詳細をみる" (Detail) and "カートに入れる" (Cart) buttons. The Detail button utilizes a semi-transparent glassmorphism style, while the Cart button remains high-contrast white for clarity. This dual-button configuration improves user flow by allowing immediate navigation or purchase directly from the image hover state. Standalone detail buttons below the product info were removed to maintain a clean, artisan-focused aesthetic.
+
+---
+
+# KamaKraft Action Transcript: Home Product Card Permanent Dual Buttons Implementation
+**Date:** 2026-04-22 09:40 (JST)
+**Task:** Moving "Detail" and "Cart" buttons from the hover overlay to a permanent position below the price
+
+## 1. User Instructions & Correct Definition
+- **URL:** http://localhost:3001 (Home)
+- **Requirement:**
+  - Remove the hover overlay from the product images.
+  - Display "詳細をみる" (Detail) and "カートに入れる" (Cart) buttons permanently on all devices.
+  - Location: Directly below the price section.
+  - Aesthetic: Stylish, premium, and integrated into the card world-view.
+
+## 2. Change Details
+- **Target:** `src/components/FeaturedProduct.tsx`
+- **Modifications:**
+  - Remove the `translate-y-full group-hover:translate-y-0` overlay container.
+  - Clean up the image container to keep it purely visual (maintaining the detail link on the image itself).
+  - Add a new `flex gap-3` button container below the price display.
+  - Style the "Cart" button as a primary action (solid white/text black) and "Detail" as a secondary action (refined outline).
+
+## 3. Safety Execution
+- **Physical Backup:** `logs/backups/FeaturedProduct.tsx.bak_20260422_0940`
+- **Pre-commit:** `pre: [home] move product actions to permanent position below price`
+
+---
+**Processing Status:** **In Progress**
