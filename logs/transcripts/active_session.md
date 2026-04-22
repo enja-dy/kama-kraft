@@ -686,10 +686,11 @@ The hover overlay on the homepage product cards has been fully restored as per t
 
 ## 3. Safety Execution
 - **Physical Backup:** `logs/backups/FeaturedProduct.tsx.bak_20260422_0945`
-- **Pre-commit:** `pre: [home] fix product card overlay button text truncation`
+- **Latest Commit:** `0882de8` - "step: [home] fix product card overlay button text truncation"
 
 ---
-**Processing Status:** **In Progress**
+**Status:** **Home Product Card Overlay Button Text Truncation Fix Complete.**
+The text in the image hover overlay buttons has been corrected from "カートに" to the full "カートに入れる". To fit the entire string within the dual-button layout, the font size and character tracking were optimized while maintaining high legibility and brand world-view consistency across all devices.
 
 ---
 
