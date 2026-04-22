@@ -459,3 +459,31 @@ The Privacy Policy has been updated to include mandatory Google AdSense complian
 ---
 **Status:** **Privacy Policy Contact Link Implementation Complete.**
 The "お問い合わせフォームを開く" (Open contact form) button at the bottom of the Privacy Policy page is now fully functional. It has been converted from a static button to a Next.js `Link` component pointing to `/contact`, ensuring a seamless user experience for inquiries regarding personal data. Styling was maintained as `inline-block` to preserve the original button design.
+
+---
+
+# KamaKraft Action Transcript: Contact Tab Deep Linking
+**Date:** 2026-04-22 09:19 (JST)
+**Task:** Supporting direct access to the "Contact Form" tab via URL parameters
+
+## 1. User Instructions & Correct Definition
+- **Requirement:** Links to the Contact page should be able to specify the active tab (FAQ vs. Email Form).
+- **Default Behavior:** Opening `/contact` currently defaults to the FAQ tab.
+- **Goal:** Allow `/contact?tab=email` to open the "お問い合わせ" (Inquiry Form) tab directly.
+
+## 2. Change Details
+- **Target 1:** `src/app/contact/page.tsx`
+  - Import `useSearchParams` and `Suspense`.
+  - Wrap content in `Suspense` to handle query parameter reading.
+  - Set initial `activeTab` state based on the `tab` parameter.
+- **Target 2:** `src/app/privacy/page.tsx`
+  - Update the "Contact Form" link to use `/contact?tab=email`.
+
+## 3. Safety Execution
+- **Physical Backups:**
+  - `logs/backups/contact_page.tsx.bak_20260422_0919`
+  - `logs/backups/privacy_page.tsx.bak_20260422_0919`
+- **Pre-commit:** `pre: [contact] support tab deep linking via query parameters`
+
+---
+**Processing Status:** **In Progress**
