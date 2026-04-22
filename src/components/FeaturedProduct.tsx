@@ -122,8 +122,8 @@ export const FeaturedProduct = () => {
                       className="flex-1 bg-white text-black py-4 flex items-center justify-center gap-2 shadow-2xl hover:bg-white/90 transition-colors rounded-sm"
                     >
                       <ShoppingCart size={14} />
-                      <span className="text-[10px] font-bold tracking-[0.2em] uppercase whitespace-nowrap">
-                        {addedProductId === product.id ? "追加しました" : "カートに"}
+                      <span className="text-[9px] font-bold tracking-tighter uppercase whitespace-nowrap">
+                        {addedProductId === product.id ? "追加しました" : "カートに入れる"}
                       </span>
                     </button>
                   </div>
