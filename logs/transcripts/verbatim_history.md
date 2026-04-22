@@ -232,3 +232,8 @@
 **USER:** テキストが、上へ自動移動して画面から見えなくなってます。
 
 **RESPONSE:** (Identified a layout conflict between the absolute navigation link and the centered flex container, compounded by an aggressive entry animation. Decoupled the 'Back' link to a stable absolute position at the top of the section and reduced the vertical transform distance for the title to ensure it stays firmly in the viewport upon load.)
+
+## [Request 47]
+**USER:** 添付は日本語にしてください。
+
+**RESPONSE:** (Fully localized the article page. Translated all UI elements—including 'COLLECTION VIEW', 'BACK TO JOURNAL', 'SCROLL TO EXPLORE', and metadata fields—into premium Japanese to ensure a professional and localized user experience.)

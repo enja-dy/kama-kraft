@@ -1313,5 +1313,21 @@ The first major legacy article is now live with high-end visual storytelling.
 - **Stability Commit:** `step: [fix] stabilize article text and prevent accidental displacement`
 
 ---
-**Status:** **Article 1 Header Layout Verified.**
-The hero text is now firmly anchored and clearly visible without any erratic movement.
+
+# KamaKraft Action Transcript: Journal Article visual refinement (Full Localization)
+**Date:** 2026-04-23 08:29 (JST)
+**Task:** Localizing all UI labels to Japanese
+
+## 1. Editorial Vision
+- **Consistency:** Translated all remaining English UI labels (labels, buttons, scroll prompts) into professional Japanese.
+- **Tone:** Used "コレクションを見る" (View Collection) for the main CTA to maintain an elegant, understated artisan tone.
+
+## 2. Technical Execution
+- **Scope:** Updated `BACK TO JOURNAL`, `SCROLL TO EXPLORE`, `Category`, `Published on`, and the main `COLLECTION VIEW` button.
+
+## 3. Safety Execution
+- **Localization Commit:** `step: [ui] fully localize article UI to Japanese`
+
+---
+**Status:** **Article 1 Full Content & UI Finalized.**
+The article is now fully localized, stable, and visually polished for the Japanese audience.

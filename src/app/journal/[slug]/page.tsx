@@ -62,7 +62,7 @@ export default function ArticlePage({ params: paramsPromise }: { params: Promise
             className="flex items-center gap-2 text-[10px] font-bold tracking-[0.3em] text-white/40 hover:text-white transition-colors group"
           >
             <ChevronLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
-            BACK TO JOURNAL
+            ジャーナル一覧に戻る
           </Link>
         </motion.div>
 
@@ -74,7 +74,7 @@ export default function ArticlePage({ params: paramsPromise }: { params: Promise
             className="space-y-4"
           >
             <span className="text-[10px] md:text-xs font-bold tracking-[0.6em] text-white/40 uppercase block">
-              The Legend of Ironwood
+              鉄の木の伝説
             </span>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extralight tracking-tight leading-tight">
               「鉄の木」ウリンの<br />
@@ -94,7 +94,7 @@ export default function ArticlePage({ params: paramsPromise }: { params: Promise
         </div>
 
         <motion.div style={{ opacity }} className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.4em] text-white/20 uppercase">
-          SCROLL TO EXPLORE
+          スクロールして読み進める
         </motion.div>
       </section>
 
@@ -295,7 +295,7 @@ export default function ArticlePage({ params: paramsPromise }: { params: Promise
               href="/products" 
               className="inline-block border border-white text-xs font-bold tracking-[0.4em] px-12 py-6 hover:bg-white hover:text-black transition-all"
             >
-              COLLECTION VIEW
+              コレクションを見る
             </Link>
           </div>
         </div>
@@ -305,11 +305,11 @@ export default function ArticlePage({ params: paramsPromise }: { params: Promise
       <div className="max-w-7xl mx-auto px-6 py-20 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10">
         <Link href="/journal" className="flex items-center gap-4 text-xs font-bold tracking-widest text-white/40 hover:text-white transition-colors group">
           <ChevronLeft size={16} className="group-hover:-translate-x-2 transition-transform" />
-          BACK TO JOURNAL
+          ジャーナル一覧を見る
         </Link>
         <div className="flex gap-10 text-[10px] tracking-[0.2em] font-bold text-white/20 uppercase">
-          <span>Published on 2026.04.22</span>
-          <span>Category: ウリン豆知識</span>
+          <span>公開日 2026.04.22</span>
+          <span>カテゴリー: ウリン豆知識</span>
         </div>
       </div>
     </div>
