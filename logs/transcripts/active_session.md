@@ -1097,6 +1097,8 @@ The "All-Weather" section of the Ulin Charms component now features an elegant, 
 
 ## 3. Safety Execution
 - **Pre-commit:** `pre: [ui] narrow hover trigger scope for featured product cards`
+- **Latest Commit:** `e457a66` - "pre: [ui] narrow hover trigger scope for featured product cards"
 
 ---
-**Processing Status:** **In Progress**
+**Status:** **Featured Product Hover Precision Refinement Complete.**
+The hover trigger for the quick-action overlay (Detail / Add to Cart) in the `FeaturedProduct` component has been successfully restricted to the product image only. This was achieved by relocating the `group` class from the global card container to the specific image container, ensuring that lower-card interactions (price, permanent buttons) do not trigger image-based UI overlays.

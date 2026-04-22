@@ -85,9 +85,8 @@ export const FeaturedProduct = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="group"
             >
-              <div className="relative aspect-[4/5] overflow-hidden bg-white/5 rounded-sm mb-8">
+              <div className="relative aspect-[4/5] overflow-hidden bg-white/5 rounded-sm mb-8 group">
                 {/* Product Image */}
                 <Image
                   src={product.thumbnail || product.images[0]}
