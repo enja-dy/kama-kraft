@@ -167,3 +167,8 @@
 **USER:** その７記事でいいと思います。 一覧ページに、ガワだけ作成できますか？ 公開日は、2026年4月1日から今日までランダムに設定してください。
 
 **RESPONSE:** (Updated /journal/page.tsx with the 7 shell articles, assigning random dates from April 1 to April 22, 2026. Ensured all articles are categorized under "ウリン豆知識".)
+
+## [Request 34]
+**USER:** まずは添付の記事から一つ一つ制作します。 まずは内容に最適なサムネイル画像を生成してください。 最適なネーミングで最適な構成でローカルフォルダ内に保存してください。
+
+**RESPONSE:** (Generated a specialized 'Iron Wood' high-fidelity thumbnail for Article 1. Saved as `public/journal/why-ulin-durability.png` and updated the Journal archive page to link to this new asset.)

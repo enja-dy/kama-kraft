@@ -1196,5 +1196,28 @@ The link and responsive archive page are now live. Sanctuary Protocol strictly f
 - **Latest Commit:** `b830770` - "pre: [docs] populate 7 SEO titles for Ulin Knowledge journal"
 
 ---
+
 **Status:** **Journal Shell Population (7 Articles) Complete.**
 The archive page now displays a robust set of SEO-optimized article shells.
+
+---
+
+# KamaKraft Action Transcript: Journal Article 1 Asset Generation (Durability)
+**Date:** 2026-04-22 14:05 (JST)
+**Task:** Creating the primary visual asset for the "Iron Wood Durability" article
+
+## 1. Design & Asset
+- **Title:** 「鉄の木」ウリンの驚愕の耐久性とは？100年腐らない理由を徹底検証
+- **Asset Name:** `public/journal/why-ulin-durability.png`
+- **Concept:** Dramatic macro shot of dense Ulin grain with iron-like luster under tropical rain. 50% increase in perceived material density compared to stock visuals to emphasize "Iron Wood" status.
+
+## 2. Technical Execution
+- **Generation:** Used `generate_image` with cinematic lighting and high-fidelity texture prompts.
+- **Integration:** Updated `src/app/journal/page.tsx` data array to point to the new asset.
+
+## 3. Safety Execution
+- **Step Commit:** `3bf4637` - "step: [assets] add and link 'Iron Wood' thumbnail for Article 1"
+
+---
+**Status:** **Article 1 Primary Asset Ready.**
+The thumbnail is live and synchronized with the repository. Ready for content writing.
