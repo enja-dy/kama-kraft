@@ -1120,6 +1120,8 @@ The hover trigger for the quick-action overlay (Detail / Add to Cart) in the `Fe
 
 ## 3. Safety Execution
 - **Pre-commit:** `pre: [ui] remove pending SNS links from footer`
+- **Latest Commit:** `54ea421` - "pre: [ui] remove pending SNS links from footer"
 
 ---
-**Processing Status:** **In Progress**
+**Status:** **Footer SNS Link Cleanup Complete.**
+The Instagram and X (Twitter) links have been removed from the footer as official accounts are not yet established. This results in a cleaner, more professional footer that avoids dead links, consistent with the KamaKraft premium brand image.

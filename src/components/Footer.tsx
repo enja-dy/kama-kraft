@@ -77,10 +77,6 @@ export const Footer = () => {
           <p className="text-white/50 text-[10px] tracking-[0.3em] uppercase font-bold">
             © 2026 KamaKraft Heritage. All Rights Reserved.
           </p>
-          <div className="flex gap-8">
-            <a href="#" className="text-white/50 hover:text-white transition-colors font-bold">Instagram</a>
-            <a href="#" className="text-white/50 hover:text-white transition-colors font-bold">X</a>
-          </div>
         </div>
       </div>
     </footer>
