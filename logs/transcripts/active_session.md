@@ -428,7 +428,8 @@ The FAQ entry for Custom Orders has been rewritten into a more natural and invit
 
 ## 3. Safety Execution
 - **Physical Backup:** `logs/backups/privacy_page.tsx.bak_20260422_0914`
-- **Pre-commit:** `pre: [privacy] add AdSense compliance clauses and update timestamp`
+- **Latest Commit:** `19702ed` - "step: [privacy] add AdSense compliance clauses and update timestamp"
 
 ---
-**Processing Status:** **In Progress**
+**Status:** **Privacy Policy AdSense Compliance Complete.**
+The Privacy Policy has been updated to include mandatory Google AdSense compliance clauses. This includes a new "広告の配信について" (About Ad Delivery) section, detailed information on Cookie usage for ad targeting, and clear instructions for users to opt-out via Google's settings. The "Last Updated" timestamp has also been refreshed to 2026/04/22. This change significantly lowers the risk of rejection during the AdSense review process.
