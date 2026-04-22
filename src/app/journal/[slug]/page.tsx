@@ -55,11 +55,11 @@ export default function ArticlePage({ params: paramsPromise }: { params: Promise
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="absolute top-[-10vh] left-0 md:left-[-10vw]"
+            className="absolute -top-32 left-6 md:left-0"
           >
             <Link 
               href="/journal" 
-              className="flex items-center gap-2 text-[10px] font-bold tracking-[0.3em] text-white/30 hover:text-white transition-colors group"
+              className="flex items-center gap-2 text-[10px] font-bold tracking-[0.3em] text-white/40 hover:text-white transition-colors group"
             >
               <ChevronLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
               BACK TO JOURNAL
