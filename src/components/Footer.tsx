@@ -26,6 +26,9 @@ export const Footer = () => {
               <li>
                 <Link href="/craftsmanship" className="text-sm text-white hover:text-white transition-colors font-medium">職人のこだわり</Link>
               </li>
+              <li>
+                <Link href="/journal" className="text-sm text-white hover:text-white transition-colors font-medium">鎌倉・家具座の知恵</Link>
+              </li>
             </ul>
           </div>
 

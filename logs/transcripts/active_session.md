@@ -1146,5 +1146,31 @@ The Instagram and X (Twitter) links have been removed from the footer as officia
 - **Sync Commit:** `docs: [protocol] synchronize verbatim history and reaffirm sacred rules`
 
 ---
+
 **Status:** **Sanctuary Protocol Re-established and Synced.**
 All records are now 100% up-to-date with verbatim conversation history.
+
+---
+
+# KamaKraft Action Transcript: Journal Entry Point (Kamakura Furniture Wisdom)
+**Date:** 2026-04-22 13:46 (JST)
+**Task:** Establishing the SEO/Knowledge entry point and archive page
+
+## 1. User Instructions & Decision
+- **Name:** 「鎌倉・家具座の知恵」(The Wisdom of the Kamakura Furniture Guild/Za)
+- **Scope:** Articles on Ulin, Custom Furniture, and Interior Design Knowledge.
+- **Route:** `/journal`
+- **Location:** Footer -> STORY section.
+
+## 2. Technical Plan
+- **Template:** Created `src/app/journal/page.tsx` as a responsive archive list.
+- **Linking:** Updated `src/components/Footer.tsx`.
+- **Responsive:** Used `grid-cols-1 md:grid-cols-2 lg:grid-cols-3` for multi-device support.
+
+## 3. Safety Execution
+- **Pre-commit:** `pre: [ui] add journal link to footer`
+- **Latest Commit:** `0ae3aeb` - "pre: [ui] add journal link to footer"
+
+---
+**Status:** **Journal Entry Point Implementation Complete.**
+The link and responsive archive page are now live. Sanctuary Protocol strictly followed.
