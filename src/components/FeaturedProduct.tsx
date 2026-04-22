@@ -42,7 +42,7 @@ export const FeaturedProduct = () => {
             <div className="w-6 h-6 rounded-full bg-black flex items-center justify-center">
               <CheckCircle2 size={14} className="text-white" />
             </div>
-            <span className="text-xs font-bold tracking-[0.3em] uppercase">Added to Cart</span>
+            <span className="text-xs font-bold tracking-[0.3em] uppercase">カートに追加しました</span>
           </motion.div>
         )}
       </AnimatePresence>
@@ -115,7 +115,7 @@ export const FeaturedProduct = () => {
                   >
                     <ShoppingCart size={18} />
                     <span className="text-[10px] font-bold tracking-[0.3em] uppercase">
-                      {addedProductId === product.id ? "ADDED" : "Add to Cart"}
+                      {addedProductId === product.id ? "追加しました" : "カートに入れる"}
                     </span>
                   </button>
                 </div>
@@ -136,7 +136,7 @@ export const FeaturedProduct = () => {
                   <div className="text-sm md:text-base font-medium tracking-widest text-white/80">
                     <span className="text-[10px] mr-2 opacity-40">¥</span>
                     {product.price.toLocaleString()}
-                    <span className="text-[9px] ml-2 opacity-40 font-bold uppercase">Tax incl.</span>
+                    <span className="text-[9px] ml-2 opacity-40 font-bold uppercase">（税込）</span>
                   </div>
                 </div>
 
@@ -145,7 +145,7 @@ export const FeaturedProduct = () => {
                     href={`/products/${product.slug}`}
                     className="text-[10px] font-bold tracking-[0.4em] text-white/40 uppercase hover:text-white transition-colors border-b border-transparent hover:border-white/20 pb-1"
                   >
-                    View Details
+                    詳細を見る
                   </Link>
                 </div>
               </div>
