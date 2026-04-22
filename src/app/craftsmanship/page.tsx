@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Ruler, Hammer, Heart, Shield, Sparkles, Compass } from "lucide-react";
+import Link from "next/link";
 
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => (
   <motion.div
@@ -170,12 +171,12 @@ export default function CraftsmanshipPage() {
                 職人と共に作り上げるプロセスそのものが、かけがえのない思い出となります。
               </p>
               <div className="pt-8">
-                <a
-                  href="/contact"
+                <Link
+                  href="/contact?tab=email"
                   className="inline-block px-12 py-4 border border-white/20 hover:border-white hover:bg-white hover:text-black transition-all duration-500 tracking-[0.4em] text-xs font-light"
                 >
                   職人へのご相談 — CONSULTATION
-                </a>
+                </Link>
               </div>
             </div>
           </FadeIn>
