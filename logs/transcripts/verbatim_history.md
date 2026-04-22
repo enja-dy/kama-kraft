@@ -177,3 +177,8 @@
 **USER:** 確認しましたが、この木材、本当にウリンを参考にしましたか？
 
 **RESPONSE:** (Apologized for the generalized wood texture in the first attempt. Corrected the interpretation to prioritize Ulin's specific "straight, fine grain" and "dense reddish-brown" characteristics. Regenerated and replaced the asset with a species-accurate version.)
+
+## [Request 36]
+**USER:** サムネイル反映されてません。 あと全記事2024年ではなく2026年にしてください。
+
+**RESPONSE:** (Apologized for the oversight on dates and the potential caching issue. Changed all years to 2026 and renamed the thumbnail asset to `why-ulin-durability-v2.png` to force immediate browser reflection of the authentic wood grain.)

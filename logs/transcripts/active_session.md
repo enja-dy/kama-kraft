@@ -1219,5 +1219,22 @@ The archive page now displays a robust set of SEO-optimized article shells.
 - **Refinement Commit:** `0243a0b` - "step: [assets] replace with authentic straight-grain Ulin thumbnail for Article 1"
 
 ---
-**Status:** **Article 1 Final Asset (Authentic) Verified.**
-The visual identity of the lead article now matches the biological reality of the product.
+
+# KamaKraft Action Transcript: Journal Archive Hotfix (Dates & Cache)
+**Date:** 2026-04-22 14:15 (JST)
+**Task:** Fixing year designation (2026) and forcing thumbnail reflection
+
+## 1. Resolution
+- **Year Synchronization:** All article dates updated from `2024` to `2026` across `src/app/journal/page.tsx`.
+- **Cache Busting:** Renamed `why-ulin-durability.png` to `why-ulin-durability-v2.png` to bypass browser cache and ensure the "authentic grain" version is visible to the user.
+
+## 2. Technical Execution
+- **Multi-Edit:** Performed bulk replacement of date strings.
+- **FS Update:** Duplicated and renamed the physical asset for safety.
+
+## 3. Safety Execution
+- **Hotfix Commit:** `step: [ui] fix journal dates to 2026 and force thumbnail reflection`
+
+---
+**Status:** **Journal Archive Metadata & Asset Cache Fixed.**
+All dates are now 2026. The authentic Ulin thumbnail is now forced to manifest.
