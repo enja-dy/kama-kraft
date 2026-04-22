@@ -374,3 +374,32 @@ The "Co-Creation" section has been centered for higher impact. During this proce
 ---
 **Status:** **Custom Order Narrative Update Complete.**
 The introduction to the Custom Order page has been updated to align with the artisan's "1cm design philosophy" and the overall brand shift away from focus on weight. The new copy frames the high density of Ulin as "noble and tough appearance" (気高く強靭な佇まい), maintaining consistency with the Craftsmanship and Product pages.
+
+---
+
+# KamaKraft Action Transcript: Contact FAQ Narrative Optimization
+**Date:** 2026-04-22 09:02 (JST)
+**Task:** Updating the Custom Order FAQ for better flow and deep linking
+
+## 1. User Instructions & Correct Definition
+- **URL:** http://localhost:3001/contact
+- **Target Item:** FAQ about Custom Orders.
+- **Requirement:**
+  - Rewrite the answer into a more natural and evocative sentence.
+  - Add a direct link to the Custom Order page (`/custom-order`).
+- **Approved Text:**
+  - 「はい、承っております。KamaKraftでは既製品の1センチ単位のサイズ微調整から、完全なフルオーダーまで、職人が直にお客様と共創させていただきます。詳細は[こちらのオーダーメイド相談ページ](/custom-order)をご覧ください。概算の金額シミュレーターもご用意しております。」
+
+## 2. Change Details
+- **Target:** `src/app/contact/page.tsx`
+- **Modifications:**
+  - Import `Link` from `next/link`.
+  - Update `FAQ_DATA` to support React nodes in the `answer` field.
+  - Update the specific answer for "オーダーメイドのご相談".
+
+## 3. Safety Execution
+- **Physical Backup:** `logs/backups/contact_page.tsx.bak_20260422_0902`
+- **Pre-commit:** `pre: [contact] update custom order FAQ with more natural phrasing and direct link`
+
+---
+**Processing Status:** **In Progress**
