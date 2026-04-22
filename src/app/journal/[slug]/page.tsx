@@ -150,8 +150,8 @@ export default function ArticlePage({ params: paramsPromise }: { params: Promise
             className="relative aspect-square rounded-sm overflow-hidden border border-white/5"
           >
             <Image
-              src="/product-v-leg.jpg"
-              alt="Density view"
+              src="/journal/common/ulin-submerged-density.png"
+              alt="Ulin Submerged in Water (Density Proof)"
               fill
               className="object-cover"
             />
