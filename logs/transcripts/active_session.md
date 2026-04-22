@@ -772,3 +772,27 @@ The main headline of the Featured Product section has been successfully updated 
 ---
 **Status:** **Durability Visual Update (Seaside Background) Complete.**
 A new composite visual `product-urin-all-weather-seaside.png` has been generated and integrated into the project. The image successfully maintains the core elements of the Ulin table, heavy rain, and mirror-like reflections on both the table surface and the Ulin deck floor. The background has been strategically transitioned to a dramatic seaside location, visually articulating the material's superior resistance to sea breeze and salt damage, thereby strengthening the brand's narrative of indestructible artisan quality.
+
+---
+
+# KamaKraft Action Transcript: Durability Visual Update v2 (Stylish Seaside)
+**Date:** 2026-04-22 10:07 (JST)
+**Task:** Regenerating the seaside durability visual to strictly match the original product design and aesthetic quality
+
+## 1. User Instructions & Correct Definition
+- **Requirement:** 
+  - **TABLE DESIGN:** Must match Attachment 2 exactly (boxy rectangular top, slanted A-frame legs). No generic iron legs.
+  - **AESTHETIC:** High-contrast, stylish, and vibrant. Not "gloomy" even in heavy rain.
+  - **ELEMENTS:** Heavy rain, mirror-like reflection, Ulin deck floor, seaside location. 
+  - **OBJECTIVE:** Salt-damage resistance proof.
+
+## 2. Generation Parameters
+- **Tool:** `generate_image`
+- **Filename:** `product-urin-all-weather-seaside-v2.png`
+- **Prompt Strategy:** Prioritize the specific table geometry and implement a high-contrast lighting scheme (warm lantern glow vs. rich blue ocean rain) to achieve the "top-tier stylish" look.
+
+## 3. Safety Execution
+- **Pre-commit:** `pre: [assets] regenerate seaside visual with strict furniture design match`
+
+---
+**Processing Status:** **In Progress**
