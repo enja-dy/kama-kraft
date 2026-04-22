@@ -483,7 +483,8 @@ The "お問い合わせフォームを開く" (Open contact form) button at the 
 - **Physical Backups:**
   - `logs/backups/contact_page.tsx.bak_20260422_0919`
   - `logs/backups/privacy_page.tsx.bak_20260422_0919`
-- **Pre-commit:** `pre: [contact] support tab deep linking via query parameters`
+- **Latest Commit:** `b35eea1` - "step: [contact] support direct access to email form via query param"
 
 ---
-**Processing Status:** **In Progress**
+**Status:** **Contact Tab Deep Linking Complete.**
+The Contact page now supports direct access to specific tabs using the `tab` query parameter. Specifically, accessing `/contact?tab=email` will now automatically switch the active view to the "お問い合わせ" (Email Form) tab. This functionality has been integrated into the Privacy Policy page, where the "Open contact form" button now leads directly to the inquiry form instead of the FAQ, reducing friction for users.
