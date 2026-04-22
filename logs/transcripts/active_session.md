@@ -907,3 +907,29 @@ The final seaside durability visual `product-urin-all-weather-seaside-final.png`
 ---
 **Status:** **Durability Visual Update v6 (Absolute Structural Fidelity) Complete.**
 The final durability visual `product-urin-all-weather-seaside-v6.png` has been generated with absolute structural fidelity. By strictly enforcing the "parallel plank assembly" of the tabletop and the "thin-profile angled plank legs" in the prompt while using the master image as a direct reference, this iteration eliminates the bloated, simplified geometries of previous attempts. The result is a high-contrast, stylish, and authentic representation of the KamaKraft table, seamlessly integrated into the atmospheric seaside sunset setting as requested.
+
+---
+
+# KamaKraft Action Transcript: Durability Visual Update v7 (Final Stretcher Removal)
+**Date:** 2026-04-22 11:16 (JST)
+**Task:** Deleting the unnecessary long floor stretcher while preserving all other elements of v6
+
+## 1. User Instructions & Correct Definition
+- **Requirement:** 
+  - **DELETE:** The long wooden member connecting the left and right legs at the floor.
+  - **PRESERVE:** Everything else from v6 (Tabletop, background, rain, artisan legs).
+- **OBJECTIVE:** Achieve 100% minimalist fidelity to the master trestle design (independent end assemblies).
+
+## 2. Generation Parameters
+- **Tool:** `generate_image`
+- **Input Images:**
+  - `public/product-urin-all-weather-seaside-v6.png` (Source for environment and top)
+  - `public/product-urin-all-weather-master.png` (Confirmation of trestle independence)
+- **Filename:** `product-urin-all-weather-seaside-v7.png`
+- **Instruction:** Subtractive edit to remove the horizontal floor connector between left and right trestles.
+
+## 3. Safety Execution
+- **Pre-commit:** `pre: [assets] v7 final subtractive edit to remove floor stretcher`
+
+---
+**Processing Status:** **In Progress**
