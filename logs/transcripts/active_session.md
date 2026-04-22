@@ -573,7 +573,8 @@ The featured products section on the home page has been completely redesigned. I
 
 ## 3. Safety Execution
 - **Physical Backup:** `logs/backups/FeaturedProduct.tsx.bak_20260422_0931`
-- **Pre-commit:** `pre: [home] localize featured product labels to Japanese`
+- **Latest Commit:** `48419d5` - "step: [home] localize featured product labels to Japanese"
 
 ---
-**Processing Status:** **In Progress**
+**Status:** **Home Product Grid Localization Complete.**
+All English labels within the homepage product grid have been converted to Japanese to improve usability for local customers. This includes "Tax incl." to "（税込）", "View Details" to "詳細を見る", "Add to Cart" to "カートに入れる", and the corresponding success messages. The premium typography and layout were preserved during this translation process.
