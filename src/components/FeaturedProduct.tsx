@@ -65,7 +65,7 @@ export const FeaturedProduct = () => {
             transition={{ delay: 0.2 }}
             className="text-3xl md:text-4xl font-extralight tracking-[0.2em] text-white"
           >
-            職人の魂が宿る、三つの造形。
+            アイアンウッド家具がもたらす、至高の贅沢。
           </motion.h2>
           <motion.div 
             initial={{ width: 0 }}
