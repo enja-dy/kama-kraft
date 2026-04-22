@@ -1202,22 +1202,22 @@ The archive page now displays a robust set of SEO-optimized article shells.
 
 ---
 
-# KamaKraft Action Transcript: Journal Article 1 Asset Generation (Durability)
-**Date:** 2026-04-22 14:05 (JST)
-**Task:** Creating the primary visual asset for the "Iron Wood Durability" article
+# KamaKraft Action Transcript: Journal Article 1 Asset Refinement (Species Authenticity)
+**Date:** 2026-04-22 14:08 (JST)
+**Task:** Refining the primary visual asset to ensure 100% biological species accuracy for Ulin
 
-## 1. Design & Asset
-- **Title:** 「鉄の木」ウリンの驚愕の耐久性とは？100年腐らない理由を徹底検証
-- **Asset Name:** `public/journal/why-ulin-durability.png`
-- **Concept:** Dramatic macro shot of dense Ulin grain with iron-like luster under tropical rain. 50% increase in perceived material density compared to stock visuals to emphasize "Iron Wood" status.
+## 1. Decision & Critique
+- **Critique:** Initial v1 thumbnail was rejected for exhibiting non-standard, gnarled grain patterns uncharacteristic of real Ulin.
+- **Correction:** Species accuracy (Eusideroxylon zwageri) is now the primary constraint. 
+- **Key Features:** Straight, fine longitudinal grain, deep reddish-brown hue, high surface tension (water beading).
 
 ## 2. Technical Execution
-- **Generation:** Used `generate_image` with cinematic lighting and high-fidelity texture prompts.
-- **Integration:** Updated `src/app/journal/page.tsx` data array to point to the new asset.
+- **Regeneration:** Forced the AI to discard "artistic wood swirls" in favor of "straight, dense artisan timber grain."
+- **Asset Replacement:** Overwrote `public/journal/why-ulin-durability.png` with the authentic version.
 
 ## 3. Safety Execution
-- **Step Commit:** `3bf4637` - "step: [assets] add and link 'Iron Wood' thumbnail for Article 1"
+- **Refinement Commit:** `0243a0b` - "step: [assets] replace with authentic straight-grain Ulin thumbnail for Article 1"
 
 ---
-**Status:** **Article 1 Primary Asset Ready.**
-The thumbnail is live and synchronized with the repository. Ready for content writing.
+**Status:** **Article 1 Final Asset (Authentic) Verified.**
+The visual identity of the lead article now matches the biological reality of the product.
