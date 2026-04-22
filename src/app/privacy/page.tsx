@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Shield, Lock, Eye, ArrowRight, FileText, ChevronRight, Share2, MousePointer2, RefreshCw } from "lucide-react";
+import Link from "next/link";
 
 export default function PrivacyPolicyPage() {
   const sections = [
@@ -285,9 +286,12 @@ export default function PrivacyPolicyPage() {
                      <p className="text-lg font-bold text-white underline decoration-white/20 underline-offset-8">privacy@kamakraft.com</p>
                   </div>
                 </div>
-                <button className="bg-white text-black py-5 px-12 rounded-full font-bold tracking-[0.2em] text-[11px] uppercase hover:scale-[1.05] transition-transform shadow-xl shadow-white/20">
+                <Link 
+                  href="/contact"
+                  className="bg-white text-black py-5 px-12 rounded-full font-bold tracking-[0.2em] text-[11px] uppercase hover:scale-[1.05] transition-transform shadow-xl shadow-white/20 inline-block"
+                >
                   お問い合わせフォームを開く
-                </button>
+                </Link>
               </div>
             </section>
 
