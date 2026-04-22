@@ -97,27 +97,36 @@ export const FeaturedProduct = () => {
                   style={{ objectPosition: product.objectPosition || "center" }}
                 />
                 
-                {/* Overlay Detail Link */}
+                {/* Overlay Detail Link (Whole Image area) */}
                 <Link 
                   href={`/products/${product.slug}`}
                   className="absolute inset-0 z-10"
                 />
 
-                {/* Quick Add Button Overlay */}
-                <div className="absolute inset-x-0 bottom-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-20">
-                  <button
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleAddToCart(product);
-                    }}
-                    disabled={addedProductId === product.id}
-                    className="w-full bg-white text-black py-4 flex items-center justify-center gap-3 shadow-2xl hover:bg-white/90 transition-colors"
-                  >
-                    <ShoppingCart size={18} />
-                    <span className="text-[10px] font-bold tracking-[0.3em] uppercase">
-                      {addedProductId === product.id ? "追加しました" : "カートに入れる"}
-                    </span>
-                  </button>
+                {/* Quick Action Buttons Overlay */}
+                <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-20">
+                  <div className="flex gap-2">
+                    <Link 
+                      href={`/products/${product.slug}`}
+                      className="flex-1 bg-black/40 backdrop-blur-md text-white py-4 flex items-center justify-center gap-2 border border-white/20 hover:bg-white/10 transition-all rounded-sm"
+                    >
+                      <ArrowRight size={14} />
+                      <span className="text-[10px] font-bold tracking-[0.2em] uppercase">詳細をみる</span>
+                    </Link>
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleAddToCart(product);
+                      }}
+                      disabled={addedProductId === product.id}
+                      className="flex-1 bg-white text-black py-4 flex items-center justify-center gap-2 shadow-2xl hover:bg-white/90 transition-colors rounded-sm"
+                    >
+                      <ShoppingCart size={14} />
+                      <span className="text-[9px] font-bold tracking-[0.1em] uppercase whitespace-nowrap">
+                        {addedProductId === product.id ? "追加しました" : "カートに入れる"}
+                      </span>
+                    </button>
+                  </div>
                 </div>
               </div>
 
@@ -140,14 +149,7 @@ export const FeaturedProduct = () => {
                   </div>
                 </div>
 
-                <div className="pt-4 flex justify-center">
-                  <Link 
-                    href={`/products/${product.slug}`}
-                    className="text-[10px] font-bold tracking-[0.3em] text-white/60 uppercase hover:text-white border border-white/10 hover:border-white/40 px-8 py-3 rounded-full transition-all duration-500 bg-white/5 hover:bg-white/10"
-                  >
-                    詳細をみる
-                  </Link>
-                </div>
+                {/* Bottom button removed as it's now in the overlay */}
               </div>
             </motion.div>
           ))}
