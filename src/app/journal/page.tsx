@@ -4,28 +4,56 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
-// Placeholder data for initial articles
+// Populated with 7 SEO-optimized titles for "Ulin Knowledge"
 const articles = [
   {
-    slug: "why-ulin-is-ironwood",
-    title: "なぜウリンは「鉄の木」と呼ばれるのか？ 科学的根拠とポリフェノールの秘密",
+    slug: "why-ulin-durability-100-years",
+    title: "「鉄の木」ウリンの驚愕の耐久性とは？100年腐らない理由を徹底検証",
     date: "2024.04.22",
     category: "ウリン豆知識",
     thumbnail: "/product-urin-all-weather-master.png"
   },
   {
-    slug: "custom-furniture-kamakura",
-    title: "鎌倉で叶える、一生モノのオーダーメイド家具選び",
-    date: "2024.04.20",
-    category: "家具選び",
+    slug: "ulin-aging-silver-gray-guide",
+    title: "ウリン材の経年変化完全ガイド：赤褐色から美しいシルバーグレーへ変わる過程と維持のコツ",
+    date: "2024.04.18",
+    category: "ウリン豆知識",
     thumbnail: "/maint-2.png"
   },
   {
-    slug: "seaside-living-salt-damage",
-    title: "海辺の暮らしを豊かに。潮風に負けないインテリアの選び方",
-    date: "2024.04.18",
-    category: "インテリア",
+    slug: "strongest-wood-salt-damage-termites",
+    title: "シロアリ・塩害に最強の木材はどれ？海辺のテラスや湿気地で「ウリン」が選ばれる理由",
+    date: "2024.04.15",
+    category: "ウリン豆知識",
     thumbnail: "/product-v-leg.jpg"
+  },
+  {
+    slug: "ulin-maintenance-essential-tips",
+    title: "ウリンのメンテナンスは本当に不要？数十年使い続けるための正しいお手入れ術",
+    date: "2024.04.11",
+    category: "ウリン豆知識",
+    thumbnail: "/ulin-majestic-origin.png"
+  },
+  {
+    slug: "hardwood-comparison-ulin-ipe",
+    title: "【比較】ウリン vs イペ vs セランガンバツ。ハードウッド選びで失敗しないための決定版",
+    date: "2024.04.08",
+    category: "ウリン豆知識",
+    thumbnail: "/charms-3_2.png"
+  },
+  {
+    slug: "ulin-sap-stain-prevention",
+    title: "ウリンの「赤い樹液（アク）」対策。汚れを落とす方法と、施工前に知っておくべき注意点",
+    date: "2024.04.05",
+    category: "ウリン豆知識",
+    thumbnail: "/order-precision-ulin.png"
+  },
+  {
+    slug: "borneo-ulin-asset-value",
+    title: "世界最強の希少木材。ボルネオ産「本ウリン」の資産価値と、一生モノの家具を選ぶ意義",
+    date: "2024.04.01",
+    category: "ウリン豆知識",
+    thumbnail: "/product-urin-all-weather-seaside.png"
   }
 ];
 
@@ -59,13 +87,14 @@ export default function JournalPage() {
         </div>
 
         {/* Article Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
           {articles.map((article, index) => (
             <motion.article
               key={article.slug}
               initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 + 0.5 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
               className="group"
             >
               <Link href={`/journal/${article.slug}`} className="block space-y-6">

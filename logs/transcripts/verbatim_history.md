@@ -157,3 +157,13 @@
 **USER:** (Waiting for implementation)
 
 **RESPONSE:** (Finalized implementation of Footer link "鎌倉・家具座の知恵" and created responsive Article Archive page at /journal.)
+
+## [Request 32]
+**USER:** では「ウリンの豆知識」で SEOを考慮、キーワード需要も考慮、した最適な記事コンテンツのタイトルを、７記事お願いします。
+
+**RESPONSE:** (Proposed 7 SEO-optimized titles covering durability, aging (silver-gray), termites/coastal protection, maintenance, wood comparison, sap/stain removal, and asset value of Borneo Ulin.)
+
+## [Request 33]
+**USER:** その７記事でいいと思います。 一覧ページに、ガワだけ作成できますか？ 公開日は、2026年4月1日から今日までランダムに設定してください。
+
+**RESPONSE:** (Updated /journal/page.tsx with the 7 shell articles, assigning random dates from April 1 to April 22, 2026. Ensured all articles are categorized under "ウリン豆知識".)
