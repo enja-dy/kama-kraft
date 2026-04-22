@@ -850,3 +850,29 @@ The final composite visual `product-urin-all-weather-seaside-v3.png` has been ge
 ---
 **Status:** **Durability Visual Update v4 (Plank-Leg Stylish Seaside) Complete.**
 The fourth iteration of the seaside visual `product-urin-all-weather-seaside-v4.png` has been successfully generated. This version achieves the high level of artisan precision requested by strictly implementing the "plank-leg" design (wide, flat wooden boards angled outwards) and the "floating box-top" structure characteristic of the master design. The high-contrast, vibrant sunset background and warm lantern glow have been preserved, providing a powerful and stylish visual proof of Ulin's salt-damage resistance and supreme luxury.
+
+---
+
+# KamaKraft Action Transcript: Durability Visual Update v5 (Reliable Composite)
+**Date:** 2026-04-22 10:56 (JST)
+**Task:** Creating a reliable composite of the Master Table and the Seaside Background
+
+## 1. User Instructions & Correct Definition
+- **Requirement:** 
+  - **TABLE:** Use Attachment 2 (Master) exactly as is. No changes to joinery, proportions, or design.
+  - **BACKGROUND:** Use the v3 Seaside Terrace background exactly as is.
+- **OBJECTIVE:** Resolve the hallucinations induced by text-to-image by using direct image-to-image compositing of the two approved project assets.
+
+## 2. Generation Parameters
+- **Tool:** `generate_image`
+- **Input Images:**
+  - `public/product-urin-all-weather-master.png` (Source Table)
+  - `public/product-urin-all-weather-seaside-v3.png` (Source Background)
+- **Filename:** `product-urin-all-weather-seaside-final.png`
+- **Instruction:** Verbatim merge: Place Table from Image 1 into Background from Image 2.
+
+## 3. Safety Execution
+- **Pre-commit:** `pre: [assets] prepare for final composite image generation`
+
+---
+**Processing Status:** **In Progress**
