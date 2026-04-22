@@ -3,8 +3,9 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Mail, HelpCircle, Send } from "lucide-react";
+import Link from "next/link";
 
-const FAQ_DATA = [
+const FAQ_DATA: { category: string; question: string; answer: string | React.ReactNode }[] = [
   // お支払い
   {
     category: "お支払い",
@@ -73,7 +74,15 @@ const FAQ_DATA = [
   {
     category: "注文・会員情報",
     question: "オーダーメイドや特注サイズの相談はできますか？",
-    answer: "はい、承っております。既存製品のサイズ変更から、完全オリジナルの家具製作まで、職人が直接ご要望をお伺いします。お問い合わせフォームの「オーダーメイドのご相談」よりお気軽にご連絡ください。",
+    answer: (
+      <>
+        はい、承っております。KamaKraftでは既製品の1センチ単位のサイズ微調整から、完全なフルオーダーまで、職人が直にお客様と共創させていただきます。詳細は
+        <Link href="/custom-order" className="text-white border-b border-white/40 hover:border-white transition-colors mx-1">
+          こちらのオーダーメイド相談ページ
+        </Link>
+        をご覧ください。概算の金額シミュレーターもご用意しております。
+      </>
+    ),
   },
 ];
 
