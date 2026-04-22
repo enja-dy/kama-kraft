@@ -710,10 +710,11 @@ The text in the image hover overlay buttons has been corrected from "カート�
 
 ## 3. Safety Execution
 - **Physical Backup:** `logs/backups/FeaturedProduct.tsx.bak_20260422_0951`
-- **Pre-commit:** `pre: [home] update featured section headline to artisan luxury copy`
+- **Latest Commit:** `7baaba3` - "step: [home] update featured section headline to artisan luxury copy"
 
 ---
-**Processing Status:** **In Progress**
+**Status:** **Home Featured Section Headline Copy Update Complete.**
+The main headline of the Featured Product section has been successfully updated to "**アイアンウッド家具がもたらす、至高の贅沢。**". This change aligns the section's core message with the brand's premium positioning, emphasizing the supreme luxury and artisan quality of the ironwood materials. The layout and typography remain optimized for high visual impact across all devices.
 
 ---
 
