@@ -988,5 +988,31 @@ The v8 iteration failed to produce a visible change in leg thickness as the AI o
 - **Latest Commit:** `5e316aa` - "step: [assets] add truly refined seaside visual (v9) with artisan slim leg profile"
 
 ---
-**Status:** **Durability Visual Update v9 (Absolute Leg Refinement) Complete.**
-The ninth iteration of the seaside durability visual `product-urin-all-weather-seaside-v9.png` is complete. This version represents a definitive breakthrough in structural fidelity, successfully enforcing the "razor-thin" artisan leg profile while maintaining the complex parallel-plank tabletop assembly. By abandoning the conservative incremental edit strategy and returning to a direct-reproduction instruction based solely on the master reference, the visual now perfectly balances the vibrant coastal environment with the precise minimalist geometry of the KamaKraft table.
+**Status:** **Durability Visual Update v9 (Absolute Leg Refinement) - FAILED (Background drift).**
+While v9 successfully corrected the table's structural fidelity (slim legs, correct joinery), it lost the specific seaside background environment (v3/v7) that the user had previously approved. The user rejected the result due to background inconsistency.
+
+---
+
+# KamaKraft Action Transcript: Durability Visual Update v10 (Background Preservation + Master Table)
+**Date:** 2026-04-22 11:58 (JST)
+**Task:** Restoring the v7 background while forcefully integrating the Master table's slim leg geometry
+
+## 1. User Instructions & Correct Definition
+- **Requirement:** 
+  - **RESTORE BACKGROUND:** Must be the specific seaside terrace from v7. No changes to the sky, sea, or deck.
+  - **RESTORE TABLE:** Must be the slim-leg, box-top design from the Master image.
+- **OBJECTIVE:** Resolve the conflict between structural correction and environment preservation by using the v7 background as a static constraint.
+
+## 2. Generation Parameters
+- **Tool:** `generate_image`
+- **Input Images:**
+  - `public/product-urin-all-weather-seaside-v7.png` (Static Background Reference)
+  - `public/product-urin-all-weather-master.png` (Static Table Reference)
+- **Filename:** `product-urin-all-weather-seaside-v10.png`
+- **Instruction:** Composite only. Preserve v7 background 100%. Swap table subject for Master design.
+
+## 3. Safety Execution
+- **Pre-commit:** `pre: [assets] v10 final background-safe furniture swap`
+
+---
+**Processing Status:** **In Progress**
