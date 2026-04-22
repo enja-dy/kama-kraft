@@ -143,9 +143,9 @@ export const FeaturedProduct = () => {
                 <div className="pt-4 flex justify-center">
                   <Link 
                     href={`/products/${product.slug}`}
-                    className="text-[10px] font-bold tracking-[0.4em] text-white/40 uppercase hover:text-white transition-colors border-b border-transparent hover:border-white/20 pb-1"
+                    className="text-[10px] font-bold tracking-[0.3em] text-white/60 uppercase hover:text-white border border-white/10 hover:border-white/40 px-8 py-3 rounded-full transition-all duration-500 bg-white/5 hover:bg-white/10"
                   >
-                    詳細を見る
+                    詳細をみる
                   </Link>
                 </div>
               </div>
