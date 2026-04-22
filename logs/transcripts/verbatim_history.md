@@ -222,3 +222,8 @@
 **USER:** 添付の記事ページですが、記事一覧ページに戻れるところありますか？ なければ最適な場所は？
 
 **RESPONSE:** (Acknowledged that the existing back link was only at the footer. Implemented a conspicuous but minimalist 'BACK TO JOURNAL' link at the top-left of the hero section to improve navigation without compromising the premium aesthetic.)
+
+## [Request 45]
+**USER:** ちょっと、タイトルとかぶってます。調整してください。 レスポンシブも考慮して！
+
+**RESPONSE:** (Apologized for the collision with the global header logo. Adjusted the absolute positioning to ensure valid clearance from the site title on all screen sizes. Centered the target safe area to ensure the link remains accessible and visually harmonious without overlapping core UI elements.)
