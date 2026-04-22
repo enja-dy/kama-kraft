@@ -404,3 +404,31 @@ The introduction to the Custom Order page has been updated to align with the art
 ---
 **Status:** **Contact FAQ Narrative Optimization Complete.**
 The FAQ entry for Custom Orders has been rewritten into a more natural and invitational sentence. It now includes a functional deep link to the dedicated `/custom-order` page, guiding users directly to the layout simulator and detailed consultation process. The `FAQ_DATA` structure was also upgraded to support React components for future rich-text additions.
+
+---
+
+# KamaKraft Action Transcript: Privacy Policy AdSense Compliance
+**Date:** 2026-04-22 09:14 (JST)
+**Task:** Updating the Privacy Policy to meet Google AdSense review criteria
+
+## 1. User Instructions & Correct Definition
+- **URL:** http://localhost:3001/privacy
+- **Goal:** Ensure site eligibility for Google AdSense by including mandatory "Third-party ad delivery" and "Cookie control" clauses.
+- **Modifications:**
+  - Add "広告の配信について" (About Ad Delivery) to the index and content.
+  - Detail Google AdSense's use of cookies and provide opt-out links.
+  - Maintain the brand's premium/artisan tone throughout the legal text.
+
+## 2. Change Details
+- **Target:** `src/app/privacy/page.tsx`
+- **Additions:**
+  - Index entry for `ads`.
+  - Content section detailing AdSense policies and opt-out instructions.
+  - Updated "Last Updated" date to 2026/04/22.
+
+## 3. Safety Execution
+- **Physical Backup:** `logs/backups/privacy_page.tsx.bak_20260422_0914`
+- **Pre-commit:** `pre: [privacy] add AdSense compliance clauses and update timestamp`
+
+---
+**Processing Status:** **In Progress**
