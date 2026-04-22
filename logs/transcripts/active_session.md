@@ -1076,3 +1076,27 @@ The authoritative final version of the seaside durability visual `product-urin-a
 ---
 **Status:** **Ulin Charms Image Crossfade Implementation Complete.**
 The "All-Weather" section of the Ulin Charms component now features an elegant, seamless overlapping crossfade. By stacking the images and animating their opacities simultaneously (2.0s duration), the transition now flows directly between the Forest and Seaside environments without any intervening darkness.
+
+---
+
+# KamaKraft Action Transcript: Featured Product Hover Precision Refinement
+**Date:** 2026-04-22 12:37 (JST)
+**Task:** Limiting the "Quick Action" overlay trigger to the product image only
+
+## 1. User Instructions & Requirement
+- **Requirement:** Change the hover trigger for the "Detail/Add to Cart" overlay. 
+- **CURRENT:** Triggers when hovering anywhere on the product card (title, price, buttons).
+- **NEW:** Triggers ONLY when hovering over the product image itself.
+- **OBJECTIVE:** Prevent UI visual noise when interacting with lower card elements.
+
+## 2. Technical Plan
+- **Target:** `src/components/FeaturedProduct.tsx`.
+- **Modification:** 
+  - Move the `group` Tailwind class from the outer card `Link`/`div` to the internal image container `div`.
+  - Ensure the overlay buttons still reference the `group-hover` state of their immediate parent (the image container).
+
+## 3. Safety Execution
+- **Pre-commit:** `pre: [ui] narrow hover trigger scope for featured product cards`
+
+---
+**Processing Status:** **In Progress**
