@@ -488,3 +488,28 @@ The "お問い合わせフォームを開く" (Open contact form) button at the 
 ---
 **Status:** **Contact Tab Deep Linking Complete.**
 The Contact page now supports direct access to specific tabs using the `tab` query parameter. Specifically, accessing `/contact?tab=email` will now automatically switch the active view to the "お問い合わせ" (Email Form) tab. This functionality has been integrated into the Privacy Policy page, where the "Open contact form" button now leads directly to the inquiry form instead of the FAQ, reducing friction for users.
+
+---
+
+# KamaKraft Action Transcript: Craftsmanship Consultation Link Implementation
+**Date:** 2026-04-22 09:21 (JST)
+**Task:** Updating the Consultation button on the Craftsmanship page to use deep linking
+
+## 1. User Instructions & Correct Definition
+- **URL:** http://localhost:3001/craftsmanship
+- **Issue:** The "Consultation" button links to the general Contact page, defaulting to the FAQ.
+- **Requirement:** Update the link to use `/contact?tab=email` to direct users immediately to the inquiry form.
+
+## 2. Change Details
+- **Target:** `src/app/craftsmanship/page.tsx`
+- **Modifications:**
+  - Import `Link` from `next/link`.
+  - Replace the standard `<a>` tag with a functional `Link` component.
+  - Set the `href` to `/contact?tab=email`.
+
+## 3. Safety Execution
+- **Physical Backup:** `logs/backups/craftsmanship_page.tsx.bak_20260422_0921`
+- **Pre-commit:** `pre: [craftsmanship] update consultation link to target email form tab`
+
+---
+**Processing Status:** **In Progress**
