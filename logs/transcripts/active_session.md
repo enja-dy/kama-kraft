@@ -604,3 +604,34 @@ All English labels within the homepage product grid have been converted to Japan
 ---
 **Status:** **Home Product Card Detail Button Refinement Complete.**
 The "View Details" link on each homepage product card has been upgraded to a visually distinctive button. The text has been updated to "詳細をみる" (hiragana "みる"), and the styling now features a refined outline button with an oval shape, subtle background highlight, and elegant hover transition. This improvement enhances both visibility and the artisan brand aesthetic.
+
+---
+
+# KamaKraft Action Transcript: Home Product Card Overlay Dual Buttons Reorganization
+**Date:** 2026-04-22 09:35 (JST)
+**Task:** Updating the product card hover overlay to feature side-by-side "Cart" and "Details" buttons
+
+## 1. User Instructions & Correct Definition
+- **URL:** http://localhost:3001 (Home)
+- **Requirement:**
+  - Place "詳細をみる" (View Details) and "カートに入れる" (Add to Cart) side-by-side within the hover overlay on the product image.
+  - Optimization for responsive viewing (ensuring clickability on mobile).
+- **Design Strategy:**
+  - "Detail" button: Glassmorphism style (semi-transparent blur).
+  - "Cart" button: Bold white style (high contrast).
+  - Clean up redundant detail buttons below the product info for a more minimalist look.
+
+## 2. Change Details
+- **Target:** `src/components/FeaturedProduct.tsx`
+- **Modifications:**
+  - Redesign the overlay container from a single button to a `flex gap-2` layout.
+  - Implement two distinct button styles within the overlay.
+  - Link the "Detail" button to the product slug page.
+  - Remove the standalone "詳細をみる" link from the bottom info section to focus user attention on the new integrated UI.
+
+## 3. Safety Execution
+- **Physical Backup:** `logs/backups/FeaturedProduct.tsx.bak_20260422_0935`
+- **Pre-commit:** `pre: [home] implement dual-button hover overlay for product cards`
+
+---
+**Processing Status:** **In Progress**
