@@ -548,3 +548,32 @@ The "職人へのご相談 — CONSULTATION" button on the Craftsmanship page ha
 ---
 **Status:** **Home Product Grid Reorganization Complete.**
 The featured products section on the home page has been completely redesigned. It now features a 3-column responsive grid (collapsing to 1 column on mobile) that showcases all 3 main products: The Standard Table, The V-Leg Compact, and The High-Leg Counter. Each product card includes high-quality image displays with hover zoom, staggered reveal animations, and direct "Add to Cart" and "View Details" actions. The design maintains the brand's dark, premium aesthetic while significantly improving conversion potential and user experience.
+
+---
+
+# KamaKraft Action Transcript: Home Product Grid Localization
+**Date:** 2026-04-22 09:31 (JST)
+**Task:** Converting English labels on product cards to Japanese for better local usability
+
+## 1. User Instructions & Correct Definition
+- **URL:** http://localhost:3001 (Home)
+- **Requirement:** Change English labels in the product grid to Japanese.
+- **Approved Mappings:**
+  - `TAX INCL.` -> `（税込）`
+  - `VIEW DETAILS` -> `詳細を見る`
+  - `Add to Cart` -> `カートに入れる`
+  - `ADDED` -> `追加しました`
+  - `Added to Cart` (Toast) -> `カートに追加しました`
+
+## 2. Change Details
+- **Target:** `src/components/FeaturedProduct.tsx`
+- **Modifications:**
+  - Update all text labels within the product cards and toast notification to Japanese counterparts.
+  - Maintain the existing premium typography and spacing.
+
+## 3. Safety Execution
+- **Physical Backup:** `logs/backups/FeaturedProduct.tsx.bak_20260422_0931`
+- **Pre-commit:** `pre: [home] localize featured product labels to Japanese`
+
+---
+**Processing Status:** **In Progress**
