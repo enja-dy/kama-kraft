@@ -1102,3 +1102,24 @@ The "All-Weather" section of the Ulin Charms component now features an elegant, 
 ---
 **Status:** **Featured Product Hover Precision Refinement Complete.**
 The hover trigger for the quick-action overlay (Detail / Add to Cart) in the `FeaturedProduct` component has been successfully restricted to the product image only. This was achieved by relocating the `group` class from the global card container to the specific image container, ensuring that lower-card interactions (price, permanent buttons) do not trigger image-based UI overlays.
+
+---
+
+# KamaKraft Action Transcript: Footer SNS Link Cleanup
+**Date:** 2026-04-22 12:44 (JST)
+**Task:** Removing pending SNS links from the footer to maintain brand integrity
+
+## 1. User Instructions & Decision
+- **Requirement:** Remove Instagram and X (Twitter) links from the footer.
+- **Reason:** Official accounts are not yet established.
+- **Strategy:** Eschew "share" buttons in the footer to preserve a minimalist, premium aesthetic. Share functionality is better suited for product/journal pages.
+
+## 2. Technical Plan
+- **Target:** `src/components/Footer.tsx`.
+- **Modification:** Remove the SNS link array and its corresponding rendering block.
+
+## 3. Safety Execution
+- **Pre-commit:** `pre: [ui] remove pending SNS links from footer`
+
+---
+**Processing Status:** **In Progress**
