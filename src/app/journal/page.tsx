@@ -11,7 +11,7 @@ const articles = [
     title: "「鉄の木」ウリンの驚愕の耐久性とは？100年腐らない理由を徹底検証",
     date: "2024.04.22",
     category: "ウリン豆知識",
-    thumbnail: "/product-urin-all-weather-master.png"
+    thumbnail: "/journal/why-ulin-durability.png"
   },
   {
     slug: "ulin-aging-silver-gray-guide",
