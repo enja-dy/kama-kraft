@@ -667,6 +667,32 @@ The hover overlay on the homepage product cards has been fully restored as per t
 
 ---
 
+# KamaKraft Action Transcript: Home Product Card Overlay Button Text Truncation Fix
+**Date:** 2026-04-22 09:45 (JST)
+**Task:** Correcting the "Cart" button text in the overlay from "カートに" to "カートに入れる"
+
+## 1. User Instructions & Correct Definition
+- **Requirement:** 
+  - Fix the truncated text in the image hover overlay. 
+  - Current: "カートに"
+  - Goal: "カートに入れる"
+- **Incident Report:** User noticed and flagged the incomplete text in the overlay button.
+
+## 2. Change Details
+- **Target:** `src/components/FeaturedProduct.tsx`
+- **Modifications:**
+  - Update the overlay button's span content to "カートに入れる".
+  - Optimize the `tracking` and `text-size` to ensure fit within the `flex-1` button container.
+
+## 3. Safety Execution
+- **Physical Backup:** `logs/backups/FeaturedProduct.tsx.bak_20260422_0945`
+- **Pre-commit:** `pre: [home] fix product card overlay button text truncation`
+
+---
+**Processing Status:** **In Progress**
+
+---
+
 # KamaKraft Action Transcript: Home Product Card Permanent Dual Buttons Implementation
 **Date:** 2026-04-22 09:40 (JST)
 **Task:** Moving "Detail" and "Cart" buttons from the hover overlay to a permanent position below the price
