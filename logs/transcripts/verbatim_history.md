@@ -217,3 +217,8 @@
 **USER:** 添付ですが、なんか実験ぽくてダメです。 もっと自然の中でイメージしてください。
 
 **RESPONSE:** (Apologized for the sterile laboratory aesthetic. Pivoted to a cinematic 'Natural Submerged' concept: a massive Ulin beam at the bottom of a clear tropical stream. This visually proves density (sinking) while reinforcing the brand's harmony with nature. Updated Article 1 accordingly.)
+
+## [Request 44]
+**USER:** 添付の記事ページですが、記事一覧ページに戻れるところありますか？ なければ最適な場所は？
+
+**RESPONSE:** (Acknowledged that the existing back link was only at the footer. Implemented a conspicuous but minimalist 'BACK TO JOURNAL' link at the top-left of the hero section to improve navigation without compromising the premium aesthetic.)
