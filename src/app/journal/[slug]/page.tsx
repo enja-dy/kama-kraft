@@ -51,14 +51,18 @@ interface ArticleData {
   sections: Section[];
 }
 
-// Utility to handle responsive line breaks
-const ResponsiveText = ({ text, className }: { text: string; className?: string }) => {
+// プレミアム・タイポグラフィ・システム
+// ルール: 
+// 1. タイトルは 意味の切れ目でのみ \n を許容し、text-wrap: balance で美しく分散
+// 2. 本文は 原則 \n を使用せず、text-wrap: pretty でブラウザに最適な改行を任せる
+// 3. コンテナ幅を制限することで、デスクトップでも読みやすい1行の長さを維持
+const ResponsiveText = ({ text, className, isTitle = false }: { text: string; className?: string; isTitle?: boolean }) => {
   return (
-    <span className={className}>
+    <span className={`${className} ${isTitle ? 'text-wrap-balance' : 'text-wrap-pretty'}`}>
       {text.split('\n').map((line, i) => (
         <span key={i}>
           {line}
-          {i < text.split('\n').length - 1 && <br className="hidden md:block" />}
+          {i < text.split('\n').length - 1 && <br className={isTitle ? "hidden md:block" : "mb-4 block content-['']"} />}
         </span>
       ))}
     </span>
@@ -69,7 +73,7 @@ const ResponsiveText = ({ text, className }: { text: string; className?: string 
 const AccentTitle = ({ title, accent, className }: { title: string; accent?: string; className?: string }) => {
   const lines = title.split('\n');
   return (
-    <h3 className={className}>
+    <h3 className={`${className} text-wrap-balance`}>
       {lines.map((line, li) => {
         if (accent && line.includes(accent)) {
           const parts = line.split(accent);
@@ -104,12 +108,14 @@ const ARTICLES: Record<string, ArticleData> = {
     heroImage: "/journal/why-ulin-durability-v2.png",
     publishDate: "2026.04.22",
     category: "ウリン豆知識",
-    introTitle: "数十年、数百年という時間の試練に耐え、\nなお美しく在り続ける「鉄の木」。",
+    introTitle: "数十年、数百年という時間の試練に耐え、なお美しく在り続ける「鉄の木」。",
     introContent: "世界には数多の木材が存在しますが、ボルネオ島原産の「ウリン（別名アイアンウッド）」ほど、その類まれなる耐久性で職人や建築家を魅了し続けてきた木材はありません。\n\n海水に浸かっても、激しいスコールに晒されても、シロアリが猛威を振るっても。ウリンはなぜ、これほどまでに頑強なのか。本稿では、その驚異的な生命力の裏側に隠された科学的根拠を解き明かします。",
     sections: [
       {
         title: "水に沈む圧倒的な「比重1.0」の壁",
-        content: `一般的な木材の多くは水に浮きますが、ウリンは違います。その比重は1.0を超え、\n水に投げ入れれば静かに底へ沈んでいきます。\n\nこの極めて高い密度は、木材組織の中に空隙（隙間）がほとんど存在しないことを意味します。\nこれにより、腐朽菌の温床となる水分や、害虫の侵入を徹底的に拒絶するのです。`,
+        content: `一般的な木材の多くは水に浮きますが、ウリンは違います。その比重は1.0を超え、水に投げ入れれば静かに底へ沈んでいきます。
+
+この極めて高い密度は、木材組織の中に空隙（隙間）がほとんど存在しないことを意味します。これにより、腐朽菌の温床となる水分や、害虫の侵入を徹底的に拒絶するのです。`,
         image: "/journal/common/ulin-natural-submerged-v2.png",
         imageAlt: "Ulin Beam Submerged in a Natural Stream",
         icon: Scale,
@@ -121,7 +127,9 @@ const ARTICLES: Record<string, ArticleData> = {
       {
         title: "自律する盾、ポリフェノール",
         accent: "ポリフェノール",
-        content: `物理的な硬さに加え、ウリンには「化学的な鎧」が備わっています。\nそれが大量に含まれる超高濃度のポリフェノールです。\n\nウリン特有の赤褐色はこの成分によるもので、これが天然の防腐剤、防虫剤として機能します。\n施工直後に赤い樹液（アク）が出ることがありますが、これはウリンが周囲の家を守るための\n「自己防御反応」そのものなのです。`,
+        content: `物理的な硬さに加え、ウリンには「化学的な鎧」が備わっています。それが大量に含まれる超高濃度のポリフェノールです。
+
+ウリン特有の赤褐色はこの成分によるもので、これが天然の防腐剤、防虫剤として機能します。施工直後に赤い樹液（アク）が出ることがありますが、これはウリンが周囲の家を守るための「自己防御反応」そのものなのです。`,
         icon: Droplets
       },
       {
@@ -132,12 +140,12 @@ const ARTICLES: Record<string, ArticleData> = {
           { 
             icon: Waves, 
             title: "塩害・水害に対する\n圧倒的な信頼", 
-            text: "潮風に晒される沿岸部のウッドデッキや、常に水に浸かる桟橋。\n他の木材なら数年で朽ち果てる環境でも、ウリンはビクともしません。" 
+            text: "潮風に晒される沿岸部のウッドデッキや、常に水に浸かる桟橋。他の木材なら数年で朽ち果てる環境でも、ウリンはビクともしません。" 
           },
           { 
             icon: BugOff, 
             title: "シロアリも寄り付かない\n天然の拒絶", 
-            text: "木材住宅の最大の敵であるシロアリ。しかし、ポリフェノールを豊富に含み、\n鉄のように硬いウリンの心材を食害することは非常に困難です。" 
+            text: "木材住宅の最大の敵であるシロアリ。しかし、ポリフェノールを豊富に含み、鉄のように硬いウリンの心材を食害することは非常に困難です。" 
           }
         ]
       },
@@ -164,12 +172,16 @@ const ARTICLES: Record<string, ArticleData> = {
     sections: [
       {
         title: "時間の試練を、\n美しさへと昇華させる勇気",
-        content: `多くの木材にとって、雨風に晒されることは「劣化」を意味します。\nしかし、ボルネオの厳しい自然で育まれたウリンにとって、それは「深化（エイジング）」の過程です。\n\n施工直後の瑞々しい赤褐色は、数年の時を経て、高貴な輝きを放つ「シルバーグレー」へと変化します。\nこの変化こそが、ウリンが本物の天然素材である証であり、欧州のプロフェッショナルな\n建築家たちが「一生モノ」の素材としてウリンを熱望する最大の理由なのです。`,
+        content: `多くの木材にとって、雨風に晒されることは「劣化」を意味します。しかし、ボルネオの厳しい自然で育まれたウリンにとって、それは「深化（エイジング）」の過程です。
+
+施工直後の瑞々しい赤褐色は、数年の時を経て、高貴な輝きを放つ「シルバーグレー」へと変化します。この変化こそが、ウリンが本物の天然素材である証であり、欧州のプロフェッショナルな建築家たちが「一生モノ」の素材としてウリンを熱望する最大の理由なのです。`,
         icon: Hourglass
       },
       {
         title: "銀色に輝く科学的メカニズム",
-        content: `なぜウリンはグレーに変わるのか？ それは木の表面に含まれる「リグニン」という成分が\n太陽の紫外線によって分解され、雨水によって洗い流されるからです。\n\n特筆すべきは、この変化が「表面わずか0.1mm程度」の現象であること。\n内部の強靭な構造を維持したまま、表面だけが美しく銀色の衣を纏います。\nこれは、本質的な強さの証明に他なりません。`,
+        content: `なぜウリンはグレーに変わるのか？ それは木の表面に含まれる「リグニン」という成分が太陽の紫外線によって分解され、雨水によって洗い流されるからです。
+
+特筆すべきは、この変化が「表面わずか0.1mm程度」の現象であること。内部の強靭な構造を維持したまま、表面だけが美しく銀色の衣を纏います。これは、本質的な強さの証明に他なりません。`,
         image: "/journal/common/ulin-aged-macro.png",
         imageAlt: "Aged Ulin Silver Gray Texture",
         icon: Sun,
@@ -180,7 +192,9 @@ const ARTICLES: Record<string, ArticleData> = {
       },
       {
         title: "「赤い樹液（アク）」という\n自己防御の証",
-        content: `施工後、数ヶ月の間見られる「赤い樹液（アク）」。\nこれはウリンに含まれる豊富なポリフェノールが水に溶け出したものです。\n\n周囲のコンクリートや壁を汚してしまうため敬遠されがちですが、\nこれこそがウリンを100年腐らせない「天然の防腐剤」です。\nアクが出尽くした頃、ウリンの表面は安定期に入り、シルバーグレーへの第一歩を踏み出します。`,
+        content: `施工後、数ヶ月の間見られる「赤い樹液（アク）」。これはウリンに含まれる豊富なポリフェノールが水に溶け出したものです。
+
+周囲のコンクリートや壁を汚してしまうため敬遠されがちですが、これこそがウリンを100年腐らせない「天然の防腐剤」です。アクが出尽くした頃、ウリンの表面は安定期に入り、シルバーグレーへの第一歩を踏み出します。`,
         icon: Droplets,
       },
       {
@@ -196,7 +210,9 @@ const ARTICLES: Record<string, ArticleData> = {
       },
       {
         title: "美しさを継承する、\n大人のメンテナンス儀礼",
-        content: `ウリンはメンテナンス・フリーと言われますが、適切な「手入れ」は木にさらなる品格を与えます。\n\nシルバーグレーをそのまま愉しむなら、年に一度の高圧洗浄だけで十分です。\nもし、あの施工直後の赤褐色を取り戻したいのであれば、表面を軽くサンディングしてください。\n驚くほど鮮やかな「本来の色」が、時を超えて再び顔を出します。`,
+        content: `ウリンはメンテナンス・フリーと言われますが、適切な「手入れ」は木にさらなる品格を与えます。
+
+シルバーグレーをそのまま愉しむなら、年に一度の高圧洗浄だけで十分です。もし、あの施工直後の赤褐色を取り戻したいのであれば、表面を軽くサンディングしてください。驚くほど鮮やかな「本来の色」が、時を超えて再び顔を出します。`,
         icon: Wand2,
         items: [
           { icon: Sparkles, text: "中性洗剤とデッキブラシで表面を清掃。" },
@@ -268,7 +284,7 @@ export default function ArticlePage({ params: paramsPromise }: { params: Promise
               {article.titleEn}
             </span>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extralight tracking-tight leading-tight">
-              <ResponsiveText text={article.title} />
+              <ResponsiveText text={article.title} isTitle />
             </h1>
             <p className="text-white/40 text-sm md:text-base tracking-[0.2em] font-medium pt-4">
               {article.subtitle}
@@ -290,16 +306,16 @@ export default function ArticlePage({ params: paramsPromise }: { params: Promise
 
       {/* Intro Section */}
       {article.introTitle && (
-        <section className="max-w-3xl mx-auto px-6 py-24 md:py-40 text-center md:text-left">
+        <section className="max-w-3xl mx-auto px-6 py-24 md:py-40 text-left">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="space-y-12"
+            className="space-y-12 flex flex-col items-start text-left"
           >
             <div className="space-y-6">
               <h2 className="text-2xl md:text-4xl font-extralight tracking-wide md:border-l border-white/20 md:pl-8 leading-relaxed">
-                <ResponsiveText text={article.introTitle} />
+                <ResponsiveText text={article.introTitle} isTitle />
               </h2>
               <div className="text-base md:text-lg leading-loose text-white/70 space-y-6">
                 {article.introContent?.split('\n\n').map((para, i) => (
@@ -399,10 +415,10 @@ export default function ArticlePage({ params: paramsPromise }: { params: Promise
                     <AccentTitle 
                       title={section.title} 
                       accent={section.accent} 
-                      className={`text-3xl md:text-5xl font-extralight tracking-wider leading-tight ${!section.image ? 'text-center' : ''}`} 
+                      className={`text-3xl md:text-5xl font-extralight tracking-wider leading-tight ${section.image ? 'text-left md:text-left' : 'text-center'}`} 
                     />
 
-                    <div className={`text-white/60 leading-loose text-lg space-y-6 ${!section.image ? 'text-center' : ''}`}>
+                    <div className={`text-white/60 leading-loose text-lg space-y-8 ${section.image ? 'text-left max-w-xl' : 'text-center max-w-2xl mx-auto'}`}>
                       {section.content?.toString().split('\n\n').map((para, pidx) => (
                         <p key={pidx}><ResponsiveText text={para} /></p>
                       ))}
