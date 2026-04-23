@@ -344,19 +344,22 @@ export default function ArticlePage({ params: paramsPromise }: { params: Promise
               className={`py-32 md:py-48 ${index % 2 === 1 ? 'bg-white/[0.02]' : ''}`}
             >
               <div className="max-w-7xl mx-auto px-6">
-                <div className={`grid grid-cols-1 lg:grid-cols-2 gap-20 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+                <div className={section.image 
+                  ? `grid grid-cols-1 lg:grid-cols-2 gap-20 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`
+                  : `max-w-4xl mx-auto text-center flex flex-col items-center`
+                }>
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
-                    className="space-y-8"
+                    className={section.image ? "space-y-8" : "space-y-12"}
                   >
                     {section.icon && (
-                      <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center">
+                      <div className={`w-16 h-16 rounded-full bg-white/5 flex items-center justify-center ${!section.image ? 'mx-auto' : ''}`}>
                         <section.icon className="text-white/40" size={32} />
                       </div>
                     )}
-                    <h3 className="text-3xl md:text-4xl font-extralight tracking-wider leading-snug">
+                    <h3 className={`text-3xl md:text-4xl font-extralight tracking-wider leading-snug ${!section.image ? 'md:text-5xl' : ''}`}>
                       {section.accent ? (
                         <>
                           {section.title.split(section.accent)[0]}
@@ -369,14 +372,14 @@ export default function ArticlePage({ params: paramsPromise }: { params: Promise
                         section.title
                       )}
                     </h3>
-                    <div className="text-white/60 leading-loose text-lg space-y-6">
+                    <div className={`text-white/60 leading-loose text-lg space-y-6 ${!section.image ? 'text-center' : ''}`}>
                       {section.content?.toString().split('\n\n').map((para, pidx) => (
                         <p key={pidx}>{para}</p>
                       ))}
                     </div>
                     
                     {section.items && (
-                      <ul className="space-y-4 pt-6">
+                      <ul className={`space-y-4 pt-6 ${!section.image ? 'flex flex-col items-center' : ''}`}>
                         {section.items.map((item, i) => (
                           <motion.li
                             key={i}
