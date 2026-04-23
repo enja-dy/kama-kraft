@@ -15,7 +15,7 @@ import {
   Sun,
   Clock,
   Sparkles,
-  Sandglass,
+  Hourglass,
   FileText,
   CloudRain,
   Wand2
@@ -87,7 +87,7 @@ const ARTICLES: Record<string, ArticleData> = {
       {
         title: "時間の試練を、美しさへと昇華させる勇気",
         content: `多くの木材にとって、雨風に晒されることは「劣化」を意味します。しかし、ボルネオの厳しい自然で育まれたウリンにとって、それは「深化（エイジング）」の過程です。\n\n施工直後の瑞々しい赤褐色は、数年の時を経て、高貴な輝きを放つ「シルバーグレー」へと変化します。この変化こそが、ウリンが本物の天然素材である証であり、欧州のプロフェッショナルな建築家たちが「一生モノ」の素材としてウリンを熱望する最大の理由なのです。`,
-        icon: Sandglass
+        icon: Hourglass
       },
       {
         title: "銀色に輝く科学的メカニズム",
