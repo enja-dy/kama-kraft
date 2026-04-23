@@ -1415,3 +1415,41 @@ The first major legacy article is now live with high-end visual storytelling.
 
 ## 3. Safety Execution
 - **Layout Commit:** `step: [ui] optimize editorial balance for text-only sections`
+
+# KamaKraft Action Transcript: Editorial Design Excellence (Layout Balance)
+**Date:** 2026-04-23 16:46 (JST)
+**Task:** Centering image-free sections for improved visual balance
+
+## 1. UX Improvement
+- **Issue:** 2-column grid was leaving large empty spaces on the right for text-only sections.
+- **Solution:** Switched to a single-column `max-w-4xl` centered layout for all image-free sections.
+- **Result:** Improved focus, readability, and a more "premium magazine" editorial feel.
+
+## 2. Responsive Stability
+- **Mobile:** Maintained existing clean stacks.
+- **PC/Tablet:** Icons and titles are now beautifully centered, creating symmetrical visual weight.
+
+## 3. Safety Execution
+- **Layout Commit:** `step: [ui] optimize editorial balance for text-only sections`
+
+---
+
+# KamaKraft Action Transcript: Editorial Refinement (Responsive Typography)
+**Date:** 2026-04-23 16:51 (JST)
+**Task:** Implementing professional line breaks for PC/Tablet
+
+## 1. Design Logic
+- **Constraint:** Titles and paragraphs needed manual break control to prevent orphan words on large screens, without breaking mobile flow.
+- **Solution:** Created a `ResponsiveText` component that maps `\n` to `<br className="hidden md:block" />`.
+- **Polish:** Manually adjusted all headings and major paragraphs for both curated articles.
+
+## 2. Technical Stability
+- **Universal Support:** The logic is integrated directly into the `ArticlePage` template, ensuring all future articles inherit this capability.
+- **Visual Integrity:** Lowercase `Hourglass` icon and other assets verified as stable.
+
+## 3. Safety Execution
+- **Typography Commit:** `a9e6e1e` - "step: [ui] implement responsive line breaks and optimize typography for Article 1 & 2"
+
+---
+**Status:** **Dual-Article Production Environment Stabilized.**
+Both specialized journal entries have been verified for content integrity and visual excellence.
