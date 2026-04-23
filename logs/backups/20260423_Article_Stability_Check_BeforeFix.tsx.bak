@@ -1,0 +1,368 @@
+"use client";
+
+import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { 
+  ChevronLeft, 
+  ShieldCheck, 
+  Waves, 
+  BugOff, 
+  Microscope, 
+  Scale, 
+  History,
+  Droplets,
+  Sun,
+  Clock,
+  Sparkles,
+  Hourglass,
+  FileText,
+  CloudRain,
+  Wand2
+} from "lucide-react";
+
+import { use } from "react";
+
+// Types for Article Content
+interface Section {
+  title: string;
+  subtitle?: string;
+  content: string | React.ReactNode;
+  image?: string;
+  imageAlt?: string;
+  icon?: any;
+  items?: { icon: any; text: string }[];
+  accent?: string;
+}
+
+interface ArticleData {
+  slug: string;
+  title: string;
+  titleEn: string;
+  subtitle: string;
+  heroImage: string;
+  publishDate: string;
+  category: string;
+  sections: Section[];
+}
+
+const ARTICLES: Record<string, ArticleData> = {
+  "why-ulin-durability-100-years": {
+    slug: "why-ulin-durability-100-years",
+    title: "「鉄の木」ウリンの驚愕の耐久性とは？",
+    titleEn: "The Legend of Ironwood",
+    subtitle: "100年腐らない理由を科学の視点で徹底検証",
+    heroImage: "/journal/why-ulin-durability-v2.png",
+    publishDate: "2026.04.22",
+    category: "ウリン豆知識",
+    sections: [
+      {
+        title: "水に沈む圧倒的な「比重1.0」の壁",
+        content: `一般的な木材の多くは水に浮きますが、ウリンは違います。その比重は1.0を超え、水に投げ入れれば静かに底へ沈んでいきます。\n\nこの極めて高い密度は、木材組織の中に空隙（隙間）がほとんど存在しないことを意味します。これにより、腐朽菌の温床となる水分や、物理的に食い荒らそうとする害虫の侵入を徹底的に拒絶するのです。`,
+        image: "/journal/common/ulin-natural-submerged-v2.png",
+        imageAlt: "Ulin Beam Submerged in a Natural Stream",
+        icon: Scale,
+        items: [
+          { icon: ShieldCheck, text: "表面硬度は超高硬度。傷を寄せ付けない強さ。" },
+          { icon: Microscope, text: "電子顕微鏡レベルで詰まった細胞組織。" }
+        ]
+      },
+      {
+        title: "自律する盾、ポリフェノール",
+        accent: "ポリフェノール",
+        content: `物理的な硬さに加え、ウリンには「化学的な鎧」が備わっています。それが大量に含まれる超高濃度のポリフェノールです。\n\nウリン特有の赤褐色はこの成分によるもので、これが天然の防腐剤、防虫剤として機能します。施工直後に赤い樹液（アク）が出ることがありますが、これはウリンが周囲の環境から自らを護るための「自己防御反応」そのものなのです。`,
+        icon: Droplets
+      }
+    ]
+  },
+  "ulin-aging-silver-gray-guide": {
+    slug: "ulin-aging-silver-gray-guide",
+    title: "赤褐色から銀色へ。ウリンの経年変化が描く、時を刻む美学",
+    titleEn: "The Aesthetics of Aging",
+    subtitle: "シルバーグレーの気高さと、その美しさを維持するための完全ガイド",
+    heroImage: "/journal/ulin-aging-guide.png",
+    publishDate: "2026.04.18",
+    category: "ウリン豆知識",
+    sections: [
+      {
+        title: "時間の試練を、美しさへと昇華させる勇気",
+        content: `多くの木材にとって、雨風に晒されることは「劣化」を意味します。しかし、ボルネオの厳しい自然で育まれたウリンにとって、それは「深化（エイジング）」の過程です。\n\n施工直後の瑞々しい赤褐色は、数年の時を経て、高貴な輝きを放つ「シルバーグレー」へと変化します。この変化こそが、ウリンが本物の天然素材である証であり、欧州のプロフェッショナルな建築家たちが「一生モノ」の素材としてウリンを熱望する最大の理由なのです。`,
+        icon: Hourglass
+      },
+      {
+        title: "銀色に輝く科学的メカニズム",
+        content: `なぜウリンはグレーに変わるのか？ それは木の表面に含まれる「リグニン」という成分が太陽の紫外線によって分解され、雨水によって洗い流されるからです。\n\n特筆すべきは、この変化が「表面わずか0.1mm程度」の現象であること。ソフトウッドがグレーに変わる際は内部まで腐食が進んでいることが多いですが、密度1.0を超えるウリンは、内部の強靭な構造を維持したまま、表面だけが美しく銀色の衣を纏います。これは、ダイヤモンドが表面の汚れを落とせば輝きを取り戻すのと似た、本質的な強さの証明です。`,
+        image: "/journal/common/ulin-aged-macro.png",
+        imageAlt: "Aged Ulin Silver Gray Texture",
+        icon: Sun,
+        items: [
+          { icon: CloudRain, text: "雨と光が織りなす、天然のパティナ（古色）。" },
+          { icon: History, text: "30年経っても変わらない内部強度。" }
+        ]
+      },
+      {
+        title: "「赤い樹液（アク）」という自己防御の証",
+        content: `施工後、数ヶ月の間見られる「赤い樹液（アク）」。これはウリンに含まれる豊富なポリフェノールが水に溶け出したものです。\n\n周囲のコンクリートや壁を汚してしまうため敬遠されがちですが、これこそがウリンを100年腐らせない「天然の防腐剤」です。アクが出尽くした頃、ウリンの表面は安定期に入り、あの美しいシルバーグレーへの第一歩を踏み出します。`,
+        icon: Droplets,
+      },
+      {
+        title: "美しさを継承する、大人のメンテナンス儀礼",
+        content: `ウリンはメンテナンス・フリーと言われますが、適切な「手入れ」は木にさらなる品格を与えます。\n\nシルバーグレーをそのまま愉しむなら、年に一度の高圧洗浄だけで十分です。もし、あの施工直後の赤褐色を取り戻したいのであれば、表面を軽くサンディングしてください。驚くほど鮮やかな「本来の色」が、時を超えて再び顔を出します。これを繰り返すことで、ウリンは世代を超えて受け継がれる「資産」へと昇華するのです。`,
+        icon: Wand2,
+        items: [
+          { icon: Sparkles, text: "中性洗剤とデッキブラシで表面を清掃。" },
+          { icon: Clock, text: "数年に一度のサンディングで色を再生。" }
+        ]
+      }
+    ]
+  }
+};
+
+export default function ArticlePage({ params: paramsPromise }: { params: Promise<{ slug: string }> }) {
+  const params = use(paramsPromise);
+  const { scrollYProgress } = useScroll();
+  const opacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.1], [1, 1.05]);
+
+  const article = ARTICLES[params.slug];
+
+  if (!article) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center text-white">
+        <div className="text-center space-y-4">
+          <p className="text-white/40">記事の準備中です。</p>
+          <Link href="/journal" className="text-sm underline">ジャーナル一覧に戻る</Link>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="bg-[#050505] min-h-screen text-white/90 font-light overflow-x-hidden selection:bg-white selection:text-black">
+      {/* Hero Section */}
+      <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
+        <motion.div style={{ scale }} className="absolute inset-0 z-0">
+          <Image
+            src={article.heroImage}
+            alt={article.title}
+            fill
+            className="object-cover opacity-60"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#050505]" />
+        </motion.div>
+
+        {/* Floating Top Nav */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+          className="absolute top-24 left-6 md:left-10 z-20"
+        >
+          <Link 
+            href="/journal" 
+            className="flex items-center gap-2 text-[10px] font-bold tracking-[0.3em] text-white/40 hover:text-white transition-colors group uppercase"
+          >
+            <ChevronLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
+            ジャーナル一覧に戻る
+          </Link>
+        </motion.div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="space-y-4 text-balance"
+          >
+            <span className="text-[10px] md:text-xs font-bold tracking-[0.6em] text-white/40 uppercase block">
+              {article.titleEn}
+            </span>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extralight tracking-tight leading-tight">
+              {article.title.includes("驚愕") ? (
+                <>「鉄の木」ウリンの<br /><span className="text-white">驚愕の耐久性とは？</span></>
+              ) : (
+                article.title
+              )}
+            </h1>
+            <p className="text-white/40 text-sm md:text-base tracking-[0.2em] font-medium pt-4">
+              {article.subtitle}
+            </p>
+          </motion.div>
+          
+          <motion.div
+            initial={{ height: 0 }}
+            animate={{ height: "80px" }}
+            transition={{ delay: 1, duration: 1.5 }}
+            className="w-px bg-gradient-to-b from-white/40 to-transparent mx-auto"
+          />
+        </div>
+
+        <motion.div style={{ opacity }} className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.4em] text-white/20 uppercase">
+          スクロールして読み進める
+        </motion.div>
+      </section>
+
+      {/* Main Content */}
+      <div className="relative">
+        {article.sections.map((section, index) => (
+          <section 
+            key={index} 
+            className={`py-32 md:py-48 ${index % 2 === 1 ? 'bg-white/[0.02]' : ''}`}
+          >
+            <div className="max-w-7xl mx-auto px-6">
+              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-20 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+                {/* Text Content */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  className="space-y-8"
+                >
+                  {section.icon && (
+                    <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center">
+                      <section.icon className="text-white/40" size={32} />
+                    </div>
+                  )}
+                  <h3 className="text-3xl md:text-4xl font-extralight tracking-wider leading-snug">
+                    {section.accent ? (
+                      <>
+                        {section.title.split(section.accent)[0]}
+                        <span className="font-medium text-white italic underline decoration-white/20 underline-offset-8">
+                          {section.accent}
+                        </span>
+                        {section.title.split(section.accent)[1]}
+                      </>
+                    ) : (
+                      section.title
+                    )}
+                  </h3>
+                  <div className="text-white/60 leading-loose text-lg space-y-6">
+                    {section.content.toString().split('\n\n').map((para, pidx) => (
+                      <p key={pidx}>{para}</p>
+                    ))}
+                  </div>
+                  
+                  {section.items && (
+                    <ul className="space-y-4 pt-6">
+                      {section.items.map((item, i) => (
+                        <motion.li
+                          key={i}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: i * 0.2 }}
+                          className="flex items-center gap-4 text-sm text-white/80"
+                        >
+                          <item.icon size={18} className="text-white/40" />
+                          {item.text}
+                        </motion.li>
+                      ))}
+                    </ul>
+                  )}
+                </motion.div>
+
+                {/* Optional Image */}
+                {section.image && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    className="relative aspect-square rounded-sm overflow-hidden border border-white/5 order-first lg:order-none"
+                  >
+                    <Image
+                      src={section.image}
+                      alt={section.imageAlt || ""}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  </motion.div>
+                )}
+              </div>
+            </div>
+          </section>
+        ))}
+      </div>
+
+      {/* Sap (Aku) Cleanup Guide Table - Special for Article 2 */}
+      {params.slug === "ulin-aging-silver-gray-guide" && (
+        <section className="py-32 md:py-48 max-w-5xl mx-auto px-6 overflow-x-auto">
+          <div className="text-center space-y-6 mb-16">
+            <h3 className="text-center text-2xl font-light tracking-[0.2em]">ウリンのアク抜き・洗浄ガイド</h3>
+            <p className="text-white/40 text-sm">コンクリートや壁面の汚れへの対処法</p>
+          </div>
+          <table className="w-full border-collapse">
+            <thead>
+              <tr className="border-b border-white/10 text-[10px] tracking-[0.2em] font-bold text-white/40 uppercase">
+                <th className="py-6 text-left">状況</th>
+                <th className="py-6 px-4 text-center">推奨される方法</th>
+                <th className="py-6 px-4 text-center">必要なツール</th>
+                <th className="py-6 px-4 text-center">難易度</th>
+              </tr>
+            </thead>
+            <tbody className="text-sm font-light">
+              {[
+                { case: "施工直後の軽微な汚れ", method: "水洗い（高圧洗浄）", tools: "デッキブラシ・ホース", level: "★☆☆" },
+                { case: "時間が経った黒ずみ", method: "アルカリ性洗剤＋漂白", tools: "重曹・木材専用洗剤", level: "★★☆" },
+                { case: "コンクリートへの沈着", method: "サンポール（希塩酸）洗浄", tools: "専用クリーナー・防護具", level: "★★★" },
+                { case: "予防対策", method: "アルミ水切り・浸透性塗料", tools: "設計時の工夫", level: "-" }
+              ].map((row, i) => (
+                <tr key={i} className="border-b border-white/5 group hover:bg-white/[0.02] transition-colors">
+                  <td className="py-8 font-medium text-white/40">{row.case}</td>
+                  <td className="py-8 px-4 text-center text-white">{row.method}</td>
+                  <td className="py-8 px-4 text-center text-white/60">{row.tools}</td>
+                  <td className="py-8 px-4 text-center text-white/40">{row.level}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+      )}
+
+      {/* Sustainable Legacy / CTA */}
+      <section className="py-32 md:py-60 relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={article.heroImage}
+            alt="Durability BG"
+            fill
+            className="object-cover opacity-10 grayscale"
+          />
+        </div>
+        <div className="max-w-4xl mx-auto px-6 relative z-10 text-center space-y-12">
+          <History size={48} className="mx-auto text-white/20" />
+          <h3 className="text-3xl md:text-6xl font-extralight tracking-tight leading-tight">
+            100年後も愛される、<br />
+            <span className="text-white">一生モノという贅沢。</span>
+          </h3>
+          <p className="text-lg md:text-xl text-white/60 leading-loose max-w-2xl mx-auto">
+            私たちの家具が「一生モノ」を自負するのは、ウリンという素材が持つ永遠に近い時間に裏打ちされているからです。
+            <br /><br />
+            使い捨ての消費文化から脱却し、世代を超えて受け継がれる価値を持つ家具。KamaKraftは、大自然の恩恵である「鉄の木」を、最高峰の工芸技術によってあなたの日常へと繋ぎます。
+          </p>
+          <div className="pt-12">
+            <Link 
+              href="/products" 
+              className="inline-block border border-white/80 text-xs font-bold tracking-[0.4em] px-12 py-6 hover:bg-white hover:text-black transition-all uppercase"
+            >
+              コレクションを見る
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer Nav */}
+      <div className="max-w-7xl mx-auto px-6 py-20 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10">
+        <Link href="/journal" className="flex items-center gap-4 text-xs font-bold tracking-widest text-white/40 hover:text-white transition-colors group uppercase">
+          <ChevronLeft size={16} className="group-hover:-translate-x-2 transition-transform" />
+          ジャーナル一覧を見る
+        </Link>
+        <div className="flex flex-col md:flex-row gap-6 md:gap-10 text-[10px] tracking-[0.2em] font-bold text-white/20 uppercase text-center">
+          <span>公開日 {article.publishDate}</span>
+          <span>カテゴリー: {article.category}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
