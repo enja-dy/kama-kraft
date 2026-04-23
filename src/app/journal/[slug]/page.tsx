@@ -108,8 +108,8 @@ const ARTICLES: Record<string, ArticleData> = {
     introContent: "世界には数多の木材が存在しますが、ボルネオ島原産の「ウリン（別名アイアンウッド）」ほど、その類まれなる耐久性で職人や建築家を魅了し続けてきた木材はありません。\n\n海水に浸かっても、激しいスコールに晒されても、シロアリが猛威を振るっても。ウリンはなぜ、これほどまでに頑強なのか。本稿では、その驚異的な生命力の裏側に隠された科学的根拠を解き明かします。",
     sections: [
       {
-        title: "水に沈む圧倒的な\n「比重1.0」の壁",
-        content: `一般的な木材の多くは水に浮きますが、ウリンは違います。その比重は1.0を超え、\n水に投げ入れれば静かに底へ沈んでいきます。\n\nこの極めて高い密度は、木材組織の中に空隙（隙間）がほとんど存在しないことを意味します。\nこれにより、腐朽菌の温床となる水分や、物理的に食い荒らそうとする害虫の侵入を徹底的に拒絶するのです。`,
+        title: "水に沈む圧倒的な「比重1.0」の壁",
+        content: `一般的な木材の多くは水に浮きますが、ウリンは違います。その比重は1.0を超え、\n水に投げ入れれば静かに底へ沈んでいきます。\n\nこの極めて高い密度は、木材組織の中に空隙（隙間）がほとんど存在しないことを意味します。\nこれにより、腐朽菌の温床となる水分や、害虫の侵入を徹底的に拒絶するのです。`,
         image: "/journal/common/ulin-natural-submerged-v2.png",
         imageAlt: "Ulin Beam Submerged in a Natural Stream",
         icon: Scale,
@@ -121,7 +121,7 @@ const ARTICLES: Record<string, ArticleData> = {
       {
         title: "自律する盾、ポリフェノール",
         accent: "ポリフェノール",
-        content: `物理的な硬さに加え、ウリンには「化学的な鎧」が備わっています。\nそれが大量に含まれる超高濃度のポリフェノールです。\n\nウリン特有の赤褐色はこの成分によるもので、これが天然の防腐剤、防虫剤として機能します。\n施工直後に赤い樹液（アク）が出ることがありますが、これはウリンが周囲の環境から自らを護るための\n「自己防御反応」そのものなのです。`,
+        content: `物理的な硬さに加え、ウリンには「化学的な鎧」が備わっています。\nそれが大量に含まれる超高濃度のポリフェノールです。\n\nウリン特有の赤褐色はこの成分によるもので、これが天然の防腐剤、防虫剤として機能します。\n施工直後に赤い樹液（アク）が出ることがありますが、これはウリンが周囲の家を守るための\n「自己防御反応」そのものなのです。`,
         icon: Droplets
       },
       {
@@ -168,7 +168,7 @@ const ARTICLES: Record<string, ArticleData> = {
         icon: Hourglass
       },
       {
-        title: "銀色に輝く\n科学的メカニズム",
+        title: "銀色に輝く科学的メカニズム",
         content: `なぜウリンはグレーに変わるのか？ それは木の表面に含まれる「リグニン」という成分が\n太陽の紫外線によって分解され、雨水によって洗い流されるからです。\n\n特筆すべきは、この変化が「表面わずか0.1mm程度」の現象であること。\n内部の強靭な構造を維持したまま、表面だけが美しく銀色の衣を纏います。\nこれは、本質的な強さの証明に他なりません。`,
         image: "/journal/common/ulin-aged-macro.png",
         imageAlt: "Aged Ulin Silver Gray Texture",
@@ -334,7 +334,7 @@ export default function ArticlePage({ params: paramsPromise }: { params: Promise
                       >
                         <card.icon size={32} className="text-white/40 group-hover:text-white transition-colors" />
                         <h4 className="text-xl font-medium tracking-wide text-white"><ResponsiveText text={card.title} /></h4>
-                        <p className="text-white/50 leading-relaxed font-light"><ResponsiveText text={card.text} /></p>
+                        <p className="text-white/50 circle leading-relaxed font-light"><ResponsiveText text={card.text} /></p>
                       </motion.div>
                     ))}
                   </div>
