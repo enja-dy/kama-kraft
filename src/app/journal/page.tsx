@@ -18,7 +18,7 @@ const articles = [
     title: "ウリン材の経年変化完全ガイド：赤褐色から美しいシルバーグレーへ変わる過程と維持のコツ",
     date: "2026.04.18",
     category: "ウリン豆知識",
-    thumbnail: "/maint-2.png"
+    thumbnail: "/journal/ulin-aging-guide.png"
   },
   {
     slug: "strongest-wood-salt-damage-termites",

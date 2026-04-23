@@ -1329,5 +1329,22 @@ The first major legacy article is now live with high-end visual storytelling.
 - **Localization Commit:** `step: [ui] fully localize article UI to Japanese`
 
 ---
-**Status:** **Article 1 Full Content & UI Finalized.**
-The article is now fully localized, stable, and visually polished for the Japanese audience.
+
+# KamaKraft Action Transcript: Journal Article 2 Preparation (Aesthetics)
+**Date:** 2026-04-23 16:18 (JST)
+**Task:** Generating and applying thumbnail for Article 2
+
+## 1. Visual Strategy
+- **Concept:** "The Beauty of Aging." A visual gradient showing Ulin's transition from new reddish-brown to aged silver-gray.
+- **Accuracy:** Ensured the AI output respected the straight grain of *Eusideroxylon zwageri* across all aging stages.
+
+## 2. Technical Execution
+- **Asset path:** `public/journal/ulin-aging-guide.png`
+- **Error Handling:** Resolved a transient 503 Service Unavailable error with a successful retry after 60 seconds.
+
+## 3. Safety Execution
+- **Asset Commit:** `1401c7d` - "step: [assets] add and apply authentic thumbnail for Article 2 (Aging Guide)"
+
+---
+**Status:** **Article 2 Visual Branding Complete.**
+The thumbnail is now correctly displayed in the Archive Hub. Ready for content writing.
