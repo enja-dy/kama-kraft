@@ -1365,6 +1365,22 @@ The first major legacy article is now live with high-end visual storytelling.
 - **Launch Commit:** `2f96b48` - "step: [full] implement Article 2 with rich content and refactored multi-slug architecture"
 
 ---
-**Status:** **Article 2 Official Launch Complete.**
-The journal archive now hosts two world-class expert articles.
-Providing Article 1 (Durability) and Article 2 (Aging) in a consistent, premium framework.
+
+# KamaKraft Action Transcript: System Stability (Build Fix)
+**Date:** 2026-04-23 16:35 (JST)
+**Task:** Resolving icon import error in Article 2 template
+
+## 1. Issue Identified
+- **Error:** `Export Sandglass doesn't exist in target module`.
+- **Cause:** Typo in `lucide-react` import. `Sandglass` was intended to be `Hourglass`.
+
+## 2. Resolution
+- **Code Fix:** Replaced `Sandglass` with `Hourglass` in `src/app/journal/[slug]/page.tsx`.
+- **Validation:** Build error cleared, and icon is now correctly rendered.
+
+## 3. Safety Execution
+- **Stability Commit:** `7789aec` - "step: [fix] complete icon replacement and restore build stability"
+
+---
+**Status:** **Build Stability Restored.**
+Article 2 is now fully functional and error-free.
