@@ -1382,5 +1382,22 @@ The first major legacy article is now live with high-end visual storytelling.
 - **Stability Commit:** `7789aec` - "step: [fix] complete icon replacement and restore build stability"
 
 ---
-**Status:** **Build Stability Restored.**
-Article 2 is now fully functional and error-free.
+
+# KamaKraft Action Transcript: Content Integrity (Article 1 Restoration)
+**Date:** 2026-04-23 16:40 (JST)
+**Task:** Restoring missing Article 1 sections while maintaining new architecture
+
+## 1. Editorial Recovery
+- **Source:** Recovered exact copy and icons from `20260423_Article_MultiSlug_Refactor.tsx.bak`.
+- **Scope:** Re-implemented the Intro, Resilience Cards, Comparison Table, and the "100-year legacy" conclusion.
+
+## 2. Technical Stability
+- **Data Schema:** Enhanced `ArticleData` to support conditional rendering of specialized components (cards/tables).
+- **Quality Assurance:** Both Article 1 and Article 2 now share a robust, expert-level UI framework.
+
+## 3. Safety Execution
+- **Restoration Commit:** `d468d57` - "step: [revert-fix] fully restore Article 1 content and stabilize multi-article rendering"
+
+---
+**Status:** **Dual-Article Production Environment Stabilized.**
+Both specialized journal entries have been verified for content integrity and visual excellence.
