@@ -34,9 +34,7 @@ interface Section {
   icon?: any;
   items?: { icon: any; text: string }[];
   accent?: string;
-  // Specific for cards type
   cards?: { icon: any; title: string, text: string }[];
-  // Specific for table type
   tableData?: { label: string; ulin: string; ipe: string; soft: string; tools?: string; level?: string }[];
 }
 
@@ -53,21 +51,65 @@ interface ArticleData {
   sections: Section[];
 }
 
+// Utility to handle responsive line breaks
+const ResponsiveText = ({ text, className }: { text: string; className?: string }) => {
+  return (
+    <span className={className}>
+      {text.split('\n').map((line, i) => (
+        <span key={i}>
+          {line}
+          {i < text.split('\n').length - 1 && <br className="hidden md:block" />}
+        </span>
+      ))}
+    </span>
+  );
+};
+
+// Modified Title with Accent support
+const AccentTitle = ({ title, accent, className }: { title: string; accent?: string; className?: string }) => {
+  const lines = title.split('\n');
+  return (
+    <h3 className={className}>
+      {lines.map((line, li) => {
+        if (accent && line.includes(accent)) {
+          const parts = line.split(accent);
+          return (
+            <span key={li}>
+              {parts[0]}
+              <span className="font-medium text-white italic underline decoration-white/20 underline-offset-8">
+                {accent}
+              </span>
+              {parts[1]}
+              {li < lines.length - 1 && <br className="hidden md:block" />}
+            </span>
+          );
+        }
+        return (
+          <span key={li}>
+            {line}
+            {li < lines.length - 1 && <br className="hidden md:block" />}
+          </span>
+        );
+      })}
+    </h3>
+  );
+};
+
 const ARTICLES: Record<string, ArticleData> = {
   "why-ulin-durability-100-years": {
     slug: "why-ulin-durability-100-years",
-    title: "「鉄の木」ウリンの驚愕の耐久性とは？",
+    title: "「鉄の木」ウリンの\n驚愕の耐久性とは？",
     titleEn: "The Legend of Ironwood",
     subtitle: "100年腐らない理由を科学の視点で徹底検証",
     heroImage: "/journal/why-ulin-durability-v2.png",
     publishDate: "2026.04.22",
     category: "ウリン豆知識",
-    introTitle: "数十年、数百年という時間の試練に耐え、なお美しく在り続ける「鉄の木」。",
+    introTitle: "数十年、数百年という時間の試練に耐え、\nなお美しく在り続ける「鉄の木」。",
     introContent: "世界には数多の木材が存在しますが、ボルネオ島原産の「ウリン（別名アイアンウッド）」ほど、その類まれなる耐久性で職人や建築家を魅了し続けてきた木材はありません。\n\n海水に浸かっても、激しいスコールに晒されても、シロアリが猛威を振るっても。ウリンはなぜ、これほどまでに頑強なのか。本稿では、その驚異的な生命力の裏側に隠された科学的根拠を解き明かします。",
     sections: [
       {
-        title: "水に沈む圧倒的な「比重1.0」の壁",
-        content: `一般的な木材の多くは水に浮きますが、ウリンは違います。その比重は1.0を超え、水に投げ入れれば静かに底へ沈んでいきます。\n\nこの極めて高い密度は、木材組織の中に空隙（隙間）がほとんど存在しないことを意味します。これにより、腐朽菌の温床となる水分や、物理的に食い荒らそうとする害虫の侵入を徹底的に拒絶するのです。`,
+        title: "水に沈む圧倒的な\n「比重1.0」の壁",
+        content: `一般的な木材の多くは水に浮きますが、ウリンは違います。その比重は1.0を超え、\n水に投げ入れれば静かに底へ沈んでいきます。\n\nこの極めて高い密度は、木材組織の中に空隙（隙間）がほとんど存在しないことを意味します。\nこれにより、腐朽菌の温床となる水分や、物理的に食い荒らそうとする害虫の侵入を徹底的に拒絶するのです。`,
         image: "/journal/common/ulin-natural-submerged-v2.png",
         imageAlt: "Ulin Beam Submerged in a Natural Stream",
         icon: Scale,
@@ -79,7 +121,7 @@ const ARTICLES: Record<string, ArticleData> = {
       {
         title: "自律する盾、ポリフェノール",
         accent: "ポリフェノール",
-        content: `物理的な硬さに加え、ウリンには「化学的な鎧」が備わっています。それが大量に含まれる超高濃度のポリフェノールです。\n\nウリン特有の赤褐色はこの成分によるもので、これが天然の防腐剤、防虫剤として機能します。施工直後に赤い樹液（アク）が出ることがありますが、これはウリンが周囲の環境から自らを護るための「自己防御反応」そのものなのです。`,
+        content: `物理的な硬さに加え、ウリンには「化学的な鎧」が備わっています。\nそれが大量に含まれる超高濃度のポリフェノールです。\n\nウリン特有の赤褐色はこの成分によるもので、これが天然の防腐剤、防虫剤として機能します。\n施工直後に赤い樹液（アク）が出ることがありますが、これはウリンが周囲の環境から自らを護るための\n「自己防御反応」そのものなのです。`,
         icon: Droplets
       },
       {
@@ -89,13 +131,13 @@ const ARTICLES: Record<string, ArticleData> = {
         cards: [
           { 
             icon: Waves, 
-            title: "塩害・水害に対する圧倒的な信頼", 
-            text: "潮風に晒される沿岸部のウッドデッキや、常に水に浸かる桟橋。他の木材なら数年で朽ち果てる環境でも、ウリンはビクともしません。世界各地のリゾート地でウリンが選ばれるのは、この「絶対的な安心感」があるからです。" 
+            title: "塩害・水害に対する\n圧倒的な信頼", 
+            text: "潮風に晒される沿岸部のウッドデッキや、常に水に浸かる桟橋。\n他の木材なら数年で朽ち果てる環境でも、ウリンはビクともしません。" 
           },
           { 
             icon: BugOff, 
-            title: "シロアリも寄り付かない天然の拒絶", 
-            text: "木材住宅の最大の敵であるシロアリ。しかし、ポリフェノールを豊富に含み、鉄のように硬いウリンの心材を食害することは非常に困難です。防蟻処理（薬剤散布）なしでこの耐性を誇るのは、正に驚異と言えます。" 
+            title: "シロアリも寄り付かない\n天然の拒絶", 
+            text: "木材住宅の最大の敵であるシロアリ。しかし、ポリフェノールを豊富に含み、\n鉄のように硬いウリンの心材を食害することは非常に困難です。" 
           }
         ]
       },
@@ -113,7 +155,7 @@ const ARTICLES: Record<string, ArticleData> = {
   },
   "ulin-aging-silver-gray-guide": {
     slug: "ulin-aging-silver-gray-guide",
-    title: "赤褐色から銀色へ。ウリンの経年変化が描く、時を刻む美学",
+    title: "赤褐色から銀色へ。\nウリンの経年変化が描く、時を刻む美学",
     titleEn: "The Aesthetics of Aging",
     subtitle: "シルバーグレーの気高さと、その美しさを維持するための完全ガイド",
     heroImage: "/journal/ulin-aging-guide.png",
@@ -121,13 +163,13 @@ const ARTICLES: Record<string, ArticleData> = {
     category: "ウリン豆知識",
     sections: [
       {
-        title: "時間の試練を、美しさへと昇華させる勇気",
-        content: `多くの木材にとって、雨風に晒されることは「劣化」を意味します。しかし、ボルネオの厳しい自然で育まれたウリンにとって、それは「深化（エイジング）」の過程です。\n\n施工直後の瑞々しい赤褐色は、数年の時を経て、高貴な輝きを放つ「シルバーグレー」へと変化します。この変化こそが、ウリンが本物の天然素材である証であり、欧州のプロフェッショナルな建築家たちが「一生モノ」の素材としてウリンを熱望する最大の理由なのです。`,
+        title: "時間の試練を、\n美しさへと昇華させる勇気",
+        content: `多くの木材にとって、雨風に晒されることは「劣化」を意味します。\nしかし、ボルネオの厳しい自然で育まれたウリンにとって、それは「深化（エイジング）」の過程です。\n\n施工直後の瑞々しい赤褐色は、数年の時を経て、高貴な輝きを放つ「シルバーグレー」へと変化します。\nこの変化こそが、ウリンが本物の天然素材である証であり、欧州のプロフェッショナルな\n建築家たちが「一生モノ」の素材としてウリンを熱望する最大の理由なのです。`,
         icon: Hourglass
       },
       {
-        title: "銀色に輝く科学的メカニズム",
-        content: `なぜウリンはグレーに変わるのか？ それは木の表面に含まれる「リグニン」という成分が太陽の紫外線によって分解され、雨水によって洗い流されるからです。\n\n特筆すべきは、この変化が「表面わずか0.1mm程度」の現象であること。ソフトウッドがグレーに変わる際は内部まで腐食が進んでいることが多いですが、密度1.0を超えるウリンは、内部の強靭な構造を維持したまま、表面だけが美しく銀色の衣を纏います。これは、ダイヤモンドが表面の汚れを落とせば輝きを取り戻すのと似た、本質的な強さの証明です。`,
+        title: "銀色に輝く\n科学的メカニズム",
+        content: `なぜウリンはグレーに変わるのか？ それは木の表面に含まれる「リグニン」という成分が\n太陽の紫外線によって分解され、雨水によって洗い流されるからです。\n\n特筆すべきは、この変化が「表面わずか0.1mm程度」の現象であること。\n内部の強靭な構造を維持したまま、表面だけが美しく銀色の衣を纏います。\nこれは、本質的な強さの証明に他なりません。`,
         image: "/journal/common/ulin-aged-macro.png",
         imageAlt: "Aged Ulin Silver Gray Texture",
         icon: Sun,
@@ -137,8 +179,8 @@ const ARTICLES: Record<string, ArticleData> = {
         ]
       },
       {
-        title: "「赤い樹液（アク）」という自己防御の証",
-        content: `施工後、数ヶ月の間見られる「赤い樹液（アク）」。これはウリンに含まれる豊富なポリフェノールが水に溶け出したものです。\n\n周囲のコンクリートや壁を汚してしまうため敬遠されがちですが、これこそがウリンを100年腐らせない「天然の防腐剤」です。アクが出尽くした頃、ウリンの表面は安定期に入り、あの美しいシルバーグレーへの第一歩を踏み出します。`,
+        title: "「赤い樹液（アク）」という\n自己防御の証",
+        content: `施工後、数ヶ月の間見られる「赤い樹液（アク）」。\nこれはウリンに含まれる豊富なポリフェノールが水に溶け出したものです。\n\n周囲のコンクリートや壁を汚してしまうため敬遠されがちですが、\nこれこそがウリンを100年腐らせない「天然の防腐剤」です。\nアクが出尽くした頃、ウリンの表面は安定期に入り、シルバーグレーへの第一歩を踏み出します。`,
         icon: Droplets,
       },
       {
@@ -153,8 +195,8 @@ const ARTICLES: Record<string, ArticleData> = {
         ]
       },
       {
-        title: "美しさを継承する、大人のメンテナンス儀礼",
-        content: `ウリンはメンテナンス・フリーと言われますが、適切な「手入れ」は木にさらなる品格を与えます。\n\nシルバーグレーをそのまま愉しむなら、年に一度の高圧洗浄だけで十分です。もし、あの施工直後の赤褐色を取り戻したいのであれば、表面を軽くサンディングしてください。驚くほど鮮やかな「本来の色」が、時を超えて再び顔を出します。これを繰り返すことで、ウリンは世代を超えて受け継がれる「資産」へと昇華するのです。`,
+        title: "美しさを継承する、\n大人のメンテナンス儀礼",
+        content: `ウリンはメンテナンス・フリーと言われますが、適切な「手入れ」は木にさらなる品格を与えます。\n\nシルバーグレーをそのまま愉しむなら、年に一度の高圧洗浄だけで十分です。\nもし、あの施工直後の赤褐色を取り戻したいのであれば、表面を軽くサンディングしてください。\n驚くほど鮮やかな「本来の色」が、時を超えて再び顔を出します。`,
         icon: Wand2,
         items: [
           { icon: Sparkles, text: "中性洗剤とデッキブラシで表面を清掃。" },
@@ -226,11 +268,7 @@ export default function ArticlePage({ params: paramsPromise }: { params: Promise
               {article.titleEn}
             </span>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extralight tracking-tight leading-tight">
-              {article.title.includes("驚愕") ? (
-                <>「鉄の木」ウリンの<br /><span className="text-white">驚愕の耐久性とは？</span></>
-              ) : (
-                article.title
-              )}
+              <ResponsiveText text={article.title} />
             </h1>
             <p className="text-white/40 text-sm md:text-base tracking-[0.2em] font-medium pt-4">
               {article.subtitle}
@@ -250,9 +288,9 @@ export default function ArticlePage({ params: paramsPromise }: { params: Promise
         </motion.div>
       </section>
 
-      {/* Intro Section - Restored and Dynamic */}
+      {/* Intro Section */}
       {article.introTitle && (
-        <section className="max-w-3xl mx-auto px-6 py-24 md:py-40">
+        <section className="max-w-3xl mx-auto px-6 py-24 md:py-40 text-center md:text-left">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -260,14 +298,12 @@ export default function ArticlePage({ params: paramsPromise }: { params: Promise
             className="space-y-12"
           >
             <div className="space-y-6">
-              <h2 className="text-2xl md:text-3xl font-light tracking-wide border-l border-white/20 pl-6 leading-relaxed">
-                {article.introTitle.split('\n').map((line, i) => (
-                  <span key={i}>{line}{i < article.introTitle!.split('\n').length - 1 && <br className="hidden md:block" />}</span>
-                ))}
+              <h2 className="text-2xl md:text-4xl font-extralight tracking-wide md:border-l border-white/20 md:pl-8 leading-relaxed">
+                <ResponsiveText text={article.introTitle} />
               </h2>
               <div className="text-base md:text-lg leading-loose text-white/70 space-y-6">
                 {article.introContent?.split('\n\n').map((para, i) => (
-                  <p key={i}>{para}</p>
+                  <p key={i}><ResponsiveText text={para} /></p>
                 ))}
               </div>
             </div>
@@ -284,7 +320,7 @@ export default function ArticlePage({ params: paramsPromise }: { params: Promise
                 <div className="max-w-7xl mx-auto px-6 space-y-24">
                   <div className="text-center space-y-4">
                     <h3 className="text-xs font-bold tracking-[0.5em] text-white/30 uppercase">{section.subtitle}</h3>
-                    <p className="text-3xl font-extralight">{section.title}</p>
+                    <p className="text-3xl md:text-4xl font-extralight tracking-wider"><ResponsiveText text={section.title} /></p>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {section.cards?.map((card, ci) => (
@@ -297,8 +333,8 @@ export default function ArticlePage({ params: paramsPromise }: { params: Promise
                         className="p-12 border border-white/5 bg-white/5 backdrop-blur-3xl space-y-6 group hover:border-white/20 transition-colors"
                       >
                         <card.icon size={32} className="text-white/40 group-hover:text-white transition-colors" />
-                        <h4 className="text-xl font-medium tracking-wide text-white">{card.title}</h4>
-                        <p className="text-white/50 leading-relaxed font-light">{card.text}</p>
+                        <h4 className="text-xl font-medium tracking-wide text-white"><ResponsiveText text={card.title} /></h4>
+                        <p className="text-white/50 leading-relaxed font-light"><ResponsiveText text={card.text} /></p>
                       </motion.div>
                     ))}
                   </div>
@@ -359,22 +395,16 @@ export default function ArticlePage({ params: paramsPromise }: { params: Promise
                         <section.icon className="text-white/40" size={32} />
                       </div>
                     )}
-                    <h3 className={`text-3xl md:text-4xl font-extralight tracking-wider leading-snug ${!section.image ? 'md:text-5xl' : ''}`}>
-                      {section.accent ? (
-                        <>
-                          {section.title.split(section.accent)[0]}
-                          <span className="font-medium text-white italic underline decoration-white/20 underline-offset-8">
-                            {section.accent}
-                          </span>
-                          {section.title.split(section.accent)[1]}
-                        </>
-                      ) : (
-                        section.title
-                      )}
-                    </h3>
+                    
+                    <AccentTitle 
+                      title={section.title} 
+                      accent={section.accent} 
+                      className={`text-3xl md:text-5xl font-extralight tracking-wider leading-tight ${!section.image ? 'text-center' : ''}`} 
+                    />
+
                     <div className={`text-white/60 leading-loose text-lg space-y-6 ${!section.image ? 'text-center' : ''}`}>
                       {section.content?.toString().split('\n\n').map((para, pidx) => (
-                        <p key={pidx}>{para}</p>
+                        <p key={pidx}><ResponsiveText text={para} /></p>
                       ))}
                     </div>
                     
@@ -420,7 +450,7 @@ export default function ArticlePage({ params: paramsPromise }: { params: Promise
         })}
       </div>
 
-      {/* Epilogue / CTA */}
+      {/* Final Message */}
       <section className="py-32 md:py-60 relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
