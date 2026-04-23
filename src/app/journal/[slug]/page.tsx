@@ -25,14 +25,19 @@ import { use } from "react";
 
 // Types for Article Content
 interface Section {
+  type?: "default" | "cards" | "table";
   title: string;
   subtitle?: string;
-  content: string | React.ReactNode;
+  content?: string | React.ReactNode;
   image?: string;
   imageAlt?: string;
   icon?: any;
   items?: { icon: any; text: string }[];
   accent?: string;
+  // Specific for cards type
+  cards?: { icon: any; title: string, text: string }[];
+  // Specific for table type
+  tableData?: { label: string; ulin: string; ipe: string; soft: string; tools?: string; level?: string }[];
 }
 
 interface ArticleData {
@@ -43,6 +48,8 @@ interface ArticleData {
   heroImage: string;
   publishDate: string;
   category: string;
+  introTitle?: string;
+  introContent?: string;
   sections: Section[];
 }
 
@@ -55,6 +62,8 @@ const ARTICLES: Record<string, ArticleData> = {
     heroImage: "/journal/why-ulin-durability-v2.png",
     publishDate: "2026.04.22",
     category: "ウリン豆知識",
+    introTitle: "数十年、数百年という時間の試練に耐え、なお美しく在り続ける「鉄の木」。",
+    introContent: "世界には数多の木材が存在しますが、ボルネオ島原産の「ウリン（別名アイアンウッド）」ほど、その類まれなる耐久性で職人や建築家を魅了し続けてきた木材はありません。\n\n海水に浸かっても、激しいスコールに晒されても、シロアリが猛威を振るっても。ウリンはなぜ、これほどまでに頑強なのか。本稿では、その驚異的な生命力の裏側に隠された科学的根拠を解き明かします。",
     sections: [
       {
         title: "水に沈む圧倒的な「比重1.0」の壁",
@@ -72,6 +81,33 @@ const ARTICLES: Record<string, ArticleData> = {
         accent: "ポリフェノール",
         content: `物理的な硬さに加え、ウリンには「化学的な鎧」が備わっています。それが大量に含まれる超高濃度のポリフェノールです。\n\nウリン特有の赤褐色はこの成分によるもので、これが天然の防腐剤、防虫剤として機能します。施工直後に赤い樹液（アク）が出ることがありますが、これはウリンが周囲の環境から自らを護るための「自己防御反応」そのものなのです。`,
         icon: Droplets
+      },
+      {
+        type: "cards",
+        title: "過酷な環境での実力",
+        subtitle: "Extreme Environment",
+        cards: [
+          { 
+            icon: Waves, 
+            title: "塩害・水害に対する圧倒的な信頼", 
+            text: "潮風に晒される沿岸部のウッドデッキや、常に水に浸かる桟橋。他の木材なら数年で朽ち果てる環境でも、ウリンはビクともしません。世界各地のリゾート地でウリンが選ばれるのは、この「絶対的な安心感」があるからです。" 
+          },
+          { 
+            icon: BugOff, 
+            title: "シロアリも寄り付かない天然の拒絶", 
+            text: "木材住宅の最大の敵であるシロアリ。しかし、ポリフェノールを豊富に含み、鉄のように硬いウリンの心材を食害することは非常に困難です。防蟻処理（薬剤散布）なしでこの耐性を誇るのは、正に驚異と言えます。" 
+          }
+        ]
+      },
+      {
+        type: "table",
+        title: "木材性能比較",
+        tableData: [
+          { label: "耐用年数", ulin: "30〜100年", ipe: "20〜30年", soft: "3〜5年" },
+          { label: "比重", ulin: "1.04〜1.20", ipe: "0.90〜1.10", soft: "0.40〜0.60" },
+          { label: "メンテナンス", ulin: "ほぼ不要", ipe: "年1回の塗装推奨", soft: "定期的な防腐処理" },
+          { label: "耐蟻性", ulin: "極めて高い", ipe: "高い", soft: "低い" }
+        ]
       }
     ]
   },
@@ -106,6 +142,17 @@ const ARTICLES: Record<string, ArticleData> = {
         icon: Droplets,
       },
       {
+        type: "table",
+        title: "ウリンのアク抜き・洗浄ガイド",
+        subtitle: "コンクリートや壁面の汚れへの対処法",
+        tableData: [
+          { label: "施工直後の軽微な汚れ", ulin: "水洗い（高圧洗浄）", ipe: "デッキブラシ・ホース", soft: "★☆☆" },
+          { label: "時間が経った黒ずみ", ulin: "アルカリ性洗剤＋漂白", ipe: "重曹・木材専用洗剤", soft: "★★☆" },
+          { label: "コンクリートへの沈着", ulin: "サンポール（希塩酸）洗浄", ipe: "専用クリーナー・防護具", soft: "★★★" },
+          { label: "予防対策", ulin: "アルミ水切り・浸透性塗料", ipe: "設計時の工夫", soft: "-" }
+        ]
+      },
+      {
         title: "美しさを継承する、大人のメンテナンス儀礼",
         content: `ウリンはメンテナンス・フリーと言われますが、適切な「手入れ」は木にさらなる品格を与えます。\n\nシルバーグレーをそのまま愉しむなら、年に一度の高圧洗浄だけで十分です。もし、あの施工直後の赤褐色を取り戻したいのであれば、表面を軽くサンディングしてください。驚くほど鮮やかな「本来の色」が、時を超えて再び顔を出します。これを繰り返すことで、ウリンは世代を超えて受け継がれる「資産」へと昇華するのです。`,
         icon: Wand2,
@@ -131,7 +178,7 @@ export default function ArticlePage({ params: paramsPromise }: { params: Promise
       <div className="min-h-screen bg-black flex items-center justify-center text-white">
         <div className="text-center space-y-4">
           <p className="text-white/40">記事の準備中です。</p>
-          <Link href="/journal" className="text-sm underline">ジャーナル一覧に戻る</Link>
+          <Link href="/journal" className="text-sm underline font-bold tracking-widest">ジャーナル一覧に戻る</Link>
         </div>
       </div>
     );
@@ -203,124 +250,174 @@ export default function ArticlePage({ params: paramsPromise }: { params: Promise
         </motion.div>
       </section>
 
-      {/* Main Content */}
-      <div className="relative">
-        {article.sections.map((section, index) => (
-          <section 
-            key={index} 
-            className={`py-32 md:py-48 ${index % 2 === 1 ? 'bg-white/[0.02]' : ''}`}
+      {/* Intro Section - Restored and Dynamic */}
+      {article.introTitle && (
+        <section className="max-w-3xl mx-auto px-6 py-24 md:py-40">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="space-y-12"
           >
-            <div className="max-w-7xl mx-auto px-6">
-              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-20 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-                {/* Text Content */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  className="space-y-8"
-                >
-                  {section.icon && (
-                    <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center">
-                      <section.icon className="text-white/40" size={32} />
-                    </div>
-                  )}
-                  <h3 className="text-3xl md:text-4xl font-extralight tracking-wider leading-snug">
-                    {section.accent ? (
-                      <>
-                        {section.title.split(section.accent)[0]}
-                        <span className="font-medium text-white italic underline decoration-white/20 underline-offset-8">
-                          {section.accent}
-                        </span>
-                        {section.title.split(section.accent)[1]}
-                      </>
-                    ) : (
-                      section.title
-                    )}
-                  </h3>
-                  <div className="text-white/60 leading-loose text-lg space-y-6">
-                    {section.content.toString().split('\n\n').map((para, pidx) => (
-                      <p key={pidx}>{para}</p>
-                    ))}
-                  </div>
-                  
-                  {section.items && (
-                    <ul className="space-y-4 pt-6">
-                      {section.items.map((item, i) => (
-                        <motion.li
-                          key={i}
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: i * 0.2 }}
-                          className="flex items-center gap-4 text-sm text-white/80"
-                        >
-                          <item.icon size={18} className="text-white/40" />
-                          {item.text}
-                        </motion.li>
-                      ))}
-                    </ul>
-                  )}
-                </motion.div>
-
-                {/* Optional Image */}
-                {section.image && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    className="relative aspect-square rounded-sm overflow-hidden border border-white/5 order-first lg:order-none"
-                  >
-                    <Image
-                      src={section.image}
-                      alt={section.imageAlt || ""}
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                  </motion.div>
-                )}
+            <div className="space-y-6">
+              <h2 className="text-2xl md:text-3xl font-light tracking-wide border-l border-white/20 pl-6 leading-relaxed">
+                {article.introTitle.split('\n').map((line, i) => (
+                  <span key={i}>{line}{i < article.introTitle!.split('\n').length - 1 && <br className="hidden md:block" />}</span>
+                ))}
+              </h2>
+              <div className="text-base md:text-lg leading-loose text-white/70 space-y-6">
+                {article.introContent?.split('\n\n').map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
               </div>
             </div>
-          </section>
-        ))}
-      </div>
-
-      {/* Sap (Aku) Cleanup Guide Table - Special for Article 2 */}
-      {params.slug === "ulin-aging-silver-gray-guide" && (
-        <section className="py-32 md:py-48 max-w-5xl mx-auto px-6 overflow-x-auto">
-          <div className="text-center space-y-6 mb-16">
-            <h3 className="text-center text-2xl font-light tracking-[0.2em]">ウリンのアク抜き・洗浄ガイド</h3>
-            <p className="text-white/40 text-sm">コンクリートや壁面の汚れへの対処法</p>
-          </div>
-          <table className="w-full border-collapse">
-            <thead>
-              <tr className="border-b border-white/10 text-[10px] tracking-[0.2em] font-bold text-white/40 uppercase">
-                <th className="py-6 text-left">状況</th>
-                <th className="py-6 px-4 text-center">推奨される方法</th>
-                <th className="py-6 px-4 text-center">必要なツール</th>
-                <th className="py-6 px-4 text-center">難易度</th>
-              </tr>
-            </thead>
-            <tbody className="text-sm font-light">
-              {[
-                { case: "施工直後の軽微な汚れ", method: "水洗い（高圧洗浄）", tools: "デッキブラシ・ホース", level: "★☆☆" },
-                { case: "時間が経った黒ずみ", method: "アルカリ性洗剤＋漂白", tools: "重曹・木材専用洗剤", level: "★★☆" },
-                { case: "コンクリートへの沈着", method: "サンポール（希塩酸）洗浄", tools: "専用クリーナー・防護具", level: "★★★" },
-                { case: "予防対策", method: "アルミ水切り・浸透性塗料", tools: "設計時の工夫", level: "-" }
-              ].map((row, i) => (
-                <tr key={i} className="border-b border-white/5 group hover:bg-white/[0.02] transition-colors">
-                  <td className="py-8 font-medium text-white/40">{row.case}</td>
-                  <td className="py-8 px-4 text-center text-white">{row.method}</td>
-                  <td className="py-8 px-4 text-center text-white/60">{row.tools}</td>
-                  <td className="py-8 px-4 text-center text-white/40">{row.level}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          </motion.div>
         </section>
       )}
 
-      {/* Sustainable Legacy / CTA */}
+      {/* Dynamic Sections Loop */}
+      <div className="relative">
+        {article.sections.map((section, index) => {
+          if (section.type === "cards") {
+            return (
+              <section key={index} className="py-32 md:py-48 bg-white/[0.02]">
+                <div className="max-w-7xl mx-auto px-6 space-y-24">
+                  <div className="text-center space-y-4">
+                    <h3 className="text-xs font-bold tracking-[0.5em] text-white/30 uppercase">{section.subtitle}</h3>
+                    <p className="text-3xl font-extralight">{section.title}</p>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {section.cards?.map((card, ci) => (
+                      <motion.div
+                        key={ci}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: ci * 0.2 }}
+                        className="p-12 border border-white/5 bg-white/5 backdrop-blur-3xl space-y-6 group hover:border-white/20 transition-colors"
+                      >
+                        <card.icon size={32} className="text-white/40 group-hover:text-white transition-colors" />
+                        <h4 className="text-xl font-medium tracking-wide text-white">{card.title}</h4>
+                        <p className="text-white/50 leading-relaxed font-light">{card.text}</p>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            );
+          }
+
+          if (section.type === "table") {
+            return (
+              <section key={index} className="py-32 md:py-48 max-w-5xl mx-auto px-6 overflow-x-auto">
+                <div className="text-center space-y-6 mb-16">
+                  <h3 className="text-center text-2xl font-light tracking-[0.2em]">{section.title}</h3>
+                  {section.subtitle && <p className="text-white/40 text-sm">{section.subtitle}</p>}
+                </div>
+                <table className="w-full border-collapse">
+                  <thead>
+                    <tr className="border-b border-white/10 text-[10px] tracking-[0.2em] font-bold text-white/40 uppercase">
+                      <th className="py-6 text-left">{article.slug === "why-ulin-durability-100-years" ? "性能指標" : "状況"}</th>
+                      <th className="py-6 px-4 text-center">{article.slug === "why-ulin-durability-100-years" ? "ウリン (鉄の木)" : "推奨される方法"}</th>
+                      <th className="py-6 px-4 text-center">{article.slug === "why-ulin-durability-100-years" ? "イペ" : "必要なツール"}</th>
+                      <th className="py-6 px-4 text-center">{article.slug === "why-ulin-durability-100-years" ? "ソフトウッド" : "難易度"}</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-sm font-light">
+                    {section.tableData?.map((row, i) => (
+                      <tr key={i} className="border-b border-white/5 group hover:bg-white/[0.02] transition-colors">
+                        <td className="py-8 font-medium text-white/40">{row.label}</td>
+                        <td className="py-8 px-4 text-center text-white">{row.ulin}</td>
+                        <td className="py-8 px-4 text-center text-white/60">{row.ipe}</td>
+                        <td className="py-8 px-4 text-center text-white/40">{row.soft}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </section>
+            );
+          }
+
+          return (
+            <section 
+              key={index} 
+              className={`py-32 md:py-48 ${index % 2 === 1 ? 'bg-white/[0.02]' : ''}`}
+            >
+              <div className="max-w-7xl mx-auto px-6">
+                <div className={`grid grid-cols-1 lg:grid-cols-2 gap-20 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="space-y-8"
+                  >
+                    {section.icon && (
+                      <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center">
+                        <section.icon className="text-white/40" size={32} />
+                      </div>
+                    )}
+                    <h3 className="text-3xl md:text-4xl font-extralight tracking-wider leading-snug">
+                      {section.accent ? (
+                        <>
+                          {section.title.split(section.accent)[0]}
+                          <span className="font-medium text-white italic underline decoration-white/20 underline-offset-8">
+                            {section.accent}
+                          </span>
+                          {section.title.split(section.accent)[1]}
+                        </>
+                      ) : (
+                        section.title
+                      )}
+                    </h3>
+                    <div className="text-white/60 leading-loose text-lg space-y-6">
+                      {section.content?.toString().split('\n\n').map((para, pidx) => (
+                        <p key={pidx}>{para}</p>
+                      ))}
+                    </div>
+                    
+                    {section.items && (
+                      <ul className="space-y-4 pt-6">
+                        {section.items.map((item, i) => (
+                          <motion.li
+                            key={i}
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.2 }}
+                            className="flex items-center gap-4 text-sm text-white/80"
+                          >
+                            <item.icon size={18} className="text-white/40" />
+                            {item.text}
+                          </motion.li>
+                        ))}
+                      </ul>
+                    )}
+                  </motion.div>
+
+                  {section.image && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      className="relative aspect-square rounded-sm overflow-hidden border border-white/5 order-first lg:order-none"
+                    >
+                      <Image
+                        src={section.image}
+                        alt={section.imageAlt || ""}
+                        fill
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                    </motion.div>
+                  )}
+                </div>
+              </div>
+            </section>
+          );
+        })}
+      </div>
+
+      {/* Epilogue / CTA */}
       <section className="py-32 md:py-60 relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
