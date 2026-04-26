@@ -53,7 +53,7 @@ const articles = [
     title: "世界最強の希少木材。ボルネオ産「本ウリン」の資産価値と、一生モノの家具を選ぶ意義",
     date: "2026.04.01",
     category: "ウリン豆知識",
-    thumbnail: "/product-urin-all-weather-seaside.png"
+    thumbnail: "/journal/07-asset-value/ulin-standing-heritage.png"
   }
 ];
 
