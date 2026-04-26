@@ -39,14 +39,14 @@ const articles = [
     title: "【比較】ウリン vs イペ vs セランガンバツ。ハードウッド選びで失敗しないための決定版",
     date: "2026.04.08",
     category: "ウリン豆知識",
-    thumbnail: "/charms-3_2.png"
+    thumbnail: "/journal/hardwood-comparison-hero.png"
   },
   {
     slug: "ulin-sap-stain-prevention",
     title: "ウリンの「赤い樹液（アク）」対策。汚れを落とす方法と、施工前に知っておくべき注意点",
     date: "2026.04.05",
     category: "ウリン豆知識",
-    thumbnail: "/order-precision-ulin.png"
+    thumbnail: "/journal/ulin-sap-stain-hero.png"
   },
   {
     slug: "borneo-ulin-asset-value",

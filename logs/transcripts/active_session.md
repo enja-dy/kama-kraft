@@ -1453,3 +1453,28 @@ The first major legacy article is now live with high-end visual storytelling.
 ---
 **Status:** **Dual-Article Production Environment Stabilized.**
 Both specialized journal entries have been verified for content integrity and visual excellence.
+
+# KamaKraft Action Transcript: Journal Content Restoration & Visual Refinement
+**Date:** 2026-04-27 06:30 (JST)
+**Task:** Restoring Article 3 & 4 and Refining Ulin Weathering Visuals
+
+## 1. User Instructions & Correct Definition
+- **Goal:** Restore missing articles (3 & 4) and insert correct, high-density imagery.
+- **Imagery Refinement:** The weathered Ulin image must reflect its non-porous, solid nature even when silver-gray.
+- **UI Restoration:** Restore the high-visibility styling (background, border, scale) for the Ulin column in tables.
+- **Protocol:** Strict adherence to Verbatim History, Backups, and Git Version Control.
+
+## 2. Technical Stability & Recovery
+- **Corruption Fix:** Recovered from a Mojibake text corruption incident using `git checkout`.
+- **Content Recovery:** Manually re-implemented Articles 3 & 4 from conversation history.
+- **Cache Breaking:** Renamed `ulin-rejuvenation-sanding.png` to `ulin-rejuvenation-final.png` to force browser refresh.
+- **UI Recovery:** Re-applied the lost `scale-[1.02]` and `bg-white/[0.02]` styling to the Ulin table columns.
+
+## 3. Safety Execution
+- **Physical Backup:** `src/app/journal/[slug]/page.tsx.bak.20260423171847`
+- **Latest Commit:** `46f5d39` - "Journal articles 3 & 4 implementation with high-visibility styling and refined images"
+- **Push:** Successfully pushed to main branch on GitHub.
+
+---
+**Status:** **Sanctuary Protocol Fulfilled. Project State Secured.**
+All content, assets, and design improvements are now historically recorded and backed up in the repository.
