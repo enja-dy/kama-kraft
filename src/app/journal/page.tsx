@@ -25,14 +25,14 @@ const articles = [
     title: "シロアリ・塩害に最強の木材はどれ？海辺のテラスや湿気地で「ウリン」が選ばれる理由",
     date: "2026.04.15",
     category: "ウリン豆知識",
-    thumbnail: "/product-v-leg.jpg"
+    thumbnail: "/journal/strongest-wood-seaside-final.png"
   },
   {
     slug: "ulin-maintenance-essential-tips",
     title: "ウリンのメンテナンスは本当に不要？数十年使い続けるための正しいお手入れ術",
     date: "2026.04.11",
     category: "ウリン豆知識",
-    thumbnail: "/ulin-majestic-origin.png"
+    thumbnail: "/journal/ulin-maintenance-hero.png"
   },
   {
     slug: "hardwood-comparison-ulin-ipe",
