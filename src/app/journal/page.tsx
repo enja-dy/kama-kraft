@@ -11,42 +11,42 @@ const articles = [
     title: "「鉄の木」ウリンの驚愕の耐久性とは？100年腐らない理由を徹底検証",
     date: "2026.04.22",
     category: "ウリン豆知識",
-    thumbnail: "/journal/why-ulin-durability-v2.png"
+    thumbnail: "/journal/01-durability/hero.png"
   },
   {
     slug: "ulin-aging-silver-gray-guide",
     title: "ウリン材の経年変化完全ガイド：赤褐色から美しいシルバーグレーへ変わる過程と維持のコツ",
     date: "2026.04.18",
     category: "ウリン豆知識",
-    thumbnail: "/journal/ulin-aging-guide.png"
+    thumbnail: "/journal/02-aging/hero.png"
   },
   {
     slug: "strongest-wood-salt-damage-termites",
     title: "シロアリ・塩害に最強の木材はどれ？海辺のテラスや湿気地で「ウリン」が選ばれる理由",
     date: "2026.04.15",
     category: "ウリン豆知識",
-    thumbnail: "/journal/strongest-wood-seaside-final.png"
+    thumbnail: "/journal/03-salt-damage/hero.png"
   },
   {
     slug: "ulin-maintenance-essential-tips",
     title: "ウリンのメンテナンスは本当に不要？数十年使い続けるための正しいお手入れ術",
     date: "2026.04.11",
     category: "ウリン豆知識",
-    thumbnail: "/journal/ulin-maintenance-hero.png"
+    thumbnail: "/journal/04-maintenance/hero.png"
   },
   {
     slug: "hardwood-comparison-ulin-ipe",
     title: "【比較】ウリン vs イペ vs セランガンバツ。ハードウッド選びで失敗しないための決定版",
     date: "2026.04.08",
     category: "ウリン豆知識",
-    thumbnail: "/journal/hardwood-comparison-hero.png"
+    thumbnail: "/journal/05-comparison/hero.png"
   },
   {
     slug: "ulin-sap-stain-prevention",
     title: "ウリンの「赤い樹液（アク）」対策。汚れを落とす方法と、施工前に知っておくべき注意点",
     date: "2026.04.05",
     category: "ウリン豆知識",
-    thumbnail: "/journal/ulin-sap-stain-hero.png"
+    thumbnail: "/journal/06-sap-stain/hero.png"
   },
   {
     slug: "borneo-ulin-asset-value",
